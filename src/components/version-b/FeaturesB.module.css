@@ -1,0 +1,71 @@
+.section {
+    padding: 6rem 1rem;
+    background-color: #0f172a;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.highlight {
+    color: #18A87D;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.card {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    background: rgba(30, 41, 59, 1);
+    transform: translateY(-5px);
+    border-color: #18A87D;
+}
+
+.icon {
+    font-size: 4rem;
+    font-weight: 900;
+    opacity: 0.1;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    line-height: 1;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card p {
+    color: #94a3b8;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
