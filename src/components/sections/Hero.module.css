@@ -322,7 +322,7 @@
     font-weight: 600;
 }
 
-/* Tablet Mockup Visual */
+/* Hero Image Styling */
 .visualWrapper {
     position: relative;
     width: 100%;
@@ -330,226 +330,12 @@
     margin: 0 auto 5rem;
 }
 
-.tabletMockup {
-    position: relative;
+.heroImage {
     width: 100%;
-    padding-top: 65%;
-    /* aspect ratio */
-    background: var(--text-primary);
-    border-radius: 24px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-    border: 8px solid var(--text-secondary);
-}
-
-.tabletScreen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #F7FAFC;
-    border-radius: 14px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.mockupHeader {
-    height: 48px;
-    background: white;
-    border-bottom: 1px solid #EDF2F7;
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    gap: 1rem;
-}
-
-.windowControls {
-    display: flex;
-    gap: 6px;
-}
-
-.windowControls span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #CBD5E0;
-}
-
-.windowControls span:nth-child(1) {
-    background: #FC8181;
-}
-
-.windowControls span:nth-child(2) {
-    background: #F6AD55;
-}
-
-.windowControls span:nth-child(3) {
-    background: #68D391;
-}
-
-.SearchBar {
-    flex: 1;
-    max-width: 300px;
-    background: #EDF2F7;
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-size: 0.75rem;
-    color: #A0AEC0;
-}
-
-.mockupBody {
-    flex: 1;
-    display: flex;
-    text-align: left;
-}
-
-.sidebar {
-    width: 180px;
-    background: #FAFEFC;
-    border-right: 1px solid #EDF2F7;
-    padding: 1.5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.sideItem,
-.sideItemActive {
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #4A5568;
-}
-
-.sideItemActive {
-    background: #E6FFFA;
-    color: #319795;
-}
-
-.mainContent {
-    flex: 1;
-    padding: 2rem;
-    background: #F7FAFC;
-}
-
-.boardHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.boardHeader h3 {
-    font-size: 1.5rem;
-    color: #2D3748;
-}
-
-.badges {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.badges span {
-    padding: 4px 10px;
-    border-radius: 99px;
-    font-size: 0.75rem;
-    font-weight: bold;
-}
-
-.badgePending {
-    background: #FEEBC8;
-    color: #DD6B20;
-}
-
-.badgeDone {
-    background: #C6F6D5;
-    color: #2F855A;
-}
-
-.taskCards {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.mockCard {
-    background: white;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #EDF2F7;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-}
-
-.cardTop {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    color: #2D3748;
-    margin-bottom: 8px;
-}
-
-.cardBottom {
-    font-size: 0.75rem;
-    color: #A0AEC0;
-    margin-left: 28px;
-}
-
-.tabletBase {
-    position: absolute;
-    bottom: -16px;
-    left: 10%;
-    right: 10%;
-    height: 16px;
-    background: #4A5568;
-    border-radius: 0 0 16px 16px;
-}
-
-/* Floating Elements around Tablet */
-.floatCard1,
-.floatCard2 {
-    position: absolute;
-    background: white;
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    z-index: 10;
-}
-
-.floatCard1 {
-    top: 20%;
-    left: -10%;
-}
-
-.fcIcon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: #FEFCBF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-}
-
-.fcText {
-    font-weight: 700;
-    font-size: 0.875rem;
-    color: #2D3748;
-}
-
-.floatCard2 {
-    bottom: 25%;
-    right: -8%;
-}
-
-.fcCheck {
-    color: #48BB78;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* Trusted By */
@@ -584,11 +370,6 @@
     .headline {
         font-size: 2.5rem;
     }
-
-    .floatCard1,
-    .floatCard2 {
-        display: none;
-    }
 }
 
 @media (max-width: 768px) {
@@ -598,17 +379,5 @@
 
     .primaryBtn {
         padding: 1rem 2rem !important;
-    }
-
-    .mockupBody {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #EDF2F7;
-        flex-direction: row;
-        overflow-x: auto;
     }
 }
