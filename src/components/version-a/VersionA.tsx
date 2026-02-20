@@ -117,14 +117,14 @@ const VersionA: React.FC = () => {
 
 
                         <h2 style={{
-                            fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
-                            fontWeight: 800,
+                            fontSize: '3.5rem',
+                            fontWeight: 700,
                             color: '#ffffff',
-                            letterSpacing: '-0.02em',
-                            lineHeight: 1.15,
+                            letterSpacing: '-0.01em',
+                            lineHeight: 1.4,
                             marginBottom: '2rem',
                         }}>
-                            Start your next project the right way.
+                            Start your next project <br />the right way.
                         </h2>
 
                         <Button size="lg" style={{
