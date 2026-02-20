@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, Search, Activity, ArrowRight, Folder } from 'lucide-react';
-import featureChat from '../../assets/feature-chat.png';
-import featureSearch from '../../assets/feature-search.png';
-import featureTags from '../../assets/feature-tags.png';
-import featureMyTasks from '../../assets/feature-mytasks.png';
+import featureChat from '../../assets/feature-project-chat.png';
+import featureSearch from '../../assets/feature-global-search.png';
+import featureTags from '../../assets/feature-project-checklist.png';
+import featureMyTasks from '../../assets/feature-activity.png';
 import styles from './Features.module.css';
 
 const Features: React.FC = () => {
