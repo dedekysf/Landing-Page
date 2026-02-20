@@ -12,12 +12,12 @@ const Features: React.FC = () => {
 
     const features = [
         {
-            icon: <Folder size={48} color="#035B60" strokeWidth={1.5} />,
+            icon: <Folder size={48} color="#C072CD" strokeWidth={1.5} />,
             title: "Project Template",
             desc: "Users can start projects instantly from pre-configured templates.",
-            color: '#035B60',
-            bg: 'rgba(3,91,96,0.07)',
-            borderColor: 'rgba(3,91,96,0.25)',
+            color: '#C072CD',
+            bg: 'rgba(192,114,205,0.07)',
+            borderColor: 'rgba(192,114,205,0.25)',
             blobA: '#18A87D',
             blobB: '#B8E6E9',
             image: featureTags,

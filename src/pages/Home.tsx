@@ -9,7 +9,7 @@ import Pricing from '../components/sections/Pricing';
 import Button from '../components/common/Button';
 import { motion } from 'framer-motion';
 import { ArrowDown, Clock, TrendingUp } from 'lucide-react';
-import constructionTeamImg from '../assets/construction-team.png';
+import constructionTeamImg from '../assets/project-leader.png';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
                             <div className={styles.resultsRight}>
                                 <img
                                     src={constructionTeamImg}
-                                    alt="Construction team collaborating with TaskTag"
+                                    alt="Project leader using TaskTag at a residential construction site"
                                     className={styles.resultsImage}
                                 />
                             </div>
