@@ -12,34 +12,35 @@ const Footer: React.FC = () => {
                         <div className={styles.logo}>
                             <img src={logoUrl} alt="TaskTag Logo" style={{ height: '40px', width: 'auto' }} />
                         </div>
+                        <div className={styles.contactInfo}>
+                            <p>2410 Polk Street, Houston, Texas</p>
+                        </div>
                     </div>
 
                     <div className={styles.linksSection}>
-                        <div className={styles.column}>
-                            <h4>Pages</h4>
-                            <ul>
-                                <li><a href="#">Privacy</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Support</a></li>
-                            </ul>
-                        </div>
-                        <div className={styles.column}>
+
+                        <div className={styles.column} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                             <div className={styles.socials}>
                                 <a href="#" className={styles.socialIcon}><Facebook size={18} strokeWidth={1.5} /></a>
                                 <a href="#" className={styles.socialIcon}><Twitter size={18} strokeWidth={1.5} /></a>
                                 <a href="#" className={styles.socialIcon}><Instagram size={18} strokeWidth={1.5} /></a>
                                 <a href="#" className={styles.socialIcon}><Linkedin size={18} strokeWidth={1.5} /></a>
                             </div>
-                            <div className={styles.contactInfo}>
-                                <p style={{ fontWeight: 'bold' }}>2410 Polk Street,<br />Houston, Texas</p>
-                                <p><a href="mailto:info@tasktag.com" style={{ color: 'var(--secondary-green)', textDecoration: 'none' }}>info@tasktag.com</a></p>
+                            <div className={styles.emailContact}>
+                                <p><a href="mailto:info@tasktag.com" style={{ color: 'var(--secondary-green)', textDecoration: 'none', fontWeight: 600 }}>info@tasktag.com</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div className={styles.bottom}>
-                    <p>©2024 TaskTag. All Rights Reserved.</p>
+                    <div className={styles.bottomLinks}>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                    <p className={styles.copyright}>©2024 TaskTag. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
-import { PenLine, UserPlus, MessageCircle } from 'lucide-react';
-import styles from './ActivationStepsA.module.css';
+import { PenLine, UserPlus, MessageSquare } from 'lucide-react';
+import styles from './ActivationSteps.module.css';
 
-const ActivationStepsA: React.FC = () => {
+const ActivationSteps: React.FC = () => {
     const steps = [
         {
             title: "Create project and task",
@@ -19,7 +19,7 @@ const ActivationStepsA: React.FC = () => {
         {
             title: "Manage all from chat",
             desc: "Turn chat into real progress.",
-            icon: <MessageCircle size={32} color="#FC7F5B" strokeWidth={1.5} />
+            icon: <MessageSquare size={32} color="#FC7F5B" strokeWidth={1.5} />
         }
     ];
 
@@ -80,4 +80,4 @@ const ActivationStepsA: React.FC = () => {
     );
 };
 
-export default ActivationStepsA;
+export default ActivationSteps;

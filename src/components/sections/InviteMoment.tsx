@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, MessageCircle } from 'lucide-react';
+import { Check, MessageSquare } from 'lucide-react';
 import Button from '../common/Button';
-import styles from './InviteMomentA.module.css';
+import styles from './InviteMoment.module.css';
 
-const InviteMomentA: React.FC = () => {
+const InviteMoment: React.FC = () => {
     return (
         <section className={styles.section}>
             <div className={`container ${styles.container}`}>
@@ -18,7 +18,7 @@ const InviteMomentA: React.FC = () => {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                     >
-                        <MessageCircle size={48} strokeWidth={1.5} color="var(--secondary-green)" />
+                        <MessageSquare size={48} strokeWidth={1.5} color="var(--secondary-green)" />
                     </motion.div>
 
                     {/* Connecting Lines */}
@@ -110,7 +110,7 @@ const InviteMomentA: React.FC = () => {
                             </motion.li>
                         </ul>
                         <div className={styles.ctaWrapper}>
-                            <Button size="lg" className={styles.ctaBtn} style={{ borderBottom: 'none' }}>Invite Now!</Button>
+                            <Button size="lg" className={styles.ctaBtn} style={{ borderBottom: 'none' }}>Start For Free</Button>
                         </div>
                     </motion.div>
                 </div>
@@ -120,4 +120,4 @@ const InviteMomentA: React.FC = () => {
     );
 };
 
-export default InviteMomentA;
+export default InviteMoment;

@@ -1,127 +1,130 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
-import { Check } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import styles from './Hero.module.css';
+import logoIntown from '../../assets/client/Logo-intown.png';
+import logoLovett from '../../assets/client/Logo-lovett.png';
+import logoPost from '../../assets/client/Logo-post.png';
+import logoPrecision from '../../assets/client/Logo-precision.png';
+import logoSosa from '../../assets/client/Sosa.png';
+import logoIsc from '../../assets/client/Isc-Logo-BW.png';
+import logoZerodraft from '../../assets/client/Logo-Zerodraft.png';
+import logoSwenson from '../../assets/client/Swenson-Logo.png';
 
-const ANGLES = [
-    { text: "jobsite coordination", type: "positive" },
-    { text: "missed handoffs and rework", type: "negative" },
-    { text: "photo documentation and proof", type: "positive" },
-    { text: "speed to first task", type: "positive" },
-    { text: "clear ownership and accountability", type: "positive" },
-    { text: "searchable project history", type: "positive" }
-];
+const logos = [logoIntown, logoLovett, logoPost, logoPrecision, logoSosa, logoIsc, logoZerodraft, logoSwenson];
 
 const Hero: React.FC = () => {
-    const [angleIndex, setAngleIndex] = useState(0);
-    const [fade, setFade] = useState(true);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setFade(false);
-            setTimeout(() => {
-                setAngleIndex((prev) => (prev + 1) % ANGLES.length);
-                setFade(true);
-            }, 500); // Wait for fade out
-        }, 4000); // Change every 4 seconds
-
-        return () => clearInterval(interval);
-    }, []);
-
-    const currentAngle = ANGLES[angleIndex];
-
-    const getPrefix = (type: string) => {
-        return type === 'negative' ? 'Eliminate' : 'Improve';
-    };
-
     return (
         <section className={styles.hero}>
+
             <div className={`container ${styles.container}`}>
                 <div className={styles.content}>
-                    <motion.div
-                        className={styles.pill}
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <span className={styles.pillText}>New: TaskTag for Enterprise</span>
-                    </motion.div>
+                    <h1 className={styles.headline}>
+                        Run Construction Projects <br />
+                        <span className={styles.highlight}>in Chat.</span> Start Now.
+                    </h1>
+                    <p className={styles.subheadline}>
+                        Keep your team aligned with less email, less chaos, and projects that actually get done on time.
+                    </p>
 
-                    <motion.h1
-                        className={styles.headline}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                    >
-                        Manage your construction projects<br />
-                        <span className={styles.highlight}>all through chat</span>
-                    </motion.h1>
+                    <div className={styles.actions} style={{ flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+                        <div style={{ display: 'inline-block', paddingBottom: '6px', height: '80px' }}>
+                            <Button size="lg" className={styles.primaryBtn}>
+                                Start Your First Project
+                            </Button>
+                        </div>
+                    </div>
 
-                    <motion.div
-                        className={styles.rotatorContainer}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        <span className={styles.prefix}>{getPrefix(currentAngle.type)}</span>
-                        <span className={`${styles.rotatingText} ${fade ? styles.fadeIn : styles.fadeOut}`}>
-                            {currentAngle.text}
-                        </span>
-                    </motion.div>
+                    {/* <div className={styles.socialProof}>
+                        <div className={styles.avatars}>
+                            <div className={styles.avatar} style={{ backgroundImage: 'url(https://i.pravatar.cc/150?img=11)' }}></div>
+                            <div className={styles.avatar} style={{ backgroundImage: 'url(https://i.pravatar.cc/150?img=32)' }}></div>
+                            <div className={styles.avatar} style={{ backgroundImage: 'url(https://i.pravatar.cc/150?img=47)' }}></div>
+                            <div className={styles.avatarCount}>+2k</div>
+                        </div>
+                        <div className={styles.rating}>
+                            <div className={styles.stars}>
+                                {[1, 2, 3, 4, 5].map(i => <Star key={i} size={16} fill="currentColor" color="var(--vivid-yellow)" />)}
+                            </div>
+                            <span>Loved by 2,000+ teams</span>
+                        </div>
+                    </div> */}
 
-                    <motion.p
-                        className={styles.subheadline}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                    >
-                        Centralize team communication into a single stream.
-                        Convert conversations into actionable work items with zero friction.
-                    </motion.p>
+                </div>
 
-                    <motion.div
-                        className={styles.ctaGroup}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                    >
-                        <Button size="lg">Start Free Project</Button>
-                        <p className={styles.checkText}>No credit card required</p>
-                    </motion.div>
-
-                    {/* Mockup / Image Placeholder */}
-                    <motion.div
-                        className={styles.mockup}
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
-                    >
-                        <div className={styles.mockupInner}>
-                            {/* Abstract representation of chat interface */}
-                            <div className={styles.chatBubble}>
-                                <div className={styles.bubbleAvatar}></div>
-                                <div className={styles.bubbleContent}>
-                                    <div className={styles.bubbleLine} style={{ width: '60%' }}></div>
-                                    <div className={styles.bubbleLine} style={{ width: '90%' }}></div>
+                <div className={styles.visualWrapper}>
+                    {/* Tablet/Dashboard Mockup */}
+                    <div className={styles.tabletMockup}>
+                        <div className={styles.tabletScreen}>
+                            <div className={styles.mockupHeader}>
+                                <div className={styles.windowControls}>
+                                    <span></span><span></span><span></span>
                                 </div>
                             </div>
-                            <div className={`${styles.chatBubble} ${styles.right}`}>
-                                <div className={styles.bubbleContent}>
-                                    <div className={styles.bubbleLine} style={{ width: '70%' }}></div>
+                            <div className={styles.mockupBody}>
+                                <div className={styles.sidebar}>
+                                    <div className={styles.sideItemActive}>Project</div>
+                                    <div className={styles.sideItem}>My Task</div>
+                                    <div className={styles.sideItem}>Activity</div>
+                                    <div className={styles.sideItem}>Contact</div>
                                 </div>
-                                <div className={styles.bubbleAvatar}></div>
-                            </div>
-                            <div className={styles.taskCard}>
-                                <div className={styles.taskIcon}><Check size={20} strokeWidth={2.5} /></div>
-                                <div className={styles.taskDetails}>
-                                    <div className={styles.taskTitle}>Fix loose wiring in Room 302</div>
-                                    <div className={styles.taskMeta}>Assigned to Mike • Due Today</div>
+                                <div className={styles.mainContent}>
+                                    <div className={styles.boardHeader}>
+                                        <h3>Downtown Renovation</h3>
+                                        <div className={styles.badges}>
+                                            <span className={styles.badgePending}>3 Pending</span>
+                                            <span className={styles.badgeDone}>12 Done</span>
+                                        </div>
+                                    </div>
+                                    <div className={styles.taskCards}>
+                                        <motion.div className={styles.mockCard} whileHover={{ y: -5 }}>
+                                            <div className={styles.cardTop}><CheckCircle size={20} color="var(--secondary-green)" strokeWidth={1.5} /> Review wiring plan</div>
+                                            <div className={styles.cardBottom}>Due Today</div>
+                                        </motion.div>
+                                        <motion.div className={styles.mockCard} whileHover={{ y: -5 }}>
+                                            <div className={styles.cardTop}><CheckCircle size={20} color="var(--grey-04)" /> Inspect concrete pour</div>
+                                            <div className={styles.cardBottom}>Tomorrow</div>
+                                        </motion.div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div className={styles.tabletBase}></div>
+                    </div>
+
+                    {/* Floating elements around mockup */}
+                    <motion.div
+                        className={styles.floatCard1}
+                        animate={{ y: [0, -15, 0] }}
+                        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                    >
+                        <div className={styles.fcCheck}><CheckCircle size={24} fill="var(--secondary-green)" color="var(--grey-01)" /></div>
+                        <div className={styles.fcText}>Assigned to Mike</div>
+                    </motion.div>
+
+                    <motion.div
+                        className={styles.floatCard2}
+                        animate={{ y: [0, 15, 0] }}
+                        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 }}
+                    >
+                        <div className={styles.fcCheck}><CheckCircle size={24} fill="currentColor" color="var(--grey-01)" /></div>
+                        <div className={styles.fcText}>Photo Uploaded</div>
                     </motion.div>
                 </div>
+
+                {/* Marquee logo strip — 3x logos for seamless loop */}
+                <div className={styles.trustedBy}>
+                    <p>Trusted by growing construction teams</p>
+                    <div className={styles.marqueeWrapper}>
+                        <div className={styles.marqueeTrack}>
+                            {[...logos, ...logos, ...logos].map((src, i) => (
+                                <img key={i} src={src} alt="client logo" className={styles.marqueeItem} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     );

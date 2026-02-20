@@ -1,0 +1,320 @@
+.pricing {
+    padding: 6rem 1rem;
+    background: #fdfdfd;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    text-transform: capitalize;
+}
+
+.highlightOrange {
+    background: #FFF1DB;
+    padding: 0.1rem 0.5rem;
+    border-radius: 6px;
+}
+
+.highlightGreen {
+    background: #e6fffa;
+    color: var(--secondary-green);
+    padding: 0.1rem 0.5rem;
+    border-radius: 6px;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: #4A5568;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.toggleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.saveBadge {
+    color: var(--secondary-green);
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 6px;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 32px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--secondary-green);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked+.slider {
+    background-color: var(--secondary-green);
+}
+
+input:checked+.slider:before {
+    transform: translateX(28px);
+}
+
+.switchLabel {
+    color: var(--text-primary);
+    transition: color 0.3s;
+}
+
+.switchLabel.inactive {
+    color: #A0AEC0;
+}
+
+
+/* Pricing Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: center;
+    /* Center aligns the differently heighted cards relative to each other */
+}
+
+/* Base Card */
+.card {
+    background: #ffffff;
+    border: 1px solid #EDF2F7;
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Popular Card (Middle) */
+.cardPopular {
+    background: var(--secondary-green);
+    color: white;
+    padding: 4rem 2rem;
+    /* Taller */
+    border: none;
+    box-shadow: 0 20px 25px -5px rgba(24, 168, 125, 0.2), 0 10px 10px -5px rgba(24, 168, 125, 0.1);
+    border-radius: 20px;
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.cardPopular:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 25px 30px -5px rgba(24, 168, 125, 0.3);
+}
+
+.popularBadge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F6AD55;
+    /* Orange/Yellow */
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(246, 173, 85, 0.3);
+}
+
+/* Card Typography */
+.planName {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.planTarget {
+    font-size: 0.875rem;
+    color: #718096;
+    margin-bottom: 2rem;
+}
+
+.cardPopular .planTarget {
+    color: #e6fffa;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #718096;
+}
+
+.cardPopular .price span {
+    color: #e6fffa;
+}
+
+.billingCircle {
+    font-size: 0.875rem;
+    color: #A0AEC0;
+    margin-bottom: 2rem;
+    min-height: 20px;
+}
+
+.cardPopular .billingCircle {
+    color: #e6fffa;
+}
+
+/* Features List */
+.featuresList {
+    text-align: left;
+    margin: 2rem 0;
+    padding-top: 2rem;
+    border-top: 1px solid #EDF2F7;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.cardPopular .featuresList {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.featureItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 300;
+}
+
+.cardPopular .featureItem {
+    color: #ffffff;
+}
+
+.featureIcon {
+    color: var(--secondary-green);
+    flex-shrink: 0;
+}
+
+.cardPopular .featureIcon {
+    color: #F6AD55;
+    /* Yellow/Orange checkmark for green card */
+}
+
+/* Card Button */
+.cardBtn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 2px solid var(--secondary-green);
+    background: transparent;
+    color: var(--secondary-green);
+}
+
+.cardBtn:hover {
+    background: rgba(24, 168, 125, 0.05);
+}
+
+.cardPopular .cardBtn {
+    background: #ffffff;
+    color: var(--secondary-green);
+    border: none;
+}
+
+.cardPopular .cardBtn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .cardPopular {
+        transform: none;
+        padding: 3rem 2rem;
+    }
+
+    .cardPopular:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+}

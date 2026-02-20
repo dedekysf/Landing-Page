@@ -30,6 +30,7 @@ const Navbar: React.FC = () => {
                     <div className={styles.desktopNav}>
                         <a href="#features" className={styles.navLink}>Features</a>
                         <a href="#pricing" className={styles.navLink}>Pricing</a>
+                        <a href="#blog" className={styles.navLink}>Blog</a>
                         <a href="#resources" className={styles.navLink}>Resources</a>
                     </div>
 
