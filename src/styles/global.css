@@ -77,13 +77,15 @@ button {
     justify-content: space-between;
 }
 
-/* Page Load Animation - opacity only (filter breaks position:fixed children) */
+/* Page Load Animation */
 @keyframes pageBlurIn {
     0% {
         opacity: 0;
+        filter: blur(12px);
     }
 
     100% {
         opacity: 1;
+        filter: blur(0);
     }
 }
