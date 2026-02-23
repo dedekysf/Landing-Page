@@ -81,9 +81,9 @@ const Navbar: React.FC = () => {
                         <a href="#pricing" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Pricing</a>
                         <a href="#resources" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Resources</a>
                         <hr className={styles.divider} />
-                        <a href="#" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Log In</a>
                         <div className={styles.mobileCta}>
-                            <Button fullWidth>Get Started</Button>
+                            <Button variant="outline" fullWidth onClick={() => setMobileMenuOpen(false)}>Log In</Button>
+                            <Button fullWidth onClick={() => setMobileMenuOpen(false)}>Get Started</Button>
                         </div>
                     </div>
                 </div>

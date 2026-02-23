@@ -287,5 +287,8 @@
 
     .mobileCta {
         margin-top: var(--spacing-md);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
     }
 }

@@ -201,7 +201,7 @@ input:checked+.slider:before {
 
 .price {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1;
     margin-bottom: 0.5rem;
 }
@@ -324,6 +324,10 @@ input:checked+.slider:before {
 
     .subtitle {
         font-size: 1rem;
+    }
+
+    .desktopOnlyBr {
+        display: none;
     }
 
     .featureItem {

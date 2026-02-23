@@ -30,7 +30,7 @@ const Pricing: React.FC = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         viewport={{ once: true }}
                     >
-                        Try Tasktag for 30 days to start connected with all your teams. <br />Cancel any time. No credit card required.
+                        Try Tasktag for 30 days to start connected with all your teams. <br className={styles.desktopOnlyBr} />Cancel any time. No credit card required.
                     </motion.p>
 
                     <motion.div
