@@ -124,10 +124,11 @@ input:checked+.slider:before {
 /* Pricing Grid */
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     align-items: center;
-    /* Center aligns the differently heighted cards relative to each other */
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /* Base Card */
@@ -201,8 +202,16 @@ input:checked+.slider:before {
 
 .price {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.priceSubtext {
+    font-size: 1rem;
+    font-weight: 300;
+    /* Specific for Popular card */
     margin-bottom: 0.5rem;
 }
 
@@ -217,10 +226,12 @@ input:checked+.slider:before {
 }
 
 .billingCircle {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: #A0AEC0;
     margin-bottom: 2rem;
     min-height: 20px;
+    letter-spacing: 0.15em;
+    font-weight: 600;
 }
 
 .cardPopular .billingCircle {

@@ -41,7 +41,7 @@ const Pricing: React.FC = () => {
                         viewport={{ once: true }}
                     >
                         <span className={`${styles.switchLabel} ${isMonthly ? styles.inactive : ''}`}>
-                            Annual Plans <span className={styles.saveBadge}>(Save 13%)</span>
+                            Annual Plans {!isMonthly && <span className={styles.saveBadge}>(Save 20%)</span>}
                         </span>
                         <label className={styles.switch}>
                             <input type="checkbox" checked={isMonthly} onChange={togglePricing} />
@@ -63,27 +63,28 @@ const Pricing: React.FC = () => {
                         viewport={{ once: true }}
                     >
                         <div className={styles.planName}>Free plan</div>
-                        <div className={styles.planTarget}>For Individuals</div>
+                        {/* <div className={styles.planTarget}>For Individuals</div> */}
                         <div className={styles.price}>
                             $0
                         </div>
                         <div className={styles.billingCircle}>
-                            Forever
+                            FOREVER
                         </div>
 
                         <div className={styles.featuresList}>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 3 Projects</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 2 GB Storage</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited cloud-based messages</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited free projects & task users</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited tasks</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited users for Projects & Tasks</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited projects & tasks</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Add unlimited users to projects & tasks</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Team admin & member roles</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Centralized billing</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Global activity log for full visibility</div>
                         </div>
 
                         <a href="#" className={styles.cardBtn}>Get Started</a>
                     </motion.div>
 
-                    {/* Plus Plan (Popular) */}
+                    {/* Teams Plan (Popular) */}
                     <motion.div
                         className={`${styles.card} ${styles.cardPopular}`}
                         initial={{ opacity: 0, y: 30 }}
@@ -92,51 +93,24 @@ const Pricing: React.FC = () => {
                         viewport={{ once: true }}
                     >
                         <div className={styles.popularBadge}>MOST POPULAR</div>
-                        <div className={styles.planName}>Plus Plan</div>
-                        <div className={styles.planTarget}>For Individuals</div>
-                        <div className={styles.price}>
-                            ${isMonthly ? '8' : '7'}<span>/mo</span>
-                        </div>
-                        <div className={styles.billingCircle}>
-                            {isMonthly ? 'Billed monthly' : 'Billed annually'}
-                        </div>
-
-                        <div className={styles.featuresList}>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 50 Projects</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 50 GB Storage</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited cloud-based messages</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited free projects & task users</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited tasks</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited users for Projects & Tasks</div>
-                        </div>
-
-                        <a href="#" className={styles.cardBtn}>Get Started</a>
-                    </motion.div>
-
-                    {/* Teams Plan */}
-                    <motion.div
-                        className={styles.card}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
-                        viewport={{ once: true }}
-                    >
                         <div className={styles.planName}>Teams Plan</div>
-                        <div className={styles.planTarget}>For Teams</div>
+                        {/* <div className={styles.planTarget}>For Teams</div> */}
                         <div className={styles.price}>
-                            ${isMonthly ? '16' : '14'}<span>/p/user/mo</span>
+                            ${isMonthly ? '20' : '16'}
                         </div>
+                        <div className={styles.priceSubtext}>Member/Month</div>
                         <div className={styles.billingCircle}>
-                            {isMonthly ? 'Billed monthly' : 'Billed annually'}
+                            {isMonthly ? 'BILLED MONTHLY' : 'BILLED ANNUALLY'}
                         </div>
 
                         <div className={styles.featuresList}>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited Projects</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 2 TB Storage</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited cloud-based messages</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited Tasks</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited users for Projects & Tasks</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Team Admin & Member Roles</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited projects & tasks</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Add unlimited users to projects & tasks</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Team admin & member roles</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Centralized billing</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Global activity log for full visibility</div>
                         </div>
 
                         <a href="#" className={styles.cardBtn}>Get Started</a>
