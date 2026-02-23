@@ -250,7 +250,7 @@
 
 @media (max-width: 768px) {
     .resultsSection {
-        padding: 6rem 1rem 1rem;
+        padding: 8rem 1rem 1rem;
     }
 
     .resultsTitle {
@@ -291,7 +291,7 @@
     }
 
     .ctaSection {
-        padding: 6rem 1rem 0;
+        padding: 8rem 1rem 0;
     }
 
     .ctaTitle {
