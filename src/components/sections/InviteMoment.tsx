@@ -98,15 +98,15 @@ const InviteMoment: React.FC = () => {
                         <ul className={styles.benefitsList}>
                             <motion.li initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} viewport={{ once: true }}>
                                 <div className={styles.checkCircle}><Check size={16} strokeWidth={2} /></div>
-                                Join directly into project workspace
+                                <span>Join directly into project workspace</span>
                             </motion.li>
                             <motion.li initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} viewport={{ once: true }}>
                                 <div className={styles.checkCircle}><Check size={16} strokeWidth={2} /></div>
-                                Tasks are clear from day one
+                                <span>Tasks are clear from day one</span>
                             </motion.li>
                             <motion.li initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }} viewport={{ once: true }}>
                                 <div className={styles.checkCircle}><Check size={16} strokeWidth={2} /></div>
-                                Updates stay connected to the chat
+                                <span>Updates stay connected to the chat</span>
                             </motion.li>
                         </ul>
                         <div className={styles.ctaWrapper}>

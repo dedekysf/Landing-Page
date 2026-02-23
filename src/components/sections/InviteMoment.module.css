@@ -194,18 +194,67 @@
     }
 
     .benefitsList li {
-        justify-content: flex-start;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .checkCircle {
+        display: none;
     }
 
     .visual {
         order: 1;
         /* Move visual to bottom on mobile */
+        height: 240px;
+    }
+
+    .connections {
+        width: 240px;
+        height: 180px;
+    }
+
+    /* Scale down the nodes for the smaller connections layout */
+    .centerNode {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+    }
+
+    .centerNode svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .node {
+        width: 32px;
+        height: 32px;
+        border-width: 2px;
+    }
+
+    .nodeTopLeft {
+        top: 34px;
+        left: 16px;
+    }
+
+    .nodeBottomLeft {
+        top: 118px;
+        left: 16px;
+    }
+
+    .nodeTopRight {
+        top: 34px;
+        right: 16px;
+    }
+
+    .nodeBottomRight {
+        top: 118px;
+        right: 16px;
     }
 }
 
 @media (max-width: 768px) {
     .section {
-        padding: 1.5rem 1rem 1rem;
+        padding: 4rem 1rem 1rem;
     }
 
     .title {
