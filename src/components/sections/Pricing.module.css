@@ -315,7 +315,7 @@ input:checked+.slider:before {
 
 @media (max-width: 768px) {
     .pricing {
-        padding: 4rem 1rem 1rem;
+        padding: 6rem 1rem 1rem;
     }
 
     .title {

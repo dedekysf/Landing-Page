@@ -205,11 +205,11 @@
     .visual {
         order: 1;
         /* Move visual to bottom on mobile */
-        height: 240px;
+        height: 160px;
     }
 
     .connections {
-        width: 240px;
+        width: 264px;
         height: 180px;
     }
 
@@ -254,7 +254,7 @@
 
 @media (max-width: 768px) {
     .section {
-        padding: 4rem 1rem 1rem;
+        padding: 6rem 1rem 1rem;
     }
 
     .title {
@@ -263,11 +263,5 @@
 
     .subtitle {
         font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .connections {
-        transform: translate(-50%, -50%) scale(0.8);
     }
 }
