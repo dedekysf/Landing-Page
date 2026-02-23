@@ -71,7 +71,7 @@
     color: #303742;
     font-size: 1rem;
     font-weight: 300;
-    line-height: 1.7;
+    line-height: 1.8;
     margin-bottom: 2.5rem;
 }
 
@@ -167,12 +167,12 @@
 .ctaBtnWrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .ctaBtnBox {
     display: inline-block;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
     height: 80px;
 }
 
@@ -250,12 +250,21 @@
 
 @media (max-width: 768px) {
     .resultsSection {
-        padding: 3rem 1rem;
+        padding: 2rem 1rem 1rem;
+    }
+
+    .resultsTitle {
+        font-size: 2rem;
+    }
+
+    .resultsDesc {
+        font-size: 1rem;
+        line-height: 1.8;
     }
 
     .resultsCard {
         padding: 2rem 1.5rem;
-        flex-direction: column;
+        flex-direction: column-reverse;
         text-align: center;
     }
 
@@ -272,13 +281,17 @@
         gap: 0.5rem;
     }
 
+    .resultsImage {
+        height: auto;
+    }
+
     .resultsCta {
         margin-top: 2rem;
         width: 100%;
     }
 
     .ctaSection {
-        padding: 4rem 1rem 0;
+        padding: 2rem 1rem 0;
     }
 
     .ctaTitle {
@@ -295,7 +308,12 @@
     }
 
     .mockupsWrapper {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        align-items: flex-end;
+        position: relative;
+        transform: scale(0.5);
+        transform-origin: bottom center;
+        width: 200%;
+        left: -50%;
     }
 }

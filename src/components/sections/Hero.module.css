@@ -123,11 +123,12 @@
 
 .headline {
     font-size: 3.5rem;
-    line-height: 1.1;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
     color: var(--text-primary);
     letter-spacing: -0.01em;
+    text-transform: capitalize;
 }
 
 .highlight {
@@ -136,10 +137,10 @@
 
 .subheadline {
     font-size: 1rem;
-    color: #303742;
+    color: var(--text-secondary);
     margin-bottom: 2.5rem;
     max-width: 600px;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 .actions {

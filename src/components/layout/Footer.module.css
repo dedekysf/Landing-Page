@@ -12,6 +12,15 @@
     margin: 0 auto;
 }
 
+.storeLink img {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.storeLink:hover img {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
 .top {
     display: flex;
     flex-wrap: wrap;
@@ -31,7 +40,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .brandName {
@@ -95,7 +104,9 @@
 .socials {
     display: flex;
     gap: 12px;
-    margin-bottom: 1.5rem;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .socialIcon {
@@ -125,13 +136,19 @@
     font-weight: 500;
 }
 
+.emailAddress,
+.emailAddress a {
+    font-size: 0.95rem;
+    color: #718096;
+}
+
 /* Bottom Section */
 .bottom {
     border-top: 1px solid #EDF2F7;
     padding-top: 2rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: end;
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -163,14 +180,37 @@
     .top {
         flex-direction: column;
         gap: 3rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .brandSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .linksSection {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        text-align: center;
+        width: 100%;
+        gap: 2rem;
+    }
+
+    /* Override column styles for mobile centering */
+    .linksSection>div[style] {
+        align-items: center !important;
+        justify-content: center !important;
+
+    }
+
+    .socials {
+        justify-content: center;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
     }
 
     .bottom {
-        flex-direction: column;
         justify-content: center;
         text-align: center;
     }

@@ -57,6 +57,94 @@ const Features: React.FC = () => {
         }
     ];
 
+    const renderFeatureImage = (isMobile: boolean = false) => (
+        <div className={isMobile ? styles.mobileRightContent : styles.rightContent}>
+            {/* Blob container — #F7F8FA bg, clips overflow */}
+            <div style={{
+                position: 'absolute', inset: 0,
+                background: '#F7F8FA',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                zIndex: 0,
+            }}>
+                {/* Left blob: rounded ketupat, sits on top */}
+                <motion.div
+                    animate={{
+                        x: ['0%', '-40%', '0%'],
+                        y: [0, 10, 0],
+                        rotate: [-50, -50, -50], // Adding rotation animation
+                    }}
+                    transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+                    style={{
+                        position: 'absolute', top: '10%', right: '30%',
+                        width: '90%', aspectRatio: '1/1',
+                        borderRadius: '40px',
+                        transformOrigin: 'center',
+                        background: features[activeTab].color,
+                        opacity: 0.35,
+                        zIndex: 2,
+                    }}
+                />
+                {/* Right blob: large circle showing half, moves top→bottom, behind left blob */}
+                <motion.div
+                    animate={{
+                        y: ['-20%', '40%', '-20%'],
+                    }}
+                    transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+                    style={{
+                        position: 'absolute', top: '0', right: '-30%',
+                        width: '80%', aspectRatio: '1/1',
+                        borderRadius: '50%',
+                        background: '#18A87D',
+                        opacity: 0.5,
+                        zIndex: 1,
+                    }}
+                />
+            </div>
+
+            {/* Feature image with glass frame */}
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, scale: 0.92, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.92, y: -20 }}
+                    transition={{ duration: 0.45, ease: 'easeOut' }}
+                    style={{
+                        position: 'relative', zIndex: 2,
+                        height: '100%', width: '100%',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        padding: '2rem',
+                    }}
+                >
+                    <div style={{
+                        borderRadius: '20px',
+                        overflow: 'hidden',
+                        border: '1px solid rgba(255,255,255,0.65)',
+                        backdropFilter: 'blur(3px)',
+                        WebkitBackdropFilter: 'blur(3px)',
+                        boxShadow: '0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9)',
+                        background: 'rgba(255,255,255,0.5)',
+                        padding: '5px',
+                        width: '100%',
+                        maxWidth: '360px',
+                    }}>
+                        <img
+                            src={features[activeTab].image}
+                            alt={features[activeTab].title}
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                borderRadius: '16px',
+                                display: 'block',
+                            }}
+                        />
+                    </div>
+                </motion.div>
+            </AnimatePresence>
+        </div>
+    );
+
     return (
         <section id="features" className={styles.features}>
             <div className={`container ${styles.container}`}>
@@ -70,9 +158,9 @@ const Features: React.FC = () => {
                     viewport={{ once: true }}
                 >
                     <div className={styles.pillText}>Feature Highlights</div>
-                    <h2 className={styles.title}>Built for real construction work</h2>
+                    <h2 className={styles.title}>Built for real <br />construction work</h2>
                     <p className={styles.subtitle}>
-                        Construction projects move fast and get messy. Tasktag keeps conversations, proof, and responsibilities organized so mistakes don’t multiply.
+                        We keeps conversations, proof, and responsibilities organized so mistakes don’t multiply.
                     </p>
                 </motion.div>
 
@@ -109,6 +197,10 @@ const Features: React.FC = () => {
                                                 <span style={{ color: feat.color, fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
                                                     Learn more <ArrowRight size={16} strokeWidth={2} />
                                                 </span>
+                                                {/* Mobile Inline Image (Animated Wrapper) */}
+                                                <div className={styles.mobileFeatureWrapper}>
+                                                    {renderFeatureImage(true)}
+                                                </div>
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
@@ -118,91 +210,7 @@ const Features: React.FC = () => {
                     </div>
 
                     {/* Right Side - Image + Animated Blob Background */}
-                    <div className={styles.rightContent}>
-                        {/* Blob container — #F7F8FA bg, clips overflow */}
-                        <div style={{
-                            position: 'absolute', inset: 0,
-                            background: '#F7F8FA',
-                            borderRadius: '24px',
-                            overflow: 'hidden',
-                            zIndex: 0,
-                        }}>
-                            {/* Left blob: rounded ketupat, sits on top */}
-                            <motion.div
-                                animate={{
-                                    x: ['0%', '-40%', '0%'],
-                                    y: [0, 10, 0],
-                                    rotate: [-50, -50, -50], // Adding rotation animation
-                                }}
-                                transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-                                style={{
-                                    position: 'absolute', top: '10%', right: '30%',
-                                    width: '90%', aspectRatio: '1/1',
-                                    borderRadius: '40px',
-                                    transformOrigin: 'center',
-                                    background: features[activeTab].color,
-                                    opacity: 0.35,
-                                    zIndex: 2,
-                                }}
-                            />
-                            {/* Right blob: large circle showing half, moves top→bottom, behind left blob */}
-                            <motion.div
-                                animate={{
-                                    y: ['-20%', '40%', '-20%'],
-                                }}
-                                transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-                                style={{
-                                    position: 'absolute', top: '0', right: '-30%',
-                                    width: '80%', aspectRatio: '1/1',
-                                    borderRadius: '50%',
-                                    background: '#18A87D',
-                                    opacity: 0.5,
-                                    zIndex: 1,
-                                }}
-                            />
-                        </div>
-
-                        {/* Feature image with glass frame */}
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeTab}
-                                initial={{ opacity: 0, scale: 0.92, y: 20 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.92, y: -20 }}
-                                transition={{ duration: 0.45, ease: 'easeOut' }}
-                                style={{
-                                    position: 'relative', zIndex: 2,
-                                    height: '100%', width: '100%',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    padding: '2rem',
-                                }}
-                            >
-                                <div style={{
-                                    borderRadius: '20px',
-                                    overflow: 'hidden',
-                                    border: '1px solid rgba(255,255,255,0.65)',
-                                    backdropFilter: 'blur(3px)',
-                                    WebkitBackdropFilter: 'blur(3px)',
-                                    boxShadow: '0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9)',
-                                    background: 'rgba(255,255,255,0.5)',
-                                    padding: '5px',
-                                    width: '100%',
-                                    maxWidth: '360px',
-                                }}>
-                                    <img
-                                        src={features[activeTab].image}
-                                        alt={features[activeTab].title}
-                                        style={{
-                                            width: '100%',
-                                            height: 'auto',
-                                            borderRadius: '16px',
-                                            display: 'block',
-                                        }}
-                                    />
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
+                    {renderFeatureImage()}
 
                 </div>
             </div>

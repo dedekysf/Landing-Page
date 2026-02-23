@@ -1,6 +1,8 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Instagram, Linkedin, Mail } from 'lucide-react';
 import logoUrl from '../../assets/Logo-TaskTag.svg';
+import appStoreUrl from '../../assets/app_store.svg';
+import playStoreUrl from '../../assets/playstore.svg';
 import styles from './Footer.module.css';
 
 const Footer: React.FC = () => {
@@ -14,32 +16,40 @@ const Footer: React.FC = () => {
                         </div>
                         <div className={styles.contactInfo}>
                             <p>2410 Polk Street, Houston, Texas</p>
+                            <p className={styles.emailAddress}><a href="mailto:info@tasktag.com" style={{ textDecoration: 'none' }}>info@tasktag.com</a></p>
                         </div>
                     </div>
 
                     <div className={styles.linksSection}>
 
-                        <div className={styles.column} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                        {/* Middle column: App Store & Play Store */}
+                        <div className={styles.column} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                            <a href="#" className={styles.storeLink}>
+                                <img src={appStoreUrl} alt="Download on the App Store" style={{ height: '36px', width: 'auto' }} />
+                            </a>
+                            <a href="#" className={styles.storeLink}>
+                                <img src={playStoreUrl} alt="Get it on Google Play" style={{ height: '36px', width: 'auto' }} />
+                            </a>
+                        </div>
+
+                        {/* Right column: Social Media & Links */}
+                        <div className={styles.column} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center', gap: '1rem' }}>
                             <div className={styles.socials}>
-                                <a href="#" className={styles.socialIcon}><Facebook size={18} strokeWidth={1.5} /></a>
-                                <a href="#" className={styles.socialIcon}><Twitter size={18} strokeWidth={1.5} /></a>
+                                <a href="mailto:info@tasktag.com" className={styles.socialIcon}><Mail size={18} strokeWidth={1.5} /></a>
                                 <a href="#" className={styles.socialIcon}><Instagram size={18} strokeWidth={1.5} /></a>
                                 <a href="#" className={styles.socialIcon}><Linkedin size={18} strokeWidth={1.5} /></a>
                             </div>
-                            <div className={styles.emailContact}>
-                                <p><a href="mailto:info@tasktag.com" style={{ color: 'var(--secondary-green)', textDecoration: 'none', fontWeight: 600 }}>info@tasktag.com</a></p>
+                            <div className={styles.bottomLinks}>
+                                <a href="#">Privacy</a>
+                                <a href="#">Terms</a>
+                                <a href="#">Support</a>
+                                <a href="#">FAQ</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div className={styles.bottom}>
-                    <div className={styles.bottomLinks}>
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                        <a href="#">Support</a>
-                        <a href="#">FAQ</a>
-                    </div>
                     <p className={styles.copyright}>©2024 TaskTag. All Rights Reserved.</p>
                 </div>
             </div>

@@ -43,7 +43,7 @@
 .subtitle {
     font-size: 1.125rem;
     color: #4A5568;
-    line-height: 1.6;
+    line-height: 1.8;
     margin-bottom: 2rem;
 }
 
@@ -314,7 +314,19 @@ input:checked+.slider:before {
 }
 
 @media (max-width: 768px) {
+    .pricing {
+        padding: 2rem 1rem 1rem;
+    }
+
     .title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .featureItem {
+        font-size: 1rem;
     }
 }

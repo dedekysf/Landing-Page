@@ -42,7 +42,7 @@
     font-size: 1rem;
     font-weight: 400;
     color: var(--text-secondary);
-    line-height: 1.4;
+    line-height: 1.8;
 }
 
 .ctaBtn {
@@ -82,7 +82,7 @@
     border-bottom: 2px solid transparent;
     transition: background 0.25s ease, border-color 0.25s ease;
     cursor: pointer;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .featureItem:hover {
@@ -96,6 +96,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    margin-top: -4px;
 }
 
 .featBody h4 {
@@ -110,6 +111,10 @@
     line-height: 1.45;
     font-size: 0.82rem;
     font-weight: 400;
+}
+
+.mobileFeatureWrapper {
+    display: none;
 }
 
 /* Right Side Cards */
@@ -275,13 +280,41 @@
 }
 
 @media (max-width: 768px) {
-    .title {
-        font-size: 2.25rem;
+    .features {
+        padding: 2rem 1rem 1rem;
     }
 
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .featIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Hide complex overlap on mobile to save space */
     .rightContent {
         display: none;
     }
 
-    /* Hide complex overlap on mobile to save space */
+    .mobileFeatureWrapper {
+        display: block;
+        margin: 1.5rem 0;
+        width: 100%;
+    }
+
+    .mobileRightContent {
+        position: relative;
+        height: 350px;
+        border-radius: 20px;
+        overflow: hidden;
+        background: transparent;
+        width: 100%;
+        display: block;
+    }
 }

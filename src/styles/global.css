@@ -1,6 +1,7 @@
 /* Reset & Base Styles */
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 * {
@@ -12,11 +13,12 @@ html {
 body {
     font-family: var(--font-family-primary);
     font-weight: var(--font-weight-body);
-    color: var(--color-text-main);
-    background-color: var(--color-background);
+    color: var(--text-primary);
+    background-color: #FAFBFC;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    animation: pageBlurIn 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    overflow-x: hidden;
+    animation: pageBlurIn 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 h1,
@@ -87,6 +89,15 @@ button {
 
     100% {
         opacity: 1;
-        filter: blur(0);
+        filter: none;
+    }
+}
+
+/* Global Mobile Responsiveness */
+@media (max-width: 768px) {
+    html {
+        /* Standard browser font-size is 16px. 
+           Reducing this to 12px scales all `rem` units down by exactly 4px (which equals 0.25rem of the original size) */
+        font-size: 12px;
     }
 }

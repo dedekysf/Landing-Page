@@ -16,6 +16,18 @@ const Navbar: React.FC = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [mobileMenuOpen]);
+
     return (
         <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
             <div className={`${styles.inner} ${scrolled ? styles.innerScrolled : ''}`}>
@@ -39,14 +51,29 @@ const Navbar: React.FC = () => {
                         <a href="#" className={styles.navbarBtn}>Get Started</a>
                     </div>
 
-                    {/* Mobile Filter */}
-                    <button
-                        className={styles.mobileToggle}
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        aria-label="Toggle menu"
-                    >
-                        <span className={styles.hamburger}></span>
-                    </button>
+                    {/* Mobile Header Actions */}
+                    <div className={styles.mobileHeaderActions}>
+                        {!mobileMenuOpen && (
+                            <a href="#" className={styles.navbarBtn}>Get Started</a>
+                        )}
+                        {/* Mobile Toggle */}
+                        <button
+                            className={styles.mobileToggle}
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            <span className={`${styles.hamburger} ${mobileMenuOpen ? styles.hamburgerOpen : ''}`}></span>
+                        </button>
+                    </div>
+
+                    {/* Mobile Menu Overlay */}
+                    {mobileMenuOpen && (
+                        <div
+                            className={styles.mobileOverlay}
+                            onClick={() => setMobileMenuOpen(false)}
+                            aria-hidden="true"
+                        />
+                    )}
 
                     {/* Mobile Menu */}
                     <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.open : ''}`}>

@@ -41,7 +41,7 @@
     font-size: 1rem;
     font-weight: 400;
     color: var(--text-secondary);
-    line-height: 1.4;
+    line-height: 1.8;
     margin-bottom: 2rem;
 }
 
@@ -194,21 +194,31 @@
     }
 
     .benefitsList li {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .visual {
-        order: -1;
-        /* Move visual to top on mobile */
+        order: 1;
+        /* Move visual to bottom on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .connections {
         transform: translate(-50%, -50%) scale(0.8);
-    }
-
-    .title {
-        font-size: 2rem;
     }
 }
