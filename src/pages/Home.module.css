@@ -302,8 +302,11 @@
         width: 100%;
     }
 
+    .ctaBtnWrapper {
+        margin-bottom: 1rem;
+    }
+
     .finalCtaBtn {
-        width: 100% !important;
         padding: 1rem 1.5rem !important;
     }
 
@@ -315,5 +318,6 @@
         transform-origin: bottom center;
         width: 200%;
         left: -50%;
+        margin-top: -120px;
     }
 }
