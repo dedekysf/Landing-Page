@@ -11,7 +11,7 @@ import logoSosa from '../../assets/client/Sosa.png';
 import logoIsc from '../../assets/client/Isc-Logo-BW.png';
 import logoZerodraft from '../../assets/client/Logo-Zerodraft.png';
 import logoSwenson from '../../assets/client/Swenson-Logo.png';
-import heroMytaskImg from '../../assets/hero-mytask.png';
+import heroMytaskImg from '../../assets/hero-mytask-2.png';
 
 const logos = [logoIntown, logoLovett, logoPost, logoPrecision, logoSosa, logoIsc, logoZerodraft, logoSwenson];
 

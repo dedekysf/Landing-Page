@@ -1,0 +1,323 @@
+.pageWrapper {
+    font-family: 'Poppins', sans-serif;
+}
+
+.contentWrapper {}
+
+/* Real Results Section */
+.resultsSection {
+    padding: 5rem 1rem;
+    background: #ffffff;
+}
+
+.resultsContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.resultsCard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 4rem;
+    flex-wrap: wrap;
+    border: 1px solid rgba(24, 168, 125, 0.12);
+    overflow: hidden;
+}
+
+.blobGreen {
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 350px;
+    height: 350px;
+    background: rgba(24, 168, 125, 0.18);
+    border-radius: 50%;
+    z-index: 0;
+    filter: blur(60px);
+}
+
+.blobBlue {
+    position: absolute;
+    bottom: -80px;
+    right: -60px;
+    width: 380px;
+    height: 380px;
+    background: rgba(184, 230, 233, 0.4);
+    border-radius: 50%;
+    z-index: 0;
+    filter: blur(70px);
+}
+
+.resultsLeft {
+    flex: 1 1 360px;
+    min-width: 280px;
+    position: relative;
+    z-index: 1;
+}
+
+.resultsTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+.resultsDesc {
+    color: #303742;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.statItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.statIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.statValue {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.statText {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.resultsCta {
+    margin-top: 3rem;
+}
+
+.resultsBtn {
+    background: #000 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 1rem 2.5rem !important;
+    font-weight: 700 !important;
+}
+
+.resultsRight {
+    flex: 1 1 360px;
+    min-width: 280px;
+    position: relative;
+    z-index: 1;
+}
+
+.resultsImage {
+    width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    height: 580px;
+    margin-bottom: 1.5rem;
+}
+
+/* Final CTA Section */
+.ctaSection {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #035B60 0%, #18A87D 40%, #00D9A5 100%);
+    padding: 7rem 1rem 0;
+    text-align: center;
+}
+
+.ctaGlow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 20%, rgba(0, 217, 165, 0.25) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.ctaContainer {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.ctaTitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.ctaBtnWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.ctaBtnBox {
+    display: inline-block;
+    padding-bottom: 8px;
+    height: 80px;
+}
+
+.finalCtaBtn {
+    background: #ffffff !important;
+    color: var(--secondary-green) !important;
+    border-radius: 12px !important;
+    padding: 1.2rem 3rem !important;
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-bottom: 6px solid #e0e0e0 !important;
+    box-shadow: none !important;
+    letter-spacing: 0.01em;
+    animation: ctaBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
+    transition: all 0.1s ease;
+}
+
+.finalCtaBtn:hover {
+    transform: translateY(3px) !important;
+    margin-bottom: -3px !important;
+    border-bottom-width: 3px !important;
+    box-shadow: 0 1px 0 #cccccc !important;
+}
+
+.finalCtaBtn:active {
+    transform: translateY(5px) !important;
+    margin-bottom: -5px !important;
+    border-bottom-width: 1px !important;
+    box-shadow: none !important;
+}
+
+.mockupsWrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Ensure global keyframe exists. Will add to global css if not */
+@keyframes ctaBounce {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.08);
+    }
+
+    50% {
+        transform: scale(0.96);
+    }
+
+    70% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 991px) {
+    .resultsCard {
+        gap: 2rem;
+        padding: 2.5rem;
+    }
+
+    .ctaTitle {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .resultsSection {
+        padding: 8rem 1rem 1rem;
+    }
+
+    .resultsTitle {
+        font-size: 2rem;
+    }
+
+    .resultsDesc {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .resultsCard {
+        padding: 2rem 1.5rem;
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .blobGreen,
+    .blobBlue {
+        width: 250px;
+        height: 250px;
+    }
+
+    .statItem {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .resultsImage {
+        height: auto;
+    }
+
+    .resultsCta {
+        margin-top: 2rem;
+        width: 100%;
+    }
+
+    .ctaSection {
+        padding: 8rem 1rem 0;
+    }
+
+    .ctaTitle {
+        font-size: 2rem;
+    }
+
+    .ctaBtnBox {
+        width: 100%;
+    }
+
+    .ctaBtnWrapper {
+        margin-bottom: 1rem;
+    }
+
+    .finalCtaBtn {
+        padding: 1rem 1.5rem !important;
+    }
+
+    .mockupsWrapper {
+        flex-direction: row;
+        align-items: flex-end;
+        position: relative;
+        transform: scale(0.5);
+        transform-origin: bottom center;
+        width: 200%;
+        left: -50%;
+        margin-top: -120px;
+    }
+}
