@@ -43,18 +43,18 @@ const Navbar: React.FC = () => {
                         <a href="#features" className={styles.navLink}>Features</a>
                         <a href="#pricing" className={styles.navLink}>Pricing</a>
                         <a href="#blog" className={styles.navLink}>Blog</a>
-                        <a href="#resources" className={styles.navLink}>Resources</a>
+                        <a href="#resource" className={styles.navLink}>Resources</a>
                     </div>
 
                     <div className={styles.desktopActions}>
                         <a href="#" className={styles.loginLink}>Log In</a>
-                        <a href="#" className={styles.navbarBtn}>Get Started</a>
+                        <a href="#" className={styles.navbarBtn}>Start Free</a>
                     </div>
 
                     {/* Mobile Header Actions */}
                     <div className={styles.mobileHeaderActions}>
                         {!mobileMenuOpen && (
-                            <a href="#" className={styles.navbarBtn}>Get Started</a>
+                            <a href="#" className={styles.navbarBtn}>Start Free</a>
                         )}
                         {/* Mobile Toggle */}
                         <button
@@ -79,7 +79,6 @@ const Navbar: React.FC = () => {
                     <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.open : ''}`}>
                         <a href="#features" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Features</a>
                         <a href="#pricing" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Pricing</a>
-                        <a href="#resources" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Resources</a>
                         <hr className={styles.divider} />
                         <div className={styles.mobileCta}>
                             <Button variant="outline" fullWidth onClick={() => setMobileMenuOpen(false)}>Log In</Button>

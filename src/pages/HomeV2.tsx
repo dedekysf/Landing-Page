@@ -41,17 +41,17 @@ const HomeV2: React.FC = () => {
                             {/* Left: Stats */}
                             <div className={styles.resultsLeft}>
                                 <h2 className={styles.resultsTitle}>
-                                    Real Results
+                                    Built for the jobsite
                                 </h2>
                                 <p className={styles.resultsDesc}>
-                                    Teams using TaskTag see measurable improvements in just the first month.
+                                    Construction teams using TaskTag eliminate confusion and keep projects moving fast.
                                 </p>
 
                                 {/* Stat items */}
                                 {[
-                                    { icon: <ArrowDown size={20} strokeWidth={2.5} color="#fff" />, bg: '#18A87D', stat: '40% Less Rework', desc: 'Clear communication means fewer costly mistakes' },
-                                    { icon: <Clock size={20} strokeWidth={2.5} color="#fff" />, bg: '#138EFF', stat: '5 Hours Saved Weekly', desc: 'Per team member, on average' },
-                                    { icon: <TrendingUp size={20} strokeWidth={2.5} color="#fff" />, bg: '#7B61FF', stat: '95% Task Completion', desc: 'Nothing falls through the cracks anymore' },
+                                    { icon: <ArrowDown size={20} strokeWidth={2.5} color="#fff" />, bg: '#18A87D', stat: '40% Less Rework', desc: 'Clear instructions mean fewer costly mistakes' },
+                                    { icon: <Clock size={20} strokeWidth={2.5} color="#fff" />, bg: '#138EFF', stat: '5 Hours Saved Weekly', desc: 'Per team member, stop chasing updates' },
+                                    { icon: <TrendingUp size={20} strokeWidth={2.5} color="#fff" />, bg: '#7B61FF', stat: '100% Accountability', desc: 'Everything is documented and assigned' },
                                 ].map((item, i) => (
                                     <motion.div
                                         key={i}
@@ -78,7 +78,7 @@ const HomeV2: React.FC = () => {
                                     viewport={{ once: true }}
                                     className={styles.resultsCta}
                                 >
-                                    <Button size="lg" className={styles.resultsBtn} fullWidth>Start For Free</Button>
+                                    <Button size="lg" className={styles.resultsBtn} fullWidth>Start Your Free Project</Button>
                                 </motion.div>
                             </div>
 
@@ -100,13 +100,13 @@ const HomeV2: React.FC = () => {
 
                     <div className={styles.ctaContainer}>
                         <h2 className={styles.ctaTitle}>
-                            Start your next project <br />the right way.
+                            Run your next job <br />from chat.
                         </h2>
 
                         <div className={styles.ctaBtnWrapper}>
                             <div className={styles.ctaBtnBox}>
                                 <Button size="lg" className={styles.finalCtaBtn}>
-                                    Start For Free
+                                    Sign Up For Free
                                 </Button>
                             </div>
                         </div>

@@ -3,31 +3,27 @@ import { motion } from 'framer-motion';
 import Button from '../common/Button';
 import styles from './HeroV2.module.css';
 
-import heroMytaskImg from '../../assets/hero-mytask-2.png';
+
 
 const HeroV2: React.FC = () => {
     return (
         <section className={styles.hero}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.content}>
-                    <motion.h1
-                        className={styles.title}
-                        initial={{ opacity: 0, y: 20 }}
+                    <motion.div
+                        className={styles.titleWrapper}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.6, ease: 'easeOut' }}
                     >
-                        Manage Projects <br />
-                        <span className={styles.highlight}>in Chat.</span> Start Now.
-                    </motion.h1>
-
-                    <motion.p
-                        className={styles.subtitle}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                    >
-                        Keep your team aligned with less email, less chaos, and projects that actually get done on time.
-                    </motion.p>
+                        <h1 className={styles.title}>
+                            Run the <span className={styles.highlight}>job</span><br />
+                            from chat
+                        </h1>
+                        <p className={styles.subtitle}>
+                            Turn jobsite messages into assigned work and visible progress.
+                        </p>
+                    </motion.div>
 
                     <motion.div
                         className={styles.actions}
@@ -64,15 +60,38 @@ const HeroV2: React.FC = () => {
                         }}
                     />
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        className={styles.chatWrapper}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
                     >
-                        <img
-                            src={heroMytaskImg}
-                            alt="TaskTag Project Dashboard"
-                            className={styles.heroImage}
-                        />
+                        <motion.div
+                            className={styles.messageRow}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: 0.8 }}
+                        >
+                            <div className={styles.avatarInitials} style={{ background: 'var(--blue)' }}>M</div>
+                            <div className={styles.messageContent}>
+                                <div className={styles.messageName}>Mike <span className={styles.messageTime}>9:42 AM</span></div>
+                                <div className={styles.messageBubble}>Just finished the framing on the second floor. Looks solid.</div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className={styles.messageRow}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: 1.8 }}
+                        >
+                            <div className={styles.avatarInitials} style={{ background: 'var(--orange)' }}>S</div>
+                            <div className={styles.messageContent}>
+                                <div className={styles.messageName}>Sarah <span className={styles.messageTime}>9:45 AM</span></div>
+                                <div className={styles.messageBubbleTagged}>
+                                    Great work Mike! I'll notify the inspectors for tomorrow. <span className={styles.projectTag}>#123-MainSt-Update</span>
+                                </div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>

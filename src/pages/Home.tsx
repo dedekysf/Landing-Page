@@ -8,7 +8,7 @@ import InviteMoment from '../components/sections/InviteMoment';
 import Pricing from '../components/sections/Pricing';
 import Button from '../components/common/Button';
 import { motion } from 'framer-motion';
-import { ArrowDown, Clock, TrendingUp } from 'lucide-react';
+import { ArrowDown, Clock, TrendingUp, X, CheckCircle2 } from 'lucide-react';
 import constructionTeamImg from '../assets/project-leader.png';
 import styles from './Home.module.css';
 
@@ -20,7 +20,158 @@ const Home: React.FC = () => {
             <div className={styles.contentWrapper}>
                 <Hero />
                 <ActivationSteps />
+
+                {/* Before / After Section */}
+                <section className={styles.comparisonSection}>
+                    <div className={`container ${styles.compContainer}`}>
+                        <div className={styles.compHeader}>
+                            <h2 className={styles.compTitle}>Why group texts <span className={styles.highlight}>kill projects</span></h2>
+                            <p className={styles.compSubtitle}>Stop scrolling through text threads trying to figure out what happened.</p>
+                        </div>
+
+                        <div className={styles.splitComparison}>
+
+                            {/* Left: Before */}
+                            <motion.div
+                                className={styles.compLeft}
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                            >
+                                <div className={styles.compCardHeaderWrapper}>
+                                    <div className={styles.compCardHeader} style={{ background: '#FFF5F5', color: '#E53E3E', borderColor: '#FED7D7' }}>
+                                        <X size={20} strokeWidth={3} />
+                                        <h3>Group chat project management</h3>
+                                    </div>
+                                </div>
+
+                                <ul className={styles.compList}>
+                                    <li className={styles.compListItem}>
+                                        <div className={styles.compIcon} style={{ background: '#FFF5F5', color: '#E53E3E' }}><X size={16} strokeWidth={3} /></div>
+                                        <span>Buried messages</span>
+                                    </li>
+                                    <li className={styles.compListItem}>
+                                        <div className={styles.compIcon} style={{ background: '#FFF5F5', color: '#E53E3E' }}><X size={16} strokeWidth={3} /></div>
+                                        <span>No owner</span>
+                                    </li>
+                                    <li className={styles.compListItem}>
+                                        <div className={styles.compIcon} style={{ background: '#FFF5F5', color: '#E53E3E' }}><X size={16} strokeWidth={3} /></div>
+                                        <span>No due dates</span>
+                                    </li>
+                                    <li className={styles.compListItem}>
+                                        <div className={styles.compIcon} style={{ background: '#FFF5F5', color: '#E53E3E' }}><X size={16} strokeWidth={3} /></div>
+                                        <span>Night recap texts</span>
+                                    </li>
+                                </ul>
+                            </motion.div>
+
+                            {/* Right: After */}
+                            <motion.div
+                                className={styles.compRight}
+                                initial={{ opacity: 0, x: 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                viewport={{ once: true }}
+                            >
+                                <div className={styles.compCardHeaderWrapper}>
+                                    <div className={styles.compCardHeader} style={{ background: '#F0FFF4', color: '#18A87D', borderColor: '#C6F6D5' }}>
+                                        <CheckCircle2 size={20} strokeWidth={3} />
+                                        <h3>TaskTag</h3>
+                                    </div>
+                                </div>
+
+                                <ul className={styles.compList}>
+                                    <li className={styles.compListItem}>
+                                        <div className={styles.compIcon} style={{ background: '#F0FFF4', color: '#18A87D' }}><CheckCircle2 size={16} strokeWidth={3} /></div>
+                                        <span>Every request becomes a task</span>
+                                    </li>
+                                    <li className={styles.compListItem}>
+                                        <div className={styles.compIcon} style={{ background: '#F0FFF4', color: '#18A87D' }}><CheckCircle2 size={16} strokeWidth={3} /></div>
+                                        <span>One owner + due date</span>
+                                    </li>
+                                    <li className={styles.compListItem}>
+                                        <div className={styles.compIcon} style={{ background: '#F0FFF4', color: '#18A87D' }}><CheckCircle2 size={16} strokeWidth={3} /></div>
+                                        <span>Field updates once</span>
+                                    </li>
+                                    <li className={styles.compListItem}>
+                                        <div className={styles.compIcon} style={{ background: '#F0FFF4', color: '#18A87D' }}><CheckCircle2 size={16} strokeWidth={3} /></div>
+                                        <span>Clear blocked view</span>
+                                    </li>
+                                </ul>
+                            </motion.div>
+
+                        </div>
+
+                        {/* Section CTA */}
+                        <motion.div
+                            className={styles.compCtaWrapper}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            viewport={{ once: true }}
+                        >
+                            <Button size="lg" className={styles.compCtaBtn}>Start your first project</Button>
+                        </motion.div>
+                    </div>
+                </section>
+
                 <Features />
+
+                {/* Fast Start Section */}
+                <section className={styles.fastStartSection}>
+                    <div className={`container ${styles.fsContainer}`}>
+                        <motion.div
+                            className={styles.fsHeader}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
+                            <h2 className={styles.fsTitle}>Be live on one job today.</h2>
+                            <p className={styles.fsSubtitle}>Zero friction. No training required.</p>
+                        </motion.div>
+
+                        <div className={styles.fsGrid}>
+                            {/* Step 1 */}
+                            <motion.div
+                                className={styles.fsCard}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
+                                viewport={{ once: true }}
+                            >
+                                <div className={styles.fsStepNum}>1</div>
+                                <h3>Create project</h3>
+                            </motion.div>
+
+                            {/* Step 2 */}
+                            <motion.div
+                                className={styles.fsCard}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                                viewport={{ once: true }}
+                            >
+                                <div className={styles.fsStepNum}>2</div>
+                                <h3>Invite crew lead</h3>
+                            </motion.div>
+
+                            {/* Step 3 */}
+                            <motion.div
+                                className={styles.fsCard}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.3 }}
+                                viewport={{ once: true }}
+                            >
+                                <div className={styles.fsStepNum}>3</div>
+                                <h3>Tag today's work</h3>
+                            </motion.div>
+                        </div>
+                    </div>
+                </section>
+
                 <InviteMoment />
                 <Pricing />
 
@@ -41,17 +192,17 @@ const Home: React.FC = () => {
                             {/* Left: Stats */}
                             <div className={styles.resultsLeft}>
                                 <h2 className={styles.resultsTitle}>
-                                    Real Results
+                                    Built for the jobsite
                                 </h2>
                                 <p className={styles.resultsDesc}>
-                                    Teams using TaskTag see measurable improvements in just the first month.
+                                    Construction teams using TaskTag eliminate confusion and keep projects moving fast.
                                 </p>
 
                                 {/* Stat items */}
                                 {[
-                                    { icon: <ArrowDown size={20} strokeWidth={2.5} color="#fff" />, bg: '#18A87D', stat: '40% Less Rework', desc: 'Clear communication means fewer costly mistakes' },
-                                    { icon: <Clock size={20} strokeWidth={2.5} color="#fff" />, bg: '#138EFF', stat: '5 Hours Saved Weekly', desc: 'Per team member, on average' },
-                                    { icon: <TrendingUp size={20} strokeWidth={2.5} color="#fff" />, bg: '#7B61FF', stat: '95% Task Completion', desc: 'Nothing falls through the cracks anymore' },
+                                    { icon: <ArrowDown size={20} strokeWidth={2.5} color="#fff" />, bg: '#18A87D', stat: '40% Less Rework', desc: 'Clear instructions mean fewer costly mistakes' },
+                                    { icon: <Clock size={20} strokeWidth={2.5} color="#fff" />, bg: '#138EFF', stat: '5 Hours Saved Weekly', desc: 'Per team member, stop chasing updates' },
+                                    { icon: <TrendingUp size={20} strokeWidth={2.5} color="#fff" />, bg: '#7B61FF', stat: '100% Accountability', desc: 'Everything is documented and assigned' },
                                 ].map((item, i) => (
                                     <motion.div
                                         key={i}
@@ -78,7 +229,7 @@ const Home: React.FC = () => {
                                     viewport={{ once: true }}
                                     className={styles.resultsCta}
                                 >
-                                    <Button size="lg" className={styles.resultsBtn} fullWidth>Start For Free</Button>
+                                    <Button size="lg" className={styles.resultsBtn} fullWidth>Start Your Free Project</Button>
                                 </motion.div>
                             </div>
 
@@ -100,13 +251,13 @@ const Home: React.FC = () => {
 
                     <div className={styles.ctaContainer}>
                         <h2 className={styles.ctaTitle}>
-                            Start your next project <br />the right way.
+                            Run your next job <br />from chat.
                         </h2>
 
                         <div className={styles.ctaBtnWrapper}>
                             <div className={styles.ctaBtnBox}>
                                 <Button size="lg" className={styles.finalCtaBtn}>
-                                    Start For Free
+                                    Sign Up For Free
                                 </Button>
                             </div>
                         </div>

@@ -45,7 +45,7 @@
     right: -5%;
     width: 350px;
     height: 350px;
-    background: #DCEEFF;
+    background: var(--light-sky);
     filter: blur(100px);
     opacity: 0.35;
     animation: blobDriftA 14s ease-in-out infinite;
@@ -56,7 +56,7 @@
     left: -10%;
     width: 500px;
     height: 500px;
-    background: #FDF4E0;
+    background: var(--light-cream);
     filter: blur(100px);
     opacity: 0.3;
     animation: blobDriftB 18s ease-in-out infinite;
@@ -122,7 +122,7 @@
 }
 
 .headline {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 1.4;
     margin-bottom: 1rem;
@@ -156,7 +156,7 @@
     padding: 1.2rem 3rem !important;
     font-size: 1.125rem !important;
     font-weight: 700 !important;
-    border-bottom: 6px solid #129668 !important;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.2) !important;
     box-shadow: none !important;
     letter-spacing: 0.01em;
     animation: btnBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s both;
@@ -188,7 +188,7 @@
     transform: translateY(3px) !important;
     margin-bottom: -3px !important;
     border-bottom-width: 3px !important;
-    box-shadow: 0 1px 0 #0d7a5f !important;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3) !important;
 }
 
 .primaryBtn:active {
@@ -295,7 +295,7 @@
     height: 36px;
     border-radius: 50%;
     border: 2px solid white;
-    background: #EDF2F7;
+    background: var(--grey-03);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -319,21 +319,36 @@
 
 .rating span {
     font-size: 0.75rem;
-    color: #718096;
+    color: var(--grey-05);
     font-weight: 600;
 }
 
-/* Hero Image Styling */
-.visualWrapper {
-    position: relative;
+/* Hero Image / Custom Visual Styling */
+.customVisualWrapper {
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto 5rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
 }
 
+.visualContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    perspective: 1200px;
+}
+
+/* Image wrapper */
 .heroImage {
     width: 100%;
     height: auto;
+    border-radius: 12px;
 }
 
 /* Trusted By */
@@ -344,7 +359,7 @@
 .trustedBy p {
     font-size: 0.875rem;
     font-weight: 700;
-    color: #A0AEC0;
+    color: var(--grey-04);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 1.5rem;
@@ -361,7 +376,7 @@
 .logoPlaceholder {
     font-size: 1.25rem;
     font-weight: 800;
-    color: #718096;
+    color: var(--grey-05);
 }
 
 @media (max-width: 1024px) {
@@ -378,4 +393,16 @@
     .primaryBtn {
         padding: 1rem 2rem !important;
     }
+
+    .visualContainer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .connectionArrow {
+        margin: 10px 0;
+        transform: rotate(90deg);
+    }
 }
+
+@media (max-width: 480px) {}

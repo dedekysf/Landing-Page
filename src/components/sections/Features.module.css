@@ -59,12 +59,426 @@
 }
 
 
-/* Layout */
-.splitLayout {
+/* 3-Step Visual Strip */
+.visualStrip {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.stepCard {
+    background: var(--white);
+    border: 1px solid var(--grey-03);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.stepHeader {
+    display: flex;
     align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.stepNumber {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--secondary-green);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stepTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stepVisual {
+    flex: 1;
+    background: var(--grey-02);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px inset rgba(0, 0, 0, 0.02);
+}
+
+/* Chat Visual Styling (Step 1) */
+.chatVisual {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.chatMessage {
+    display: flex;
+    gap: 10px;
+}
+
+.avatarSm {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.msgBody {
+    flex: 1;
+    background: white;
+    padding: 10px 12px;
+    border-radius: 0 12px 12px 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--grey-03);
+    position: relative;
+}
+
+.msgName {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.msgText {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.actionPopup {
+    position: absolute;
+    bottom: -16px;
+    right: 12px;
+    background: var(--text-primary);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Task Visual Styling (Step 2) */
+.taskVisual {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--grey-03);
+}
+
+.taskTitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--grey-03);
+}
+
+.taskMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.metaLabel {
+    font-size: 0.8rem;
+    color: var(--grey-04);
+    font-weight: 500;
+}
+
+.metaValue {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.avatarXs {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+}
+
+.statusTodo {
+    background: var(--grey-02);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+}
+
+/* Project Kanban Styling (Step 3) */
+.projectVisual {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
+
+.kanbanColumn {
+    flex: 1;
+    background: var(--grey-01);
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.colHeader {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--grey-04);
+    margin-bottom: 4px;
+}
+
+.kCard {
+    background: white;
+    padding: 8px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Outcome-Driven Features Additions */
+.outcomesSection {
+    margin-top: 8rem;
+    padding-top: 6rem;
+    border-top: 1px dashed var(--grey-03);
+}
+
+.outcomesHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.outcomesTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.3;
+}
+
+.outcomesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.outcomeCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.outcomeVisual {
+    background: var(--grey-02);
+    border-radius: 16px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--grey-03);
+    position: relative;
+    overflow: hidden;
+}
+
+.outcomeContent h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.outcomeContent p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Mock Visual Generators */
+.mockPhotoWrapper {
+    position: relative;
+    width: 60%;
+    height: 70%;
+}
+
+.mockPhoto {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border: 3px solid white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.photoCrosshair {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 24px;
+    height: 24px;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.5);
+}
+
+.photoCrosshair::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 4px;
+    height: 4px;
+    background: var(--alert-red);
+    border-radius: 50%;
+}
+
+.mockTag {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    background: var(--alert-red);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.mockList {
+    width: 70%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    padding: 16px;
+    border: 1px solid var(--grey-02);
+}
+
+.mockListHeader {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--grey-03);
+}
+
+.mockListItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.mockCheckbox {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--grey-03);
+    border-radius: 4px;
+}
+
+.mockLine {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--grey-02);
+}
+
+.mockReport {
+    width: 60%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.mockReportHeader {
+    background: var(--dark-green);
+    padding: 12px;
+}
+
+.mockReportBody {
+    padding: 16px;
+}
+
+.mockChart {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.mockPie {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: conic-gradient(var(--secondary-green) 0% 60%, var(--grey-02) 60% 100%);
+}
+
+.mockLegend {
+    flex: 1;
+}
+
+/* Center CTA */
+.centerCta {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.smallCtaLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary-green);
+    transition: transform 0.2s ease;
+}
+
+.smallCtaLink:hover {
+    transform: translateX(4px);
 }
 
 /* Left Side Items */
@@ -261,60 +675,40 @@
         text-align: center;
     }
 
-    .splitLayout {
+    .visualStrip {
         grid-template-columns: 1fr;
-    }
-
-    .rightContent {
-        height: 400px;
-        margin-top: 2rem;
-    }
-
-    .card1 {
-        left: 5%;
-    }
-
-    .card2 {
-        right: 5%;
+        gap: 2.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .features {
-        padding: 8rem 1rem 1rem;
+        padding: 5rem 1rem;
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
 
     .subtitle {
         font-size: 1rem;
     }
 
-    .featIcon {
-        width: 28px;
-        height: 28px;
+    .visualStrip {
+        margin-top: 3rem;
     }
 
-    /* Hide complex overlap on mobile to save space */
-    .rightContent {
-        display: none;
+    .outcomesSection {
+        margin-top: 5rem;
+        padding-top: 4rem;
     }
 
-    .mobileFeatureWrapper {
-        display: block;
-        margin: 1.5rem 0;
-        width: 100%;
+    .outcomesTitle {
+        font-size: 2rem;
     }
 
-    .mobileRightContent {
-        position: relative;
-        height: 350px;
-        border-radius: 20px;
-        overflow: hidden;
-        background: transparent;
-        width: 100%;
-        display: block;
+    .outcomesGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 }

@@ -1,38 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Button from '../common/Button';
-import { PenLine, UserPlus, MessageSquare } from 'lucide-react';
+import { Smartphone, MonitorPlay, CheckCircle2 } from 'lucide-react';
 import styles from './ActivationSteps.module.css';
 
 const ActivationSteps: React.FC = () => {
-    const steps = [
-        {
-            title: "Create project and task",
-            desc: "Plan and assign in seconds.",
-            icon: <PenLine size={32} color="#138EFF" strokeWidth={1.5} />
-        },
-        {
-            title: "Invite your team",
-            desc: "Bring everyone in instantly.",
-            icon: <UserPlus size={32} color="#7B61FF" strokeWidth={1.5} />
-        },
-        {
-            title: "Manage all from chat",
-            desc: "Turn chat into real progress.",
-            icon: <MessageSquare size={32} color="#FC7F5B" strokeWidth={1.5} />
-        }
-    ];
-
     return (
         <section className={styles.section}>
-            {/* Background decorative path */}
-            <div className={styles.bgDecoration}>
-                <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none">
-                    <path d="M0,200 Q300,50 600,200 T1200,200" fill="none" stroke="var(--grey-03)" strokeWidth="4" strokeDasharray="10 10" />
-                </svg>
-            </div>
-
             <div className={`container ${styles.container}`}>
+
+                {/* Header */}
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 30 }}
@@ -40,41 +16,119 @@ const ActivationSteps: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <div className={styles.pillText}>Activation Steps</div>
-                    <h2 className={styles.title}>Real progress <br />from first actions</h2>
+                    <h2 className={styles.title}>Everyone can message<br />You stay in control</h2>
                     <p className={styles.subtitle}>
-                        Start strong with structure from the first action. See tasks, ownership, and communication aligned from the beginning.
+                        Field crews get a dead-simple app to send updates. Managers get a powerful dashboard to track ownership.
                     </p>
-                    <div className={styles.actions} style={{ flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                        <div style={{ display: 'inline-block', paddingTop: '16px', height: '80px' }}>
-                            <Button size="lg" className={styles.primaryBtn}>
-                                Start For Free
-                            </Button>
-                        </div>
-                    </div>
                 </motion.div>
 
-                <div className={styles.stepsGrid} style={{ marginBottom: '3rem' }}>
-                    {steps.map((step, i) => (
-                        <motion.div
-                            key={i}
-                            className={styles.stepCard}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: i * 0.15 }}
-                            viewport={{ once: true }}
-                            whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-                        >
-                            <div className={styles.iconWrapper}>{step.icon}</div>
-                            <h3 className={styles.stepTitle}>{step.title}</h3>
-                            <p className={styles.stepDesc}>{step.desc}</p>
-                            <div className={styles.stepNumber}>0{i + 1}</div>
-                        </motion.div>
-                    ))}
+                {/* Split Layout */}
+                <div className={styles.accountabilityWrapper}>
+
+                    {/* Left: Mobile Field View */}
+                    <motion.div
+                        className={styles.deviceBlock}
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className={styles.deviceHeader}>
+                            <Smartphone size={24} color="#18A87D" />
+                            <h3>The Field: "My Tasks"</h3>
+                        </div>
+                        <p className={styles.deviceDesc}>
+                            Crews instantly see what they own today. No digging through chat history to find instructions.
+                        </p>
+
+                        <div className={styles.mobileMockup}>
+                            <div className={styles.mobileScreen}>
+                                <div className={styles.mHeader}>
+                                    <div className={styles.mGreeting}>Good morning, Dave</div>
+                                    <div className={styles.avatarsSm}>
+                                        <div className={styles.avatarSm} style={{ background: '#28C840' }}>D</div>
+                                    </div>
+                                </div>
+                                <div className={styles.mSection}>Today's Work</div>
+
+                                <div className={styles.mTaskCard}>
+                                    <div className={styles.mTaskTop}>
+                                        <div className={styles.checkbox} />
+                                        <span>Order 20 sheets drywall</span>
+                                    </div>
+                                    <div className={styles.mTaskContext}>From: Sarah • 101 Main St</div>
+                                </div>
+
+                                <div className={styles.mTaskCard}>
+                                    <div className={styles.mTaskTop}>
+                                        <div className={styles.checkbox} />
+                                        <span>Touch up paint in lobby</span>
+                                    </div>
+                                    <div className={styles.mTaskContext}>From: Mike • 101 Main St</div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Right: Desktop Manager View */}
+                    <motion.div
+                        className={styles.deviceBlock}
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className={styles.deviceHeader}>
+                            <MonitorPlay size={24} color="#138EFF" />
+                            <h3>The Office: Project Overview</h3>
+                        </div>
+                        <p className={styles.deviceDesc}>
+                            Managers get a high-level view of every task, who owns it, and exactly what's blocking progress.
+                        </p>
+
+                        <div className={styles.desktopMockup}>
+                            <div className={styles.desktopScreen}>
+                                <div className={styles.dHeader}>
+                                    <div className={styles.dSearch} />
+                                    <div className={styles.dFilter}>Filter by Owner</div>
+                                </div>
+
+                                <div className={styles.dTable}>
+                                    <div className={styles.dRowHeader}>
+                                        <div className={styles.dColTask}>Task</div>
+                                        <div className={styles.dColOwner}>Owner</div>
+                                        <div className={styles.dColStatus}>Status</div>
+                                    </div>
+
+                                    <div className={styles.dRow}>
+                                        <div className={styles.dColTask}>Order 20 sheets drywall</div>
+                                        <div className={styles.dColOwner}>
+                                            <div className={styles.dOwnerBadge}><div className={styles.avatarXs} style={{ background: '#28C840' }}>D</div> Dave</div>
+                                        </div>
+                                        <div className={styles.dColStatus}><span className={styles.statusBadge} style={{ background: '#f1f3f5', color: '#4a5568' }}>To Do</span></div>
+                                    </div>
+
+                                    <div className={styles.dRow}>
+                                        <div className={styles.dColTask}>Rough plumbing inspection</div>
+                                        <div className={styles.dColOwner}>
+                                            <div className={styles.dOwnerBadge}><div className={styles.avatarXs} style={{ background: '#FC7F5B' }}>S</div> Sarah</div>
+                                        </div>
+                                        <div className={styles.dColStatus}><span className={styles.statusBadge} style={{ background: '#F0FFF4', color: '#18A87D' }}><CheckCircle2 size={12} /> Done</span></div>
+                                    </div>
+
+                                    <div className={styles.dRow}>
+                                        <div className={styles.dColTask}>Paint prep framing</div>
+                                        <div className={styles.dColOwner}>
+                                            <div className={styles.dOwnerBadge}><div className={styles.avatarXs} style={{ background: '#138EFF' }}>M</div> Mike</div>
+                                        </div>
+                                        <div className={styles.dColStatus}><span className={styles.statusBadge} style={{ background: '#FFF5F5', color: '#E53E3E' }}>Blocked</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
                 </div>
-
-
-
             </div>
         </section>
     );

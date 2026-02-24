@@ -63,7 +63,7 @@ const Pricing: React.FC = () => {
                         viewport={{ once: true }}
                     >
                         <div className={styles.planName}>Free plan</div>
-                        {/* <div className={styles.planTarget}>For Individuals</div> */}
+                        <div className={styles.planTarget}>Best for small crews</div>
                         <div className={styles.price}>
                             $0
                         </div>
@@ -72,13 +72,9 @@ const Pricing: React.FC = () => {
                         </div>
 
                         <div className={styles.featuresList}>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 3 Projects</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 2 GB Storage</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited projects & tasks</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Add unlimited users to projects & tasks</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Team admin & member roles</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Centralized billing</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Global activity log for full visibility</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Up to 3 active projects</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited chat & tasks</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Basic photo tagging</div>
                         </div>
 
                         <a href="#" className={styles.cardBtn}>Get Started</a>
@@ -94,7 +90,7 @@ const Pricing: React.FC = () => {
                     >
                         <div className={styles.popularBadge}>MOST POPULAR</div>
                         <div className={styles.planName}>Teams Plan</div>
-                        {/* <div className={styles.planTarget}>For Teams</div> */}
+                        <div className={styles.planTarget}>Best for growing companies</div>
                         <div className={styles.price}>
                             ${isMonthly ? '20' : '16'}
                         </div>
@@ -104,18 +100,26 @@ const Pricing: React.FC = () => {
                         </div>
 
                         <div className={styles.featuresList}>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited Projects</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 2 TB Storage</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited projects & tasks</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Add unlimited users to projects & tasks</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Team admin & member roles</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Centralized billing</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Global activity log for full visibility</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited active projects</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Advanced reporting & PDFs</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Custom tags & templates</div>
+                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Admin controls & visibility</div>
                         </div>
 
                         <a href="#" className={styles.cardBtn}>Get Started</a>
                     </motion.div>
                 </div>
+
+                {/* Reassurance text */}
+                <motion.div
+                    className={styles.reassurance}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    viewport={{ once: true }}
+                >
+                    <p>Start free on a real job.</p>
+                </motion.div>
             </div>
         </section>
     );

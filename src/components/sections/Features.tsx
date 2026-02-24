@@ -1,149 +1,10 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Search, Activity, ArrowRight, Folder } from 'lucide-react';
-import featureChat from '../../assets/feature-project-chat-2.png';
-import featureSearch from '../../assets/feature-global-search.png';
-import featureTags from '../../assets/feature-project-checklist.png';
-import featureMyTasks from '../../assets/feature-activity.png';
+import { motion } from 'framer-motion';
+import { ArrowRight, Folder } from 'lucide-react';
 import styles from './Features.module.css';
 
 const Features: React.FC = () => {
-    const [activeTab, setActiveTab] = React.useState(0);
-
-    const features = [
-        {
-            icon: <Folder size={48} color="#C072CD" strokeWidth={1.5} />,
-            title: "Project Template",
-            desc: "Users can start projects instantly from pre-configured templates.",
-            color: '#C072CD',
-            bg: 'rgba(192,114,205,0.07)',
-            borderColor: 'rgba(192,114,205,0.25)',
-            blobA: '#18A87D',
-            blobB: '#B8E6E9',
-            image: featureTags,
-        },
-        {
-            icon: <MessageSquare size={48} color="#FC7F5B" strokeWidth={1.5} />,
-            title: "Chat based Project Management",
-            desc: "Our shared team chat keeps everyone on the same page and in the know.",
-            color: '#FC7F5B',
-            bg: 'rgba(252,127,91,0.07)',
-            borderColor: 'rgba(252,127,91,0.25)',
-            blobA: '#FC7F5B',
-            blobB: '#FFD7C4',
-            image: featureChat,
-        },
-        {
-            icon: <Activity size={48} color="var(--vivid-yellow)" strokeWidth={1.5} />,
-            title: "Track Progress Real-Time",
-            desc: "Measure what matters with project’s tags. You can filter, export, and drill down on the data in a couple clicks.",
-            color: 'var(--vivid-yellow)',
-            bg: 'rgba(251,189,66,0.08)',
-            borderColor: 'rgba(251,189,66,0.35)',
-            blobA: '#035B60',
-            blobB: '#18A87D',
-            image: featureMyTasks,
-        },
-        {
-            icon: <Search size={48} color="#7B61FF" strokeWidth={1.5} />,
-            title: "Powerful Project Search",
-            desc: "A tool that helps you keep your project on track by letting you keep track of everything in one place.",
-            color: '#7B61FF',
-            bg: 'rgba(123,97,255,0.07)',
-            borderColor: 'rgba(123,97,255,0.25)',
-            blobA: '#00D9A5',
-            blobB: '#18A87D',
-            image: featureSearch,
-        }
-    ];
-
-    const renderFeatureImage = (isMobile: boolean = false) => (
-        <div className={isMobile ? styles.mobileRightContent : styles.rightContent}>
-            {/* Blob container — #F7F8FA bg, clips overflow */}
-            <div style={{
-                position: 'absolute', inset: 0,
-                background: '#F7F8FA',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                zIndex: 0,
-            }}>
-                {/* Left blob: rounded ketupat, sits on top */}
-                <motion.div
-                    animate={{
-                        x: ['0%', '-40%', '0%'],
-                        y: [0, 10, 0],
-                        rotate: [-50, -50, -50], // Adding rotation animation
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-                    style={{
-                        position: 'absolute', top: '10%', right: '30%',
-                        width: '90%', aspectRatio: '1/1',
-                        borderRadius: '40px',
-                        transformOrigin: 'center',
-                        background: features[activeTab].color,
-                        opacity: 0.35,
-                        zIndex: 2,
-                    }}
-                />
-                {/* Right blob: large circle showing half, moves top→bottom, behind left blob */}
-                <motion.div
-                    animate={{
-                        y: ['-20%', '40%', '-20%'],
-                    }}
-                    transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-                    style={{
-                        position: 'absolute', top: '0', right: '-30%',
-                        width: '80%', aspectRatio: '1/1',
-                        borderRadius: '50%',
-                        background: '#18A87D',
-                        opacity: 0.5,
-                        zIndex: 1,
-                    }}
-                />
-            </div>
-
-            {/* Feature image with glass frame */}
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={activeTab}
-                    initial={{ opacity: 0, scale: 0.92, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.92, y: -20 }}
-                    transition={{ duration: 0.45, ease: 'easeOut' }}
-                    style={{
-                        position: 'relative', zIndex: 2,
-                        height: '100%', width: '100%',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        padding: '2rem',
-                    }}
-                >
-                    <div style={{
-                        borderRadius: '20px',
-                        overflow: 'hidden',
-                        border: '1px solid rgba(255,255,255,0.65)',
-                        backdropFilter: 'blur(3px)',
-                        WebkitBackdropFilter: 'blur(3px)',
-                        boxShadow: '0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9)',
-                        background: 'rgba(255,255,255,0.5)',
-                        padding: '5px',
-                        width: '100%',
-                        maxWidth: '360px',
-                    }}>
-                        <img
-                            src={features[activeTab].image}
-                            alt={features[activeTab].title}
-                            style={{
-                                width: '100%',
-                                height: 'auto',
-                                borderRadius: '16px',
-                                display: 'block',
-                            }}
-                        />
-                    </div>
-                </motion.div>
-            </AnimatePresence>
-        </div>
-    );
+    // New 3-step visual feature grid
 
     return (
         <section id="features" className={styles.features}>
@@ -157,62 +18,230 @@ const Features: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <div className={styles.pillText}>Feature Highlights</div>
-                    <h2 className={styles.title}>Built for real <br />construction work</h2>
-                    <p className={styles.subtitle}>
-                        We keeps conversations, proof, and responsibilities organized so mistakes don’t multiply.
-                    </p>
+                    <h2 className={styles.title} style={{ textAlign: 'center', margin: '0 auto' }}>
+                        Message it. Tag it. <br />The job moves.
+                    </h2>
                 </motion.div>
 
-                {/* Split Visual Layout */}
-                <div className={styles.splitLayout}>
+                {/* 3-Step Visual Strip */}
+                <div className={styles.visualStrip}>
 
-                    {/* Left Side - Tab List */}
-                    <div className={styles.leftContent}>
-                        {features.map((feat, i) => (
-                            <motion.div
-                                key={i}
-                                className={styles.featureItem}
-                                style={activeTab === i ? {
-                                    borderBottom: `2px solid ${feat.borderColor}`,
-                                } : { borderBottom: '2px solid var(--grey-02)' }}
-                                onClick={() => setActiveTab(i)}
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5, delay: i * 0.15 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className={styles.featIcon}>{feat.icon}</div>
-                                <div className={styles.featBody}>
-                                    <h4>{feat.title}</h4>
-                                    <p>{feat.desc}</p>
-                                    <AnimatePresence>
-                                        {activeTab === i && (
-                                            <motion.div
-                                                initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                                                animate={{ opacity: 1, height: 'auto', marginTop: '0.75rem' }}
-                                                exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                                                className={styles.learnMore}
-                                            >
-                                                <span style={{ color: feat.color, fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                                    Learn more <ArrowRight size={16} strokeWidth={2} />
-                                                </span>
-                                                {/* Mobile Inline Image (Animated Wrapper) */}
-                                                <div className={styles.mobileFeatureWrapper}>
-                                                    {renderFeatureImage(true)}
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
+                    {/* Step 1: Chat to Tag */}
+                    <motion.div
+                        className={styles.stepCard}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className={styles.stepHeader}>
+                            <div className={styles.stepNumber}>1</div>
+                            <h3 className={styles.stepTitle}>Message it</h3>
+                        </div>
+                        <div className={styles.stepVisual}>
+                            <div className={styles.chatVisual}>
+                                <div className={styles.chatMessage}>
+                                    <div className={styles.avatarSm} style={{ background: '#138EFF' }}>M</div>
+                                    <div className={styles.msgBody}>
+                                        <div className={styles.msgName}>Mike</div>
+                                        <div className={styles.msgText}>Drywall is material is short.</div>
+                                    </div>
                                 </div>
-                            </motion.div>
-                        ))}
-                    </div>
+                                <div className={styles.chatMessage}>
+                                    <div className={styles.avatarSm} style={{ background: '#FC7F5B' }}>S</div>
+                                    <div className={styles.msgBody}>
+                                        <div className={styles.msgName}>Sarah</div>
+                                        <div className={styles.msgText}>@Dave order 20 more sheets.</div>
 
-                    {/* Right Side - Image + Animated Blob Background */}
-                    {renderFeatureImage()}
+                                        {/* Action Button popping up */}
+                                        <motion.div
+                                            className={styles.actionPopup}
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            transition={{ duration: 0.5, delay: 0.8 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <Folder size={14} />
+                                            <span>Tag as task</span>
+                                        </motion.div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Step 2: Task Created */}
+                    <motion.div
+                        className={styles.stepCard}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className={styles.stepHeader}>
+                            <div className={styles.stepNumber}>2</div>
+                            <h3 className={styles.stepTitle}>Tag it</h3>
+                        </div>
+                        <div className={styles.stepVisual}>
+                            <div className={styles.taskVisual}>
+                                <div className={styles.taskTitle}>Order 20 more sheets</div>
+                                <div className={styles.taskMeta}>
+                                    <div className={styles.metaLabel}>Owner</div>
+                                    <div className={styles.metaValue}>
+                                        <div className={styles.avatarXs} style={{ background: '#28C840' }}>D</div>
+                                        Dave
+                                    </div>
+                                </div>
+                                <div className={styles.taskMeta}>
+                                    <div className={styles.metaLabel}>Due</div>
+                                    <div className={styles.metaValue}>Tomorrow</div>
+                                </div>
+                                <div className={styles.taskMeta}>
+                                    <div className={styles.metaLabel}>Status</div>
+                                    <div className={styles.metaValue}>
+                                        <span className={styles.statusTodo}>To Do</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Step 3: Progress Tracked */}
+                    <motion.div
+                        className={styles.stepCard}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className={styles.stepHeader}>
+                            <div className={styles.stepNumber}>3</div>
+                            <h3 className={styles.stepTitle}>The job moves</h3>
+                        </div>
+                        <div className={styles.stepVisual}>
+                            <div className={styles.projectVisual}>
+                                <div className={styles.kanbanColumn}>
+                                    <div className={styles.colHeader}>Today</div>
+                                    <div className={styles.kCard} style={{ borderLeft: '3px solid #138EFF' }}>Order drywall</div>
+                                    <div className={styles.kCard} style={{ borderLeft: '3px solid #138EFF' }}>Prep floors</div>
+                                </div>
+                                <div className={styles.kanbanColumn}>
+                                    <div className={styles.colHeader}>Blocked</div>
+                                    <div className={styles.kCard} style={{ borderLeft: '3px solid #E53E3E' }}>Paint prep</div>
+                                </div>
+                                <div className={styles.kanbanColumn}>
+                                    <div className={styles.colHeader}>Done</div>
+                                    <div className={styles.kCard} style={{ borderLeft: '3px solid #18A87D', opacity: 0.6 }}>Rough plumbing</div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
 
                 </div>
+
+                {/* Outcome-Driven Construction Features */}
+                <div className={styles.outcomesSection}>
+                    <motion.div
+                        className={styles.outcomesHeader}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className={styles.outcomesTitle}>Built for punch lists, crews, and closeout.</h2>
+                    </motion.div>
+
+                    <div className={styles.outcomesGrid}>
+                        {/* Outcome 1: Punch Tracking */}
+                        <motion.div
+                            className={styles.outcomeCard}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className={styles.outcomeVisual}>
+                                <div className={styles.mockPhotoWrapper}>
+                                    <div className={styles.mockPhoto} style={{ background: '#e2e8f0' }}>
+                                        {/* Abstract representation of a field photo */}
+                                        <div className={styles.photoCrosshair} />
+                                    </div>
+                                    <div className={styles.mockTag}>Need paint touchup</div>
+                                </div>
+                            </div>
+                            <div className={styles.outcomeContent}>
+                                <h4>Visual Punch Lists</h4>
+                                <p>Snap a photo, tag the issue, and assign it before you even leave the room. No more transcribing notes later.</p>
+                            </div>
+                        </motion.div>
+
+                        {/* Outcome 2: Templates */}
+                        <motion.div
+                            className={styles.outcomeCard}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className={styles.outcomeVisual}>
+                                <div className={styles.mockList}>
+                                    <div className={styles.mockListHeader}>Daily Safety Checklist</div>
+                                    {[1, 2, 3].map(i => (
+                                        <div key={i} className={styles.mockListItem}>
+                                            <div className={styles.mockCheckbox} />
+                                            <div className={styles.mockLine} style={{ width: `${80 + (i * 5)}%` }} />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className={styles.outcomeContent}>
+                                <h4>Standardize with Templates</h4>
+                                <p>Load your standard checks instantly. Ensure consistency across crews without passing around crushed paper forms.</p>
+                            </div>
+                        </motion.div>
+
+                        {/* Outcome 3: Closeout */}
+                        <motion.div
+                            className={styles.outcomeCard}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className={styles.outcomeVisual}>
+                                <div className={styles.mockReport}>
+                                    <div className={styles.mockReportHeader}>
+                                        <div className={styles.mockLine} style={{ width: '40%', height: '8px', background: '#fff' }} />
+                                    </div>
+                                    <div className={styles.mockReportBody}>
+                                        <div className={styles.mockChart}>
+                                            <div className={styles.mockPie} />
+                                            <div className={styles.mockLegend}>
+                                                <div className={styles.mockLine} style={{ width: '100%', marginBottom: '4px' }} />
+                                                <div className={styles.mockLine} style={{ width: '80%' }} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.outcomeContent}>
+                                <h4>Clean Project Summary</h4>
+                                <p>Generate instant, professional PDF reports showing what was requested, who did it, and the photo proof.</p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+
+                {/* Optional Small CTA */}
+                <motion.div
+                    className={styles.centerCta}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                    viewport={{ once: true }}
+                >
+                    <a href="#" className={styles.smallCtaLink}>Start free <ArrowRight size={16} /></a>
+                </motion.div>
             </div>
         </section>
     );
