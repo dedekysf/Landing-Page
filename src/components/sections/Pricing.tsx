@@ -21,7 +21,7 @@ const Pricing: React.FC = () => {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                     >
-                        Pick the perfect plan <br />for your team
+                        Start free. Run one job.
                     </motion.h2>
                     <motion.p
                         className={styles.subtitle}
@@ -30,7 +30,7 @@ const Pricing: React.FC = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         viewport={{ once: true }}
                     >
-                        Try Tasktag for 30 days to start connected with all your teams. <br className={styles.desktopOnlyBr} />Cancel any time. No credit card required.
+                        Try Tasktag for <span className={styles.highlight}>30 days</span> to start connected with all your teams. <br className={styles.desktopOnlyBr} />Cancel any time. No credit card required.
                     </motion.p>
 
                     <motion.div
@@ -74,7 +74,6 @@ const Pricing: React.FC = () => {
                         <div className={styles.featuresList}>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 3 Projects</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 2 GB Storage</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited projects & tasks</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Add unlimited users to projects & tasks</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Team admin & member roles</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Centralized billing</div>
@@ -106,7 +105,6 @@ const Pricing: React.FC = () => {
                         <div className={styles.featuresList}>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited Projects</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> 2 TB Storage</div>
-                            <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Unlimited projects & tasks</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Add unlimited users to projects & tasks</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Team admin & member roles</div>
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Centralized billing</div>

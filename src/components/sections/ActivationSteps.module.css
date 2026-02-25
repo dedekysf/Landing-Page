@@ -1,6 +1,6 @@
 .section {
     position: relative;
-    padding: 8rem 1rem;
+    padding: 4rem 1rem 8rem;
     background: var(--white);
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
@@ -32,6 +32,10 @@
     margin: 0 auto 4rem;
 }
 
+.highlight {
+    color: var(--secondary-green);
+}
+
 .pillText {
     display: inline-block;
     color: var(--secondary-green);
@@ -59,6 +63,84 @@
     line-height: 1.8;
 }
 
+/* Pricing Toggle */
+.toggleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.switchLabel {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+.switchLabel.inactive {
+    color: var(--text-secondary);
+}
+
+.saveBadge {
+    display: inline-block;
+    color: var(--secondary-green);
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-left: 0.75rem;
+    background: rgba(24, 168, 125, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    vertical-align: middle;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 32px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--secondary-green);
+    transition: .3s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #CBD5E1;
+    /* Muted color for monthly if preferred, or keep green */
+}
+
+input:checked+.slider:before {
+    transform: translateX(28px);
+}
+
 /* Steps Grid */
 .stepsGrid {
     display: grid;
@@ -77,6 +159,8 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .iconWrapper {
@@ -92,17 +176,59 @@
 }
 
 .stepTitle {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--text-primary);
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     letter-spacing: 0.01em;
 }
 
+.price {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    line-height: 1;
+}
+
+.priceSubtext {
+    font-size: 0.875rem;
+    color: #828282;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
 .stepDesc {
-    font-size: 1rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
     line-height: 1.8;
+    font-weight: 400;
+}
+
+/* Modifier for Team Plan Card */
+.stepCardFilled {
+    background: var(--secondary-green);
+    border-color: var(--secondary-green);
+}
+
+.stepCardFilled .stepTitle,
+.stepCardFilled .price {
+    color: white;
+}
+
+.stepCardFilled .saveBadge {
+    color: var(--secondary-green);
+    background: white;
+}
+
+.stepCardFilled .priceSubtext,
+.stepCardFilled .stepDesc {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stepCardFilled .iconWrapper {
+    background: white;
+    border-color: white;
 }
 
 .stepNumber {
@@ -121,6 +247,66 @@
 .stepCard>*:not(.stepNumber) {
     position: relative;
     z-index: 1;
+}
+
+.cardFooter {
+    margin-top: 2rem;
+    display: flex;
+}
+
+.cardBtnOutline {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--secondary-green);
+    background: transparent;
+    color: var(--secondary-green);
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cardBtnOutline:hover {
+    background: rgba(24, 168, 125, 0.05);
+}
+
+.cardBtnFilled {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--secondary-green);
+    background: var(--secondary-green);
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cardBtnFilled:hover {
+    background: #129668;
+    border-color: #129668;
+}
+
+.cardBtnInverted {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid white;
+    background: white;
+    color: var(--secondary-green);
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cardBtnInverted:hover {
+    background: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 768px) {

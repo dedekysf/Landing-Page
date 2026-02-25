@@ -27,6 +27,10 @@
     text-transform: capitalize;
 }
 
+.highlight {
+    color: var(--secondary-green);
+}
+
 .highlightOrange {
     background: #FFF1DB;
     padding: 0.1rem 0.5rem;

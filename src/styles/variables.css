@@ -3,10 +3,16 @@
   --brand-green: #00D9A5;
   --secondary-green: #18A87D;
   --dark-green: #035B60;
+  --secondary-green-hover: #148e69;
+  --secondary-green-active: #0d7052;
+  --secondary-green-border: #129668;
+  --secondary-green-shadow: #0d7a5f;
 
   /* Text Colors */
   --text-primary: #0A1629;
   --text-secondary: #303742;
+  --text-tertiary: #4A5568;
+  --text-quaternary: #718096;
 
   /* Neutrals */
   --white: #FFFFFF;
@@ -17,6 +23,13 @@
   --grey-05: #828282;
   --grey-06: #303742;
   --grey-07: #303742;
+  --grey-08: #F4F5F7;
+  --grey-09: #D1D5DB;
+  --grey-10: #EDF2F7;
+  --grey-11: #A0AEC0;
+  --grey-12: #CBD5E1;
+  --grey-13: #FDFDFD;
+  --dark-grey: #222222;
   --black: #000000;
   --overlay: rgba(0, 0, 0, 0.50);
 
@@ -26,6 +39,8 @@
   --light-magenta: #C072CD;
   --dark-magenta: #A620B2;
   --orange: #FC7F5B;
+  --orange-2: #f6ad55;
+  --light-orange: #fff1db;
   --vivid-yellow: #FBBD42;
   --alert-red: #FF4444;
 
@@ -43,6 +58,7 @@
   --light-lavender: #F6EAF8;
   --light-lavender-blue: #E8E7FF;
   --light-mint: #DCF2EC;
+  --light-mint-2: #e6fffa;
   --light-sky: #DCEEFF;
   --light-pink: #FFDADA;
   --light-cream: #FDF4E0;

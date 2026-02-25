@@ -48,13 +48,13 @@ const Navbar: React.FC = () => {
 
                     <div className={styles.desktopActions}>
                         <a href="#" className={styles.loginLink}>Log In</a>
-                        <a href="#" className={styles.navbarBtn}>Get Started</a>
+                        <a href="#" className={styles.navbarBtn}>Start For Free</a>
                     </div>
 
                     {/* Mobile Header Actions */}
                     <div className={styles.mobileHeaderActions}>
                         {!mobileMenuOpen && (
-                            <a href="#" className={styles.navbarBtn}>Get Started</a>
+                            <a href="#" className={styles.navbarBtn}>Start For Free</a>
                         )}
                         {/* Mobile Toggle */}
                         <button
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
                         <hr className={styles.divider} />
                         <div className={styles.mobileCta}>
                             <Button variant="outline" fullWidth onClick={() => setMobileMenuOpen(false)}>Log In</Button>
-                            <Button fullWidth onClick={() => setMobileMenuOpen(false)}>Get Started</Button>
+                            <Button fullWidth onClick={() => setMobileMenuOpen(false)}>Start For Free</Button>
                         </div>
                     </div>
                 </div>

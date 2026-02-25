@@ -1,0 +1,229 @@
+.section {
+    padding: 8rem 1rem;
+    background-color: var(--white);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    max-width: 720px;
+    margin-bottom: 4rem;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #18A87D;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    text-transform: capitalize;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 720px;
+    line-height: 1.5;
+    margin: 0 auto;
+}
+
+.bentoGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+    /* Reduced from 350px */
+    gap: 16px;
+    width: 100%;
+}
+
+/* Base Card Style */
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Specific Card Layouts */
+.logoCard {
+    background: #303742;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    grid-column: span 1;
+}
+
+.logoImage {
+    max-width: 160px;
+    max-height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.logoCaption {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    font-weight: 600;
+}
+
+.imageCard {
+    background: #222;
+    grid-column: span 1;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.statCard {
+    grid-column: span 2;
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.statBlue {
+    background: #18A87D;
+    color: #fff;
+}
+
+.statGreen {
+    background: #E6B566;
+    color: #fff;
+}
+
+.statLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.statValue {
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+}
+
+.statDescBold {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    max-width: 90%;
+}
+
+.statDescLight {
+    font-size: 0.75rem;
+    font-weight: 300;
+    opacity: 0.8;
+    line-height: 1.4;
+    max-width: 90%;
+}
+
+/* For the green card to look right */
+.statGreen .statDescLight {
+    opacity: 0.8;
+}
+
+.getStartedLink {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.getStartedLink:hover {
+    opacity: 1;
+}
+
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .bentoGrid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 350px;
+    }
+
+    .statCard {
+        grid-column: span 2;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 5rem 1rem;
+    }
+
+    .bentoGrid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    .statCard,
+    .logoCard,
+    .imageCard {
+        grid-column: span 1;
+        min-height: 320px;
+    }
+
+    .statCard {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .statValue {
+        font-size: 4rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}

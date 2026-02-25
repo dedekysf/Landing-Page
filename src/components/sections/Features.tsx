@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Search, Activity, ArrowRight, Folder } from 'lucide-react';
+import { MessageSquare, Search, Activity, ArrowRight, Hash, UserPlus2, Image } from 'lucide-react';
 import featureChat from '../../assets/feature-project-chat-2.png';
 import featureSearch from '../../assets/feature-global-search.png';
 import featureTags from '../../assets/feature-project-checklist.png';
@@ -12,20 +12,9 @@ const Features: React.FC = () => {
 
     const features = [
         {
-            icon: <Folder size={48} color="#C072CD" strokeWidth={1.5} />,
-            title: "Project Template",
-            desc: "Users can start projects instantly from pre-configured templates.",
-            color: '#C072CD',
-            bg: 'rgba(192,114,205,0.07)',
-            borderColor: 'rgba(192,114,205,0.25)',
-            blobA: '#18A87D',
-            blobB: '#B8E6E9',
-            image: featureTags,
-        },
-        {
-            icon: <MessageSquare size={48} color="#FC7F5B" strokeWidth={1.5} />,
-            title: "Chat based Project Management",
-            desc: "Our shared team chat keeps everyone on the same page and in the know.",
+            icon: <MessageSquare size={24} color="#FC7F5B" strokeWidth={1.5} />,
+            title: "Keep jobs in one thread",
+            desc: "Every decision, site note, and change approval lives in the job thread so nothing gets lost in personal texts or turns into paid rework later.",
             color: '#FC7F5B',
             bg: 'rgba(252,127,91,0.07)',
             borderColor: 'rgba(252,127,91,0.25)',
@@ -34,9 +23,42 @@ const Features: React.FC = () => {
             image: featureChat,
         },
         {
-            icon: <Activity size={48} color="var(--vivid-yellow)" strokeWidth={1.5} />,
-            title: "Track Progress Real-Time",
-            desc: "Measure what matters with project’s tags. You can filter, export, and drill down on the data in a couple clicks.",
+            icon: <Hash size={24} color="#18A87D" strokeWidth={1.5} />,
+            title: "Tag messages into tasks",
+            desc: "When a decision lands in chat, you turn that exact message into a task no retyping, no switching apps so the context never disappears.",
+            color: '#18A87D',
+            bg: 'rgba(24,168,125,0.07)',
+            borderColor: 'rgba(24,168,125,0.25)',
+            blobA: '#18A87D',
+            blobB: '#B8E6E9',
+            image: featureTags,
+        },
+        {
+            icon: <UserPlus2 size={24} color="#C072CD" strokeWidth={1.5} />,
+            title: "Assign owners with deadlines",
+            desc: "You set the owner and due date under the original message on the task created from it so responsibility is clear the moment the decision is made.",
+            color: '#C072CD',
+            bg: 'rgba(192,114,205,0.07)',
+            borderColor: 'rgba(192,114,205,0.25)',
+            blobA: '#18A87D',
+            blobB: '#B8E6E9',
+            image: featureMyTasks,
+        },
+        {
+            icon: <Image size={24} color="#035B60" strokeWidth={1.5} />,
+            title: "Attach proof to close",
+            desc: "When work is done, photos and files attach to the task so approvals and billing don’t get stuck on “send proof.”",
+            color: '#035B60',
+            bg: 'rgba(3,91,96,0.07)',
+            borderColor: 'rgba(3,91,96,0.25)',
+            blobA: '#00D9A5',
+            blobB: '#18A87D',
+            image: featureTags,
+        },
+        {
+            icon: <Activity size={24} color="var(--vivid-yellow)" strokeWidth={1.5} />,
+            title: "Watch activity across jobs",
+            desc: "You get one feed of what changed across every job new proof uploaded, tasks completed, overdue items so you don’t have to open ten threads to know what’s ready to bill and what’s at risk.",
             color: 'var(--vivid-yellow)',
             bg: 'rgba(251,189,66,0.08)',
             borderColor: 'rgba(251,189,66,0.35)',
@@ -45,9 +67,9 @@ const Features: React.FC = () => {
             image: featureMyTasks,
         },
         {
-            icon: <Search size={48} color="#7B61FF" strokeWidth={1.5} />,
-            title: "Powerful Project Search",
-            desc: "A tool that helps you keep your project on track by letting you keep track of everything in one place.",
+            icon: <Search size={24} color="#7B61FF" strokeWidth={1.5} />,
+            title: "Search everything in seconds",
+            desc: "When you need an answer fast, you search once across projects, tasks, contacts, and files so you find the right thread, the right task, and the right proof before a delay turns into a dispute.",
             color: '#7B61FF',
             bg: 'rgba(123,97,255,0.07)',
             borderColor: 'rgba(123,97,255,0.25)',
@@ -157,10 +179,9 @@ const Features: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <div className={styles.pillText}>Feature Highlights</div>
-                    <h2 className={styles.title}>Built for real <br />construction work</h2>
+                    <h2 className={styles.title}>From job chat to closeout without the chaos</h2>
                     <p className={styles.subtitle}>
-                        We keeps conversations, proof, and responsibilities organized so mistakes don’t multiply.
+                        Every decision becomes a task with proof tracked in one activity feed <br />and searchable across every job.
                     </p>
                 </motion.div>
 
@@ -175,7 +196,8 @@ const Features: React.FC = () => {
                                 className={styles.featureItem}
                                 style={activeTab === i ? {
                                     borderBottom: `2px solid ${feat.borderColor}`,
-                                } : { borderBottom: '2px solid var(--grey-02)' }}
+                                    alignItems: 'flex-start'
+                                } : { borderBottom: '2px solid var(--grey-02)', alignItems: 'center' }}
                                 onClick={() => setActiveTab(i)}
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -184,22 +206,26 @@ const Features: React.FC = () => {
                             >
                                 <div className={styles.featIcon}>{feat.icon}</div>
                                 <div className={styles.featBody}>
-                                    <h4>{feat.title}</h4>
-                                    <p>{feat.desc}</p>
+                                    <h4>
+                                        <span style={{ fontWeight: 500 }}>{feat.title.split(' ')[0]}</span>
+                                        <span style={{ fontWeight: 400 }}> {feat.title.split(' ').slice(1).join(' ')}</span>
+                                    </h4>
                                     <AnimatePresence>
                                         {activeTab === i && (
                                             <motion.div
                                                 initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                                                animate={{ opacity: 1, height: 'auto', marginTop: '0.75rem' }}
+                                                animate={{ opacity: 1, height: 'auto', marginTop: '0.5rem' }}
                                                 exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                                                className={styles.learnMore}
                                             >
-                                                <span style={{ color: feat.color, fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                                    Learn more <ArrowRight size={16} strokeWidth={2} />
-                                                </span>
-                                                {/* Mobile Inline Image (Animated Wrapper) */}
-                                                <div className={styles.mobileFeatureWrapper}>
-                                                    {renderFeatureImage(true)}
+                                                <p style={{ marginBottom: '0.75rem' }}>{feat.desc}</p>
+                                                <div className={styles.learnMore}>
+                                                    <span style={{ color: feat.color, fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                        Get Started <ArrowRight size={16} strokeWidth={2} />
+                                                    </span>
+                                                    {/* Mobile Inline Image (Animated Wrapper) */}
+                                                    <div className={styles.mobileFeatureWrapper}>
+                                                        {renderFeatureImage(true)}
+                                                    </div>
                                                 </div>
                                             </motion.div>
                                         )}

@@ -1,0 +1,241 @@
+.section {
+    position: relative;
+    padding: 8rem 1rem 0;
+    /* Add bottom padding if needed, but illustration sits at bottom */
+    background: var(--white);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    overflow: hidden;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.header {
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    text-transform: capitalize;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 720px;
+    line-height: 1.5;
+    margin: 0 auto;
+}
+
+.bentoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.templateCard {
+    background: #ffffff;
+    border: 1px solid var(--grey-03);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.templateCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+}
+
+.watermark {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 8rem;
+    font-weight: 800;
+    color: rgba(24, 168, 125, 0.05);
+    z-index: 0;
+    pointer-events: none;
+    line-height: 1;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.iconWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blueBg {
+    background: rgba(19, 142, 255, 0.1);
+    color: #138EFF;
+}
+
+.greenBg {
+    background: rgba(24, 168, 125, 0.1);
+    color: #18A87D;
+}
+
+.cardTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.checklistItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.checklistItem.moreItem {
+    color: var(--grey-06);
+}
+
+.cardActionWrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cardAction {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #18A87D;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cardAction:hover {
+    color: #0d7052;
+}
+
+/* View More Template Card */
+.viewMoreCard {
+    background: var(--secondary-green);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    border: none;
+}
+
+.viewMoreCard .iconWrapper {
+    width: 56px;
+    height: 56px;
+    background: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: #18A87D;
+    border: 1px solid var(--grey-03);
+}
+
+.viewMoreCard h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.viewMoreCard p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.viewMoreBtn {
+    background: white;
+    color: var(--secondary-green);
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.viewMoreBtn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Illustration at bottom */
+.illustrationWrapper {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    position: relative;
+    /* Negative bottom margin to sit flat on footer or cut off cleanly */
+    margin-bottom: -5px;
+}
+
+.illustration {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 992px) {
+    .bentoGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .bentoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding-top: 5rem;
+    }
+}
