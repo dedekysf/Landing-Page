@@ -31,7 +31,7 @@ const Templates: React.FC = () => {
                 >
                     <h2 className={styles.title}>Kickstart Next Job with TaskTag Templates</h2>
                     <p className={styles.subtitle}>
-                        No setup from scratch. Pick a template, invite your crew, and start turning jobsite.
+                        No setup from scratch. Pick a template, invite your crew, <br className={styles.mobileBreak} />and start turning jobsite
                     </p>
                 </motion.div>
 
@@ -64,7 +64,7 @@ const Templates: React.FC = () => {
                         </ul>
 
                         <div className={styles.cardActionWrapper}>
-                            <a href="#" className={styles.cardAction}>View More <ArrowRight size={16} /></a>
+                            <a href="https://app.tasktag.com/register/signup-with-email" className={styles.cardAction} target="_blank" rel="noopener noreferrer">View More <ArrowRight size={16} /></a>
                         </div>
                     </motion.div>
 
@@ -94,7 +94,7 @@ const Templates: React.FC = () => {
                         </ul>
 
                         <div className={styles.cardActionWrapper}>
-                            <a href="#" className={styles.cardAction}>View More <ArrowRight size={16} /></a>
+                            <a href="https://app.tasktag.com/register/signup-with-email" className={styles.cardAction} target="_blank" rel="noopener noreferrer">View More <ArrowRight size={16} /></a>
                         </div>
                     </motion.div>
 
@@ -111,7 +111,7 @@ const Templates: React.FC = () => {
                         </div>
                         <h3>View More Template</h3>
                         <p>Discover more ready-to-use workflows to streamline your next project.</p>
-                        <a href="#" className={styles.viewMoreBtn}>Start For Free</a>
+                        <a href="https://app.tasktag.com/register/signup-with-email" className={styles.viewMoreBtn} target="_blank" rel="noopener noreferrer">Start For Free</a>
                     </motion.div>
 
                 </div>

@@ -4,7 +4,8 @@ import Button from '../common/Button';
 import {
     CircleCheckBig, User, Search,
     ChevronLeft, FolderOpen, Hash, Mic, Smile, Plus, CheckCircle2,
-    MessageSquare, ClipboardCheck
+    MessageSquare, ClipboardCheck,
+    Hammer
 } from 'lucide-react';
 
 import styles from './Hero.module.css';
@@ -78,7 +79,7 @@ const Hero: React.FC = () => {
                         {/* LEFT: Copy */}
                         <div className={styles.content}>
                             <h1 className={styles.headline}>
-                                Manage Your Projects Through <span className={styles.highlight}>Chat</span>
+                                Manage Your Projects <br />Through <span className={styles.highlight}>Chat</span>
                             </h1>
                             <p className={styles.subheadline}>
                                 Turn jobsite chat into accountable work with proof ready when it's time to bill. Built by builders, for builders.
@@ -97,11 +98,27 @@ const Hero: React.FC = () => {
                                     <span className={styles.heroFeatureText}>Get paid without disputes</span>
                                 </div>
                             </div>
-                            <div className={styles.actions} style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '8px' }}>
-                                <div style={{ display: 'inline-block', paddingBottom: '6px', height: '80px' }}>
-                                    <Button size="lg" className={styles.primaryBtn}>
+                            <div className={styles.actions}>
+                                <div className={styles.btnWrapper}>
+                                    <a
+                                        href="https://app.tasktag.com/register/signup-with-email"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.primaryBtn}
+                                        style={{
+                                            display: 'inline-block',
+                                            padding: 'var(--spacing-md) var(--spacing-xxl)',
+                                            backgroundColor: 'var(--secondary-green)',
+                                            color: 'var(--white)',
+                                            fontWeight: 'var(--font-weight-bold)',
+                                            borderRadius: 'var(--radius-lg)',
+                                            textDecoration: 'none',
+                                            boxShadow: '0 4px 14px rgba(24, 168, 125, 0.25)',
+                                            transition: 'var(--transition-normal)'
+                                        }}
+                                    >
                                         Start Your First Project
-                                    </Button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +209,7 @@ const Hero: React.FC = () => {
                                                 <span>Stop 1 – 11 N Raintree Hollow Court</span>
                                             </div>
                                             <div className={styles.phTaskFooter}>
-                                                <span>Due: Nov 16</span>
+                                                <span>Due: Feb 12</span>
                                                 <div className={styles.phAvatarGroup}>
                                                     <div className={styles.phSmAvatar}><User size={8} /></div>
                                                     {/* <div className={styles.phSmAvatar}><User size={8} /></div> */}
@@ -215,7 +232,7 @@ const Hero: React.FC = () => {
                             {/* 3D Icons beside phone */}
                             <div className={styles.icon3dLeft}>
                                 <div className={styles.icon3dBox}>
-                                    <MessageSquare size={22} />
+                                    <Hammer size={22} />
                                 </div>
                             </div>
                             <div className={styles.icon3dRight}>
@@ -234,8 +251,8 @@ const Hero: React.FC = () => {
             <section className={styles.trustedBySection}>
                 <div className={`container ${styles.container}`}>
                     <div className={styles.trustedBy}>
-                        <h2>Trusted by Builders on Real Jobsites.</h2>
-                        <p>Join <span className={styles.highlight}>50+ companies</span> using TaskTag to keep crews aligned and jobs moving.</p>
+                        <h2>Trusted by Builders on Real Jobsites</h2>
+                        <p>Join <span className={styles.highlight}>50+ companies</span> using TaskTag <br className={styles.trustedBreak} /> to keep crews aligned and jobs moving</p>
                         <div className={styles.marqueeWrapper}>
                             <div className={styles.marqueeTrack}>
                                 {[...logos, ...logos, ...logos].map((src, i) => (

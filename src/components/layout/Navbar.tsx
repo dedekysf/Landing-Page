@@ -4,17 +4,7 @@ import logoUrl from '../../assets/Logo-TaskTag.svg';
 import styles from './Navbar.module.css';
 
 const Navbar: React.FC = () => {
-    const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     // Lock body scroll when mobile menu is open
     useEffect(() => {
@@ -29,8 +19,8 @@ const Navbar: React.FC = () => {
     }, [mobileMenuOpen]);
 
     return (
-        <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-            <div className={`${styles.inner} ${scrolled ? styles.innerScrolled : ''}`}>
+        <nav className={styles.navbar}>
+            <div className={styles.inner}>
                 <div className={`container ${styles.container}`}>
                     <div className={styles.logo}>
                         <a href="#">
@@ -41,20 +31,20 @@ const Navbar: React.FC = () => {
                     {/* Desktop Navigation */}
                     <div className={styles.desktopNav}>
                         <a href="#features" className={styles.navLink}>Features</a>
-                        <a href="#pricing" className={styles.navLink}>Pricing</a>
-                        <a href="#blog" className={styles.navLink}>Blog</a>
-                        <a href="#resources" className={styles.navLink}>Resources</a>
+                        <a href="#activation" className={styles.navLink}>Pricing</a>
+                        <a href="https://portal.tasktag.com/blog" className={styles.navLink} target="_blank" rel="noopener noreferrer">Blog</a>
+                        <a href="https://portal.tasktag.com/product" className={styles.navLink} target="_blank" rel="noopener noreferrer">Resources</a>
                     </div>
 
                     <div className={styles.desktopActions}>
-                        <a href="#" className={styles.loginLink}>Log In</a>
-                        <a href="#" className={styles.navbarBtn}>Start For Free</a>
+                        <a href="https://app.tasktag.com/login" className={styles.loginLink} target="_blank" rel="noopener noreferrer">Log In</a>
+                        <a href="https://app.tasktag.com/register/signup-with-email" className={styles.navbarBtn} target="_blank" rel="noopener noreferrer">Start For Free</a>
                     </div>
 
                     {/* Mobile Header Actions */}
                     <div className={styles.mobileHeaderActions}>
                         {!mobileMenuOpen && (
-                            <a href="#" className={styles.navbarBtn}>Start For Free</a>
+                            <a href="https://app.tasktag.com/register/signup-with-email" className={styles.navbarBtn} target="_blank" rel="noopener noreferrer">Start For Free</a>
                         )}
                         {/* Mobile Toggle */}
                         <button
@@ -78,12 +68,12 @@ const Navbar: React.FC = () => {
                     {/* Mobile Menu */}
                     <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.open : ''}`}>
                         <a href="#features" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Features</a>
-                        <a href="#pricing" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Pricing</a>
-                        <a href="#resources" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Resources</a>
+                        <a href="#activation" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Pricing</a>
+                        <a href="https://portal.tasktag.com/product" className={styles.mobileNavLink} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Resources</a>
                         <hr className={styles.divider} />
                         <div className={styles.mobileCta}>
-                            <Button variant="outline" fullWidth onClick={() => setMobileMenuOpen(false)}>Log In</Button>
-                            <Button fullWidth onClick={() => setMobileMenuOpen(false)}>Start For Free</Button>
+                            <Button variant="outline" fullWidth onClick={() => { setMobileMenuOpen(false); window.open('https://app.tasktag.com/login', '_blank'); }}>Log In</Button>
+                            <Button fullWidth onClick={() => { setMobileMenuOpen(false); window.open('https://app.tasktag.com/register/signup-with-email', '_blank'); }}>Start For Free</Button>
                         </div>
                     </div>
                 </div>

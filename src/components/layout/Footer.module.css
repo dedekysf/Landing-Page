@@ -213,6 +213,8 @@
     .bottom {
         justify-content: center;
         text-align: center;
+        flex-direction: column;
+        gap: 1.5rem;
     }
 }
 

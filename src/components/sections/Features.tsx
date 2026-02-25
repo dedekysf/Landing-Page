@@ -1,10 +1,13 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, Search, Activity, ArrowRight, Hash, UserPlus2, Image } from 'lucide-react';
-import featureChat from '../../assets/feature-project-chat-2.png';
-import featureSearch from '../../assets/feature-global-search.png';
-import featureTags from '../../assets/feature-project-checklist.png';
-import featureMyTasks from '../../assets/feature-activity.png';
+import featureOne from '../../assets/feature-1.png';
+import featureTwo from '../../assets/feature-2.png';
+import featureThree from '../../assets/feature-3.png';
+import featureFour from '../../assets/feature-4.png';
+import featureFive from '../../assets/feature-5.png';
+import featureSix from '../../assets/feature-6.png';
+
 import styles from './Features.module.css';
 
 const Features: React.FC = () => {
@@ -13,69 +16,69 @@ const Features: React.FC = () => {
     const features = [
         {
             icon: <MessageSquare size={24} color="#FC7F5B" strokeWidth={1.5} />,
-            title: "Keep jobs in one thread",
-            desc: "Every decision, site note, and change approval lives in the job thread so nothing gets lost in personal texts or turns into paid rework later.",
+            title: "Stop rework before it starts",
+            desc: "RFIs, site notes, and change approvals live in the project chat—so nothing gets buried in personal texts and comes back as paid rework.",
             color: '#FC7F5B',
             bg: 'rgba(252,127,91,0.07)',
             borderColor: 'rgba(252,127,91,0.25)',
             blobA: '#FC7F5B',
             blobB: '#FFD7C4',
-            image: featureChat,
+            image: featureOne,
         },
         {
             icon: <Hash size={24} color="#18A87D" strokeWidth={1.5} />,
-            title: "Tag messages into tasks",
-            desc: "When a decision lands in chat, you turn that exact message into a task no retyping, no switching apps so the context never disappears.",
+            title: "Create clear ownership fast",
+            desc: "Tag the exact message to create a project task, then set the owner and due date—no retyping, no second app—so accountability is tied to the original decision.",
             color: '#18A87D',
             bg: 'rgba(24,168,125,0.07)',
             borderColor: 'rgba(24,168,125,0.25)',
             blobA: '#18A87D',
             blobB: '#B8E6E9',
-            image: featureTags,
+            image: featureTwo,
         },
         {
             icon: <UserPlus2 size={24} color="#C072CD" strokeWidth={1.5} />,
-            title: "Assign owners with deadlines",
-            desc: "You set the owner and due date under the original message on the task created from it so responsibility is clear the moment the decision is made.",
+            title: "Invoice with backup, not guesswork",
+            desc: "Attach photos, PDFs, and specs to the task or project as you go—so closeout and change-order backup are ready when it’s time to bill.",
             color: '#C072CD',
             bg: 'rgba(192,114,205,0.07)',
             borderColor: 'rgba(192,114,205,0.25)',
             blobA: '#18A87D',
             blobB: '#B8E6E9',
-            image: featureMyTasks,
+            image: featureThree,
         },
         {
             icon: <Image size={24} color="#035B60" strokeWidth={1.5} />,
-            title: "Attach proof to close",
-            desc: "When work is done, photos and files attach to the task so approvals and billing don’t get stuck on “send proof.”",
+            title: "Know who was on site and when",
+            desc: "Drop a pin and check in/out in the same thread—so you’ve got a clean timeline of who was on site and when.",
             color: '#035B60',
             bg: 'rgba(3,91,96,0.07)',
             borderColor: 'rgba(3,91,96,0.25)',
             blobA: '#00D9A5',
             blobB: '#18A87D',
-            image: featureTags,
+            image: featureFour,
         },
         {
             icon: <Activity size={24} color="var(--vivid-yellow)" strokeWidth={1.5} />,
-            title: "Watch activity across jobs",
-            desc: "You get one feed of what changed across every job new proof uploaded, tasks completed, overdue items so you don’t have to open ten threads to know what’s ready to bill and what’s at risk.",
+            title: "Stay ahead of slips across all jobs",
+            desc: "Use one global feed to see completions, late items, and missing proof—so you know what’s ready to invoice and what’s about to slip.",
             color: 'var(--vivid-yellow)',
             bg: 'rgba(251,189,66,0.08)',
             borderColor: 'rgba(251,189,66,0.35)',
             blobA: '#035B60',
             blobB: '#18A87D',
-            image: featureMyTasks,
+            image: featureFive,
         },
         {
             icon: <Search size={24} color="#7B61FF" strokeWidth={1.5} />,
-            title: "Search everything in seconds",
-            desc: "When you need an answer fast, you search once across projects, tasks, contacts, and files so you find the right thread, the right task, and the right proof before a delay turns into a dispute.",
+            title: "Win disputes in minutes, not days",
+            desc: "Search across projects, tasks, contacts, and files—so you can pull approvals and receipts before a question turns into a dispute or withheld payment.",
             color: '#7B61FF',
             bg: 'rgba(123,97,255,0.07)',
             borderColor: 'rgba(123,97,255,0.25)',
             blobA: '#00D9A5',
             blobB: '#18A87D',
-            image: featureSearch,
+            image: featureSix,
         }
     ];
 
@@ -179,9 +182,9 @@ const Features: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>From job chat to closeout without the chaos</h2>
+                    <h2 className={styles.title}>Job Chat to Closeout Without <br />Rework or Runaround</h2>
                     <p className={styles.subtitle}>
-                        Every decision becomes a task with proof tracked in one activity feed <br />and searchable across every job.
+                        Turn decisions into billable progress
                     </p>
                 </motion.div>
 
@@ -207,7 +210,7 @@ const Features: React.FC = () => {
                                 <div className={styles.featIcon}>{feat.icon}</div>
                                 <div className={styles.featBody}>
                                     <h4>
-                                        <span style={{ fontWeight: 500 }}>{feat.title.split(' ')[0]}</span>
+                                        <span style={{ fontWeight: 400 }}>{feat.title.split(' ')[0]}</span>
                                         <span style={{ fontWeight: 400 }}> {feat.title.split(' ').slice(1).join(' ')}</span>
                                     </h4>
                                     <AnimatePresence>

@@ -162,7 +162,7 @@
 
 .chatName {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.825rem;
     font-weight: 600;
     margin-bottom: 4px;
     color: var(--text-secondary);
@@ -242,7 +242,7 @@
 .noteContext {
     display: block;
     margin-top: 6px;
-    font-size: 0.75rem;
+    font-size: 0.825rem;
     color: #b45309;
     font-style: italic;
 }

@@ -1,6 +1,6 @@
 .section {
     position: relative;
-    padding: 4rem 1rem 8rem;
+    padding: 8rem 1rem;
     background: var(--white);
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
@@ -47,13 +47,12 @@
 }
 
 .title {
-    font-size: 3.5rem;
+    font-size: 2.85rem;
     font-weight: 700;
     line-height: 1.4;
     margin-bottom: 1rem;
     color: var(--text-primary);
     letter-spacing: -0.01em;
-    text-transform: capitalize;
 }
 
 .subtitle {
@@ -199,7 +198,7 @@ input:checked+.slider:before {
 }
 
 .stepDesc {
-    font-size: 0.75rem;
+    font-size: 0.825rem;
     color: var(--text-secondary);
     line-height: 1.8;
     font-weight: 400;
@@ -309,9 +308,31 @@ input:checked+.slider:before {
     background: rgba(255, 255, 255, 0.9);
 }
 
+@media (max-width: 1024px) {
+    .section {
+        padding: 6rem 1rem;
+    }
+
+    .header {
+        margin: 0 auto 3rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .section {
-        padding: 8rem 1rem 1rem;
+        padding: 5rem 1rem;
+    }
+
+    .header {
+        margin: 0 auto 2.5rem;
     }
 
     .bgDecoration {
@@ -319,9 +340,37 @@ input:checked+.slider:before {
     }
 
     .title {
+        font-size: 2.25rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .stepsGrid {
+        display: flex;
+        flex-direction: column-reverse;
+        /* Reverses order so Team Plan comes first */
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 4rem 1rem;
+    }
+
+    .header {
+        margin: 0 auto 2rem;
+    }
+
+    .title {
         font-size: 2rem;
     }
 
+    .subtitle {
+        font-size: 0.875rem;
+    }
 }
 
 /* Reusing Hero Button styles for consistent CTA */

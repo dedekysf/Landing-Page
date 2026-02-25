@@ -80,7 +80,7 @@ const Pricing: React.FC = () => {
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Global activity log for full visibility</div>
                         </div>
 
-                        <a href="#" className={styles.cardBtn}>Get Started</a>
+                        <a href="https://app.tasktag.com/register/signup-with-email" className={styles.cardBtn} target="_blank" rel="noopener noreferrer">Get Started</a>
                     </motion.div>
 
                     {/* Teams Plan (Popular) */}
@@ -111,7 +111,7 @@ const Pricing: React.FC = () => {
                             <div className={styles.featureItem}><Check size={20} className={styles.featureIcon} strokeWidth={2.5} /> Global activity log for full visibility</div>
                         </div>
 
-                        <a href="#" className={styles.cardBtn}>Get Started</a>
+                        <a href="https://app.tasktag.com/register/signup-with-email" className={styles.cardBtn} target="_blank" rel="noopener noreferrer">Get Started</a>
                     </motion.div>
                 </div>
             </div>

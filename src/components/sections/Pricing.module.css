@@ -63,7 +63,7 @@
 
 .saveBadge {
     color: var(--secondary-green);
-    font-size: 0.75rem;
+    font-size: 0.825rem;
     font-weight: 700;
     margin-left: 6px;
 }
@@ -180,7 +180,7 @@ input:checked+.slider:before {
     color: #fff;
     padding: 6px 16px;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.825rem;
     font-weight: 800;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -261,7 +261,7 @@ input:checked+.slider:before {
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-size: 0.75rem;
+    font-size: 0.825rem;
     font-weight: 300;
 }
 

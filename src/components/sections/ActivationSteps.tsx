@@ -53,7 +53,7 @@ const ActivationSteps: React.FC = () => {
                 >
                     <h2 className={styles.title}>Start Free Run One Job</h2>
                     <p className={styles.subtitle}>
-                        Try TaskTag Pro free for <span className={styles.highlight}>30 days</span> with all features unlocked. <br className={styles.desktopOnlyBr} />Cancel any time. No credit card required to start.
+                        Try TaskTag Pro free for <span className={styles.highlight}>30 days</span> with all features unlocked <br className={styles.desktopOnlyBr} />Cancel any time, No credit card required to start
                     </p>
 
                     <motion.div
@@ -110,13 +110,18 @@ const ActivationSteps: React.FC = () => {
                             </div>
                             <p className={styles.stepDesc} style={{ flexGrow: 1 }}>{step.desc}</p>
                             <div className={styles.cardFooter}>
-                                <button className={
-                                    step.btnType === 'outline' ? styles.cardBtnOutline :
-                                        step.btnType === 'inverted' ? styles.cardBtnInverted :
-                                            styles.cardBtnFilled
-                                }>
+                                <a
+                                    href="https://app.tasktag.com/register/signup-with-email"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={
+                                        step.btnType === 'outline' ? styles.cardBtnOutline :
+                                            step.btnType === 'inverted' ? styles.cardBtnInverted :
+                                                styles.cardBtnFilled
+                                    }
+                                >
                                     GET STARTED
-                                </button>
+                                </a>
                             </div>
                         </motion.div>
                     ))}
