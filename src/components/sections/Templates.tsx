@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckSquare, ArrowRight, LayoutTemplate } from 'lucide-react';
+import { CheckSquare, LayoutTemplate } from 'lucide-react';
 import styles from './Templates.module.css';
 
 const Templates: React.FC = () => {

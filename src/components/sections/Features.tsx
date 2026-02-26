@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Search, Activity, ArrowRight, Hash, UserPlus2, Image } from 'lucide-react';
+import { MessageSquare, Search, Activity, Hash, UserPlus2, Image } from 'lucide-react';
 import featureOne from '../../assets/feature-1.png';
 import featureTwo from '../../assets/feature-2.png';
 import featureThree from '../../assets/feature-3.png';
