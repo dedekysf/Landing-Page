@@ -63,9 +63,9 @@ const Templates: React.FC = () => {
                             </li>
                         </ul>
 
-                        <div className={styles.cardActionWrapper}>
+                        {/* <div className={styles.cardActionWrapper}>
                             <a href="https://app.tasktag.com/register/signup-with-email" className={styles.cardAction} target="_blank" rel="noopener noreferrer">View More <ArrowRight size={16} /></a>
-                        </div>
+                        </div> */}
                     </motion.div>
 
                     {/* Card 2: Foundation */}
@@ -93,9 +93,9 @@ const Templates: React.FC = () => {
                             </li>
                         </ul>
 
-                        <div className={styles.cardActionWrapper}>
+                        {/* <div className={styles.cardActionWrapper}>
                             <a href="https://app.tasktag.com/register/signup-with-email" className={styles.cardAction} target="_blank" rel="noopener noreferrer">View More <ArrowRight size={16} /></a>
-                        </div>
+                        </div> */}
                     </motion.div>
 
                     {/* Card 3: View More */}
@@ -107,7 +107,7 @@ const Templates: React.FC = () => {
                         viewport={{ once: true }}
                     >
                         <div className={styles.iconWrapper}>
-                            <LayoutTemplate size={32} />
+                            <LayoutTemplate size={44} />
                         </div>
                         <h3>View More Template</h3>
                         <p>Discover more ready-to-use workflows to streamline your next project.</p>

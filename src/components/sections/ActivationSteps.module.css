@@ -28,7 +28,6 @@
 /* Header */
 .header {
     text-align: center;
-    max-width: 640px;
     margin: 0 auto 4rem;
 }
 
@@ -47,19 +46,19 @@
 }
 
 .title {
-    font-size: 2.85rem;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 1rem;
+    font-size: 4rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
     color: var(--text-primary);
-    letter-spacing: -0.01em;
+
 }
 
 .subtitle {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.5rem;
     color: var(--text-secondary);
-    line-height: 1.8;
+    line-height: 1.5;
+    margin-bottom: 2rem;
 }
 
 /* Pricing Toggle */
@@ -114,7 +113,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--secondary-green);
+    background-color: #CBD5E1;
     transition: .3s;
     border-radius: 34px;
 }
@@ -132,8 +131,7 @@
 }
 
 input:checked+.slider {
-    background-color: #CBD5E1;
-    /* Muted color for monthly if preferred, or keep green */
+    background-color: var(--secondary-green);
 }
 
 input:checked+.slider:before {
@@ -175,33 +173,28 @@ input:checked+.slider:before {
 }
 
 .stepTitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--text-primary);
-    font-weight: 700;
     margin-bottom: 1rem;
-    letter-spacing: 0.01em;
 }
 
 .price {
-    font-size: 3rem;
-    font-weight: 600;
+    font-size: 4rem;
+    font-weight: var(--font-weight-bold);
     color: var(--text-primary);
     margin-bottom: 0.25rem;
     line-height: 1;
 }
 
 .priceSubtext {
-    font-size: 0.875rem;
-    color: #828282;
-    font-weight: 500;
+    font-size: 1rem;
     margin-bottom: 1.5rem;
 }
 
 .stepDesc {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.8;
-    font-weight: 300;
+    line-height: 1.6;
 }
 
 /* Modifier for Team Plan Card */

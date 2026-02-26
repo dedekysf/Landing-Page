@@ -37,8 +37,8 @@
 }
 
 .headline {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 4.5rem;
+    font-weight: var(--font-weight-bold);
     line-height: 1.2;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
@@ -51,9 +51,8 @@
 }
 
 .subheadline {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--text-secondary);
-    max-width: 600px;
     line-height: 1.5;
     margin-bottom: 2rem;
 }
@@ -83,8 +82,8 @@
 }
 
 .heroFeatureText {
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
     color: var(--text-primary);
 }
 
@@ -691,14 +690,14 @@
 }
 
 .trustedBy h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .trustedBy p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--text-secondary);
     margin-bottom: 2rem;
 }

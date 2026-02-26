@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
                         {/* LEFT: Copy */}
                         <div className={styles.content}>
                             <h1 className={styles.headline}>
-                                Manage Your Projects <br />Through <span className={styles.highlight}>Chat</span>
+                                Manage Projects Through <span className={styles.highlight}>Chat</span>
                             </h1>
                             <p className={styles.subheadline}>
                                 Turn jobsite chat into accountable work with proof ready when it's time to bill. Built by builders, for builders.

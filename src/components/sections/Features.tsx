@@ -131,19 +131,21 @@ const Features: React.FC = () => {
             <AnimatePresence mode="wait">
                 <motion.div
                     key={activeTab}
-                    initial={{ opacity: 0, scale: 0.92, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.92, y: -20 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                     transition={{ duration: 0.45, ease: 'easeOut' }}
                     style={{
                         position: 'relative', zIndex: 2,
                         height: '100%', width: '100%',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        padding: '2rem',
+                        display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+                        padding: '2rem', paddingBottom: '0',
                     }}
                 >
                     <div style={{
                         borderRadius: '20px',
+                        borderBottomLeftRadius: '0',
+                        borderBottomRightRadius: '0',
                         overflow: 'hidden',
                         border: '1px solid rgba(255,255,255,0.65)',
                         backdropFilter: 'blur(3px)',
@@ -151,8 +153,9 @@ const Features: React.FC = () => {
                         boxShadow: '0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9)',
                         background: 'rgba(255,255,255,0.5)',
                         padding: '5px',
+                        paddingBottom: '0',
                         width: '100%',
-                        maxWidth: '360px',
+                        maxWidth: '92%',
                     }}>
                         <img
                             src={features[activeTab].image}
@@ -161,6 +164,8 @@ const Features: React.FC = () => {
                                 width: '100%',
                                 height: 'auto',
                                 borderRadius: '16px',
+                                borderBottomLeftRadius: '0',
+                                borderBottomRightRadius: '0',
                                 display: 'block',
                             }}
                         />
@@ -222,9 +227,9 @@ const Features: React.FC = () => {
                                             >
                                                 <p style={{ marginBottom: '0.75rem' }}>{feat.desc}</p>
                                                 <div className={styles.learnMore}>
-                                                    <span style={{ color: feat.color, fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                    {/* <span style={{ color: feat.color, fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
                                                         Get Started <ArrowRight size={16} strokeWidth={2} />
-                                                    </span>
+                                                    </span> */}
                                                     {/* Mobile Inline Image (Animated Wrapper) */}
                                                     <div className={styles.mobileFeatureWrapper}>
                                                         {renderFeatureImage(true)}

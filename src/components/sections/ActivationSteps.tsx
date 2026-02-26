@@ -63,15 +63,15 @@ const ActivationSteps: React.FC = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <span className={`${styles.switchLabel} ${isMonthly ? styles.inactive : ''}`}>
-                            Annual Plans
-                        </span>
-                        <label className={styles.switch}>
-                            <input type="checkbox" checked={isMonthly} onChange={togglePricing} />
-                            <span className={styles.slider}></span>
-                        </label>
                         <span className={`${styles.switchLabel} ${!isMonthly ? styles.inactive : ''}`}>
                             Monthly Plans
+                        </span>
+                        <label className={styles.switch}>
+                            <input type="checkbox" checked={!isMonthly} onChange={togglePricing} />
+                            <span className={styles.slider}></span>
+                        </label>
+                        <span className={`${styles.switchLabel} ${isMonthly ? styles.inactive : ''}`}>
+                            Annual Plans
                         </span>
                     </motion.div>
                 </motion.div>
