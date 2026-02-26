@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
                                             transition: 'var(--transition-normal)'
                                         }}
                                     >
-                                        Start Your First Project
+                                        Get Started
                                     </a>
                                 </div>
                             </div>

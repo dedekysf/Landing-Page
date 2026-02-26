@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { MessageSquare, Search, Activity, Hash, UserPlus2, Image, ArrowRight } from 'lucide-react';
+import { MessageSquare, Search, Activity, Hash, UserPlus2, Image } from 'lucide-react';
 import featureOne from '../../assets/feature-1.png';
 import featureTwo from '../../assets/feature-2.png';
 import featureThree from '../../assets/feature-3.png';
@@ -52,8 +52,8 @@ const Features: React.FC = () => {
     const features = [
         {
             icon: <MessageSquare size={24} color="#FC7F5B" strokeWidth={1.5} />,
-            title: "Stop rework before it starts",
-            desc: "RFIs, site notes, and change approvals live in the project chat—so nothing gets buried in personal texts and comes back as paid rework.",
+            title: "Everything happens in chat",
+            desc: "RFIs, site notes, and change approvals live in the project chat—so nothing gets buried in personal texts and comes back as expensive revisions.",
             color: '#FC7F5B',
             bg: 'rgba(252,127,91,0.07)',
             borderColor: 'rgba(252,127,91,0.25)',
@@ -223,7 +223,7 @@ const Features: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>Job Chat to Closeout Without <br className={styles.desktopBreak} />Rework or Runaround</h2>
+                    <h2 className={styles.title}>Job Chat to Closeout Without <br className={styles.desktopBreak} />Delays or Runaround</h2>
                     <p className={styles.subtitle}>
                         Turn decisions into billable progress.
                     </p>
