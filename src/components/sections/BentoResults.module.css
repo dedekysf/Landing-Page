@@ -173,6 +173,10 @@
 
 
 
+.desktopBreak {
+    display: block;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .section {
@@ -193,11 +197,11 @@
     }
 
     .title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -256,11 +260,15 @@
     }
 
     .title {
-        font-size: 1.75rem;
+        font-size: 3rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .desktopBreak {
+        display: none;
     }
 }
 
@@ -274,11 +282,12 @@
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        margin-bottom: 0.75rem;
     }
 
     .subtitle {
-        font-size: 0.875rem;
+        font-size: 1.25rem;
     }
 
     .statValue {

@@ -29,9 +29,9 @@ const Templates: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>Kickstart Next Job with <br className={styles.mobileBreak} />TaskTag Templates</h2>
+                    <h2 className={styles.title}>Kickstart Next Job with <br className={styles.desktopBreak} />TaskTag Templates</h2>
                     <p className={styles.subtitle}>
-                        No setup from scratch. Pick a template, invite your crew, <br className={styles.mobileBreak} />and start turning jobsite
+                        No setup from scratch. Pick a template, invite your crew, <br className={styles.desktopBreak} />and start turning jobsite
                     </p>
                 </motion.div>
 

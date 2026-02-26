@@ -13,14 +13,14 @@ const FinalCta: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>Ready to streamline <br className={styles.mobileBreak} /> your jobs?</h2>
+                    <h2 className={styles.title}>Ready to streamline <br className={styles.desktopBreak} /> your jobs?</h2>
                     <p className={styles.subtitle}>
-                        Join thousands of contractors using TaskTag <br className={styles.mobileBreak} />to connect their field and office
+                        Join thousands of contractors using TaskTag <br className={styles.desktopBreak} />to connect their field and office
                     </p>
 
                     <div className={styles.btnGroup}>
                         <a href="https://portal.tasktag.com/demo" className={styles.secondaryBtn} target="_blank" rel="noopener noreferrer">Book Demo</a>
-                        <a href="https://app.tasktag.com/register/signup-with-email" className={styles.primaryBtn} target="_blank" rel="noopener noreferrer">Start for Free</a>
+                        <a href="https://app.tasktag.com/register/signup-with-email" className={styles.primaryBtn} target="_blank" rel="noopener noreferrer">Start For Free</a>
                     </div>
                 </motion.div>
             </div>

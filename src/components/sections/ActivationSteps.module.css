@@ -61,6 +61,10 @@
     margin-bottom: 2rem;
 }
 
+.desktopOnlyBr {
+    display: block;
+}
+
 /* Pricing Toggle */
 .toggleContainer {
     display: flex;
@@ -199,23 +203,23 @@ input:checked+.slider:before {
 
 /* Modifier for Team Plan Card */
 .stepCardFilled {
-    background: var(--secondary-green);
-    border-color: var(--secondary-green);
+    background: white;
+    border: 2px solid var(--secondary-green);
 }
 
 .stepCardFilled .stepTitle,
 .stepCardFilled .price {
-    color: white;
+    color: var(--text-primary);
 }
 
 .stepCardFilled .saveBadge {
     color: var(--secondary-green);
-    background: white;
+    background: #DCF2EC;
 }
 
 .stepCardFilled .priceSubtext,
 .stepCardFilled .stepDesc {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
 }
 
 .stepCardFilled .iconWrapper {
@@ -286,9 +290,8 @@ input:checked+.slider:before {
 .cardBtnInverted {
     width: 100%;
     padding: 1rem;
-    border: 2px solid white;
-    background: white;
-    color: var(--secondary-green);
+    background: var(--secondary-green);
+    color: var(--white);
     font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
@@ -311,11 +314,11 @@ input:checked+.slider:before {
     }
 
     .title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -333,11 +336,15 @@ input:checked+.slider:before {
     }
 
     .title {
-        font-size: 2.25rem;
+        font-size: 3rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .desktopOnlyBr {
+        display: none;
     }
 
     .stepsGrid {
@@ -358,11 +365,13 @@ input:checked+.slider:before {
     }
 
     .title {
-        font-size: 1.75rem;
+        font-size: 2.2rem;
+        margin-bottom: 0.75rem;
+
     }
 
     .subtitle {
-        font-size: 0.9rem;
+        font-size: 1.25rem;
     }
 }
 

@@ -53,7 +53,7 @@ const ActivationSteps: React.FC = () => {
                 >
                     <h2 className={styles.title}>Start Free Run One Job</h2>
                     <p className={styles.subtitle}>
-                        Try TaskTag Pro free for <span className={styles.highlight}>30 days</span> with all features unlocked <br className={styles.desktopOnlyBr} />Cancel any time, No credit card required to start
+                        Try TaskTag Pro free for <span className={styles.highlight}>30 days</span> with all features unlocked. <br className={styles.desktopOnlyBr} />Cancel any time, No credit card required to start.
                     </p>
 
                     <motion.div

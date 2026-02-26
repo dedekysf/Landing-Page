@@ -1,5 +1,5 @@
 .features {
-    padding: 8rem 1rem;
+    padding: 8rem 0rem;
     background: var(--white);
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
@@ -112,6 +112,10 @@
 
 .mobileFeatureWrapper {
     display: none;
+}
+
+.desktopBreak {
+    display: block;
 }
 
 /* Right Side Cards */
@@ -254,7 +258,7 @@
 
 @media (max-width: 1024px) {
     .features {
-        padding: 6rem 1rem;
+        padding: 6rem 0rem;
     }
 
     .header {
@@ -263,11 +267,11 @@
     }
 
     .title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .splitLayout {
@@ -290,7 +294,7 @@
 
 @media (max-width: 768px) {
     .features {
-        padding: 5rem 1rem;
+        padding: 5rem 0rem;
     }
 
     .header {
@@ -298,22 +302,56 @@
     }
 
     .title {
-        font-size: 2.25rem;
+        font-size: 3rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .desktopBreak {
+        display: none;
+    }
+
+    .featureItem {
+        padding: 2rem 0rem;
+    }
+
+    .featureItem:hover {
+        background: none;
     }
 
     .featIcon {
         width: 24px;
         height: 24px;
         background: transparent;
+        align-self: flex-start;
     }
 
     .featIcon svg {
         width: 20px;
         height: 20px;
+    }
+
+    .featBody {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .featBody h4 {
+        font-size: 1.35rem;
+        line-height: 1.4;
+    }
+
+    .featBody p {
+        margin-top: 0.5rem;
+        margin-left: calc(-24px - 1rem);
+        width: calc(100% + 24px + 1rem);
+    }
+
+    .learnMore {
+        margin-left: calc(-24px - 1rem);
+        width: calc(100% + 24px + 1rem);
     }
 
     /* Hide complex overlap on mobile to save space */
@@ -323,7 +361,7 @@
 
     .mobileFeatureWrapper {
         display: block;
-        margin: 1.5rem 0;
+        margin: 1rem 0;
         width: 100%;
     }
 
@@ -348,11 +386,12 @@
     }
 
     .title {
-        font-size: 1.75rem;
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .featIcon {

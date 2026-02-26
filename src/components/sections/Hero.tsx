@@ -251,7 +251,7 @@ const Hero: React.FC = () => {
                 <div className={`container ${styles.container}`}>
                     <div className={styles.trustedBy}>
                         <h2>Trusted by Builders on Real Jobsites</h2>
-                        <p>Join <span className={styles.highlight}>50+ companies</span> using TaskTag <br className={styles.trustedBreak} /> to keep crews aligned and jobs moving</p>
+                        <p>Join <span className={styles.highlight}>50+ companies</span> using TaskTag <br className={styles.trustedBreak} /> to keep crews aligned and jobs moving.</p>
                         <div className={styles.marqueeWrapper}>
                             <div className={styles.marqueeTrack}>
                                 {[...logos, ...logos, ...logos].map((src, i) => (

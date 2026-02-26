@@ -23,7 +23,7 @@ const BentoResults: React.FC = () => {
 
                     <h2 className={styles.title}>Real Results on Real Jobs</h2>
                     <p className={styles.subtitle}>
-                        Teams use TaskTag to cut rework, save time, <br />and keep every punch item moving starting in the first few weeks
+                        Teams use TaskTag to cut rework, save time, <br className={styles.desktopBreak} />and keep every punch item moving starting in the first few weeks.
                     </p>
                 </motion.div>
 

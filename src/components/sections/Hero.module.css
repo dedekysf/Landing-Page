@@ -1,6 +1,6 @@
 .hero {
     position: relative;
-    padding: 8rem 1rem 4rem;
+    padding: 6rem 1rem 4rem;
     background: var(--white);
     overflow: hidden;
     color: var(--text-primary);
@@ -42,7 +42,6 @@
     line-height: 1.2;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
-    letter-spacing: -0.01em;
     text-transform: capitalize;
 }
 
@@ -54,14 +53,14 @@
     font-size: 1.5rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .heroFeatures {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin-bottom: 1.2rem;
 }
 
 .heroFeatureItem {
@@ -691,9 +690,9 @@
 
 .trustedBy h2 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .trustedBy p {
@@ -715,7 +714,7 @@
     }
 
     .headline {
-        font-size: 2.5rem;
+        font-size: 3rem;
         margin-bottom: 1.25rem;
     }
 
@@ -761,13 +760,9 @@
     }
 
     .headline {
-        font-size: 2.2rem;
-        margin-bottom: 1rem;
+        font-size: 3rem;
     }
 
-    .subheadline {
-        margin-bottom: 1.25rem;
-    }
 
     .primaryBtn {
         padding: 1rem 2rem !important;
@@ -828,5 +823,13 @@
 
     .trustedBreak {
         display: block;
+    }
+
+    .trustedBy h2 {
+        font-size: 2.5rem;
+    }
+
+    .trustedBy p {
+        font-size: 1.25rem;
     }
 }

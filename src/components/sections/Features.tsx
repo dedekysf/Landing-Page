@@ -187,9 +187,9 @@ const Features: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>Job Chat to Closeout Without <br />Rework or Runaround</h2>
+                    <h2 className={styles.title}>Job Chat to Closeout Without <br className={styles.desktopBreak} />Rework or Runaround</h2>
                     <p className={styles.subtitle}>
-                        Turn decisions into billable progress
+                        Turn decisions into billable progress.
                     </p>
                 </motion.div>
 
