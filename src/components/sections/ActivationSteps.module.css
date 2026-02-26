@@ -57,7 +57,7 @@
 
 .subtitle {
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--text-secondary);
     line-height: 1.8;
 }
@@ -86,7 +86,7 @@
     display: inline-block;
     color: var(--secondary-green);
     font-size: 0.875rem;
-    font-weight: 700;
+    font-weight: 500;
     margin-left: 0.75rem;
     background: rgba(24, 168, 125, 0.1);
     padding: 0.2rem 0.6rem;
@@ -175,7 +175,7 @@ input:checked+.slider:before {
 }
 
 .stepTitle {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--text-primary);
     font-weight: 700;
     margin-bottom: 1rem;
@@ -198,10 +198,10 @@ input:checked+.slider:before {
 }
 
 .stepDesc {
-    font-size: 0.825rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
     line-height: 1.8;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 /* Modifier for Team Plan Card */
@@ -365,11 +365,11 @@ input:checked+.slider:before {
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .subtitle {
-        font-size: 0.875rem;
+        font-size: 0.9rem;
     }
 }
 

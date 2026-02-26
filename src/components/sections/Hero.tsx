@@ -1,10 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Button from '../common/Button';
 import {
     CircleCheckBig, User, Search,
     ChevronLeft, FolderOpen, Hash, Mic, Smile, Plus, CheckCircle2,
-    MessageSquare, ClipboardCheck,
+    ClipboardCheck,
     Hammer
 } from 'lucide-react';
 

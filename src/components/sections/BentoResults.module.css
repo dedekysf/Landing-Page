@@ -129,8 +129,8 @@
 }
 
 .statLabel {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     opacity: 0.9;
 }
@@ -145,24 +145,21 @@
 
 .statDescBold {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     line-height: 1.2;
     max-width: 90%;
 }
 
 .statDescLight {
-    font-size: 0.825rem;
+    font-size: 0.875rem;
     font-weight: 300;
-    opacity: 0.8;
     line-height: 1.4;
     max-width: 90%;
 }
 
 /* For the green card to look right */
-.statGreen .statDescLight {
-    opacity: 0.8;
-}
+
 
 .getStartedLink {
     margin-top: auto;
@@ -267,7 +264,7 @@
     }
 
     .title {
-        font-size: 2.25rem;
+        font-size: 1.75rem;
     }
 
     .subtitle {

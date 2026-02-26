@@ -179,7 +179,7 @@
 @media (max-width: 768px) {
     .top {
         flex-direction: column;
-        gap: 3rem;
+        gap: 1rem;
         align-items: center;
         text-align: center;
     }

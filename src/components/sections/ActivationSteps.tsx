@@ -18,7 +18,7 @@ const ActivationSteps: React.FC = () => {
             btnType: 'outline',
             priceMonthly: 0,
             priceAnnual: 0,
-            priceSubtext: 'Free',
+            priceSubtext: 'Free Forever',
             isFilled: false
         },
         {

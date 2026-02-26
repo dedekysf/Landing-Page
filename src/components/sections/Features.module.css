@@ -101,8 +101,8 @@
 }
 
 .featBody h4 {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 400;
     margin-bottom: 0;
     color: var(--text-primary);
 }
@@ -110,8 +110,8 @@
 .featBody p {
     color: var(--text-secondary);
     line-height: 1.45;
-    font-size: 0.8rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 .mobileFeatureWrapper {
@@ -352,11 +352,11 @@
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .subtitle {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
 
     .featIcon {

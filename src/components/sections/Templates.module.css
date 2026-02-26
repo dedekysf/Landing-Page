@@ -66,8 +66,8 @@
 
 .watermark {
     position: absolute;
-    top: -20px;
-    right: -10px;
+    top: 8px;
+    right: 12px;
     font-size: 8rem;
     font-weight: 800;
     color: rgba(24, 168, 125, 0.05);
@@ -104,7 +104,7 @@
 
 .cardTitle {
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .checklist {
@@ -122,7 +122,7 @@
     margin-bottom: 8px;
     font-size: 0.875rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .checklistItem.moreItem {
@@ -177,7 +177,7 @@
 
 .viewMoreCard h3 {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 0.5rem;
 }
 
@@ -186,6 +186,7 @@
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
     line-height: 1.4;
+    font-weight: 300;
 }
 
 .viewMoreBtn {
@@ -294,7 +295,7 @@
 
 @media (max-width: 480px) {
     .section {
-        padding-top: 4rem;
+        padding-top: 2rem;
     }
 
     .header {
@@ -302,10 +303,10 @@
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .subtitle {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
 }

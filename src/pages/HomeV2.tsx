@@ -149,7 +149,7 @@ const HomeV2: React.FC = () => {
                                     <div style={{ flex: 1, padding: '20px', background: '#fff' }}>
                                         <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
                                             {['Project', 'My Tasks', 'Activity'].map((t, i) => (
-                                                <div key={i} style={{ padding: '4px 12px', borderRadius: '20px', fontSize: '0.7rem', fontWeight: 600, background: i === 0 ? '#18A87D' : '#f1f3f5', color: i === 0 ? '#fff' : '#6b7280' }}>{t}</div>
+                                                <div key={i} style={{ padding: '4px 12px', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, background: i === 0 ? '#18A87D' : '#f1f3f5', color: i === 0 ? '#fff' : '#6b7280' }}>{t}</div>
                                             ))}
                                         </div>
                                         {[0, 1, 2].map(i => (
@@ -182,7 +182,7 @@ const HomeV2: React.FC = () => {
                             >
                                 {/* Phone status bar */}
                                 <div style={{ background: '#111', padding: '10px 16px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <span style={{ color: '#fff', fontSize: '0.6rem', fontWeight: 600 }}>9:41</span>
+                                    <span style={{ color: '#fff', fontSize: '0.75rem', fontWeight: 600 }}>9:41</span>
                                     <div style={{ display: 'flex', gap: '4px' }}>
                                         {[1, 2, 3].map(i => <div key={i} style={{ width: 4, height: 4, borderRadius: 2, background: '#fff', opacity: 0.7 }} />)}
                                     </div>
