@@ -87,6 +87,13 @@ const ActivationSteps: React.FC = () => {
                             viewport={{ once: true }}
                             whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
                         >
+                            {/* "Most Popular" Pill for Team Plan */}
+                            {step.title === "Team Plan" && (
+                                <div className={styles.popularPill}>
+                                    MOST POPULAR
+                                </div>
+                            )}
+
                             {/* <div className={styles.iconWrapper}>{step.icon}</div> */}
                             <h3 className={styles.stepTitle}>
                                 {step.title}

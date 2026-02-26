@@ -1,6 +1,6 @@
 .section {
     padding: 8rem 1rem;
-    background-color: var(--white);
+    background-color: transparent;
     color: var(--text-primary);
     font-family: 'Poppins', sans-serif;
 }

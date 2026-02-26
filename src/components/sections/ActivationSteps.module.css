@@ -1,7 +1,7 @@
 .section {
     position: relative;
     padding: 8rem 1rem;
-    background: var(--white);
+    background: transparent;
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     overflow: hidden;
@@ -207,6 +207,22 @@ input:checked+.slider:before {
     border: 2px solid var(--secondary-green);
 }
 
+.popularPill {
+    position: absolute;
+    top: -1px;
+    /* Offset the 2px border */
+    right: -1px;
+    background: var(--secondary-green);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 0 14px 0 16px;
+    /* Match card border radius top-right */
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
 .stepCardFilled .stepTitle,
 .stepCardFilled .price {
     color: var(--text-primary);
@@ -240,7 +256,7 @@ input:checked+.slider:before {
 }
 
 /* Lift content above number */
-.stepCard>*:not(.stepNumber) {
+.stepCard>*:not(.stepNumber):not(.popularPill) {
     position: relative;
     z-index: 1;
 }
@@ -301,7 +317,8 @@ input:checked+.slider:before {
 }
 
 .cardBtnInverted:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: #12976e;
+    box-shadow: 0 2px 10px rgba(24, 168, 125, 0.35);
 }
 
 @media (max-width: 1024px) {

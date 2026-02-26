@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Search, Activity, Hash, UserPlus2, Image } from 'lucide-react';
+import React, { useEffect, useRef, useCallback } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { MessageSquare, Search, Activity, Hash, UserPlus2, Image, ArrowRight } from 'lucide-react';
 import featureOne from '../../assets/feature-1.png';
 import featureTwo from '../../assets/feature-2.png';
 import featureThree from '../../assets/feature-3.png';
@@ -12,6 +12,42 @@ import styles from './Features.module.css';
 
 const Features: React.FC = () => {
     const [activeTab, setActiveTab] = React.useState(0);
+    const [hasEntered, setHasEntered] = React.useState(false);
+    const [isHovered, setIsHovered] = React.useState(false);
+    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const sectionRef = useRef<HTMLElement>(null);
+    const isInView = useInView(sectionRef, { margin: '-20% 0px -20% 0px' });
+    const totalTabs = 6;
+
+    // Initial 6-second delay upon entering view
+    useEffect(() => {
+        if (isInView && !hasEntered) {
+            const timeout = setTimeout(() => {
+                setHasEntered(true);
+            }, 6000);
+            return () => clearTimeout(timeout);
+        } else if (!isInView) {
+            setHasEntered(false);
+        }
+    }, [isInView, hasEntered]);
+
+    const startAutoRotate = useCallback(() => {
+        if (timerRef.current) clearTimeout(timerRef.current);
+        if (!isInView || !hasEntered || isHovered) return; // Wait until visible, initial delay is over, and NOT hovered
+        timerRef.current = setTimeout(() => {
+            setActiveTab(prev => (prev + 1) % totalTabs);
+        }, 6000);
+    }, [totalTabs, isInView, hasEntered, isHovered]);
+
+    // Auto-cycle: restart timer whenever activeTab or visibility changes
+    useEffect(() => {
+        startAutoRotate();
+        return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+    }, [activeTab, startAutoRotate]);
+
+    const handleTabClick = (i: number) => {
+        setActiveTab(i);
+    };
 
     const features = [
         {
@@ -94,11 +130,11 @@ const Features: React.FC = () => {
             }}>
                 {/* Left blob: rounded ketupat, sits on top */}
                 <motion.div
-                    animate={{
+                    animate={hasEntered ? {
                         x: ['0%', '-40%', '0%'],
                         y: [0, 10, 0],
                         rotate: [-50, -50, -50], // Adding rotation animation
-                    }}
+                    } : { x: '0%', y: 0, rotate: -50 }}
                     transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
                     style={{
                         position: 'absolute', top: '10%', right: '30%',
@@ -112,9 +148,9 @@ const Features: React.FC = () => {
                 />
                 {/* Right blob: large circle showing half, moves top→bottom, behind left blob */}
                 <motion.div
-                    animate={{
+                    animate={hasEntered ? {
                         y: ['-20%', '40%', '-20%'],
-                    }}
+                    } : { y: '-20%' }}
                     transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
                     style={{
                         position: 'absolute', top: '0', right: '-30%',
@@ -139,11 +175,11 @@ const Features: React.FC = () => {
                         position: 'relative', zIndex: 2,
                         height: '100%', width: '100%',
                         display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
-                        padding: '2rem', paddingBottom: '0',
+                        padding: '0 2rem 0', // Removed top padding, kept side padding
                     }}
                 >
                     <div style={{
-                        borderRadius: '20px',
+                        borderRadius: '24px',
                         borderBottomLeftRadius: '0',
                         borderBottomRightRadius: '0',
                         overflow: 'hidden',
@@ -152,10 +188,10 @@ const Features: React.FC = () => {
                         WebkitBackdropFilter: 'blur(3px)',
                         boxShadow: '0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9)',
                         background: 'rgba(255,255,255,0.5)',
-                        padding: '5px',
+                        padding: '4px',
                         paddingBottom: '0',
                         width: '100%',
-                        maxWidth: '92%',
+                        maxWidth: '90%', // Increased from 92% to 96%
                     }}>
                         <img
                             src={features[activeTab].image}
@@ -176,7 +212,7 @@ const Features: React.FC = () => {
     );
 
     return (
-        <section id="features" className={styles.features}>
+        <section id="features" ref={sectionRef} className={styles.features}>
             <div className={`container ${styles.container}`}>
 
                 {/* Section Header */}
@@ -194,7 +230,11 @@ const Features: React.FC = () => {
                 </motion.div>
 
                 {/* Split Visual Layout */}
-                <div className={styles.splitLayout}>
+                <div
+                    className={styles.splitLayout}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
 
                     {/* Left Side - Tab List */}
                     <div className={styles.leftContent}>
@@ -206,7 +246,7 @@ const Features: React.FC = () => {
                                     borderBottom: `2px solid ${feat.borderColor}`,
                                     alignItems: 'flex-start'
                                 } : { borderBottom: '2px solid var(--grey-02)', alignItems: 'center' }}
-                                onClick={() => setActiveTab(i)}
+                                onClick={() => handleTabClick(i)}
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5, delay: i * 0.15 }}
@@ -215,8 +255,7 @@ const Features: React.FC = () => {
                                 <div className={styles.featIcon}>{feat.icon}</div>
                                 <div className={styles.featBody}>
                                     <h4>
-                                        <span style={{ fontWeight: 400 }}>{feat.title.split(' ')[0]}</span>
-                                        <span style={{ fontWeight: 400 }}> {feat.title.split(' ').slice(1).join(' ')}</span>
+                                        <span style={{ fontWeight: activeTab === i ? 600 : 400 }}>{feat.title}</span>
                                     </h4>
                                     <AnimatePresence>
                                         {activeTab === i && (
@@ -241,6 +280,20 @@ const Features: React.FC = () => {
                                 </div>
                             </motion.div>
                         ))}
+
+                        {/* Secondary Ghost Button below the list */}
+                        <motion.div
+                            className={styles.desktopOnlyBtn}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.8 }}
+                            viewport={{ once: true }}
+                            style={{ marginTop: '2rem' }}
+                        >
+                            {/* <a href="https://app.tasktag.com/register/signup-with-email" target="_blank" rel="noopener noreferrer" className={styles.ghostBtnSecondary}>
+                                Start For Free <ArrowRight size={18} strokeWidth={2} style={{ marginLeft: '4px' }} />
+                            </a> */}
+                        </motion.div>
                     </div>
 
                     {/* Right Side - Image + Animated Blob Background */}

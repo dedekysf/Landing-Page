@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import styles from './BentoResults.module.css';
 
 import bentoImage1 from '../../assets/bento_img_1.jpg';
@@ -7,6 +7,41 @@ import bentoImage2 from '../../assets/bento_img_2.jpg';
 
 import logoIntown from '../../assets/client/Logo-intown.png';
 import logoLovett from '../../assets/client/Logo-lovett.png';
+
+// Animated counter component
+const CountUp: React.FC<{ target: number; suffix?: string; duration?: number }> = ({
+    target, suffix = '', duration = 1000
+}) => {
+    const [count, setCount] = useState(0);
+    const ref = useRef<HTMLDivElement>(null);
+    const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+    useEffect(() => {
+        if (!isInView) return;
+        let start = 0;
+        const startTime = performance.now();
+
+        const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic for a satisfying deceleration
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(eased * target);
+
+            if (current !== start) {
+                setCount(current);
+                start = current;
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        };
+        requestAnimationFrame(animate);
+    }, [isInView, target, duration]);
+
+    return <div ref={ref} className={styles.statValue}>{count}{suffix}</div>;
+};
 
 const BentoResults: React.FC = () => {
     return (
@@ -44,7 +79,7 @@ const BentoResults: React.FC = () => {
                         <motion.div className={`${styles.card} ${styles.statCard} ${styles.statBlue}`}
                             initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.3 }} viewport={{ once: true }}>
                             <span className={styles.statLabel}>Cut rework by</span>
-                            <div className={styles.statValue}>40%</div>
+                            <CountUp target={40} suffix="%" />
                             <div className={styles.statDescBold}>Protect your profit margins</div>
                             <div className={styles.statDescLight}>When your superintendents and subs are all looking at the same approved photos and plans, you stop paying for work to be done twice.</div>
                         </motion.div>
@@ -55,7 +90,7 @@ const BentoResults: React.FC = () => {
                         <motion.div className={`${styles.card} ${styles.statCard} ${styles.statGreen}`}
                             initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.4 }} viewport={{ once: true }}>
                             <span className={styles.statLabel}>Increase completion by</span>
-                            <div className={styles.statValue}>95%</div>
+                            <CountUp target={95} suffix="%" />
                             <div className={styles.statDescBold}>Hand over the keys faster</div>
                             <div className={styles.statDescLight}>Every final detail is tracked and verified from the field in real-time, your teams close out jobs quickly without you having to chase them down.</div>
                         </motion.div>

@@ -1,5 +1,5 @@
 .section {
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
     padding: 8rem 1rem 0;
     /* No bottom padding since illustration sits flat */
     text-align: center;
@@ -47,11 +47,26 @@
     font-weight: 600;
     text-decoration: none;
     transition: background 0.2s ease, transform 0.2s ease;
+    animation: ctaPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(24, 168, 125, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 20px 6px rgba(24, 168, 125, 0.25);
+    }
 }
 
 .primaryBtn:hover {
     background: #148e69;
     transform: translateY(-2px);
+    animation: none;
+    box-shadow: 0 6px 20px rgba(24, 168, 125, 0.3);
 }
 
 .secondaryBtn {

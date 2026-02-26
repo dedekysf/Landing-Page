@@ -7,27 +7,26 @@ import ActivationSteps from '../components/sections/ActivationSteps';
 import BentoResults from '../components/sections/BentoResults';
 import Templates from '../components/sections/Templates';
 import FinalCta from '../components/sections/FinalCta';
+import ScrollBackground from '../components/layout/ScrollBackground';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
     return (
         <div className={styles.pageWrapper}>
             <Navbar />
-            {/* Content wrapper */}
-            <div className={styles.contentWrapper}>
-                <Hero />
-                <Features />
-                <BentoResults />
-                <ActivationSteps />
-                {/* <InviteMoment />
-                <Pricing /> */}
-
-                {/* new Templates section replacing the old CTA block */}
-                <Templates />
-                <FinalCta />
-                <Footer />
-            </div >
-        </div >
+            {/* Content wrapper with scroll-driven background */}
+            <ScrollBackground>
+                <div className={styles.contentWrapper}>
+                    <Hero />
+                    <Features />
+                    <BentoResults />
+                    <ActivationSteps />
+                    <Templates />
+                    <FinalCta />
+                    <Footer />
+                </div>
+            </ScrollBackground>
+        </div>
     );
 };
 

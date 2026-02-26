@@ -1,7 +1,7 @@
 .hero {
     position: relative;
     padding: 6rem 1rem 4rem;
-    background: var(--white);
+    background: transparent;
     overflow: hidden;
     color: var(--text-primary);
     font-family: 'Poppins', sans-serif;
@@ -677,7 +677,7 @@
 
 /* Trusted By */
 .trustedBySection {
-    background: var(--white);
+    background: transparent;
     padding: 0 0 2rem 0;
     width: 100%;
 }
