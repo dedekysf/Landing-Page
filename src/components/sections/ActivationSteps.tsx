@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Building } from 'lucide-react';
+import { Star, Building, Check } from 'lucide-react';
 import styles from './ActivationSteps.module.css';
+
+interface PlanData {
+    title: string;
+    tagline: string;
+    icon: React.ReactNode;
+    btnType: 'outline' | 'inverted' | 'filled';
+    priceMonthly: number;
+    priceAnnual: number;
+    priceSubtext: string;
+    isFilled: boolean;
+    showBadge?: boolean;
+    checklistHeader: string;
+    checklist: string[];
+}
 
 const ActivationSteps: React.FC = () => {
     const [isMonthly, setIsMonthly] = useState(false);
@@ -10,27 +24,43 @@ const ActivationSteps: React.FC = () => {
         setIsMonthly(!isMonthly);
     };
 
-    const steps: any[] = [
+    const plans: PlanData[] = [
         {
             title: "Free Plan",
-            desc: "Get started instantly with 3 active projects, 2 GB of storage and unlimited users with dedicated admin and member roles. Keep everything organized with centralized billing and a global activity log for full visibility.",
+            tagline: "Up to 3 Projects",
             icon: <Star size={32} color="#18A87D" strokeWidth={1.5} />,
             btnType: 'outline',
             priceMonthly: 0,
             priceAnnual: 0,
             priceSubtext: 'For Everyone',
-            isFilled: false
+            isFilled: false,
+            checklistHeader: "What do you get",
+            checklist: [
+                "2 GB storage",
+                "Unlimited users",
+                "Admin & member roles",
+                "Centralized billing",
+                "Global activity log",
+            ],
         },
         {
             title: "Team Plan",
-            desc: "Scale Your Operations with unlimited projects, 2 TB of secure storage and easily manage unlimited users. Streamline financials with centralized billing while tracking every move through a global activity log.",
+            tagline: "Unlimited Projects",
             icon: <Building size={32} color="var(--white)" strokeWidth={1.5} />,
             btnType: 'inverted',
-            priceMonthly: 20, /* Note: Change this to desired monthly price if different */
-            priceAnnual: 16, /* Note: Change this to desired annual price if different */
+            priceMonthly: 20,
+            priceAnnual: 16,
             priceSubtext: 'Member/Month',
             isFilled: true,
-            showBadge: true
+            showBadge: true,
+            checklistHeader: "What do you get",
+            checklist: [
+                "2 TB secure storage",
+                "Unlimited users",
+                "Admin & member roles",
+                "Centralized billing",
+                "Global activity log",
+            ],
         }
     ];
 
@@ -77,10 +107,10 @@ const ActivationSteps: React.FC = () => {
                 </motion.div>
 
                 <div className={styles.stepsGrid} style={{ marginBottom: '3rem' }}>
-                    {steps.map((step, i) => (
+                    {plans.map((plan, i) => (
                         <motion.div
                             key={i}
-                            className={`${styles.stepCard} ${step.isFilled ? styles.stepCardFilled : ''}`}
+                            className={`${styles.stepCard} ${plan.isFilled ? styles.stepCardFilled : ''}`}
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: i * 0.15 }}
@@ -88,16 +118,16 @@ const ActivationSteps: React.FC = () => {
                             whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
                         >
                             {/* "Most Popular" Pill for Team Plan */}
-                            {step.title === "Team Plan" && (
+                            {plan.title === "Team Plan" && (
                                 <div className={styles.popularPill}>
                                     MOST POPULAR
                                 </div>
                             )}
 
-                            <div className={styles.iconWrapper}>{step.icon}</div>
+                            <div className={styles.iconWrapper}>{plan.icon}</div>
                             <h3 className={styles.stepTitle}>
-                                {step.title}
-                                {step.showBadge && (
+                                {plan.title}
+                                {plan.showBadge && (
                                     <span
                                         className={styles.saveBadge}
                                         style={{
@@ -109,36 +139,47 @@ const ActivationSteps: React.FC = () => {
                                     </span>
                                 )}
                             </h3>
+                            <p className={styles.planTagline}>{plan.tagline}</p>
                             <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '1.5rem' }}>
                                 <div className={styles.price} style={{ marginBottom: 0 }}>
-                                    ${isMonthly ? step.priceMonthly : step.priceAnnual}
+                                    ${isMonthly ? plan.priceMonthly : plan.priceAnnual}
                                 </div>
-                                <div className={styles.priceSubtext} style={{ margin: 0 }}>{step.priceSubtext}</div>
+                                <div className={styles.priceSubtext} style={{ margin: 0 }}>{plan.priceSubtext}</div>
                             </div>
-                            <p className={styles.stepDesc} style={{ flexGrow: 1 }}>{step.desc}</p>
                             <div className={styles.cardFooter}>
                                 <a
                                     href="https://app.tasktag.com/register/signup-with-email"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={
-                                        step.btnType === 'outline' ? styles.cardBtnOutline :
-                                            step.btnType === 'inverted' ? styles.cardBtnInverted :
+                                        plan.btnType === 'outline' ? styles.cardBtnOutline :
+                                            plan.btnType === 'inverted' ? styles.cardBtnInverted :
                                                 styles.cardBtnFilled
                                     }
                                 >
                                     GET STARTED
                                 </a>
                             </div>
+
+                            {/* Feature Checklist */}
+                            <div className={styles.checklistSection}>
+                                <p className={styles.checklistHeader}>{plan.checklistHeader}</p>
+                                <ul className={styles.checklist}>
+                                    {plan.checklist.map((item, idx) => (
+                                        <li key={idx} className={styles.checklistItem}>
+                                            <Check size={16} className={styles.checkIcon} />
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
-
-
-
             </div>
         </section>
     );
 };
 
 export default ActivationSteps;
+

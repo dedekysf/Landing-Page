@@ -172,12 +172,13 @@ input:checked+.slider:before {
 .stepTitle {
     font-size: 2rem;
     color: var(--text-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
 }
 
 .price {
     font-size: 4rem;
-    font-weight: var(--font-weight-bold);
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
     line-height: 1;
@@ -186,12 +187,56 @@ input:checked+.slider:before {
 .priceSubtext {
     font-size: 1rem;
     margin-bottom: 1.5rem;
+    color: #828282;
+    font-weight: 400;
 }
 
 .stepDesc {
     font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.6;
+}
+
+.planTagline {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+/* Feature Checklist */
+.checklistSection {
+    margin-top: 2rem;
+}
+
+.checklistHeader {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checklistItem {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.checkIcon {
+    flex-shrink: 0;
+    color: var(--secondary-green);
 }
 
 /* Modifier for Team Plan Card */
@@ -228,7 +273,8 @@ input:checked+.slider:before {
 
 .stepCardFilled .priceSubtext,
 .stepCardFilled .stepDesc {
-    color: var(--text-primary);
+    color: #828282;
+    font-weight: 400
 }
 
 .stepCardFilled .iconWrapper {
@@ -255,7 +301,7 @@ input:checked+.slider:before {
 }
 
 .cardFooter {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
 }
 
