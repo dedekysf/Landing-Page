@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { MessageSquare, Search, Activity, Hash, UserPlus2, Image, Folder, CheckLine } from 'lucide-react';
+import { Search, Activity, Hash, Image, Folder, ListChecks } from 'lucide-react';
 import featureOne from '../../assets/feature-1.png';
 import featureTwo from '../../assets/feature-2.png';
 import featureThree from '../../assets/feature-3.png';
@@ -84,7 +84,7 @@ const Features: React.FC = () => {
             image: featureThree,
         },
         {
-            icon: <CheckLine size={24} color="#138EFF" strokeWidth={1.5} />,
+            icon: <ListChecks size={24} color="#138EFF" strokeWidth={1.5} />,
             title: "Make billing and closeout painless",
             desc: "Completion updates, checklists, and documentation roll into a project-ready record. Send fewer follow-ups when it’s time to invoice, close out, or hand off.",
             color: '#138EFF',
