@@ -20,11 +20,11 @@ type BubbleStep = { type: 'loading' } | { type: 'text'; text: string; icon: Reac
 
 const bubbleSteps: BubbleStep[] = [
     { type: 'loading' },
-    { type: 'text', text: 'Less rework', icon: <CalendarCheck2 size={24} color="#18A87D" /> },
+    { type: 'text', text: 'Less rework', icon: <CalendarCheck2 size={16} color="#18A87D" /> },
     { type: 'loading' },
-    { type: 'text', text: 'Close jobs faster', icon: <Zap size={24} fill="#E6B566" color="#E6B566" /> },
+    { type: 'text', text: 'Close jobs faster', icon: <Zap size={16} fill="#E6B566" color="#E6B566" /> },
     { type: 'loading' },
-    { type: 'text', text: 'Get paid without disputes', icon: <ChartLine size={24} color="#18A87D" /> },
+    { type: 'text', text: 'Get paid without disputes', icon: <ChartLine size={16} color="#18A87D" /> },
 ];
 
 const Hero: React.FC = () => {
