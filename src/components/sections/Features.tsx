@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { MessageSquare, Search, Activity, Hash, UserPlus2, Image } from 'lucide-react';
+import { MessageSquare, Search, Activity, Hash, UserPlus2, Image, Folder, CheckLine } from 'lucide-react';
 import featureOne from '../../assets/feature-1.png';
 import featureTwo from '../../assets/feature-2.png';
 import featureThree from '../../assets/feature-3.png';
@@ -51,29 +51,29 @@ const Features: React.FC = () => {
 
     const features = [
         {
-            icon: <MessageSquare size={24} color="#FC7F5B" strokeWidth={1.5} />,
+            icon: <Folder size={24} color="#035B60" strokeWidth={1.5} />,
             title: "Start in minutes no training required",
             desc: "Create a project, add your team, and move work forward immediately. If they can text, they can run tasks, updates, and files in TaskTag.",
-            color: '#FC7F5B',
-            bg: 'rgba(252,127,91,0.07)',
-            borderColor: 'rgba(252,127,91,0.25)',
-            blobA: '#FC7F5B',
+            color: '#035B60',
+            bg: 'rgba(3,91,96,0.07)',
+            borderColor: 'rgba(31,91,96,0.25)',
+            blobA: '#035B60',
             blobB: '#FFD7C4',
             image: featureOne,
         },
         {
-            icon: <Hash size={24} color="#18A87D" strokeWidth={1.5} />,
+            icon: <Hash size={24} color="#303742" strokeWidth={1.5} />,
             title: "Turn updates into accountable work",
             desc: "Tag a task with a hashtag, assign an owner, set a due date, and attach photos or files. The work is automatically tied to the right project—no duplicate entry.",
-            color: '#18A87D',
-            bg: 'rgba(24,168,125,0.07)',
-            borderColor: 'rgba(24,168,125,0.25)',
-            blobA: '#18A87D',
+            color: '#303742',
+            bg: 'rgba(48,55,56,0.07)',
+            borderColor: 'rgba(48,55,56,0.25)',
+            blobA: '#303742',
             blobB: '#B8E6E9',
             image: featureTwo,
         },
         {
-            icon: <UserPlus2 size={24} color="#C072CD" strokeWidth={1.5} />,
+            icon: <Image size={24} color="#C072CD" strokeWidth={1.5} />,
             title: "Keep proof where it belongs",
             desc: "Progress photos, installation notes, and documents stay attached to the exact task and project. When questions come up, the answer is already organized.",
             color: '#C072CD',
@@ -84,18 +84,18 @@ const Features: React.FC = () => {
             image: featureThree,
         },
         {
-            icon: <Image size={24} color="#035B60" strokeWidth={1.5} />,
+            icon: <CheckLine size={24} color="#138EFF" strokeWidth={1.5} />,
             title: "Make billing and closeout painless",
             desc: "Completion updates, checklists, and documentation roll into a project-ready record. Send fewer follow-ups when it’s time to invoice, close out, or hand off.",
-            color: '#035B60',
-            bg: 'rgba(3,91,96,0.07)',
-            borderColor: 'rgba(3,91,96,0.25)',
-            blobA: '#00D9A5',
+            color: '#138EFF',
+            bg: 'rgba(19,142,255,0.07)',
+            borderColor: 'rgba(19,142,255,0.25)',
+            blobA: '#138EFF',
             blobB: '#18A87D',
             image: featureFour,
         },
         {
-            icon: <Activity size={24} color="var(--vivid-yellow)" strokeWidth={1.5} />,
+            icon: <Search size={24} color="var(--vivid-yellow)" strokeWidth={1.5} />,
             title: "Get answers in seconds",
             desc: "Search across projects, tasks, files, and contacts to find the latest detail fast. No digging through long threads or old folders.",
             color: 'var(--vivid-yellow)',
@@ -106,7 +106,7 @@ const Features: React.FC = () => {
             image: featureFive,
         },
         {
-            icon: <Search size={24} color="#7B61FF" strokeWidth={1.5} />,
+            icon: <Activity size={24} color="#7B61FF" strokeWidth={1.5} />,
             title: "Stay ahead of delays without more meetings",
             desc: "Activity feeds show what changed today, what’s overdue, and what just got completed across projects. You can spot gaps early and keep schedules moving.",
             color: '#7B61FF',
