@@ -1,4 +1,5 @@
 import React from 'react';
+import { ShieldCheck, Zap, BadgeDollarSign, Clock, DollarSign } from 'lucide-react';
 
 import styles from './Hero.module.css';
 import logoIntown from '../../assets/client/Logo-intown.png';
@@ -14,60 +15,31 @@ import chatHomeDesktop from '../../assets/chat-home-desktop.png';
 
 const logos = [logoIntown, logoLovett, logoPost, logoPrecision, logoSosa, logoIsc, logoZerodraft, logoSwenson];
 
-/* 
-interface ChatMsg {
-    sender: string;
-    time: string;
-    text: string;
-    avatarBg: string;
-}
+type BubbleStep = { type: 'loading' } | { type: 'text'; text: string; icon: React.ReactNode };
 
-const chatMessages: ChatMsg[] = [
-    { sender: 'Tommy', time: '12:21 PM', text: "Hi Logan! How's the progress", avatarBg: '#3B82F6' },
-    { sender: 'Logan', time: '12:23 PM', text: 'Hi, Delivery for Route A just finished', avatarBg: '#8B5CF6' },
+const bubbleSteps: BubbleStep[] = [
+    { type: 'loading' },
+    { type: 'text', text: 'Less rework', icon: <Clock size={24} fill="#18A87D" color="#FFFFFF" /> },
+    { type: 'loading' },
+    { type: 'text', text: 'Close jobs faster', icon: <Zap size={24} fill="#E6B566" color="#E6B566" /> },
+    { type: 'loading' },
+    { type: 'text', text: 'Get paid without disputes', icon: <DollarSign size={24} color="#18A87D" /> },
 ];
-*/
 
 const Hero: React.FC = () => {
-    /* 
-    const [visibleMsgs, setVisibleMsgs] = React.useState<number>(0);
-    const [showTask, setShowTask] = React.useState(false);
-    const [showTyping, setShowTyping] = React.useState(false);
-    const [isVisible, setIsVisible] = React.useState(true);
-    const [cycle, setCycle] = React.useState(0);
+    const [stepIndex, setStepIndex] = React.useState(0);
 
     React.useEffect(() => {
-        let timeouts: ReturnType<typeof setTimeout>[] = [];
+        const current = bubbleSteps[stepIndex];
+        // Loading steps show for 1.2s, text steps show for 2s
+        const duration = current.type === 'loading' ? 1200 : 2000;
 
-        // Reset
-        setIsVisible(true);
-        setVisibleMsgs(0);
-        setShowTask(false);
-        setShowTyping(false);
+        const timer = setTimeout(() => {
+            setStepIndex(prev => (prev + 1) % bubbleSteps.length);
+        }, duration);
 
-        // Stagger messages with typing indicator
-        timeouts.push(setTimeout(() => setVisibleMsgs(1), 800));
-        timeouts.push(setTimeout(() => setShowTyping(true), 1600));
-        timeouts.push(setTimeout(() => { setShowTyping(false); setVisibleMsgs(2); }, 2400));
-
-        // Show task completed
-        timeouts.push(setTimeout(() => setShowTask(true), 4000));
-
-        // Fade everything out together
-        timeouts.push(setTimeout(() => {
-            setIsVisible(false);
-        }, 7000));
-
-        // Reset AFTER fade finishes (wait for 0.5s transition)
-        timeouts.push(setTimeout(() => {
-            setVisibleMsgs(0);
-            setShowTask(false);
-            setCycle(c => c + 1);
-        }, 7800));
-
-        return () => timeouts.forEach(clearTimeout);
-    }, [cycle]);
-    */
+        return () => clearTimeout(timer);
+    }, [stepIndex]);
 
     return (
         <>
@@ -115,6 +87,22 @@ const Hero: React.FC = () => {
                             <div className={styles.fullRowGradient} />
 
                             <div className={`${styles.framesWrapper} ${styles.fadeInUp4}`}>
+                                {/* Single Chat Bubble — top-left of monitor */}
+                                <div className={styles.chatBubble} key={stepIndex}>
+                                    {bubbleSteps[stepIndex].type === 'loading' ? (
+                                        <div className={styles.chatBubbleLoading}>
+                                            <span className={styles.loadingDot} />
+                                            <span className={`${styles.loadingDot} ${styles.loadingDot2}`} />
+                                            <span className={`${styles.loadingDot} ${styles.loadingDot3}`} />
+                                        </div>
+                                    ) : (
+                                        <span className={styles.chatBubbleText}>
+                                            {(bubbleSteps[stepIndex] as { type: 'text'; text: string; icon: React.ReactNode }).icon}
+                                            {(bubbleSteps[stepIndex] as { type: 'text'; text: string }).text}
+                                        </span>
+                                    )}
+                                </div>
+
                                 {/* Desktop Frame */}
                                 <div className={`${styles.glassFrame} ${styles.desktopFrame}`}>
                                     <img src={chatHomeDesktop} alt="TaskTag Desktop Chat" className={styles.frameImg} />
@@ -124,8 +112,6 @@ const Hero: React.FC = () => {
                                 <div className={`${styles.glassFrame} ${styles.mobileFrame}`}>
                                     <img src={chatHome} alt="TaskTag Mobile Chat" className={styles.frameImg} />
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -154,3 +140,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+

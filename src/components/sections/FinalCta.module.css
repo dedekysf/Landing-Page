@@ -8,6 +8,42 @@
     overflow: hidden;
 }
 
+.patternOverlayLeft {
+    position: absolute;
+    top: -50%;
+    left: calc(50% - 50vw);
+    width: 60vw;
+    height: 150%;
+    transform-origin: left center;
+    transform: perspective(1000px) rotateY(55deg) rotateX(10deg) skewY(-10deg);
+    background-size: 80px 80px;
+    background-image:
+        linear-gradient(to right, rgba(249, 115, 22, 0.3) 1px, transparent 0.3px),
+        linear-gradient(to bottom, rgba(249, 115, 22, 0.3) 1px, transparent 0.3px);
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse at left center, black 10%, transparent 70%);
+    mask-image: radial-gradient(ellipse at left center, black 10%, transparent 70%);
+}
+
+.patternOverlayRight {
+    position: absolute;
+    top: -50%;
+    right: calc(50% - 50vw);
+    width: 60vw;
+    height: 150%;
+    transform-origin: right center;
+    transform: perspective(1000px) rotateY(-55deg) rotateX(10deg) skewY(10deg);
+    background-size: 80px 80px;
+    background-image:
+        linear-gradient(to right, rgba(249, 115, 22, 0.3) 1px, transparent 0.3px),
+        linear-gradient(to bottom, rgba(249, 115, 22, 0.3) 1px, transparent 0.3px);
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse at right center, black 10%, transparent 70%);
+    mask-image: radial-gradient(ellipse at right center, black 10%, transparent 70%);
+}
+
 .container {
     margin: 0 auto;
     max-width: 1000px;
@@ -124,6 +160,12 @@
 }
 
 @media (max-width: 768px) {
+
+    .patternOverlayLeft,
+    .patternOverlayRight {
+        display: none;
+    }
+
     .section {
         padding-top: 5rem;
     }

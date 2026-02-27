@@ -5,6 +5,8 @@ import styles from './FinalCta.module.css';
 const FinalCta: React.FC = () => {
     return (
         <section className={styles.section}>
+            <div className={styles.patternOverlayLeft} />
+            <div className={styles.patternOverlayRight} />
             <div className={`container ${styles.container}`}>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
