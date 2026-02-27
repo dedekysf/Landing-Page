@@ -27,7 +27,7 @@ const ActivationSteps: React.FC = () => {
     const plans: PlanData[] = [
         {
             title: "Free Plan",
-            tagline: "Up to 3 Projects",
+            tagline: "Up to 3 Projects, Get Started Instantly",
             icon: <Star size={32} color="#18A87D" strokeWidth={1.5} />,
             btnType: 'outline',
             priceMonthly: 0,
@@ -45,7 +45,7 @@ const ActivationSteps: React.FC = () => {
         },
         {
             title: "Team Plan",
-            tagline: "Unlimited Projects",
+            tagline: "Unlimited Projects, Scale Your Operations",
             icon: <Building size={32} color="var(--white)" strokeWidth={1.5} />,
             btnType: 'inverted',
             priceMonthly: 20,
