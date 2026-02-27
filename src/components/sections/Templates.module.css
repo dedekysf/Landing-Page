@@ -92,12 +92,12 @@
 
 .blueBg {
     background: rgba(19, 142, 255, 0.1);
-    color: #138EFF;
+    color: var(--blue);
 }
 
 .greenBg {
     background: rgba(24, 168, 125, 0.1);
-    color: #18A87D;
+    color: var(--secondary-green);
 }
 
 .cardTitle {
@@ -136,7 +136,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    color: #18A87D;
+    color: var(--secondary-green);
     font-weight: var(--font-weight-bold);
     font-size: 1rem;
     text-decoration: none;
@@ -145,12 +145,12 @@
 }
 
 .cardAction:hover {
-    color: #0d7052;
+    color: var(--secondary-green-active);
 }
 
 /* View More Template Card */
 .viewMoreCard {
-    background: #DCF2EC;
+    background: var(--light-mint);
     color: var(--text-secondary);
     justify-content: center;
     align-items: center;
@@ -200,7 +200,7 @@
 }
 
 .viewMoreBtn:hover {
-    background: #12976e;
+    background: var(--secondary-green-hover);
     box-shadow: 0 2px 10px rgba(24, 168, 125, 0.35);
 }
 

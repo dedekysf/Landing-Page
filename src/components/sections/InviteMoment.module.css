@@ -82,7 +82,6 @@
     padding: 1rem 2rem !important;
     font-weight: 400 !important;
     transition: background 0.2s ease !important;
-    margin-bottom: 0 !important;
     border: none !important;
     box-shadow: none !important;
 }
@@ -90,7 +89,6 @@
 .ctaBtn:hover {
     background: var(--text-secondary) !important;
     transform: none !important;
-    margin-bottom: 0 !important;
     border: none !important;
     box-shadow: none !important;
 }

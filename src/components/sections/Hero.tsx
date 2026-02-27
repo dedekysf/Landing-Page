@@ -12,6 +12,7 @@ import logoZerodraft from '../../assets/client/Logo-Zerodraft.png';
 import logoSwenson from '../../assets/client/Swenson-Logo.png';
 import chatHome from '../../assets/chat-home.png';
 import chatHomeDesktop from '../../assets/chat-home-desktop.png';
+import chatHomeDesktopMobile from '../../assets/chat-home-desktop-onmobile.png';
 import heroFilterTaskList from '../../assets/hero-filter-task-list.png';
 
 const logos = [logoIntown, logoLovett, logoPost, logoPrecision, logoSosa, logoIsc, logoZerodraft, logoSwenson];
@@ -20,11 +21,11 @@ type BubbleStep = { type: 'loading' } | { type: 'text'; text: string; icon: Reac
 
 const bubbleSteps: BubbleStep[] = [
     { type: 'loading' },
-    { type: 'text', text: 'Less rework', icon: <CalendarCheck2 size={16} color="#18A87D" /> },
+    { type: 'text', text: 'Less rework', icon: <CalendarCheck2 size={16} color="var(--secondary-green)" /> },
     { type: 'loading' },
     { type: 'text', text: 'Close jobs faster', icon: <Zap size={16} fill="#E6B566" color="#E6B566" /> },
     { type: 'loading' },
-    { type: 'text', text: 'Get paid without disputes', icon: <ChartLine size={16} color="#18A87D" /> },
+    { type: 'text', text: 'Get paid without disputes', icon: <ChartLine size={16} color="var(--secondary-green)" /> },
 ];
 
 const Hero: React.FC = () => {
@@ -106,7 +107,10 @@ const Hero: React.FC = () => {
 
                                 {/* Desktop Frame */}
                                 <div className={`${styles.glassFrame} ${styles.desktopFrame}`}>
-                                    <img src={chatHomeDesktop} alt="TaskTag Desktop Chat" className={styles.frameImg} />
+                                    <picture>
+                                        <source media="(max-width: 1024px)" srcSet={chatHomeDesktopMobile} />
+                                        <img src={chatHomeDesktop} alt="TaskTag Desktop Chat" className={styles.frameImg} />
+                                    </picture>
                                 </div>
 
                                 {/* Mobile Frame Overlap */}

@@ -94,7 +94,7 @@
     justify-content: center;
     flex-shrink: 0;
     margin-top: 0px;
-    background: #F7F8FA;
+    background: var(--grey-01);
     border-radius: 50%;
 }
 
@@ -346,7 +346,7 @@
     .featIcon {
         width: 44px;
         height: 44px;
-        background: #F7F8FA;
+        background: var(--grey-01);
         align-self: flex-start;
         margin-top: 2px;
         /* Disesuaikan agar sejajar dengan posisi teks judul fitur */

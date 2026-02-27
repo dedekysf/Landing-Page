@@ -54,7 +54,7 @@ const Templates: React.FC = () => {
                         <ul className={styles.checklist}>
                             {preConstructionTasks.map((task, i) => (
                                 <li key={i} className={styles.checklistItem}>
-                                    <CheckSquare size={18} color="#18A87D" style={{ flexShrink: 0 }} />
+                                    <CheckSquare size={18} color="var(--secondary-green)" style={{ flexShrink: 0 }} />
                                     <span>{task}</span>
                                 </li>
                             ))}
@@ -84,7 +84,7 @@ const Templates: React.FC = () => {
                         <ul className={styles.checklist}>
                             {foundationTasks.map((task, i) => (
                                 <li key={i} className={styles.checklistItem}>
-                                    <CheckSquare size={18} color="#18A87D" style={{ flexShrink: 0 }} />
+                                    <CheckSquare size={18} color="var(--secondary-green)" style={{ flexShrink: 0 }} />
                                     <span>{task}</span>
                                 </li>
                             ))}

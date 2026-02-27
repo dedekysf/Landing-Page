@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Button from '../common/Button';
 import logoUrl from '../../assets/Logo-TaskTag.svg';
 import styles from './Navbar.module.css';
 
@@ -72,8 +71,8 @@ const Navbar: React.FC = () => {
                         <a href="https://portal.tasktag.com/product" className={styles.mobileNavLink} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Resources</a>
                         <hr className={styles.divider} />
                         <div className={styles.mobileCta}>
-                            <Button variant="outline" fullWidth onClick={() => { setMobileMenuOpen(false); window.open('https://app.tasktag.com/login', '_blank'); }}>Log In</Button>
-                            <Button fullWidth onClick={() => { setMobileMenuOpen(false); window.open('https://app.tasktag.com/register/signup-with-email', '_blank'); }}>Start For Free</Button>
+                            <a href="https://app.tasktag.com/register/signup-with-email" className={styles.navbarBtn} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Start For Free</a>
+                            <a href="https://app.tasktag.com/login" className={styles.navbarSecondaryBtn} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Login</a>
                         </div>
                     </div>
                 </div>

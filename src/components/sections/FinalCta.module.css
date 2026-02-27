@@ -82,7 +82,8 @@
     color: white;
     padding: 1rem 2rem;
     border-radius: 8px;
-    font-weight: 400;
+    font-size: 1.125rem;
+    font-weight: 500;
     text-decoration: none;
     transition: background 0.2s ease, transform 0.2s ease;
     animation: ctaPulse 2.5s ease-in-out infinite;
@@ -101,7 +102,7 @@
 }
 
 .primaryBtn:hover {
-    background: #148e69;
+    background: var(--secondary-green-hover);
     transform: translateY(-2px);
     animation: none;
     box-shadow: 0 6px 20px rgba(24, 168, 125, 0.3);
@@ -112,15 +113,16 @@
     color: var(--text-primary);
     padding: 1rem 2rem;
     border-radius: 8px;
-    font-weight: 400;
+    font-size: 1.125rem;
+    font-weight: 500;
     text-decoration: none;
     border: 1px solid var(--grey-03);
     transition: all 0.2s ease;
 }
 
 .secondaryBtn:hover {
-    background: #F4F5F7;
-    border-color: #D1D5DB;
+    background: var(--grey-08);
+    border-color: var(--grey-09);
     transform: translateY(-2px);
 }
 
@@ -161,21 +163,29 @@
 
 @media (max-width: 768px) {
 
-    .patternOverlayLeft,
+    .patternOverlayLeft {
+        display: none;
+        /* display: block;
+        top: 50%;
+        left: -25vw;
+        width: 150vw;
+        height: 60%;
+        transform-origin: center top;
+        transform: perspective(600px) rotateX(60deg);
+        -webkit-mask-image: radial-gradient(ellipse at center top, black 25%, transparent 45%);
+        mask-image: radial-gradient(ellipse at center top, black 25%, transparent 45%);
+        opacity: 1;
+        z-index: 0; */
+    }
+
     .patternOverlayRight {
         display: none;
     }
 
     .section {
         padding-top: 5rem;
-    }
-
-    .title {
-        font-size: 3rem;
-    }
-
-    .subtitle {
-        font-size: 1.5rem;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .desktopBreak {
@@ -185,14 +195,16 @@
     .btnGroup {
         flex-direction: row;
         width: 100%;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
     .primaryBtn,
     .secondaryBtn {
         flex: 1;
-        padding: 1rem 0.5rem;
-        font-size: 0.9rem;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0.5rem !important;
+        box-sizing: border-box;
     }
 
     .mobileBreak {
@@ -207,10 +219,11 @@
 
     .title {
         font-size: 2.5rem;
-        margin-bottom: 0.75rem;
+        /* margin-bottom: 0.75rem; */
     }
 
     .subtitle {
         font-size: 1.25rem;
+        margin-bottom: 3rem;
     }
 }

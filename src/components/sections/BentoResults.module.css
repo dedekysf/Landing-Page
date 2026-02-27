@@ -68,7 +68,7 @@
 
 /* Specific Card Layouts */
 .logoCard {
-    background: #303742;
+    background: var(--text-secondary);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,7 +97,7 @@
 }
 
 .imageCard {
-    background: #222;
+    background: var(--dark-grey);
     grid-column: span 1;
 }
 
@@ -116,13 +116,13 @@
 }
 
 .statBlue {
-    background: #1572A1;
-    color: #fff;
+    background: var(--pastel-blue);
+    color: var(--white);
 }
 
 .statGreen {
-    background: #CC7351;
-    color: #fff;
+    background: var(--pastel-orange);
+    color: var(--white);
 }
 
 .statLabel {
@@ -224,6 +224,7 @@
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
+        overflow-y: hidden;
         gap: 16px;
         width: 100%;
         padding-bottom: 0.5rem;

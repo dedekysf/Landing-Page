@@ -136,6 +136,31 @@
     .desktopBr {
         display: none;
     }
+
+    .actions {
+        flex-direction: row;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .btnWrapper {
+        flex: 1;
+        /* Make both wrappers grow equally */
+        display: flex;
+        /* Make the wrapper a flex container to expand child */
+        height: auto;
+        padding-bottom: 0px;
+    }
+
+    .primaryBtn,
+    .secondaryBtn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0.5rem !important;
+        /* Reduces horizontal padding to fit side by side */
+        box-sizing: border-box;
+        /* Ensures padding is included in the 100% width */
+    }
 }
 
 .heroFeatures {
@@ -210,7 +235,7 @@
 }
 
 .primaryBtn:hover {
-    background: #148e69 !important;
+    background: var(--secondary-green-hover) !important;
     transform: translateY(-2px) !important;
     animation: none !important;
     box-shadow: 0 6px 20px rgba(24, 168, 125, 0.3) !important;
@@ -237,8 +262,8 @@
 }
 
 .secondaryBtn:hover {
-    background: #F4F5F7 !important;
-    border-color: #D1D5DB !important;
+    background: var(--grey-08) !important;
+    border-color: var(--grey-09) !important;
     transform: translateY(-2px) !important;
     margin: 0 !important;
 }
@@ -447,7 +472,20 @@
 
 @media (max-width: 768px) {
 
-    .patternOverlayLeft,
+    .patternOverlayLeft {
+        display: block;
+        top: 65%;
+        left: -25vw;
+        width: 150vw;
+        height: 60%;
+        transform-origin: center top;
+        transform: perspective(600px) rotateX(60deg);
+        -webkit-mask-image: radial-gradient(ellipse at center top, black 25%, transparent 75%);
+        mask-image: radial-gradient(ellipse at center top, black 25%, transparent 75%);
+        opacity: 1;
+        z-index: 0;
+    }
+
     .patternOverlayRight {
         display: none;
     }
@@ -465,6 +503,25 @@
     overflow: hidden;
     z-index: 1;
     transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Responsive image swap: desktop vs mobile screenshot */
+.desktopOnly {
+    display: block;
+}
+
+.mobileOnly {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .desktopOnly {
+        display: none;
+    }
+
+    .mobileOnly {
+        display: block;
+    }
 }
 
 .desktopFrame {
@@ -541,6 +598,10 @@
         padding: 6px;
         z-index: 3;
         box-shadow: none;
+    }
+
+    .heroVisuals {
+        margin-top: 1.5rem;
     }
 }
 
@@ -1357,7 +1418,7 @@
     transform: translateY(-100%);
     z-index: 20;
     pointer-events: none;
-    background: #DCF2EC;
+    background: var(--light-mint);
     border: none;
     border-radius: 12px 12px 12px 4px;
     padding: 10px 18px;
@@ -1438,7 +1499,24 @@
 /* Responsive */
 @media (max-width: 768px) {
     .chatBubble {
-        display: none;
+        left: 8px;
+        top: -10px;
+        padding: 6px 12px;
+        border-radius: 10px 10px 10px 3px;
+    }
+
+    .chatBubbleText {
+        font-size: 0.7rem;
+    }
+
+    .chatBubbleText svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .loadingDot {
+        width: 5px;
+        height: 5px;
     }
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import styles from './BentoResults.module.css';
 
@@ -44,6 +44,15 @@ const CountUp: React.FC<{ target: number; suffix?: string; duration?: number }> 
 };
 
 const BentoResults: React.FC = () => {
+    const row1Ref = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        if (window.innerWidth <= 768 && row1Ref.current) {
+            // Synchronously scroll to the far right before paint
+            row1Ref.current.scrollLeft = 9999;
+        }
+    }, []);
+
     return (
         <section className={styles.section}>
             <div className={styles.container}>
@@ -64,7 +73,7 @@ const BentoResults: React.FC = () => {
 
                 {/* Bento Grid layout */}
                 <div className={styles.bentoGrid}>
-                    <div className={styles.bentoRow}>
+                    <div className={styles.bentoRow} ref={row1Ref}>
                         {/* Top Row: Logo (1), Image (1), Stat (2) */}
                         <motion.div className={`${styles.card} ${styles.logoCard}`}
                             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} viewport={{ once: true }}>

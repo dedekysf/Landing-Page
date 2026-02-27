@@ -28,7 +28,7 @@ const ActivationSteps: React.FC = () => {
         {
             title: "Free Plan",
             tagline: "Up to 3 Projects, Get Started Instantly",
-            icon: <Star size={32} color="#18A87D" strokeWidth={1.5} />,
+            icon: <Star size={32} color="var(--secondary-green)" strokeWidth={1.5} />,
             btnType: 'outline',
             priceMonthly: 0,
             priceAnnual: 0,

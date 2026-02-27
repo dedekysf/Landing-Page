@@ -1,7 +1,7 @@
 .section {
     position: relative;
     padding: 6rem 1rem;
-    background: #f9fafb;
+    background: var(--grey-01);
     /* Subtle light gray, calm but slightly clinical */
     color: var(--text-primary);
     overflow: hidden;
@@ -116,9 +116,9 @@
 
 /* Common Mockup Styles */
 .mockupHeader {
-    background: #f1f3f5;
+    background: var(--grey-02);
     padding: 12px 16px;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--grey-03);
     display: flex;
     align-items: center;
 }
@@ -135,10 +135,10 @@
     top: 0;
     left: 0;
     width: 320px;
-    background: #ffffff;
+    background: var(--white);
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--grey-03);
     overflow: hidden;
     z-index: 5;
 }
@@ -169,7 +169,7 @@
 }
 
 .chatLeft {
-    background: #f3f4f6;
+    background: var(--grey-02);
     color: var(--text-primary);
     align-self: flex-start;
     border-bottom-left-radius: 4px;
@@ -188,10 +188,10 @@
     bottom: 0;
     right: 0;
     width: 280px;
-    background: #ffffff;
+    background: var(--white);
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--grey-03);
     overflow: hidden;
     z-index: 10;
 }
@@ -208,7 +208,7 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 12px;
-    border-bottom: 1px dashed #e5e7eb;
+    border-bottom: 1px dashed var(--grey-03);
 }
 
 .fieldLabel {
@@ -219,10 +219,10 @@
 
 .fieldValueEmpty {
     font-size: 0.85rem;
-    color: #9ca3af;
+    color: var(--grey-04);
     /* muted gray */
     font-style: italic;
-    background: #f3f4f6;
+    background: var(--grey-02);
     padding: 4px 8px;
     border-radius: 4px;
 }
@@ -230,7 +230,7 @@
 .taskNote {
     margin-top: 8px;
     padding: 12px;
-    background: #fffbeb;
+    background: var(--light-cream);
     /* very subtle yellow, uncomfortably unresolved */
     border: 1px solid #fde68a;
     border-radius: 6px;

@@ -1,6 +1,6 @@
 .pricing {
     padding: 6rem 1rem;
-    background: #fdfdfd;
+    background: var(--grey-13);
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     position: relative;
@@ -32,13 +32,13 @@
 }
 
 .highlightOrange {
-    background: #FFF1DB;
+    background: var(--light-orange);
     padding: 0.1rem 0.5rem;
     border-radius: 6px;
 }
 
 .highlightGreen {
-    background: #e6fffa;
+    background: var(--light-mint-2);
     color: var(--secondary-green);
     padding: 0.1rem 0.5rem;
     border-radius: 6px;
@@ -46,7 +46,7 @@
 
 .subtitle {
     font-size: 1.125rem;
-    color: #4A5568;
+    color: var(--text-tertiary);
     line-height: 1.8;
     margin-bottom: 2rem;
 }
@@ -121,7 +121,7 @@ input:checked+.slider:before {
 }
 
 .switchLabel.inactive {
-    color: #A0AEC0;
+    color: var(--grey-11);
 }
 
 
@@ -137,8 +137,8 @@ input:checked+.slider:before {
 
 /* Base Card */
 .card {
-    background: #ffffff;
-    border: 1px solid #EDF2F7;
+    background: var(--white);
+    border: 1px solid var(--grey-10);
     border-radius: 16px;
     padding: 3rem 2rem;
     text-align: center;
@@ -175,9 +175,9 @@ input:checked+.slider:before {
     top: -16px;
     left: 50%;
     transform: translateX(-50%);
-    background: #F6AD55;
+    background: var(--orange-2);
     /* Orange/Yellow */
-    color: #fff;
+    color: var(--white);
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 0.825rem;
@@ -196,12 +196,12 @@ input:checked+.slider:before {
 
 .planTarget {
     font-size: 0.875rem;
-    color: #718096;
+    color: var(--text-quaternary);
     margin-bottom: 2rem;
 }
 
 .cardPopular .planTarget {
-    color: #e6fffa;
+    color: var(--light-mint-2);
 }
 
 .price {

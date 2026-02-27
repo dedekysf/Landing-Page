@@ -117,7 +117,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #CBD5E1;
+    background-color: var(--grey-12);
     transition: .3s;
     border-radius: 34px;
 }
@@ -187,7 +187,7 @@ input:checked+.slider:before {
 .priceSubtext {
     font-size: 1rem;
     margin-bottom: 1.5rem;
-    color: #828282;
+    color: var(--grey-05);
     font-weight: 400;
 }
 
@@ -268,12 +268,12 @@ input:checked+.slider:before {
 
 .stepCardFilled .saveBadge {
     color: var(--secondary-green);
-    background: #DCF2EC;
+    background: var(--light-mint);
 }
 
 .stepCardFilled .priceSubtext,
 .stepCardFilled .stepDesc {
-    color: #828282;
+    color: var(--grey-05);
     font-weight: 400
 }
 
@@ -338,8 +338,8 @@ input:checked+.slider:before {
 }
 
 .cardBtnFilled:hover {
-    background: #129668;
-    border-color: #129668;
+    background: var(--secondary-green-border);
+    border-color: var(--secondary-green-border);
 }
 
 .cardBtnInverted {
@@ -356,7 +356,7 @@ input:checked+.slider:before {
 }
 
 .cardBtnInverted:hover {
-    background: #12976e;
+    background: var(--secondary-green-hover);
     box-shadow: 0 2px 10px rgba(24, 168, 125, 0.35);
 }
 
@@ -392,14 +392,6 @@ input:checked+.slider:before {
         display: none;
     }
 
-    .title {
-        font-size: 3rem;
-    }
-
-    .subtitle {
-        font-size: 1.5rem;
-    }
-
     .desktopOnlyBr {
         display: none;
     }
@@ -409,6 +401,11 @@ input:checked+.slider:before {
         flex-direction: column-reverse;
         /* Reverses order so Team Plan comes first */
         gap: 2rem;
+    }
+
+    .planTagline {
+        margin-top: 0.5rem;
+        font-size: 1.125rem;
     }
 }
 
@@ -446,7 +443,7 @@ input:checked+.slider:before {
     padding: 1.2rem 3rem !important;
     font-size: 1.125rem !important;
     font-weight: 400 !important;
-    border-bottom: 6px solid #129668 !important;
+    border-bottom: 6px solid var(--secondary-green-border) !important;
     box-shadow: none !important;
     letter-spacing: 0.01em;
     animation: btnBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
@@ -478,7 +475,7 @@ input:checked+.slider:before {
     transform: translateY(3px) !important;
     margin-bottom: -3px !important;
     border-bottom-width: 3px !important;
-    box-shadow: 0 1px 0 #0d7a5f !important;
+    box-shadow: 0 1px 0 var(--secondary-green-shadow) !important;
 }
 
 .primaryBtn:active {
