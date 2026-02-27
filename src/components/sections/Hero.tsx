@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Zap, BadgeDollarSign, Clock, DollarSign } from 'lucide-react';
+import { Zap, Clock, DollarSign } from 'lucide-react';
 
 import styles from './Hero.module.css';
 import logoIntown from '../../assets/client/Logo-intown.png';
