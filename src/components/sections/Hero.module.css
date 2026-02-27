@@ -1447,12 +1447,25 @@
    ====================================== */
 .taskListOverlay {
     position: absolute;
-    left: -4rem;
-    bottom: 28%;
+    left: -4.2rem;
+    bottom: 26.4%;
     z-index: 10;
     width: 200px;
     border-radius: 16px;
     overflow: hidden;
+    animation: taskListFloat 5s ease-in-out infinite;
+}
+
+@keyframes taskListFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
 }
 
 .taskListImg {
