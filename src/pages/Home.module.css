@@ -321,3 +321,11 @@
         margin-top: -120px;
     }
 }
+
+/* --- Shared CTA & Footer Wrapper --- */
+.bottomUnifiedWrapper {
+    background: linear-gradient(180deg, rgba(255, 243, 238, 0.2) 0%, rgba(255, 243, 238, 1) 100%);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import heroImage from '../../assets/hero-mytask-2.png';
 import styles from './FinalCta.module.css';
 
 const FinalCta: React.FC = () => {
@@ -24,16 +23,6 @@ const FinalCta: React.FC = () => {
                     </div>
                 </motion.div>
             </div>
-
-            <motion.div
-                className={styles.illustrationWrapper}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-            >
-                <img src={heroImage} alt="TaskTag App Interface" className={styles.illustration} />
-            </motion.div>
         </section>
     );
 };

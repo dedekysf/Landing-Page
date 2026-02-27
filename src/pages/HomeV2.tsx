@@ -202,9 +202,9 @@ const HomeV2: React.FC = () => {
                             </motion.div>
                         </div>
                     </div>
-                </section >
-                <Footer />
-            </div >
+                    <Footer />
+                </section>
+            </div>
         </div >
     );
 };

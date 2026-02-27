@@ -130,11 +130,12 @@ const Features: React.FC = () => {
             }}>
                 {/* Left blob: rounded ketupat, sits on top */}
                 <motion.div
-                    animate={hasEntered ? {
+                    initial={{ x: '0%', y: 0, rotate: -50 }}
+                    animate={{
                         x: ['0%', '-40%', '0%'],
                         y: [0, 10, 0],
-                        rotate: [-50, -50, -50], // Adding rotation animation
-                    } : { x: '0%', y: 0, rotate: -50 }}
+                        rotate: -50,
+                    }}
                     transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
                     style={{
                         position: 'absolute', top: '10%', right: '30%',
@@ -148,9 +149,10 @@ const Features: React.FC = () => {
                 />
                 {/* Right blob: large circle showing half, moves top→bottom, behind left blob */}
                 <motion.div
-                    animate={hasEntered ? {
+                    initial={{ y: '-20%' }}
+                    animate={{
                         y: ['-20%', '40%', '-20%'],
-                    } : { y: '-20%' }}
+                    }}
                     transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
                     style={{
                         position: 'absolute', top: '0', right: '-30%',
@@ -188,7 +190,7 @@ const Features: React.FC = () => {
                         WebkitBackdropFilter: 'blur(3px)',
                         boxShadow: '0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9)',
                         background: 'rgba(255,255,255,0.5)',
-                        padding: '4px',
+                        padding: '8px',
                         paddingBottom: '0',
                         width: '100%',
                         maxWidth: '90%', // Increased from 92% to 96%
@@ -263,6 +265,7 @@ const Features: React.FC = () => {
                                                 initial={{ opacity: 0, height: 0, marginTop: 0 }}
                                                 animate={{ opacity: 1, height: 'auto', marginTop: '0.5rem' }}
                                                 exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                                                transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
                                             >
                                                 <p style={{ marginBottom: '0.75rem' }}>{feat.desc}</p>
                                                 <div className={styles.learnMore}>

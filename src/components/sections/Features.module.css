@@ -46,7 +46,7 @@
     background: var(--secondary-green) !important;
     color: white !important;
     border-radius: 8px !important;
-    font-weight: 700 !important;
+    font-weight: 400 !important;
     padding: 1rem 2.5rem !important;
     box-shadow: 0 4px 14px rgba(252, 127, 91, 0.3) !important;
 }
@@ -344,10 +344,12 @@
     }
 
     .featIcon {
-        width: 24px;
-        height: 24px;
-        background: transparent;
+        width: 44px;
+        height: 44px;
+        background: #F7F8FA;
         align-self: flex-start;
+        margin-top: 2px;
+        /* Disesuaikan agar sejajar dengan posisi teks judul fitur */
     }
 
     .featIcon svg {
@@ -367,13 +369,14 @@
 
     .featBody p {
         margin-top: 0.5rem;
-        margin-left: calc(-24px - 1rem);
-        width: calc(100% + 24px + 1rem);
+        /* margin-left dihapus agar teks sejajar dengan batas kiri dari judul .featBody h4 */
+        width: 100%;
     }
 
     .learnMore {
-        margin-left: calc(-24px - 1rem);
-        width: calc(100% + 24px + 1rem);
+        /* margin-left dihapus untuk menyejajarkan container gambar dengan teks */
+        width: 100%;
+        margin-top: 1rem;
     }
 
     /* Hide complex overlap on mobile to save space */
@@ -395,12 +398,14 @@
         background: transparent;
         width: 100%;
         display: block;
+        padding-top: 2rem;
+        /* Ruang ekstra diperbesar sesuai request */
     }
 }
 
 @media (max-width: 480px) {
     .features {
-        padding: 4rem 1rem;
+        padding: 4rem 0rem;
     }
 
     .header {
@@ -408,7 +413,7 @@
     }
 
     .title {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 0.75rem;
     }
 
@@ -418,9 +423,5 @@
 
     .desktopOnlyBtn {
         display: none;
-    }
-
-    .featIcon {
-        background: transparent;
     }
 }

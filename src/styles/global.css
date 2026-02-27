@@ -14,7 +14,7 @@ body {
     font-family: var(--font-family-primary);
     font-weight: var(--font-weight-body);
     color: var(--text-primary);
-    background-color: #FAFBFC;
+    background-color: #FFFFFF;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -46,6 +46,8 @@ button {
     cursor: pointer;
     border: none;
     background: none;
+    font-weight: 400;
+    /* Font weight default 400 */
 }
 
 /* Utilities */
@@ -99,5 +101,14 @@ button {
         /* Standard browser font-size is 16px. 
            Reducing this to 12px scales all `rem` units down by exactly 4px (which equals 0.25rem of the original size) */
         font-size: 12px;
+    }
+
+    button,
+    .primaryBtn,
+    .cardBtnOutline,
+    .cardBtnFilled,
+    .cardBtnInverted,
+    .ghostBtn {
+        font-weight: 400 !important;
     }
 }

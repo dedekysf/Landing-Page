@@ -16,17 +16,17 @@ const ScrollBackground: React.FC<ScrollBackgroundProps> = ({ children }) => {
     // White → soft warm grey → white → cool light → white → warm tone → soft end
     const backgroundColor = useTransform(
         scrollYProgress,
-        [0, 0.12, 0.2, 0.35, 0.45, 0.6, 0.7, 0.85, 1],
+        [0, 0.12, 0.2, 0.35, 0.45, 0.6, 0.8, 0.95, 1],
         [
             '#FFFFFF',   // Hero
             '#FFFFFF',   // Hero → Features transition
-            '#FFFFFF',   // Features (cool grey)
-            '#FFFFFF',   // BentoResults
-            '#F5F7FA',   // ActivationSteps (warm beige)
-            '#F5F7FA',   // Templates transition
-            '#F3F8F6',   // Templates (green-tinted)
-            '#FFFFFF',   // FinalCta
-            '#FFFFFF',   // Footer
+            '#FFFFFF',   // Features
+            '#F5F7FA',   // BentoResults (Real Results)
+            '#FFFFFF',   // ActivationSteps
+            '#FFFFFF',   // Templates transition
+            '#FFFFFF',   // Templates
+            'rgba(255, 243, 238, 1)',   // FinalCta (Start Free)
+            'rgba(255, 243, 238, 1)',   // Footer (shares CTA bg logically via css)
         ]
     );
 

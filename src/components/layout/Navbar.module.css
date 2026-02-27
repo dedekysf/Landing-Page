@@ -79,7 +79,7 @@
 }
 
 .navLink {
-    font-weight: 500;
+    font-weight: 400;
     color: #303742;
     transition: color 0.4s ease-in-out;
 }
@@ -97,8 +97,8 @@
 }
 
 .loginLink {
-    font-weight: 600;
-    color: var(--color-text-muted);
+    font-weight: 400;
+    color: #303742;
 }
 
 .loginLink:hover {
@@ -111,7 +111,7 @@
     padding: 0.45rem 1.1rem;
     background: var(--secondary-green);
     color: #fff !important;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 0.875rem;
     border-radius: 10px;
     border: none;

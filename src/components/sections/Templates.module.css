@@ -195,6 +195,10 @@
     transition: background 0.2s ease;
 }
 
+.highlight {
+    color: var(--secondary-green);
+}
+
 .viewMoreBtn:hover {
     background: #12976e;
     box-shadow: 0 2px 10px rgba(24, 168, 125, 0.35);

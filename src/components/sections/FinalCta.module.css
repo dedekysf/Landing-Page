@@ -1,7 +1,6 @@
 .section {
-    background-color: #FFFFFF;
-    padding: 8rem 1rem 0;
-    /* No bottom padding since illustration sits flat */
+    background: transparent;
+    padding: 8rem 1rem 8rem 1rem;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
@@ -11,9 +10,12 @@
 
 .container {
     margin: 0 auto;
+    max-width: 1000px;
     position: relative;
     z-index: 2;
 }
+
+
 
 .title {
     font-size: 4rem;
@@ -44,7 +46,7 @@
     color: white;
     padding: 1rem 2rem;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 400;
     text-decoration: none;
     transition: background 0.2s ease, transform 0.2s ease;
     animation: ctaPulse 2.5s ease-in-out infinite;
@@ -74,7 +76,7 @@
     color: var(--text-primary);
     padding: 1rem 2rem;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 400;
     text-decoration: none;
     border: 1px solid var(--grey-03);
     transition: all 0.2s ease;

@@ -94,7 +94,7 @@ const ActivationSteps: React.FC = () => {
                                 </div>
                             )}
 
-                            {/* <div className={styles.iconWrapper}>{step.icon}</div> */}
+                            <div className={styles.iconWrapper}>{step.icon}</div>
                             <h3 className={styles.stepTitle}>
                                 {step.title}
                                 {step.showBadge && (
