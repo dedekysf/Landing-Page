@@ -52,8 +52,8 @@ const Features: React.FC = () => {
     const features = [
         {
             icon: <MessageSquare size={24} color="#FC7F5B" strokeWidth={1.5} />,
-            title: "Everything happens in chat",
-            desc: "RFIs, site notes, and change approvals live in the project chat—so nothing gets buried in personal texts and comes back as expensive revisions.",
+            title: "Start in minutes no training required",
+            desc: "Create a project, add your team, and move work forward immediately. If they can text, they can run tasks, updates, and files in TaskTag.",
             color: '#FC7F5B',
             bg: 'rgba(252,127,91,0.07)',
             borderColor: 'rgba(252,127,91,0.25)',
@@ -63,8 +63,8 @@ const Features: React.FC = () => {
         },
         {
             icon: <Hash size={24} color="#18A87D" strokeWidth={1.5} />,
-            title: "Create clear ownership fast",
-            desc: "Tag the exact message to create a project task, then set the owner and due date—no retyping, no second app—so accountability is tied to the original decision.",
+            title: "Turn updates into accountable work",
+            desc: "Tag a task with a hashtag, assign an owner, set a due date, and attach photos or files. The work is automatically tied to the right project—no duplicate entry.",
             color: '#18A87D',
             bg: 'rgba(24,168,125,0.07)',
             borderColor: 'rgba(24,168,125,0.25)',
@@ -74,8 +74,8 @@ const Features: React.FC = () => {
         },
         {
             icon: <UserPlus2 size={24} color="#C072CD" strokeWidth={1.5} />,
-            title: "Invoice with backup, not guesswork",
-            desc: "Attach photos, PDFs, and specs to the task or project as you go—so closeout and change-order backup are ready when it’s time to bill.",
+            title: "Keep proof where it belongs",
+            desc: "Progress photos, installation notes, and documents stay attached to the exact task and project. When questions come up, the answer is already organized.",
             color: '#C072CD',
             bg: 'rgba(192,114,205,0.07)',
             borderColor: 'rgba(192,114,205,0.25)',
@@ -85,8 +85,8 @@ const Features: React.FC = () => {
         },
         {
             icon: <Image size={24} color="#035B60" strokeWidth={1.5} />,
-            title: "Know who was on site and when",
-            desc: "Drop a pin and check in/out in the same thread—so you’ve got a clean timeline of who was on site and when.",
+            title: "Make billing and closeout painless",
+            desc: "Completion updates, checklists, and documentation roll into a project-ready record. Send fewer follow-ups when it’s time to invoice, close out, or hand off.",
             color: '#035B60',
             bg: 'rgba(3,91,96,0.07)',
             borderColor: 'rgba(3,91,96,0.25)',
@@ -96,8 +96,8 @@ const Features: React.FC = () => {
         },
         {
             icon: <Activity size={24} color="var(--vivid-yellow)" strokeWidth={1.5} />,
-            title: "Stay ahead of slips across all jobs",
-            desc: "Use one global feed to see completions, late items, and missing proof—so you know what’s ready to invoice and what’s about to slip.",
+            title: "Get answers in seconds",
+            desc: "Search across projects, tasks, files, and contacts to find the latest detail fast. No digging through long threads or old folders.",
             color: 'var(--vivid-yellow)',
             bg: 'rgba(251,189,66,0.08)',
             borderColor: 'rgba(251,189,66,0.35)',
@@ -107,8 +107,8 @@ const Features: React.FC = () => {
         },
         {
             icon: <Search size={24} color="#7B61FF" strokeWidth={1.5} />,
-            title: "Win disputes in minutes, not days",
-            desc: "Search across projects, tasks, contacts, and files—so you can pull approvals and receipts before a question turns into a dispute or withheld payment.",
+            title: "Stay ahead of delays without more meetings",
+            desc: "Activity feeds show what changed today, what’s overdue, and what just got completed across projects. You can spot gaps early and keep schedules moving.",
             color: '#7B61FF',
             bg: 'rgba(123,97,255,0.07)',
             borderColor: 'rgba(123,97,255,0.25)',
