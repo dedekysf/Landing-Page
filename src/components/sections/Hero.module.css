@@ -484,7 +484,7 @@
     position: absolute;
     bottom: 0;
     /* Perfectly aligns with the bottom of desktop frame (parent wrapper) */
-    right: -2rem;
+    right: -1rem;
     /* Shifting outside the desktop slightly */
     width: 275px;
     /* aspect-ratio: 9 / 19.5; */
