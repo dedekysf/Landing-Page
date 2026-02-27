@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Clock, DollarSign } from 'lucide-react';
+import { Zap, ChartLine, CalendarCheck2 } from 'lucide-react';
 
 import styles from './Hero.module.css';
 import logoIntown from '../../assets/client/Logo-intown.png';
@@ -12,6 +12,7 @@ import logoZerodraft from '../../assets/client/Logo-Zerodraft.png';
 import logoSwenson from '../../assets/client/Swenson-Logo.png';
 import chatHome from '../../assets/chat-home.png';
 import chatHomeDesktop from '../../assets/chat-home-desktop.png';
+import heroFilterTaskList from '../../assets/hero-filter-task-list.png';
 
 const logos = [logoIntown, logoLovett, logoPost, logoPrecision, logoSosa, logoIsc, logoZerodraft, logoSwenson];
 
@@ -19,11 +20,11 @@ type BubbleStep = { type: 'loading' } | { type: 'text'; text: string; icon: Reac
 
 const bubbleSteps: BubbleStep[] = [
     { type: 'loading' },
-    { type: 'text', text: 'Less rework', icon: <Clock size={24} fill="#18A87D" color="#FFFFFF" /> },
+    { type: 'text', text: 'Less rework', icon: <CalendarCheck2 size={24} color="#18A87D" /> },
     { type: 'loading' },
     { type: 'text', text: 'Close jobs faster', icon: <Zap size={24} fill="#E6B566" color="#E6B566" /> },
     { type: 'loading' },
-    { type: 'text', text: 'Get paid without disputes', icon: <DollarSign size={24} color="#18A87D" /> },
+    { type: 'text', text: 'Get paid without disputes', icon: <ChartLine size={24} color="#18A87D" /> },
 ];
 
 const Hero: React.FC = () => {
@@ -111,6 +112,11 @@ const Hero: React.FC = () => {
                                 {/* Mobile Frame Overlap */}
                                 <div className={`${styles.glassFrame} ${styles.mobileFrame}`}>
                                     <img src={chatHome} alt="TaskTag Mobile Chat" className={styles.frameImg} />
+                                </div>
+
+                                {/* Task List Overlay — left side of monitor */}
+                                <div className={styles.taskListOverlay}>
+                                    <img src={heroFilterTaskList} alt="TaskTag Filter Task List" className={styles.taskListImg} />
                                 </div>
                             </div>
                         </div>
