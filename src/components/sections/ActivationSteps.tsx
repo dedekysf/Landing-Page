@@ -36,11 +36,10 @@ const ActivationSteps: React.FC = () => {
             isFilled: false,
             checklistHeader: "What do you get",
             checklist: [
-                "2 GB storage",
-                "Unlimited users",
-                "Admin & member roles",
+                "2GB shared team storage",
+                "Add unlimited users to projects & tasks",
+                "Team admin & member roles",
                 "Centralized billing",
-                "Global activity log",
             ],
         },
         {
@@ -55,11 +54,10 @@ const ActivationSteps: React.FC = () => {
             showBadge: true,
             checklistHeader: "What do you get",
             checklist: [
-                "2 TB secure storage",
-                "Unlimited users",
-                "Admin & member roles",
+                "2TB shared team storage",
+                "Add unlimited users to projects & tasks",
+                "Team admin & member roles",
                 "Centralized billing",
-                "Global activity log",
             ],
         }
     ];
