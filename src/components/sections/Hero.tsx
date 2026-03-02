@@ -13,7 +13,7 @@ import logoSwenson from '../../assets/client/Swenson-Logo.png';
 import chatHome from '../../assets/chat-home.png';
 import chatHomeDesktop from '../../assets/chat-home-desktop.png';
 import chatHomeDesktopMobile from '../../assets/chat-home-desktop-onmobile.png';
-import heroFilterTaskList from '../../assets/hero-filter-task-list.png';
+// import heroFeatureHighlight from '../../assets/hero-feature-highlight.png';
 
 const logos = [logoIntown, logoLovett, logoPost, logoPrecision, logoSosa, logoIsc, logoZerodraft, logoSwenson];
 
@@ -119,9 +119,9 @@ const Hero: React.FC = () => {
                                 </div>
 
                                 {/* Task List Overlay — left side of monitor */}
-                                <div className={styles.taskListOverlay}>
-                                    <img src={heroFilterTaskList} alt="TaskTag Filter Task List" className={styles.taskListImg} />
-                                </div>
+                                {/* <div className={styles.taskListOverlay}>
+                                    <img src={heroFeatureHighlight} alt="TaskTag Activity list" className={styles.taskListImg} />
+                                </div> */}
                             </div>
                         </div>
                     </div>

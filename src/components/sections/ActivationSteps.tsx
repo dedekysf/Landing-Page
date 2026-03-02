@@ -65,7 +65,7 @@ const ActivationSteps: React.FC = () => {
     ];
 
     return (
-        <section className={styles.section}>
+        <section id="activation" className={styles.section}>
             {/* Background decorative path flipped horizontally */}
             <div className={styles.bgDecoration}>
                 <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none" style={{ transform: 'scaleX(-1)' }}>

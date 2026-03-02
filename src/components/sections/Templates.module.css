@@ -45,13 +45,14 @@
 }
 
 .templateCard {
-    background: #ffffff;
+    background: white;
     border: 1px solid var(--grey-03);
     border-radius: 16px;
     padding: 1.5rem;
     text-align: left;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -78,7 +79,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .iconWrapper {
@@ -108,7 +109,6 @@
 .checklist {
     list-style: none;
     padding: 0;
-    margin: 0 0 1.5rem 0;
     flex-grow: 1;
 }
 
@@ -124,6 +124,7 @@
 
 .checklistItem.moreItem {
     color: var(--grey-06);
+    margin-bottom: 0px;
 }
 
 .cardActionWrapper {
@@ -150,18 +151,20 @@
 
 /* View More Template Card */
 .viewMoreCard {
-    background: var(--light-mint);
+    background: white;
+    border: 1px solid var(--grey-03);
     color: var(--text-secondary);
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem;
-    border: none;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .viewMoreCard .iconWrapper {
     width: 64px;
-    height: 64px;
+    height: auto;
     border-radius: 16px;
     display: flex;
     align-items: center;

@@ -31,7 +31,7 @@ const Templates: React.FC = () => {
                 >
                     <h2 className={styles.title}>Kickstart Next Job with <br className={styles.desktopBreak} /><span className={styles.highlight}>TaskTag Templates</span></h2>
                     <p className={styles.subtitle}>
-                        No setup from scratch. Pick a template, invite your crew, <br className={styles.desktopBreak} />and start turning jobsite
+                        No setup from scratch. Pick a template and start turning jobsite
                     </p>
                 </motion.div>
 
@@ -46,7 +46,7 @@ const Templates: React.FC = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         viewport={{ once: true }}
                     >
-                        <div className={styles.watermark}>01</div>
+                        {/* <div className={styles.watermark}>01</div> */}
                         <div className={styles.cardHeader}>
                             <h3 className={styles.cardTitle}>Pre-Constructions Checklist</h3>
                         </div>
@@ -76,7 +76,7 @@ const Templates: React.FC = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <div className={styles.watermark}>02</div>
+                        {/* <div className={styles.watermark}>02</div> */}
                         <div className={styles.cardHeader}>
                             <h3 className={styles.cardTitle}>Foundation Checklist</h3>
                         </div>

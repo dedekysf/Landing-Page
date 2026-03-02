@@ -1525,11 +1525,11 @@
    ====================================== */
 .taskListOverlay {
     position: absolute;
-    left: -4.2rem;
-    bottom: 26.4%;
+    left: -5rem;
+    bottom: 30.4%;
     z-index: 10;
     width: 200px;
-    border-radius: 16px;
+    border-radius: 4px;
     overflow: hidden;
     animation: taskListFloat 5s ease-in-out infinite;
 }

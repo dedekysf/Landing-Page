@@ -56,10 +56,11 @@
 .title {
     font-size: 4rem;
     font-weight: var(--font-weight-bold);
-    line-height: 1.2;
+    line-height: 1.4;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
     letter-spacing: -0.01em;
+    text-transform: capitalize;
 }
 
 .subtitle {
