@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Zap, ChartLine, CalendarCheck2 } from 'lucide-react';
 
 import styles from './Hero.module.css';
@@ -30,6 +31,23 @@ const bubbleSteps: BubbleStep[] = [
 
 const Hero: React.FC = () => {
     const [stepIndex, setStepIndex] = React.useState(0);
+    const [desktopLoaded, setDesktopLoaded] = React.useState(false);
+    const [mobileLoaded, setMobileLoaded] = React.useState(false);
+
+    const heroRef = React.useRef<HTMLElement>(null);
+
+    const { scrollYProgress } = useScroll({
+        target: heroRef,
+        offset: ["start start", "end start"]
+    });
+
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 80,
+        damping: 40,
+        restDelta: 0.001
+    });
+
+    const scale = useTransform(smoothProgress, [0, 1], [1, 1.15]);
 
     React.useEffect(() => {
         const current = bubbleSteps[stepIndex];
@@ -45,7 +63,7 @@ const Hero: React.FC = () => {
 
     return (
         <>
-            <section className={styles.hero}>
+            <section className={styles.hero} ref={heroRef}>
                 <div className={`container ${styles.container}`}>
                     <div className={styles.splitLayout}>
                         {/* LEFT: Copy */}
@@ -105,18 +123,36 @@ const Hero: React.FC = () => {
                                     )}
                                 </div>
 
-                                {/* Desktop Frame */}
-                                <div className={`${styles.glassFrame} ${styles.desktopFrame}`}>
-                                    <picture>
-                                        <source media="(max-width: 1024px)" srcSet={chatHomeDesktopMobile} />
-                                        <img src={chatHomeDesktop} alt="TaskTag Desktop Chat" className={styles.frameImg} />
-                                    </picture>
-                                </div>
+                                {/* Scaling Group Wrapper */}
+                                <motion.div
+                                    style={{ scale, transformOrigin: 'top center' }}
+                                    className={styles.scalingWrapper}
+                                >
+                                    {/* Desktop Frame */}
+                                    <div className={`${styles.glassFrame} ${styles.desktopFrame}`}>
+                                        <picture>
+                                            <source media="(max-width: 1024px)" srcSet={chatHomeDesktopMobile} />
+                                            <img
+                                                src={chatHomeDesktop}
+                                                alt="TaskTag Desktop Chat"
+                                                className={`${styles.frameImg} ${styles.blurLoad} ${desktopLoaded ? styles.loaded : ''}`}
+                                                onLoad={() => setDesktopLoaded(true)}
+                                                loading="lazy"
+                                            />
+                                        </picture>
+                                    </div>
 
-                                {/* Mobile Frame Overlap */}
-                                <div className={`${styles.glassFrame} ${styles.mobileFrame}`}>
-                                    <img src={chatHome} alt="TaskTag Mobile Chat" className={styles.frameImg} />
-                                </div>
+                                    {/* Mobile Frame Overlap */}
+                                    <div className={`${styles.glassFrame} ${styles.mobileFrame}`}>
+                                        <img
+                                            src={chatHome}
+                                            alt="TaskTag Mobile Chat"
+                                            className={`${styles.frameImg} ${styles.blurLoad} ${mobileLoaded ? styles.loaded : ''}`}
+                                            onLoad={() => setMobileLoaded(true)}
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                </motion.div>
 
                                 {/* Task List Overlay — left side of monitor */}
                                 {/* <div className={styles.taskListOverlay}>

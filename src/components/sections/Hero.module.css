@@ -491,6 +491,18 @@
     }
 }
 
+.framesWrapper {
+    position: relative;
+    z-index: 10;
+}
+
+.scalingWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .glassFrame {
     position: relative;
     background: rgba(0, 0, 0, 0.09);
@@ -527,32 +539,19 @@
 .desktopFrame {
     width: 100%;
     max-width: 900px;
-    /* aspect-ratio: 16 / 9; */
-    /* Optional slight 3d tilt: transform: rotateX(8deg) rotateY(-2deg) scale(0.95); */
-    transform: translateY(0);
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.desktopFrame:hover {
-    transform: translateY(-10px);
 }
 
 .mobileFrame {
     position: absolute;
-    bottom: 0;
-    /* Perfectly aligns with the bottom of desktop frame (parent wrapper) */
-    right: -1rem;
-    /* Shifting outside the desktop slightly */
+    bottom: -5px;
+    /* Push very slightly down to perfectly match the glass border edge */
+    right: -5px;
+    /* Tightly align to the right edge */
     width: 275px;
-    /* aspect-ratio: 9 / 19.5; */
     border-radius: 36px;
     padding: 10px;
     z-index: 2;
-    transform: translateY(0);
-}
-
-.mobileFrame:hover {
-    transform: translateY(-15px) scale(1.02);
+    /* Pin scaling growth to bottom right corner */
 }
 
 /* Responsive adjustments */
@@ -1427,6 +1426,15 @@
     display: flex;
     align-items: center;
     animation: bubblePopIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.blurLoad {
+    filter: blur(20px);
+    transition: filter 0.5s ease-out;
+}
+
+.blurLoad.loaded {
+    filter: blur(0);
 }
 
 @keyframes bubblePopIn {
