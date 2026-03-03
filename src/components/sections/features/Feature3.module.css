@@ -1,0 +1,224 @@
+.mockupWrapper {
+    width: 100%;
+    min-height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mockupUi {
+    width: 100%;
+    max-width: 360px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: none;
+    overflow: hidden;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 480px;
+}
+
+.chatWindow {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dateSeparator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #888;
+    position: relative;
+    margin: 8px 0;
+}
+
+.dateSeparator::before,
+.dateSeparator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ebebeb;
+    margin: 0 10px;
+}
+
+.messageRow {
+    display: flex;
+    gap: 10px;
+}
+
+.msgAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.msgContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.msgHeader {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.msgSender {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.msgTime {
+    font-size: 11px;
+    color: #888;
+}
+
+.msgText {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.mention {
+    color: #0ea5e9;
+    font-weight: 500;
+}
+
+/* Chat Input Area */
+.inputArea {
+    background-color: #fff;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 12px 12px 0 0;
+    margin-top: auto;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid #ebebeb;
+    border-bottom: none;
+}
+
+.tagsRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tagPill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.projectColor {
+    background-color: var(--secondary-green);
+}
+
+.taskColor {
+    background-color: var(--text-secondary);
+}
+
+.closeIcon {
+    background-color: #fff;
+    color: var(--text-secondary);
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.thumbnailWrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 2px;
+}
+
+.thumbnailImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.removeThumb {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.inputText {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.actionsRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4px;
+}
+
+.leftActions {
+    display: flex;
+    gap: 12px;
+    color: var(--text-secondary);
+}
+
+.actionIcon {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transparentIcon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.sendBtn {
+    background-color: var(--text-secondary);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

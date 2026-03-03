@@ -17,6 +17,45 @@ interface PlanData {
     checklist: string[];
 }
 
+const TornEdge = ({ position }: { position: 'top' | 'bottom' }) => {
+    // Generate a smooth path that looks like torn paper
+    const generateTornPath = () => {
+        let path = "M 0 0 ";
+        // We create points across the width (0 to 1200)
+        for (let i = 0; i <= 1200; i += 20) {
+            // Randomly fluctuate between y=0 and y=15 for the "tear"
+            // Use quadratic curves to make it smooth, not jagged points
+            const randomY = Math.random() * 15;
+            path += `Q ${i - 10} ${randomY + 5}, ${i} ${randomY} `;
+        }
+        // Close the shape back to the starting side so it fills correctly
+        path += "L 1200 40 L 0 40 Z";
+        return path;
+    };
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 30"
+            preserveAspectRatio="none"
+            style={{
+                position: 'absolute',
+                [position]: '-1px',
+                left: 0,
+                width: '100%',
+                height: '35px',  // Taller to accommodate the waves
+                zIndex: 1,
+                // We use transform to flip it for the top edge so it points outward
+                transform: position === 'top' ? 'rotate(180deg)' : 'none',
+                fill: position === 'top' ? 'var(--white)' : 'var(--white)'
+                // Set to white as it acts as a mask over the var(--grey-02) background to seamlessly transition
+            }}
+        >
+            <path d={generateTornPath()} />
+        </svg>
+    );
+};
+
 const ActivationSteps: React.FC = () => {
     const [isMonthly, setIsMonthly] = useState(false);
 
@@ -32,14 +71,15 @@ const ActivationSteps: React.FC = () => {
             btnType: 'outline',
             priceMonthly: 0,
             priceAnnual: 0,
-            priceSubtext: 'For Everyone',
+            priceSubtext: 'No credit card required',
             isFilled: false,
             checklistHeader: "What do you get",
             checklist: [
-                "2GB shared team storage",
-                "Add unlimited users to projects & tasks",
-                "Team admin & member roles",
-                "Centralized billing",
+                "3 Projects",
+                "2GB shared team storage"
+                // "Add unlimited users to projects & tasks",
+                // "Team admin & member roles",
+                // "Centralized billing",
             ],
         },
         {
@@ -54,22 +94,20 @@ const ActivationSteps: React.FC = () => {
             showBadge: true,
             checklistHeader: "What do you get",
             checklist: [
-                "2TB shared team storage",
-                "Add unlimited users to projects & tasks",
-                "Team admin & member roles",
-                "Centralized billing",
+                "Unlimited Projects",
+                "2TB shared team storage"
+                // "Add unlimited users to projects & tasks",
+                // "Team admin & member roles",
+                // "Centralized billing",
             ],
         }
     ];
 
     return (
         <section id="activation" className={styles.section}>
-            {/* Background decorative path flipped horizontally */}
-            <div className={styles.bgDecoration}>
-                <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="none" style={{ transform: 'scaleX(-1)' }}>
-                    <path d="M0,200 Q300,50 600,200 T1200,200" fill="none" stroke="var(--grey-03)" strokeWidth="4" strokeDasharray="10 10" />
-                </svg>
-            </div>
+            {/* Top and Bottom torn paper jagged edges overlaying the border */}
+            <TornEdge position="top" />
+            <TornEdge position="bottom" />
 
             <div className={`container ${styles.container}`}>
                 <motion.div
@@ -79,9 +117,9 @@ const ActivationSteps: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>Start Free Run One Job</h2>
+                    <h2 className={styles.title}>Start Free. Run Your First Job</h2>
                     <p className={styles.subtitle}>
-                        Try TaskTag Pro free for <span className={styles.highlight}>30 days</span> with all features unlocked. <br className={styles.desktopOnlyBr} />Cancel any time, No credit card required to start.
+                        Try TaskTag Pro free for <span className={styles.highlight}>30 days</span> with all features unlocked. <br className={styles.desktopOnlyBr} />Cancel any time - No credit card required to start.
                     </p>
 
                     <motion.div
@@ -92,14 +130,14 @@ const ActivationSteps: React.FC = () => {
                         viewport={{ once: true }}
                     >
                         <span className={`${styles.switchLabel} ${!isMonthly ? styles.inactive : ''}`}>
-                            Monthly Plans
+                            Monthly
                         </span>
                         <label className={styles.switch}>
                             <input type="checkbox" checked={!isMonthly} onChange={togglePricing} />
                             <span className={styles.slider}></span>
                         </label>
                         <span className={`${styles.switchLabel} ${isMonthly ? styles.inactive : ''}`}>
-                            Annual Plans
+                            Yearly
                         </span>
                     </motion.div>
                 </motion.div>
@@ -113,7 +151,6 @@ const ActivationSteps: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: i * 0.15 }}
                             viewport={{ once: true }}
-                            whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
                         >
                             {/* "Most Popular" Pill for Team Plan */}
                             {plan.title === "Team Plan" && (
@@ -133,7 +170,7 @@ const ActivationSteps: React.FC = () => {
                                             visibility: isMonthly ? 'hidden' : 'visible'
                                         }}
                                     >
-                                        Save 20%
+                                        Save 20% yearly
                                     </span>
                                 )}
                             </h3>

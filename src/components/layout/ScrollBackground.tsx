@@ -18,15 +18,15 @@ const ScrollBackground: React.FC<ScrollBackgroundProps> = ({ children }) => {
         scrollYProgress,
         [0, 0.12, 0.2, 0.35, 0.45, 0.6, 0.8, 0.95, 1],
         [
-            '#FFFFFF',   // Hero
-            '#FFFFFF',   // Hero → Features transition
-            '#FFFFFF',   // Features
+            'var(--white)',   // Hero
+            'var(--white)',   // Hero → Features transition
+            'var(--white)',   // Features
             '#F5F7FA',   // BentoResults (Real Results)
-            '#FFFFFF',   // ActivationSteps
-            '#FFFFFF',   // Templates transition
-            '#FFFFFF',   // Templates
-            'rgba(255, 243, 238, 1)',   // FinalCta (Start Free)
-            'rgba(255, 243, 238, 1)',   // Footer (shares CTA bg logically via css)
+            'var(--white)',   // ActivationSteps
+            'var(--white)',   // Templates transition
+            'var(--white)',   // Templates
+            'rgba(var(--light-peach-rgb), 1)',   // FinalCta (Start Free)
+            'rgba(var(--light-peach-rgb), 1)',   // Footer (shares CTA bg logically via css)
         ]
     );
 

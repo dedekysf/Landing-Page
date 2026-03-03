@@ -20,7 +20,7 @@
 .pillText {
     display: inline-block;
     color: var(--secondary-green);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.875rem;
@@ -46,7 +46,7 @@
     background: var(--secondary-green) !important;
     color: white !important;
     border-radius: 8px !important;
-    font-weight: 400 !important;
+    font-weight: var(--font-weight-regular) !important;
     padding: 1rem 2.5rem !important;
     box-shadow: 0 4px 14px rgba(252, 127, 91, 0.3) !important;
 }
@@ -83,7 +83,7 @@
 }
 
 .featureItem:hover {
-    background: rgba(0, 0, 0, 0.025);
+    background: rgba(var(--black-rgb), 0.025);
 }
 
 .featIcon {
@@ -139,7 +139,7 @@
     position: absolute;
     background: white;
     border-radius: 16px;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px -10px rgba(var(--black-rgb), 0.1);
     border: 1px solid var(--grey-03);
     padding: 1.5rem;
     z-index: 2;
@@ -147,7 +147,7 @@
 }
 
 .uiCard:hover {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 50px -12px rgba(var(--black-rgb), 0.15);
 }
 
 .card1 {
@@ -160,7 +160,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px dashed var(--grey-03);
@@ -177,7 +177,7 @@
     align-items: center;
     gap: 12px;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     color: var(--text-secondary);
 }
 
@@ -216,7 +216,7 @@
 
 .userProfile h5 {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     color: var(--text-primary);
     margin-bottom: 2px;
 }
@@ -243,7 +243,7 @@
 
 .statBox strong {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     color: var(--text-primary);
     letter-spacing: 0.01em;
 }
@@ -252,7 +252,7 @@
     font-size: 0.825rem;
     color: var(--text-secondary);
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     margin-top: 4px;
 }
 
@@ -268,13 +268,13 @@
     background: transparent;
     border: 2px solid var(--secondary-green);
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
 .ghostBtnSecondary:hover {
-    background: rgba(24, 168, 125, 0.1);
+    background: rgba(var(--secondary-green-rgb), 0.1);
     transform: translateY(-2px);
 }
 

@@ -14,6 +14,7 @@ import logoSwenson from '../../assets/client/Swenson-Logo.png';
 import chatHome from '../../assets/chat-home.png';
 import chatHomeDesktop from '../../assets/chat-home-desktop.png';
 import chatHomeDesktopMobile from '../../assets/chat-home-desktop-onmobile.png';
+import arrowImg from '../../assets/arrow.png';
 // import heroFeatureHighlight from '../../assets/hero-feature-highlight.png';
 
 const logos = [logoIntown, logoLovett, logoPost, logoPrecision, logoSosa, logoIsc, logoZerodraft, logoSwenson];
@@ -24,7 +25,7 @@ const bubbleSteps: BubbleStep[] = [
     { type: 'loading' },
     { type: 'text', text: 'Less rework', icon: <CalendarCheck2 size={16} color="var(--secondary-green)" /> },
     { type: 'loading' },
-    { type: 'text', text: 'Close jobs faster', icon: <Zap size={16} fill="#E6B566" color="#E6B566" /> },
+    { type: 'text', text: 'Close jobs faster', icon: <Zap size={16} fill="var(--pastel-yellow)" color="var(--pastel-yellow)" /> },
     { type: 'loading' },
     { type: 'text', text: 'Get paid without disputes', icon: <ChartLine size={16} color="var(--secondary-green)" /> },
 ];
@@ -41,13 +42,9 @@ const Hero: React.FC = () => {
         offset: ["start start", "end start"]
     });
 
-    const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 80,
-        damping: 40,
-        restDelta: 0.001
-    });
-
-    const scale = useTransform(smoothProgress, [0, 1], [1, 1.15]);
+    // We removed useSpring because it conflicts with the global Lenis smooth scrolling physics,
+    // which caused the stuttering. We directly transform the scroll progress instead.
+    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.12], { clamp: true });
 
     React.useEffect(() => {
         const current = bubbleSteps[stepIndex];
@@ -61,6 +58,8 @@ const Hero: React.FC = () => {
         return () => clearTimeout(timer);
     }, [stepIndex]);
 
+
+
     return (
         <>
             <section className={styles.hero} ref={heroRef}>
@@ -69,13 +68,13 @@ const Hero: React.FC = () => {
                         {/* LEFT: Copy */}
                         <div className={styles.content}>
                             <div className={styles.glowBehindTxt} />
-                            <h1 className={`${styles.headline} ${styles.fadeInUp1}`}>
+                            <h1 className={`${styles.headline} ${styles.stagger1}`}>
                                 Manage Projects Through <span className={styles.highlight}>Chat</span>
                             </h1>
-                            <p className={`${styles.subheadline} ${styles.fadeInUp2}`}>
+                            <p className={`${styles.subheadline} ${styles.stagger2}`}>
                                 Turn jobsite chat into accountable work with proof ready <br className={styles.desktopBr} /> when it's time to bill. Built by builders, for builders.
                             </p>
-                            <div className={`${styles.actions} ${styles.fadeInUp3}`}>
+                            <div className={`${styles.actions} ${styles.stagger3}`}>
                                 <div className={styles.btnWrapper}>
                                     <a
                                         href="https://meetings.hubspot.com/dede"
@@ -94,7 +93,7 @@ const Hero: React.FC = () => {
                                         rel="noopener noreferrer"
                                         className={styles.primaryBtn}
                                     >
-                                        Get Started
+                                        Get Started For Free
                                     </a>
                                 </div>
                             </div>
@@ -106,7 +105,7 @@ const Hero: React.FC = () => {
                             <div className={styles.patternOverlayRight} />
                             <div className={styles.fullRowGradient} />
 
-                            <div className={`${styles.framesWrapper} ${styles.fadeInUp4}`}>
+                            <div className={`${styles.framesWrapper} ${styles.stagger4}`}>
                                 {/* Single Chat Bubble — top-left of monitor */}
                                 <div className={styles.chatBubble} key={stepIndex}>
                                     {bubbleSteps[stepIndex].type === 'loading' ? (
@@ -125,8 +124,8 @@ const Hero: React.FC = () => {
 
                                 {/* Scaling Group Wrapper */}
                                 <motion.div
-                                    style={{ scale, transformOrigin: 'top center' }}
                                     className={styles.scalingWrapper}
+                                    style={{ scale }}
                                 >
                                     {/* Desktop Frame */}
                                     <div className={`${styles.glassFrame} ${styles.desktopFrame}`}>
@@ -137,20 +136,25 @@ const Hero: React.FC = () => {
                                                 alt="TaskTag Desktop Chat"
                                                 className={`${styles.frameImg} ${styles.blurLoad} ${desktopLoaded ? styles.loaded : ''}`}
                                                 onLoad={() => setDesktopLoaded(true)}
-                                                loading="lazy"
+                                                fetchPriority="high"
                                             />
                                         </picture>
                                     </div>
 
                                     {/* Mobile Frame Overlap */}
-                                    <div className={`${styles.glassFrame} ${styles.mobileFrame}`}>
-                                        <img
-                                            src={chatHome}
-                                            alt="TaskTag Mobile Chat"
-                                            className={`${styles.frameImg} ${styles.blurLoad} ${mobileLoaded ? styles.loaded : ''}`}
-                                            onLoad={() => setMobileLoaded(true)}
-                                            loading="lazy"
-                                        />
+                                    <div className={styles.mobileFrameWrapper}>
+                                        <div className={`${styles.glassFrame} ${styles.mobileFrameInner}`}>
+                                            <img
+                                                src={chatHome}
+                                                alt="TaskTag Mobile Chat"
+                                                className={`${styles.frameImg} ${styles.blurLoad} ${mobileLoaded ? styles.loaded : ''}`}
+                                                onLoad={() => setMobileLoaded(true)}
+                                                fetchPriority="high"
+                                            />
+                                        </div>
+
+                                        {/* Arrow pointing from last chat to the task panel */}
+                                        <img src={arrowImg} alt="Arrow to task panel" className={styles.pointerArrow} />
                                     </div>
                                 </motion.div>
 
@@ -181,9 +185,11 @@ const Hero: React.FC = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Trusted By Divider */}
+            <div style={{ width: '100%', height: '1px', background: 'linear-gradient(90deg, transparent, var(--grey-03) 15%, var(--grey-03) 85%, transparent)', maxWidth: '1200px', margin: '4rem auto 0rem' }} />
         </>
     );
 };
 
 export default Hero;
-

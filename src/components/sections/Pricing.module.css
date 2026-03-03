@@ -19,7 +19,7 @@
 
 .title {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     line-height: 1.4;
     margin-bottom: 1rem;
     color: var(--text-primary);
@@ -57,14 +57,14 @@
     justify-content: center;
     gap: 1rem;
     margin-bottom: 4rem;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     font-size: 1rem;
 }
 
 .saveBadge {
     color: var(--secondary-green);
     font-size: 0.825rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     margin-left: 6px;
 }
 
@@ -104,7 +104,7 @@
     background-color: white;
     transition: .4s;
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(var(--black-rgb), 0.2);
 }
 
 input:checked+.slider {
@@ -142,14 +142,14 @@ input:checked+.slider:before {
     border-radius: 16px;
     padding: 3rem 2rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 6px rgba(var(--black-rgb), 0.02);
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 12px 24px rgba(var(--black-rgb), 0.06);
 }
 
 /* Popular Card (Middle) */
@@ -159,7 +159,7 @@ input:checked+.slider:before {
     padding: 4rem 2rem;
     /* Taller */
     border: none;
-    box-shadow: 0 20px 25px -5px rgba(24, 168, 125, 0.2), 0 10px 10px -5px rgba(24, 168, 125, 0.1);
+    box-shadow: 0 20px 25px -5px rgba(var(--secondary-green-rgb), 0.2), 0 10px 10px -5px rgba(var(--secondary-green-rgb), 0.1);
     border-radius: 20px;
     transform: scale(1.05);
     z-index: 2;
@@ -167,7 +167,7 @@ input:checked+.slider:before {
 
 .cardPopular:hover {
     transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 25px 30px -5px rgba(24, 168, 125, 0.3);
+    box-shadow: 0 25px 30px -5px rgba(var(--secondary-green-rgb), 0.3);
 }
 
 .popularBadge {
@@ -181,16 +181,16 @@ input:checked+.slider:before {
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 0.825rem;
-    font-weight: 800;
+    font-weight: var(--font-weight-extrabold);
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(246, 173, 85, 0.3);
+    box-shadow: 0 4px 6px rgba(var(--orange-2-rgb), 0.3);
 }
 
 /* Card Typography */
 .planName {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     margin-bottom: 0.5rem;
 }
 
@@ -206,7 +206,7 @@ input:checked+.slider:before {
 
 .price {
     font-size: 3.5rem;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     line-height: 1;
     margin-top: 1rem;
     margin-bottom: 0.25rem;
@@ -214,32 +214,32 @@ input:checked+.slider:before {
 
 .priceSubtext {
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: var(--font-weight-light);
     /* Specific for Popular card */
     margin-bottom: 0.5rem;
 }
 
 .price span {
     font-size: 1rem;
-    font-weight: 500;
-    color: #718096;
+    font-weight: var(--font-weight-medium);
+    color: var(--text-quaternary);
 }
 
 .cardPopular .price span {
-    color: #e6fffa;
+    color: var(--light-mint-2);
 }
 
 .billingCircle {
     font-size: 0.85rem;
-    color: #A0AEC0;
+    color: var(--grey-11);
     margin-bottom: 2rem;
     min-height: 20px;
     letter-spacing: 0.15em;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
 }
 
 .cardPopular .billingCircle {
-    color: #e6fffa;
+    color: var(--light-mint-2);
 }
 
 /* Features List */
@@ -247,14 +247,14 @@ input:checked+.slider:before {
     text-align: left;
     margin: 2rem 0;
     padding-top: 2rem;
-    border-top: 1px solid #EDF2F7;
+    border-top: 1px solid var(--grey-10);
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
 }
 
 .cardPopular .featuresList {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(var(--white-rgb), 0.2);
 }
 
 .featureItem {
@@ -262,11 +262,11 @@ input:checked+.slider:before {
     align-items: flex-start;
     gap: 8px;
     font-size: 0.825rem;
-    font-weight: 300;
+    font-weight: var(--font-weight-light);
 }
 
 .cardPopular .featureItem {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .featureIcon {
@@ -275,7 +275,7 @@ input:checked+.slider:before {
 }
 
 .cardPopular .featureIcon {
-    color: #F6AD55;
+    color: var(--orange-2);
     /* Yellow/Orange checkmark for green card */
 }
 
@@ -285,7 +285,7 @@ input:checked+.slider:before {
     width: 100%;
     padding: 1rem;
     border-radius: 8px;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     font-size: 1rem;
     text-decoration: none;
     transition: all 0.2s;
@@ -296,17 +296,17 @@ input:checked+.slider:before {
 }
 
 .cardBtn:hover {
-    background: rgba(24, 168, 125, 0.05);
+    background: rgba(var(--secondary-green-rgb), 0.05);
 }
 
 .cardPopular .cardBtn {
-    background: #ffffff;
+    background: var(--white);
     color: var(--secondary-green);
     border: none;
 }
 
 .cardPopular .cardBtn:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(var(--white-rgb), 0.9);
 }
 
 /* Responsive */

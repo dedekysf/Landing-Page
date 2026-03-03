@@ -20,7 +20,7 @@
 .pillText {
     display: inline-block;
     color: var(--secondary-green);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.875rem;
@@ -29,7 +29,7 @@
 
 .title {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     line-height: 1.4;
     margin-bottom: 1rem;
     color: var(--text-primary);
@@ -39,7 +39,7 @@
 
 .subtitle {
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 2rem;
@@ -60,7 +60,7 @@
     gap: 12px;
     font-size: 1.05rem;
     color: var(--text-primary);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
 }
 
 .checkCircle {
@@ -80,7 +80,7 @@
     color: white !important;
     border-radius: 8px !important;
     padding: 1rem 2rem !important;
-    font-weight: 400 !important;
+    font-weight: var(--font-weight-regular) !important;
     transition: background 0.2s ease !important;
     border: none !important;
     box-shadow: none !important;
@@ -123,7 +123,7 @@
     height: 100px;
     background: white;
     border-radius: 24px;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px -10px rgba(var(--black-rgb), 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,7 +136,7 @@
     height: 48px;
     background: white;
     border-radius: 50%;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(var(--black-rgb), 0.1);
     display: flex;
     align-items: center;
     justify-content: center;

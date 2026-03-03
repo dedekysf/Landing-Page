@@ -28,10 +28,10 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(var(--white-rgb), 0);
     backdrop-filter: blur(0px) saturate(100%);
     -webkit-backdrop-filter: blur(0px) saturate(100%);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0);
+    box-shadow: 0 4px 24px rgba(var(--black-rgb), 0);
     border-radius: 16px;
     z-index: -1;
     transition: all 0.4s ease-in-out;
@@ -44,10 +44,10 @@
 }
 
 .innerScrolled::before {
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: rgba(var(--white-rgb), 0.65);
     backdrop-filter: blur(32px) saturate(200%);
     -webkit-backdrop-filter: blur(32px) saturate(200%);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(var(--black-rgb), 0.08);
     opacity: 1;
 }
 
@@ -79,8 +79,8 @@
 }
 
 .navLink {
-    font-weight: 400;
-    color: #303742;
+    font-weight: var(--font-weight-regular);
+    color: var(--text-secondary);
     transition: color 0.4s ease-in-out;
 }
 
@@ -97,8 +97,8 @@
 }
 
 .loginLink {
-    font-weight: 400;
-    color: #303742;
+    font-weight: var(--font-weight-regular);
+    color: var(--text-secondary);
 }
 
 .loginLink:hover {
@@ -111,7 +111,7 @@
     padding: 0.45rem 1.1rem;
     background: var(--secondary-green);
     color: #fff !important;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     font-size: 0.875rem;
     border-radius: 10px;
     border: none;
@@ -123,7 +123,7 @@
 
 .navbarBtn:hover {
     background: #12976e;
-    box-shadow: 0 2px 10px rgba(24, 168, 125, 0.35);
+    box-shadow: 0 2px 10px rgba(var(--secondary-green-rgb), 0.35);
 }
 
 .navbarSecondaryBtn {
@@ -131,7 +131,7 @@
     padding: 0.45rem 1.1rem;
     background: white;
     color: var(--text-primary) !important;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     font-size: 0.875rem;
     border-radius: 10px;
     border: 1px solid var(--grey-03);
@@ -169,7 +169,7 @@
     display: block;
     width: 20px;
     height: 2px;
-    background-color: #303742;
+    background-color: var(--text-secondary);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -183,7 +183,7 @@
     position: absolute;
     width: 20px;
     height: 2px;
-    background-color: #303742;
+    background-color: var(--text-secondary);
     left: 0;
     transition: all 0.4s ease-in-out;
 }
@@ -219,7 +219,7 @@
 .mobileOverlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(var(--black-rgb), 0.4);
     z-index: 1000;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
@@ -284,7 +284,7 @@
         max-width: 300px;
         background-color: white;
         padding: var(--spacing-xxl) var(--spacing-lg);
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        box-shadow: -5px 0 20px rgba(var(--black-rgb), 0.1);
         transform: translateX(100%);
         visibility: hidden;
         transition: transform var(--transition-normal), visibility var(--transition-normal);
@@ -301,7 +301,7 @@
     .mobileNavLink {
         padding: var(--spacing-md) 0;
         font-size: 1.125rem;
-        font-weight: 600;
+        font-weight: var(--font-weight-semibold);
         color: var(--color-text-main);
         border-bottom: 1px solid var(--color-border);
     }

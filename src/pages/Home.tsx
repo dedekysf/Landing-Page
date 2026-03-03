@@ -2,11 +2,12 @@ import React from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/sections/Hero';
-import Features from '../components/sections/Features';
+import FeaturesV2 from '../components/sections/FeaturesV2';
 import ActivationSteps from '../components/sections/ActivationSteps';
 import BentoResults from '../components/sections/BentoResults';
-import Templates from '../components/sections/Templates';
+import TemplatesV2 from '../components/sections/TemplatesV2';
 import FinalCta from '../components/sections/FinalCta';
+import ScrollReveal from '../components/ui/ScrollReveal';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
@@ -16,15 +17,23 @@ const Home: React.FC = () => {
             {/* Content wrapper */}
             <div className={styles.contentWrapper}>
                 <Hero />
-                <Features />
-                <BentoResults />
+                <ScrollReveal>
+                    <FeaturesV2 />
+                </ScrollReveal>
+                <ScrollReveal>
+                    <TemplatesV2 />
+                </ScrollReveal>
+                <ScrollReveal>
+                    <BentoResults />
+                </ScrollReveal>
                 <ActivationSteps />
-                <Templates />
 
-                <div className={styles.bottomUnifiedWrapper}>
-                    <FinalCta />
-                    <Footer />
-                </div>
+                <ScrollReveal>
+                    <div className={styles.bottomUnifiedWrapper}>
+                        <FinalCta />
+                        <Footer />
+                    </div>
+                </ScrollReveal>
             </div>
         </div>
     );

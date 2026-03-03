@@ -23,7 +23,7 @@
 .primary {
     background-color: var(--secondary-green);
     color: white;
-    border-bottom: 6px solid #129668;
+    border-bottom: 6px solid var(--secondary-green-border);
     border-radius: 12px;
     /* Press down effect uses margin trick so neighbors don't move */
     margin-bottom: 0;
@@ -50,7 +50,7 @@
 }
 
 .secondary:hover:not(:disabled) {
-    background-color: #e2e8f0;
+    background-color: var(--gray-200);
 }
 
 .outline {
@@ -60,7 +60,7 @@
 }
 
 .outline:hover:not(:disabled) {
-    background-color: rgba(24, 168, 125, 0.1);
+    background-color: rgba(var(--secondary-green-rgb), 0.1);
 }
 
 /* Sizes */

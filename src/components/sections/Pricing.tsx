@@ -41,14 +41,14 @@ const Pricing: React.FC = () => {
                         viewport={{ once: true }}
                     >
                         <span className={`${styles.switchLabel} ${isMonthly ? styles.inactive : ''}`}>
-                            Annual Plans {!isMonthly && <span className={styles.saveBadge}>(Save 20%)</span>}
+                            Yearly {!isMonthly && <span className={styles.saveBadge}>(Save 20%)</span>}
                         </span>
                         <label className={styles.switch}>
                             <input type="checkbox" checked={isMonthly} onChange={togglePricing} />
                             <span className={styles.slider}></span>
                         </label>
                         <span className={`${styles.switchLabel} ${!isMonthly ? styles.inactive : ''}`}>
-                            Monthly Plans
+                            Monthly
                         </span>
                     </motion.div>
                 </div>

@@ -58,7 +58,7 @@ const Features: React.FC = () => {
             bg: 'rgba(3,91,96,0.07)',
             borderColor: 'rgba(31,91,96,0.25)',
             blobA: 'var(--dark-green)',
-            blobB: '#FFD7C4',
+            blobB: 'var(--light-orange-2)',
             image: featureOne,
         },
         {
@@ -69,18 +69,18 @@ const Features: React.FC = () => {
             bg: 'rgba(48,55,56,0.07)',
             borderColor: 'rgba(48,55,56,0.25)',
             blobA: 'var(--text-secondary)',
-            blobB: '#B8E6E9',
+            blobB: 'var(--light-teal)',
             image: featureTwo,
         },
         {
-            icon: <Image size={24} color="#C072CD" strokeWidth={1.5} />,
+            icon: <Image size={24} color="var(--light-magenta)" strokeWidth={1.5} />,
             title: "Keep proof where it belongs",
             desc: "Progress photos, installation notes, and documents stay attached to the exact task and project. When questions come up, the answer is already organized.",
-            color: '#C072CD',
+            color: 'var(--light-magenta)',
             bg: 'rgba(192,114,205,0.07)',
             borderColor: 'rgba(192,114,205,0.25)',
             blobA: 'var(--secondary-green)',
-            blobB: '#B8E6E9',
+            blobB: 'var(--light-teal)',
             image: featureThree,
         },
         {
@@ -88,8 +88,8 @@ const Features: React.FC = () => {
             title: "Make billing and closeout painless",
             desc: "Completion updates, checklists, and documentation roll into a project-ready record. Send fewer follow-ups when it’s time to invoice, close out, or hand off.",
             color: 'var(--blue)',
-            bg: 'rgba(19,142,255,0.07)',
-            borderColor: 'rgba(19,142,255,0.25)',
+            bg: 'rgba(var(--blue-rgb),0.07)',
+            borderColor: 'rgba(var(--blue-rgb),0.25)',
             blobA: 'var(--blue)',
             blobB: 'var(--secondary-green)',
             image: featureFour,
@@ -106,13 +106,13 @@ const Features: React.FC = () => {
             image: featureFive,
         },
         {
-            icon: <Activity size={24} color="#7B61FF" strokeWidth={1.5} />,
+            icon: <Activity size={24} color="var(--purple)" strokeWidth={1.5} />,
             title: "Stay ahead of delays without more meetings",
             desc: "Activity feeds show what changed today, what’s overdue, and what just got completed across projects. You can spot gaps early and keep schedules moving.",
-            color: '#7B61FF',
+            color: 'var(--purple)',
             bg: 'rgba(123,97,255,0.07)',
             borderColor: 'rgba(123,97,255,0.25)',
-            blobA: '#00D9A5',
+            blobA: 'var(--brand-green)',
             blobB: 'var(--secondary-green)',
             image: featureSix,
         }
@@ -120,10 +120,10 @@ const Features: React.FC = () => {
 
     const renderFeatureImage = (isMobile: boolean = false) => (
         <div className={isMobile ? styles.mobileRightContent : styles.rightContent}>
-            {/* Blob container — #F7F8FA bg, clips overflow */}
+            {/* Blob container — var(--grey-02) bg, clips overflow */}
             <div style={{
                 position: 'absolute', inset: 0,
-                background: '#F7F8FA',
+                background: 'var(--grey-02)',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 zIndex: 0,
@@ -185,11 +185,11 @@ const Features: React.FC = () => {
                         borderBottomLeftRadius: '0',
                         borderBottomRightRadius: '0',
                         overflow: 'hidden',
-                        border: '1px solid rgba(255,255,255,0.65)',
+                        border: '1px solid rgba(var(--white-rgb),0.65)',
                         backdropFilter: 'blur(3px)',
                         WebkitBackdropFilter: 'blur(3px)',
-                        boxShadow: '0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9)',
-                        background: 'rgba(255,255,255,0.5)',
+                        boxShadow: '0 8px 32px rgba(var(--black-rgb),0.1), inset 0 1px 0 rgba(var(--white-rgb),0.9)',
+                        background: 'rgba(var(--white-rgb),0.5)',
                         padding: '8px',
                         paddingBottom: '0',
                         width: '100%',

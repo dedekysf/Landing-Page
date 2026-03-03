@@ -22,9 +22,9 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #18A87D;
+    color: var(--secondary-green);
     font-size: 0.825rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
@@ -89,11 +89,11 @@
 
 .logoCaption {
     font-size: 0.825rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(var(--white-rgb), 0.4);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     text-align: center;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
 }
 
 .imageCard {
@@ -132,7 +132,7 @@
 
 .statValue {
     font-size: 5.5rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     line-height: 1;
     margin-bottom: 0.75rem;
 }
@@ -145,7 +145,7 @@
 
 .statDescLight {
     font-size: 0.875rem;
-    font-weight: 300;
+    font-weight: var(--font-weight-light);
     line-height: 1.4;
 }
 
@@ -157,7 +157,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;

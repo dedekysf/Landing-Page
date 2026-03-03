@@ -1,8 +1,8 @@
 .footer {
-    background: transparent;
+    background: var(--white);
     padding: 3rem 1rem 2rem;
     color: var(--text-secondary);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(var(--black-rgb), 0.05);
 }
 
 .container {
@@ -106,20 +106,20 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #ffffff;
+    background: var(--white);
     color: var(--secondary-green);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-    border: 1.5px solid #F7F8FA;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    border: 1.5px solid var(--grey-02);
+    box-shadow: 0 1px 4px rgba(var(--black-rgb), 0.06);
 }
 
 .socialIcon:hover {
     background: var(--secondary-green);
-    color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(24, 168, 125, 0.25);
+    color: var(--white) !important;
+    box-shadow: 0 4px 12px rgba(var(--secondary-green-rgb), 0.25);
 }
 
 .contactInfo p {
@@ -136,7 +136,7 @@
 
 /* Bottom Section */
 .bottom {
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(var(--black-rgb), 0.05);
     padding-top: 2rem;
     display: flex;
     justify-content: space-between;

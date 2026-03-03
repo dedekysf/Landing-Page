@@ -29,6 +29,9 @@
   --grey-11: #A0AEC0;
   --grey-12: #CBD5E1;
   --grey-13: #FDFDFD;
+  --gray-200: #E2E8F0;
+  --gray-800: #2D3748;
+  --gray-900: #1a202c;
   --dark-grey: #222222;
   --black: #000000;
   --overlay: rgba(0, 0, 0, 0.50);
@@ -42,6 +45,9 @@
   --orange-2: #f6ad55;
   --light-orange: #fff1db;
   --vivid-yellow: #FBBD42;
+  --yellow-200: #fde68a;
+  --yellow-700: #b45309;
+  --yellow-800: #92400e;
   --alert-red: #FF4444;
 
   /* Pastel Colors */
@@ -62,11 +68,32 @@
   --light-sky: #DCEEFF;
   --light-pink: #FFDADA;
   --light-cream: #FDF4E0;
+  --light-teal: #B8E6E9;
+  --light-orange-2: #FFD7C4;
 
   /* Typography */
   --font-family-primary: 'Poppins', sans-serif;
+  --font-weight-light: 300;
   --font-weight-body: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Transparent RGB Bases */
+  --secondary-green-rgb: 24, 168, 125;
+  --brand-green-rgb: 0, 217, 165;
+  --blue-rgb: 19, 142, 255;
+  --orange-rgb: 249, 115, 22;
+  --orange-2-rgb: 246, 173, 85;
+  --white-rgb: 255, 255, 255;
+  --black-rgb: 0, 0, 0;
+  --grey-11-rgb: 160, 174, 192;
+  --light-peach-rgb: 255, 243, 238;
+  --light-teal-rgb: 184, 230, 233;
+  --glass-border-rgb: 210, 218, 226;
 
   /* Spacing */
   --spacing-xs: 0.25rem;

@@ -1,7 +1,25 @@
 /* Reset & Base Styles */
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+
+/* Lenis Recommended Global Defaults */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
 }
 
 * {
@@ -17,8 +35,28 @@ body {
     background-color: #FFFFFF;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
     animation: pageBlurIn 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--grey-02);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--grey-12);
+    border-radius: 10px;
+    border: 2px solid var(--grey-02);
+    /* Creates padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--grey-11);
 }
 
 h1,

@@ -29,7 +29,7 @@
 
 .title {
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     line-height: 1.4;
     margin-bottom: 1rem;
     color: var(--text-primary);
@@ -87,7 +87,7 @@
 
 .bulletTitle {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     line-height: 1.4;
 }
@@ -125,7 +125,7 @@
 
 .mockupTitle {
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     color: var(--text-secondary);
 }
 
@@ -137,7 +137,7 @@
     width: 320px;
     background: var(--white);
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(var(--black-rgb), 0.08);
     border: 1px solid var(--grey-03);
     overflow: hidden;
     z-index: 5;
@@ -163,7 +163,7 @@
 .chatName {
     display: block;
     font-size: 0.825rem;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     margin-bottom: 4px;
     color: var(--text-secondary);
 }
@@ -190,7 +190,7 @@
     width: 280px;
     background: var(--white);
     border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 20px 40px rgba(var(--black-rgb), 0.12);
     border: 1px solid var(--grey-03);
     overflow: hidden;
     z-index: 10;
@@ -214,7 +214,7 @@
 .fieldLabel {
     font-size: 0.85rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
 }
 
 .fieldValueEmpty {
@@ -232,10 +232,10 @@
     padding: 12px;
     background: var(--light-cream);
     /* very subtle yellow, uncomfortably unresolved */
-    border: 1px solid #fde68a;
+    border: 1px solid var(--yellow-200);
     border-radius: 6px;
     font-size: 0.9rem;
-    color: #92400e;
+    color: var(--yellow-800);
     line-height: 1.5;
 }
 
@@ -243,7 +243,7 @@
     display: block;
     margin-top: 6px;
     font-size: 0.825rem;
-    color: #b45309;
+    color: var(--yellow-700);
     font-style: italic;
 }
 

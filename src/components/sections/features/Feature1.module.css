@@ -1,0 +1,315 @@
+/* ==========================================
+   HTML/CSS Mockup UI (Replaces Images)
+   ========================================== */
+
+.mockupWrapper {
+    width: 100%;
+    min-height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mockupActionBtn {
+    background: var(--text-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.mockupUi {
+    background: var(--white);
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    border: none;
+    width: 100%;
+    max-width: 350px;
+    /* <400px device */
+    height: 100%;
+    min-height: 480px;
+    /* Taller to accommodate staggered items without jumping */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    box-shadow: none;
+}
+
+@media (min-width: 400px) {
+    .mockupUi {
+        max-width: 380px;
+    }
+}
+
+.mockupHeader {
+    padding: 1.5rem 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    /* Border bottom is added dynamically via style when images appear */
+}
+
+.mockTitle {
+    font-size: 1.35rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--gray-900);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.mockAddress {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--text-tertiary);
+    font-size: 0.95rem;
+}
+
+.mockIcon {
+    margin-top: 0.1rem;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+}
+
+.mockDesc {
+    font-size: 1rem;
+    color: var(--gray-800);
+    line-height: 1.5;
+    margin: 0.5rem 0 0.5rem;
+}
+
+.mockDescWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0.75rem 0;
+}
+
+/* Gallery Horizontal Scroll */
+.mockGallery {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.mockGallery::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.galleryItem {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+}
+
+/* Skeleton Loaders (Pill Shaped) */
+.skeletonPill,
+.skeletonLine,
+.skeletonTag {
+    background: var(--grey-03);
+    border-radius: 100px;
+}
+
+.skeletonPill {
+    height: 12px;
+}
+
+.skeletonLine {
+    height: 12px;
+}
+
+.skeletonTag {
+    height: 24px;
+    border-radius: 100px;
+}
+
+.galleryLoader {
+    position: absolute;
+    inset: 0;
+    background: var(--grey-03);
+    border-radius: 6px;
+    animation: skeletonPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    z-index: 1;
+}
+
+.galleryImgLoaded {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    animation: fadeImageIn 0.5s ease-in forwards;
+    animation-delay: 0.8s;
+    /* Image loads after skeleton pulses a bit */
+    opacity: 0;
+}
+
+@keyframes fadeImageIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.galleryItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mockRemoveBtn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    padding: 0;
+    box-shadow: 0 1px 3px rgba(var(--black-rgb), 0.1);
+    z-index: 3;
+    animation: fadeImageIn 0.3s ease-in forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+/* Footer Toolbar & Actions */
+.mockupFooter {
+    margin-top: auto;
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+}
+
+.mockToolbar {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+    min-height: 70px;
+}
+
+.toolbarContent {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toolbarIcons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--text-tertiary);
+    flex: 1;
+    /* allow it to fill space before avatar */
+    padding-right: 1.5rem;
+}
+
+.toolbarAvatar {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--gray-200);
+}
+
+.avatarImg {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatarBadge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--black);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.mockActionRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.projectSelector {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: var(--font-weight-medium);
+    font-size: 1.1rem;
+    color: var(--black);
+}
+
+.projectIcon {
+    background: var(--purple);
+    color: var(--white);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+    font-size: 0.95rem;
+    letter-spacing: -0.5px;
+}
+
+.sendButton {
+    background: var(--secondary-green);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(var(--secondary-green-rgb), 0.2);
+    transition: transform 0.2s ease;
+}
+
+.sendButton:hover {
+    transform: translateY(-2px);
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.iconContainer svg {
+    width: 100%;
+    height: 100%;
+}
