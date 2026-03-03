@@ -166,7 +166,6 @@ const FeaturesV2: React.FC = () => {
                             <FeatureScrollBlock
                                 key={feat.id}
                                 feat={feat}
-                                index={i}
                                 isActive={activeTab === i}
                                 setRef={(el) => { contentRefs.current[i] = el; }}
                             />
@@ -182,12 +181,10 @@ const FeaturesV2: React.FC = () => {
 // Component helper to handle individual scroll progress per block
 const FeatureScrollBlock = React.memo(({
     feat,
-    index,
     isActive,
     setRef
 }: {
     feat: any,
-    index: number,
     isActive: boolean,
     setRef: (el: HTMLDivElement | null) => void
 }) => {

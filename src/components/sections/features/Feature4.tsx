@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Folder, Hash, Plus, Smile, Mic } from 'lucide-react';
 import styles from './Feature4.module.css';
@@ -15,7 +15,7 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
         setPhase(0);
 
         let isMounted = true;
-        let timeoutIds: NodeJS.Timeout[] = [];
+        let timeoutIds: any[] = [];
 
         const runSequence = () => {
             if (!isMounted) return;

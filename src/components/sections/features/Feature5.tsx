@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, MoreVertical, Hammer, Check, ChevronUp } from 'lucide-react';
+import { Search, X, MoreVertical, Hammer, Check } from 'lucide-react';
 import styles from './Feature5.module.css';
 
 const Feature5 = ({ isActive }: { isActive: boolean }) => {
@@ -15,8 +15,8 @@ const Feature5 = ({ isActive }: { isActive: boolean }) => {
         }
 
         let isMounted = true;
-        let timeoutIds: NodeJS.Timeout[] = [];
-        let typingInterval: NodeJS.Timeout;
+        let timeoutIds: any[] = [];
+        let typingInterval: any;
 
         const runSequence = () => {
             if (!isMounted) return;
@@ -132,25 +132,25 @@ const Feature5 = ({ isActive }: { isActive: boolean }) => {
                                         <div className={styles.itemContent}>
                                             <div className={styles.itemHeader}>
                                                 <span className={styles.itemTitle}><span className={styles.highlight}>Fix</span> the sink</span>
-                                                <div className={styles.datePill}>Jan 5, 2026</div>
+                                                <div className={styles.datePill}>Feb 22</div>
                                             </div>
                                             <div className={styles.itemSub}>
                                                 <Hammer size={12} className={styles.buildingIcon} /> TaskTag Project
                                             </div>
                                         </div>
                                     </motion.div>
-                                    {/* <motion.div variants={itemVariants} className={styles.resultItem}>
+                                    <motion.div variants={itemVariants} className={styles.resultItem}>
                                         <div className={styles.checkboxMark} />
                                         <div className={styles.itemContent}>
                                             <div className={styles.itemHeader}>
                                                 <span className={styles.itemTitle}><span className={styles.highlight}>Fix</span> the squeaky door hinge</span>
-                                                <div className={styles.datePill}>Dec 24</div>
+                                                <div className={styles.datePill}>Feb 21</div>
                                             </div>
                                             <div className={styles.itemSub}>
                                                 <Hammer size={12} className={styles.buildingIcon2} /> TaskTag Project
                                             </div>
                                         </div>
-                                    </motion.div> */}
+                                    </motion.div>
                                 </div>
 
                                 <div>
@@ -164,7 +164,7 @@ const Feature5 = ({ isActive }: { isActive: boolean }) => {
                                         <div className={styles.itemContent}>
                                             <div className={styles.itemHeader}>
                                                 <span className={styles.itemTitle}><span className={styles.highlight}>Fix</span> the door hinge</span>
-                                                <div className={styles.datePill}>Dec 24</div>
+                                                <div className={styles.datePill}>Feb 21</div>
                                             </div>
                                             <div className={styles.itemSub}>
                                                 <Hammer size={12} className={styles.buildingIcon2} /> TaskTag Project

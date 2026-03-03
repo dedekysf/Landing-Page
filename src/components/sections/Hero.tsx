@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Zap, ChartLine, CalendarCheck2 } from 'lucide-react';
 
 import styles from './Hero.module.css';

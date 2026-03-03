@@ -1,0 +1,8 @@
+src/components/sections/features/Feature4.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/features/Feature4.tsx(18,25): error TS2503: Cannot find namespace 'NodeJS'.
+src/components/sections/features/Feature5.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/features/Feature5.tsx(3,50): error TS6133: 'ChevronUp' is declared but its value is never read.
+src/components/sections/features/Feature5.tsx(18,25): error TS2503: Cannot find namespace 'NodeJS'.
+src/components/sections/features/Feature5.tsx(19,29): error TS2503: Cannot find namespace 'NodeJS'.
+src/components/sections/FeaturesV2.tsx(185,5): error TS6133: 'index' is declared but its value is never read.
+src/components/sections/Hero.tsx(2,43): error TS6133: 'useSpring' is declared but its value is never read.
