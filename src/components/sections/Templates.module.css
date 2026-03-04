@@ -3,7 +3,6 @@
     padding: 8rem 1rem 0;
     /* Add bottom padding if needed, but illustration sits at bottom */
     background: transparent;
-    font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     overflow: hidden;
     text-align: center;

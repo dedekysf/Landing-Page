@@ -1,9 +1,8 @@
 /* ==========================================
-   FeaturesV2 — Sticky Left (Header+Tabs) / Scroll Right
+   FeaturesV2 â€” Scrollytelling: Text Left (scroll) / Image Right (sticky)
    ========================================== */
 
 .section {
-    font-family: 'Poppins', sans-serif;
     background: transparent;
     color: var(--text-primary);
     padding: 8rem 0;
@@ -15,35 +14,22 @@
     padding: 0 1.5rem;
 }
 
-/* ==========================================
-   Grid: leftPanel (40%) | contentPanel (60%)
-   ========================================== */
-.layout {
-    display: grid;
-    grid-template-columns: 48% 52%;
-    gap: 4rem;
-    align-items: start;
-}
-
-/* ---- LEFT: sticky panel (header + nav) ---- */
-.leftPanel {
-    position: sticky;
-    top: 6rem;
-    /* sits just below navbar */
-    align-self: start;
-    /* required for sticky in grid */
-}
-
+/* ---- Section Header ---- */
 .header {
-    margin-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 8rem;
 }
 
 .sectionTitle {
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: var(--font-weight-bold);
-    line-height: 1.4;
+    line-height: 1.2;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
+    max-width: 900px;
+    /* Slightly wider for larger text */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .sectionSubtitle {
@@ -51,129 +37,107 @@
     color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
 }
 
-/* ---- Tab nav ---- */
-.tabNav {
+/* ==========================================
+   Grid: textColumn (45%) | imageColumn (55%)
+   No align-items:start â€” imageColumn stretches to match textColumn height
+   so the sticky inner wrapper persists for the full scroll range
+   ========================================== */
+.layout {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    gap: 3rem;
+}
+
+/* ---- LEFT: scrollable text blocks ---- */
+.textColumn {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    border-left: 1px solid var(--grey-03);
+    /* No padding-bottom needed:
+       Sticky releases at scroll = imageColumn_height - (top + imgFrame_height)
+       = 390vh - (17.5vh + 65vh) = 307.5vh
+       Last text center reaches 50vh at the same 307.5vh scroll â†’ perfect sync */
 }
 
-.tabItem {
+.textBlock {
+    /* Each block takes roughly 65% of the viewport height so they pass cleanly through center */
+    min-height: 65vh;
     display: flex;
-    align-items: flex-start;
-    width: 100%;
-    /* Align perfectly with the title text on the right */
-    padding: 0.75rem 0 0.75rem 1.25rem;
-    margin-bottom: 1.5rem;
-    background: none;
-    border: none;
-    border-left: 3px solid transparent;
-    margin-left: -1px;
-    /* overlap nav's 1px border */
-    text-align: left;
-    cursor: pointer;
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-light);
-    color: var(--text-secondary);
-    transition: color 0.2s ease, border-left-color 0.2s ease, background 0.2s ease;
-    line-height: 1.4;
-    text-transform: capitalize;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
 }
 
-.tabItem:last-child {
-    margin-bottom: 0;
+.textBlock:first-child {
+    padding-top: 0;
 }
 
+.textBlockActive {
+    opacity: 1;
+}
 
-
-.tabItemActive {
+/* Feature label â€” small colored tag above title */
+.featureLabel {
+    display: inline-block;
+    font-size: 0.875rem;
     font-weight: var(--font-weight-semibold);
-    background: transparent;
     color: var(--secondary-green);
-    border-left-color: var(--secondary-green);
-}
-
-.tabLabel {
-    line-height: 1.3;
-}
-
-/* ---- CTA Container & Button ---- */
-.ctaContainer {
-    margin-top: 2.5rem;
-    padding-left: 0rem;
-}
-
-.startBtn {
-    display: inline-flex;
-    background: var(--secondary-green);
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: var(--font-weight-semibold);
-    text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    width: max-content;
-}
-
-.startBtn:hover {
-    background: var(--secondary-green-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(var(--secondary-green-rgb), 0.25);
-}
-
-/* ---- RIGHT: page-scroll content ---- */
-.contentPanel {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-
-    /* Fine-tuning to perfectly match the font baseline of Tab 1 
-       with the font baseline of Feature Title 1.
-       We removed JS height calculation, so we use a CSS margin to push the 
-       first block down to align with the first tab in the sticky column.
-       Assuming Title (2rem+1.5rem) + Subtitle (1.5rem+2rem) = ~7rem */
-    margin-top: 5.5rem;
-}
-
-.featureBlock {
-    padding: 0 0 6rem;
-    /* When a tab is auto-scrolled via click, this ensures it stops exactly below the header
-       so the title aligns perfectly with the tab. */
-    scroll-margin-top: 6rem;
-}
-
-.featureTitle {
-    font-size: 1.5rem;
-    font-weight: var(--font-weight-bold);
-    line-height: 1.3;
     margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-    color: var(--text-secondary);
     text-transform: capitalize;
+    letter-spacing: 0.02em;
 }
 
+/* Feature title */
+.featureTitle {
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    transition: color 0.4s ease;
+}
+
+.textBlockActive .featureTitle {
+    color: var(--secondary-green);
+}
+
+/* Feature description */
 .featureDesc {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
     line-height: 1.7;
-    margin-bottom: 2rem;
+    margin: 0;
+    max-width: 420px;
+}
+
+/* ---- RIGHT: image column (stretches to full layout height via grid default) ---- */
+/* Sticky wrapper: top = (100vh - imgFrame_height) / 2 = (100vh - 65vh) / 2 = 17.5vh
+   This means: when section enters viewport, image is at natural position (not yet sticky).
+   Image becomes sticky ONLY when its top crosses 17.5vh, at which point:
+   image center = 17.5vh + 32.5vh = 50vh (viewport center) âœ”
+   No transform needed â€” top is pre-calculated to center the image. */
+.stickyImageWrapper {
+    position: sticky;
+    top: 17.5vh;
 }
 
 /* Image frame */
 .imgFrame {
-    padding: 4rem 4rem 0 4rem;
-    border-radius: 16px 16px 0 0;
+    border-radius: 16px;
     overflow: hidden;
-    border-bottom: none;
     background: var(--grey-02);
-    max-width: 100%;
+    width: 100%;
+    /* 65vh: viewport-adaptive, accommodates taller mockups (min 480px) better */
+    max-height: 65vh;
     position: relative;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-    /* Subtle shadow like screenshot */
+    padding-top: 2.5rem;
 }
 
 .imgFrame::after {
@@ -182,83 +146,89 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 12%;
-    /* More subtle fade */
-    background: linear-gradient(to bottom, rgba(247, 248, 250, 0) 0%, var(--grey-02) 100%);
+    height: 8%;
+    /* Reduced to avoid obscuring sticky buttons */
+    background: linear-gradient(to bottom, rgba(247, 248, 250, 0) 0%, rgba(247, 248, 250, 0.4) 100%);
     pointer-events: none;
-    z-index: 1;
+    z-index: 10;
 }
 
 .imgInner {
     padding: 8px 8px 0;
 }
 
-.featureImg {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 12px 12px 0 0;
+/* ---- MOBILE: stacked layout (hidden on desktop) ---- */
+.mobileColumn {
+    display: none;
 }
 
-@media (min-width: 400px) {
-    .featureImg {
-        max-width: 380px;
-    }
+.mobileBlock {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--grey-03);
+}
+
+.mobileBlock:first-child {
+    padding-top: 0;
+}
+
+.mobileBlock:last-child {
+    border-bottom: none;
+}
+
+.mobileBlock .imgFrame {
+    margin-top: 2rem;
+    max-height: none;
+    border-radius: 16px;
+    padding-top: 2rem;
 }
 
 /* ==========================================
    Responsive
    ========================================== */
 @media (max-width: 900px) {
+
+    /* Hide desktop scrollytelling */
     .layout {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .leftPanel {
-        position: static;
-    }
-
-    /* Since layout stacks, hide spacer on mobile */
-    .syncSpacer {
         display: none;
     }
 
-    .tabNav {
-        flex-direction: row;
-        overflow-x: auto;
-        border-left: none;
-        border-bottom: 1px solid var(--grey-03);
-        scrollbar-width: none;
-    }
-
-    .tabNav::-webkit-scrollbar {
-        display: none;
-    }
-
-    .tabItem {
-        border-left: none;
-        border-bottom: 3px solid transparent;
-        margin-left: 0;
-        margin-bottom: 0;
-        white-space: nowrap;
-        padding: 0.75rem 1rem;
-        flex-shrink: 0;
-    }
-
-    .tabItemActive {
-        border-bottom: 3px solid currentColor;
-    }
-
-    .sectionTitle {
-        font-size: 1.875rem;
+    /* Show mobile stacked blocks */
+    .mobileColumn {
+        display: flex;
+        flex-direction: column;
     }
 
     .header {
-        margin-bottom: 1.5rem;
+        margin-bottom: 4rem;
     }
+
+    .sectionTitle {
+        font-size: 3rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1.5rem;
+    }
+
+    .featureTitle {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        max-width: 100%;
+    }
+
+    .featureDesc {
+        max-width: 100%;
+        font-size: 1.25rem;
+    }
+
+    .mockupWrapper {
+        max-width: 100%;
+    }
+
+    .mockupUi {
+        max-width: 100%;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -267,14 +237,34 @@
     }
 
     .sectionTitle {
-        font-size: 1.625rem;
+        font-size: 2.22rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1.25rem;
     }
 
     .featureTitle {
         font-size: 1.375rem;
     }
 
-    .featureBlock {
-        padding-bottom: 4rem;
+    .featureDesc {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .mobileBlock {
+        border-bottom: none;
+    }
+
+    .mobileBlock .imgFrame {
+        padding-top: 1.5rem;
+    }
+
+    .imgInner {
+        padding: 0 20px !important;
     }
 }

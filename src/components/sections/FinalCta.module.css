@@ -2,7 +2,6 @@
     background: var(--white);
     padding: 8rem 1rem 0 1rem;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     position: relative;
     overflow: hidden;
@@ -30,7 +29,7 @@
     position: relative;
     border-radius: 16px 16px 0 0;
     overflow: hidden;
-    /* Thick glass frame — top, left, right only */
+    /* Thick glass frame â€” top, left, right only */
     border-top: 8px solid rgba(var(--glass-border-rgb), 0.5);
     border-left: 8px solid rgba(var(--glass-border-rgb), 0.35);
     border-right: 8px solid rgba(var(--glass-border-rgb), 0.35);
@@ -113,20 +112,23 @@
 }
 
 .secondaryBtn {
-    background: white;
-    color: var(--text-primary);
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-medium);
-    text-decoration: none;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    background: white !important;
+    color: var(--text-primary) !important;
+    padding: 1rem 2rem !important;
+    border-radius: 8px !important;
+    font-size: 1.125rem !important;
+    font-weight: var(--font-weight-regular) !important;
+    text-decoration: none !important;
+    border: 1px solid var(--grey-03) !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+    display: inline-block;
 }
 
 .secondaryBtn:hover {
-    background: var(--grey-08);
-    border-color: var(--grey-09);
-    transform: translateY(-2px);
+    background: var(--grey-08) !important;
+    border-color: var(--grey-09) !important;
+    transform: translateY(-2px) !important;
 }
 
 .illustrationWrapper {
@@ -176,24 +178,22 @@
     }
 
     .btnGroup {
-        flex-direction: row;
         width: 100%;
-        gap: 1rem;
+        max-width: 500px;
+        margin: 0 auto 4rem;
+        gap: 0.75rem;
     }
 
     .primaryBtn,
     .secondaryBtn {
-        flex: 1;
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0.5rem !important;
-        box-sizing: border-box;
+        padding: 0.875rem 1.5rem !important;
     }
 
     .mobileBreak {
         display: block;
     }
 }
+
 
 @media (max-width: 480px) {
     .section {
@@ -208,5 +208,24 @@
     .subtitle {
         font-size: 1.25rem;
         margin-bottom: 3rem;
+    }
+
+    .btnGroup {
+        flex-direction: column-reverse;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 4rem;
+        gap: 1.5rem;
+        display: flex;
+        align-items: stretch;
+    }
+
+    .primaryBtn,
+    .secondaryBtn {
+        width: 100% !important;
+        display: block !important;
+        text-align: center !important;
+        padding: 1rem 1.5rem !important;
+        box-sizing: border-box !important;
     }
 }

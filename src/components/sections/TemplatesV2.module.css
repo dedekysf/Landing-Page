@@ -2,7 +2,6 @@
     position: relative;
     padding: 0;
     background: transparent;
-    font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     overflow: hidden;
 }
@@ -45,7 +44,7 @@
 }
 
 .fullWidthBg {
-    background: var(--light-mint);
+    background: var(--grey-02);
     padding: 8rem 1rem;
     overflow: hidden;
 }
@@ -129,8 +128,10 @@
     mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
 
-.marqueeMask:hover .marqueeTrack {
-    animation-play-state: paused;
+@media (hover: hover) {
+    .marqueeMask:hover .marqueeTrack {
+        animation-play-state: paused;
+    }
 }
 
 .marqueeColumn {
@@ -195,13 +196,12 @@
     overflow: hidden;
     flex-shrink: 0;
     box-shadow: 0 4px 15px rgba(var(--black-rgb), 0.03);
-    border: 1px solid var(--grey-02);
 }
 
 .cardHeader {
-    background: #F7F8FA;
-    padding: 1rem 1.25rem;
-    border-bottom: 1px solid var(--grey-02);
+    background: var(--white);
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--grey-03);
 }
 
 .cardTitle {
@@ -215,7 +215,7 @@
 
 .checklist {
     list-style: none;
-    padding: 1rem 1.25rem;
+    padding: 0.75rem 1rem;
     margin: 0;
 }
 
@@ -238,8 +238,16 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+    .header {
+        margin-bottom: 3rem;
+    }
+
     .sectionTitle {
         font-size: 3rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1.5rem;
     }
 
     .layout {
@@ -269,9 +277,23 @@
     }
 }
 
+@media (max-width: 768px) {
+    .marqueePanel {
+        height: 350px;
+    }
+}
+
 @media (max-width: 480px) {
     .section {
         padding-top: 5rem;
+    }
+
+    .fullWidthBg {
+        padding: 4rem 0rem;
+    }
+
+    .header {
+        margin-bottom: 2rem;
     }
 
     .marqueeMask {
@@ -283,7 +305,12 @@
     }
 
     .sectionTitle {
-        font-size: 2.2rem;
+        font-size: 2.22rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1.25rem;
     }
 
     .title {

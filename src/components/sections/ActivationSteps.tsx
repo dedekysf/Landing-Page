@@ -95,7 +95,11 @@ const ActivationSteps: React.FC = () => {
             checklistHeader: "What do you get",
             checklist: [
                 "Unlimited Projects",
-                "2TB shared team storage"
+                "2TB shared team storage",
+                "Create multiple tasks",
+                "Global activity log",
+                "Team roles & permissions",
+                "Access all project templates"
                 // "Add unlimited users to projects & tasks",
                 // "Team admin & member roles",
                 // "Centralized billing",
@@ -117,9 +121,9 @@ const ActivationSteps: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>Start Free. Run Your First Job</h2>
+                    <h2 className={styles.title}>Start Free. <br className={styles.mobileOnlyBr} /> Run Your First Job</h2>
                     <p className={styles.subtitle}>
-                        Try TaskTag Pro free for <span className={styles.highlight}>30 days</span> with all features unlocked. <br className={styles.desktopOnlyBr} />Cancel any time - No credit card required to start.
+                        Try TaskTag for <span className={styles.highlight}>30 days free</span> with all features unlocked. <br className={styles.tabletOnlyBr} /><br className={styles.desktopOnlyBr} />Cancel any time - No credit card required to start.
                     </p>
 
                     <motion.div

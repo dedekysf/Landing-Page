@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     background: var(--white);
-    font-family: 'Inter', 'Poppins', sans-serif;
 }
 
 .container {

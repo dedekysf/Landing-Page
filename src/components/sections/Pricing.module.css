@@ -1,7 +1,6 @@
 .pricing {
     padding: 6rem 1rem;
     background: var(--grey-13);
-    font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     position: relative;
 }

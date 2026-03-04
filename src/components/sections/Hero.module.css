@@ -5,7 +5,6 @@
     background: transparent;
     overflow: hidden;
     color: var(--text-primary);
-    font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -138,28 +137,51 @@
     }
 
     .actions {
-        flex-direction: row;
         width: 100%;
-        gap: 0.5rem;
+        max-width: 500px;
+        margin: 0 auto;
+        gap: 0.75rem;
+    }
+
+    .primaryBtn,
+    .secondaryBtn {
+        padding: 0.875rem 1.5rem !important;
+    }
+
+    .chatBubble {
+        left: 72px;
+    }
+}
+
+@media (max-width: 480px) {
+    .actions {
+        flex-direction: column-reverse;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        gap: 0.75rem;
+        display: flex;
+        align-items: stretch;
     }
 
     .btnWrapper {
-        flex: 1;
-        /* Make both wrappers grow equally */
-        display: flex;
-        /* Make the wrapper a flex container to expand child */
+        width: 100% !important;
+        display: block !important;
         height: auto;
         padding-bottom: 0px;
     }
 
     .primaryBtn,
     .secondaryBtn {
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0.5rem !important;
-        /* Reduces horizontal padding to fit side by side */
-        box-sizing: border-box;
-        /* Ensures padding is included in the 100% width */
+        width: 100% !important;
+        display: block !important;
+        text-align: center !important;
+        padding: 1rem 1.5rem !important;
+        box-sizing: border-box !important;
+    }
+
+    .chatBubble {
+        left: 40px;
     }
 }
 
@@ -205,7 +227,7 @@
 .btnWrapper {
     display: inline-block;
     padding-bottom: 6px;
-    height: 80px;
+    height: auto;
 }
 
 .primaryBtn {
@@ -290,7 +312,7 @@
 .framesWrapper {
     position: relative;
     width: 100%;
-    max-width: 720px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -478,7 +500,7 @@
         top: 65%;
         left: -25vw;
         width: 150vw;
-        height: 60%;
+        height: 35%;
         transform-origin: center top;
         transform: perspective(600px) rotateX(60deg);
         -webkit-mask-image: radial-gradient(ellipse at center top, black 25%, transparent 75%);
@@ -500,8 +522,21 @@
 .scalingWrapper {
     position: relative;
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
+    /* Slightly wider for the full image */
     margin: 0 auto;
+}
+
+.heroImageContainer {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.heroMainImg {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .glassFrame {
@@ -594,9 +629,9 @@
 }
 
 .blurLoad {
-    filter: blur(16px);
-    opacity: 0;
-    transition: filter 0.6s ease-out, opacity 0.6s ease-out;
+    filter: blur(8px);
+    opacity: 0.8;
+    transition: filter 0.4s ease-out, opacity 0.4s ease-out;
 }
 
 .loaded {
@@ -667,7 +702,7 @@
     }
 
     .heroVisuals {
-        margin-top: 1.5rem;
+        margin-top: 0.5rem;
     }
 }
 
@@ -820,7 +855,7 @@
 }
 
 /* ======================================
-   Phone Frame — White Sci-Fi
+   Phone Frame â€” White Sci-Fi
    ====================================== */
 .phoneFrame {
     position: relative;
@@ -1384,7 +1419,7 @@
 
 @media (max-width: 768px) {
     .hero {
-        padding: 10rem 0rem 8rem;
+        padding: 8rem 0rem 8rem;
     }
 
     .splitLayout {
@@ -1460,6 +1495,7 @@
 
     .actions {
         justify-content: center;
+        padding-top: 1.25rem;
     }
 
     .trustedBreak {
@@ -1481,7 +1517,7 @@
 .chatBubble {
     position: absolute;
     top: -14px;
-    left: 20px;
+    left: 80px;
     transform: translateY(-100%);
     z-index: 20;
     pointer-events: none;
@@ -1521,7 +1557,6 @@
 
 /* Text bubble */
 .chatBubbleText {
-    font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     font-weight: var(--font-weight-medium);
     color: var(--text-primary);
@@ -1574,12 +1609,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .chatBubble {
-        left: 8px;
-        top: -10px;
-        padding: 6px 12px;
-        border-radius: 10px 10px 10px 3px;
-    }
+
 
     .chatBubbleText {
         font-size: 0.7rem;

@@ -3,7 +3,6 @@
     padding: 8rem 1rem 8rem;
     margin-bottom: 12rem;
     background-color: var(--grey-02);
-    font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     overflow: visible;
     /* Changed so SVG overflows slightly if needed */
@@ -58,6 +57,14 @@
 
 .desktopOnlyBr {
     display: block;
+}
+
+.mobileOnlyBr {
+    display: none;
+}
+
+.tabletOnlyBr {
+    display: none;
 }
 
 /* Pricing Toggle */
@@ -380,8 +387,7 @@ input:checked+.slider:before {
     }
 
     .header {
-        margin: 0 auto 1rem;
-        /* Mengurangi spacing bawah sesuai permintaan */
+        margin: 0 auto 2rem;
     }
 
     .bgDecoration {
@@ -390,6 +396,14 @@ input:checked+.slider:before {
 
     .desktopOnlyBr {
         display: none;
+    }
+
+    .tabletOnlyBr {
+        display: block;
+    }
+
+    .mobileOnlyBr {
+        display: block;
     }
 
     .stepsGrid {
@@ -408,21 +422,26 @@ input:checked+.slider:before {
 @media (max-width: 480px) {
     .section {
         padding: 4rem 0rem;
+        margin-bottom: 4rem;
     }
 
     .header {
-        margin: 0 auto 1rem;
-        /* Konsisten 1rem di mobile kecil */
+        margin: 0 auto 2rem;
     }
 
     .title {
         font-size: 2.2rem;
         margin-bottom: 0.75rem;
+        line-height: 1.4;
 
     }
 
     .subtitle {
         font-size: 1.25rem;
+    }
+
+    .tabletOnlyBr {
+        display: none;
     }
 }
 

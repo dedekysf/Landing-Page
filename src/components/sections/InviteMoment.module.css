@@ -2,7 +2,6 @@
     padding: 8rem 1rem;
     background: var(--white);
     /* A very light warm tint */
-    font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     overflow: hidden;
 }

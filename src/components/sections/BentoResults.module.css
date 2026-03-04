@@ -2,7 +2,6 @@
     padding: 8rem 1rem;
     background-color: transparent;
     color: var(--text-primary);
-    font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -202,6 +201,14 @@
     .subtitle {
         font-size: 1.5rem;
     }
+
+    .statDescLight {
+        font-size: 1.125rem;
+    }
+
+    .statDescBold {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -216,39 +223,33 @@
     .bentoGrid {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 24px;
         width: 100%;
     }
 
     .bentoRow {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 16px;
         width: 100%;
-        padding-bottom: 0.5rem;
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-        scroll-snap-type: x mandatory;
     }
 
-    .bentoRow::-webkit-scrollbar {
-        display: none;
+    .card {
+        border-radius: 16px;
     }
 
     .logoCard,
-    .imageCard,
-    .statCard {
+    .imageCard {
         grid-column: span 1;
-        width: 85vw;
-        /* Sets the card width relative to viewport */
-        flex: 0 0 85vw;
-        /* Prevent shrinking/growing */
-        min-height: 320px;
-        scroll-snap-align: center;
+        /* min-height: 200px; */
+    }
+
+    .statCard {
+        grid-column: span 2;
+        order: -1;
+        /* Always push stat to top of its row */
+        /* min-height: 280px; */
+        padding: 2rem 1.5rem;
     }
 
     .statCard {
@@ -269,6 +270,10 @@
 
     .desktopBreak {
         display: none;
+    }
+
+    .statDescLight {
+        font-size: 1rem;
     }
 }
 

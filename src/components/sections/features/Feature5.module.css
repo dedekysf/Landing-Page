@@ -10,8 +10,8 @@
     width: 100%;
     max-width: 360px;
     background-color: #fff;
-    border-radius: 12px;
-    box-shadow: none;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
     overflow: hidden;
     color: var(--text-secondary);
     display: flex;
@@ -215,4 +215,21 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+}
+@media (max-width: 450px) {
+    .mockupWrapper { min-height: 380px; }
+    .mockupUi { min-height: 380px; max-width: 100%; }
+    .searchTop { padding: 10px 12px; gap: 8px; }
+    .searchBox { padding: 8px 10px; gap: 6px; }
+    .searchInput { font-size: 13px; }
+    .tabBar { font-size: 13px; gap: 16px; padding: 0 12px; }
+    .tabItem { padding: 10px 0; }
+    .listContainer { padding: 10px 12px; gap: 12px; }
+    .sectionHeader { font-size: 13px; margin-bottom: 6px; }
+    .badge { font-size: 10px; padding: 1px 5px; }
+    .resultItem { gap: 10px; padding-bottom: 12px; }
+    .checkboxMark { width: 18px; height: 18px; }
+    .itemTitle { font-size: 13px; }
+    .itemSub { font-size: 11px; gap: 4px; }
+    .datePill { font-size: 10px; padding: 1px 6px; }
 }

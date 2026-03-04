@@ -1,7 +1,6 @@
 .features {
     padding: 8rem 0rem;
     background: transparent;
-    font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     overflow: hidden;
 }
