@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import styles from './BentoResults.module.css';
+import styles from './ClientProof.module.css';
 
 import bentoImage1 from '../../assets/bento_img_1.jpg';
 import bentoImage2 from '../../assets/bento_img_2.jpg';
@@ -43,7 +43,7 @@ const CountUp: React.FC<{ target: number; suffix?: string; duration?: number }> 
     return <div ref={ref} className={styles.statValue}>{count}{suffix}</div>;
 };
 
-const BentoResults: React.FC = () => {
+const ClientProof: React.FC = () => {
     const row1Ref = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
@@ -121,4 +121,4 @@ const BentoResults: React.FC = () => {
     );
 };
 
-export default BentoResults;
+export default ClientProof;

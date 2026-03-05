@@ -1,11 +1,14 @@
 .section {
     background: var(--white);
-    padding: 8rem 1rem 0 1rem;
+    padding: 12rem 1rem 0 1rem;
     text-align: center;
     color: var(--text-primary);
     position: relative;
     overflow: hidden;
 }
+
+
+
 
 .container {
     margin: 0 auto;
@@ -34,7 +37,7 @@
     border-left: 8px solid rgba(var(--glass-border-rgb), 0.35);
     border-right: 8px solid rgba(var(--glass-border-rgb), 0.35);
     border-bottom: none;
-    background: white;
+    background: var(--white);
 }
 
 /* Adds the white fade out effect at the bottom of the image */
@@ -82,7 +85,7 @@
 
 .primaryBtn {
     background: var(--secondary-green);
-    color: white;
+    color: var(--white);
     padding: 1rem 2rem;
     border-radius: 8px;
     font-size: 1.125rem;
@@ -112,7 +115,7 @@
 }
 
 .secondaryBtn {
-    background: white !important;
+    background: var(--white) !important;
     color: var(--text-primary) !important;
     padding: 1rem 2rem !important;
     border-radius: 8px !important;
@@ -154,7 +157,7 @@
 
 @media (max-width: 1024px) {
     .section {
-        padding-top: 6rem;
+        padding-top: 9rem;
     }
 
     .title {
@@ -168,7 +171,7 @@
 
 @media (max-width: 768px) {
     .section {
-        padding-top: 5rem;
+        padding-top: 8rem;
         padding-left: 0;
         padding-right: 0;
     }
@@ -197,7 +200,7 @@
 
 @media (max-width: 480px) {
     .section {
-        padding-top: 4rem;
+        padding-top: 6rem;
     }
 
     .title {

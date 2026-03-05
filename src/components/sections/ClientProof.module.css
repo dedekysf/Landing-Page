@@ -1,5 +1,5 @@
 .section {
-    padding: 8rem 1rem;
+    padding: 12rem 1rem;
     background-color: transparent;
     color: var(--text-primary);
 }
@@ -178,7 +178,7 @@
 /* Responsive */
 @media (max-width: 1024px) {
     .section {
-        padding: 6rem 1rem;
+        padding: 9rem 1rem;
     }
 
     .header {
@@ -213,7 +213,7 @@
 
 @media (max-width: 768px) {
     .section {
-        padding: 5rem 1rem;
+        padding: 8rem 1rem;
     }
 
     .header {
@@ -279,7 +279,7 @@
 
 @media (max-width: 480px) {
     .section {
-        padding: 4rem 1rem;
+        padding: 6rem 1rem;
     }
 
     .header {

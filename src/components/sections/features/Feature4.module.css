@@ -9,7 +9,7 @@
 .mockupUi {
     width: 100%;
     max-width: 360px;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 12px 12px 0 0;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
     overflow: hidden;
@@ -34,7 +34,7 @@
     align-items: center;
     justify-content: center;
     font-size: 11px;
-    color: #888;
+    color: var(--grey-05);
     position: relative;
     margin: 8px 0;
 }
@@ -44,7 +44,7 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: #ebebeb;
+    background: var(--grey-03);
     margin: 0 10px;
 }
 
@@ -74,14 +74,14 @@
 }
 
 .msgSender {
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     font-size: 14px;
     color: var(--text-secondary);
 }
 
 .msgTime {
     font-size: 11px;
-    color: #888;
+    color: var(--grey-05);
 }
 
 .msgText {
@@ -92,21 +92,21 @@
 
 .completedCard {
     margin-top: 8px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--grey-03);
     border-radius: 8px;
     overflow: hidden;
-    background: #fafafa;
+    background: var(--grey-02);
 }
 
 .cardHeader {
-    background-color: #e0f2f1;
+    background-color: var(--light-mint);
     padding: 8px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--secondary-green);
     font-size: 13px;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
 }
 
 .cardHeaderLeft {
@@ -120,7 +120,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    background: #fdfdfd;
+    background: var(--grey-13);
 }
 
 .cardPills {
@@ -134,7 +134,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 13px;
-    color: #666;
+    color: var(--text-tertiary);
 }
 
 .tagPill {
@@ -144,8 +144,8 @@
     padding: 6px 10px;
     border-radius: 6px;
     font-size: 14px;
-    color: #fff;
-    font-weight: 400;
+    color: var(--white);
+    font-weight: var(--font-weight-regular);
 }
 
 .projectColor {
@@ -165,7 +165,7 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid var(--white);
     margin-left: -8px;
     object-fit: cover;
 }
@@ -178,15 +178,15 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid var(--white);
     margin-left: -8px;
     background-color: var(--text-secondary);
-    color: #fff;
+    color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 10px;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     z-index: 10;
 }
 
@@ -197,15 +197,15 @@
     gap: 12px;
     border-radius: 20px 20px 0 0;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-    background: #fff;
-    border: 1px solid #ebebeb;
+    background: var(--white);
+    border: 1px solid var(--grey-03);
     margin-top: auto;
 }
 
 .inputText {
     flex: 1;
     font-size: 15px;
-    color: #888;
+    color: var(--grey-05);
 }
 
 .inputAction {

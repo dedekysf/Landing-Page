@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import styles from './FinalCta.module.css';
+import styles from './CallToAction.module.css';
 import taskPanelImg from '../../assets/final-section-task-panel.png';
 
-const FinalCta: React.FC = () => {
+const CallToAction: React.FC = () => {
     return (
         <section className={styles.section}>
             <div className={`container ${styles.container}`}>
@@ -38,4 +38,4 @@ const FinalCta: React.FC = () => {
     );
 };
 
-export default FinalCta;
+export default CallToAction;

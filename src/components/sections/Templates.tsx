@@ -1,134 +1,129 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { CheckSquare, LayoutTemplate } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { CheckSquare } from 'lucide-react';
 import styles from './Templates.module.css';
+import { col1Templates, col2Templates } from './templates/TemplateList';
+import type { TemplateType } from './templates/TemplateList';
 
-const Templates: React.FC = () => {
-
-    const preConstructionTasks = [
-        "Client contract signed and uploaded",
-        "Permits submitted and tracked",
-        "Initial site survey completed"
-    ];
-
-    const foundationTasks = [
-        "Excavation layout approved",
-        "Rebar inspection passed",
-        "Concrete poured and cured"
-    ];
+const TemplateCard = ({ template }: { template: TemplateType }) => {
+    const displayTasks = template.tasks.slice(0, 5);
+    const moreCount = template.tasks.length - 5;
 
     return (
-        <section className={styles.section}>
-            <div className={`container ${styles.container}`}>
+        <div className={styles.templateCard}>
+            <div className={styles.cardHeader}>
+                <h3 className={styles.cardTitle}>{template.title}</h3>
+            </div>
+            <ul className={styles.checklist}>
+                {displayTasks.map((task, i) => (
+                    <li key={i} className={styles.checklistItem}>
+                        <CheckSquare size={14} color="var(--secondary-green)" strokeWidth={1.6} style={{ flexShrink: 0 }} />
+                        <span>{task}</span>
+                    </li>
+                ))}
+                {moreCount > 0 && (
+                    <li className={`${styles.checklistItem} ${styles.moreItem}`}>
+                        + {moreCount} more items
+                    </li>
+                )}
+            </ul>
+        </div>
+    );
+};
 
-                {/* Header */}
-                <motion.div
-                    className={styles.header}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
-                    <h2 className={styles.title}>Kickstart Next Job with <br className={styles.desktopBreak} /><span className={styles.highlight}>TaskTag</span> Templates</h2>
-                    <p className={styles.subtitle}>
-                        No setup from scratch. Pick a template and start turning jobsite
-                    </p>
-                </motion.div>
+const Templates: React.FC = () => {
+    const sectionRef = useRef<HTMLElement>(null);
 
-                {/* Bento Grid */}
-                <div className={styles.bentoGrid}>
+    // Track scroll progress across this section
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        // Wait until top of section hits middle of screen, ends when bottom hits bottom
+        offset: ["start center", "end end"]
+    });
 
-                    {/* Card 1: Pre-Constructions */}
-                    <motion.div
-                        className={styles.templateCard}
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        viewport={{ once: true }}
-                    >
-                        {/* <div className={styles.watermark}>01</div> */}
-                        <div className={styles.cardHeader}>
-                            <h3 className={styles.cardTitle}>Pre-Constructions Checklist</h3>
-                        </div>
+    // Add spring physics for smoother scroll tracking
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
-                        <ul className={styles.checklist}>
-                            {preConstructionTasks.map((task, i) => (
-                                <li key={i} className={styles.checklistItem}>
-                                    <CheckSquare size={18} color="var(--secondary-green)" style={{ flexShrink: 0 }} />
-                                    <span>{task}</span>
-                                </li>
-                            ))}
-                            <li className={`${styles.checklistItem} ${styles.moreItem}`}>
-                                + 12 more items
-                            </li>
-                        </ul>
+    // Expand width to 100% with an ease-out curve so it's smoother towards the end
+    const dynamicWidth = useTransform(
+        smoothProgress,
+        [0, 0.1, 0.2, 0.3, 0.4],
+        ["90%", "95%", "98%", "99.5%", "100%"]
+    );
+    const dynamicBorderRadius = useTransform(
+        smoothProgress,
+        [0, 0.1, 0.2, 0.3, 0.4],
+        ["24px", "12px", "4.8px", "1.2px", "0px"]
+    );
 
-                        {/* <div className={styles.cardActionWrapper}>
-                            <a href="https://app.tasktag.com/register/signup-with-email" className={styles.cardAction} target="_blank" rel="noopener noreferrer">View More <ArrowRight size={16} /></a>
-                        </div> */}
-                    </motion.div>
-
-                    {/* Card 2: Foundation */}
-                    <motion.div
-                        className={styles.templateCard}
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        viewport={{ once: true }}
-                    >
-                        {/* <div className={styles.watermark}>02</div> */}
-                        <div className={styles.cardHeader}>
-                            <h3 className={styles.cardTitle}>Foundation Checklist</h3>
-                        </div>
-
-                        <ul className={styles.checklist}>
-                            {foundationTasks.map((task, i) => (
-                                <li key={i} className={styles.checklistItem}>
-                                    <CheckSquare size={18} color="var(--secondary-green)" style={{ flexShrink: 0 }} />
-                                    <span>{task}</span>
-                                </li>
-                            ))}
-                            <li className={`${styles.checklistItem} ${styles.moreItem}`}>
-                                + 8 more items
-                            </li>
-                        </ul>
-
-                        {/* <div className={styles.cardActionWrapper}>
-                            <a href="https://app.tasktag.com/register/signup-with-email" className={styles.cardAction} target="_blank" rel="noopener noreferrer">View More <ArrowRight size={16} /></a>
-                        </div> */}
-                    </motion.div>
-
-                    {/* Card 3: View More */}
-                    <motion.div
-                        className={`${styles.templateCard} ${styles.viewMoreCard}`}
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        viewport={{ once: true }}
-                    >
-                        <div className={styles.iconWrapper}>
-                            <LayoutTemplate size={44} />
-                        </div>
-                        <h3>View More Template</h3>
-                        <p>Discover more ready-to-use workflows to streamline your next project.</p>
-                        <a href="https://app.tasktag.com/register/signup-with-email" className={styles.viewMoreBtn} target="_blank" rel="noopener noreferrer">Start For Free</a>
-                    </motion.div>
-
-                </div>
-            </div >
-
-            {/* Bottom Illustration */}
-            {/* < motion.div
-                className={styles.illustrationWrapper}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
+    return (
+        <section ref={sectionRef} className={styles.section}>
+            {/* The animated wrapper takes the role of the background color */}
+            <motion.div
+                className={styles.fullWidthBg}
+                style={{
+                    width: dynamicWidth,
+                    borderRadius: dynamicBorderRadius,
+                    margin: "0 auto"
+                }}
             >
-                <img src={heroImage} alt="TaskTag App Interface" className={styles.illustration} />
-            </motion.div > */}
+                <div className={`container ${styles.container}`}>
+                    <div className={styles.layout}>
 
-        </section >
+                        {/* LEFT: Marquee Columns */}
+                        <div className={styles.marqueePanel}>
+
+                            {/* Wrapper for fade-out edges */}
+                            <div className={styles.marqueeMask}>
+
+                                {/* Column 1: Scrolls Up */}
+                                <div className={styles.marqueeColumn}>
+                                    <div className={`${styles.marqueeTrack} ${styles.scrollUp}`}>
+                                        {/* Duplicate content twice for seamless loop */}
+                                        {col1Templates.map(t => <TemplateCard key={`orig-${t.id}`} template={t} />)}
+                                        {col1Templates.map(t => <TemplateCard key={`dup-${t.id}`} template={t} />)}
+                                    </div>
+                                </div>
+
+                                {/* Column 2: Scrolls Down */}
+                                <div className={styles.marqueeColumn}>
+                                    <div className={`${styles.marqueeTrack} ${styles.scrollDown}`}>
+                                        {/* Duplicate content twice for seamless loop */}
+                                        {col2Templates.map(t => <TemplateCard key={`orig-${t.id}`} template={t} />)}
+                                        {col2Templates.map(t => <TemplateCard key={`dup-${t.id}`} template={t} />)}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {/* RIGHT: Static Content */}
+                        <div className={styles.staticPanel}>
+                            <motion.div
+                                initial={{ opacity: 0, x: 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                                className={styles.textContent}
+                            >
+                                <h2 className={styles.title}>No Setup from Scratch <br />with <span className={styles.highlight}>TaskTag</span> Templates</h2>
+                                <p className={styles.subtitle}>
+                                    Pick a template and start turning jobsite
+                                </p>
+                                <a href="https://app.tasktag.com/register/signup-with-email" className={styles.startBtn} target="_blank" rel="noopener noreferrer">
+                                    Get Started For Free
+                                </a>
+                            </motion.div>
+                        </div>
+
+                    </div>
+                </div>
+            </motion.div>
+        </section>
     );
 };
 

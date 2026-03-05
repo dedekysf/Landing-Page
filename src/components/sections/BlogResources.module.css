@@ -1,0 +1,136 @@
+.section {
+    padding: 12rem 2rem;
+    margin: 0;
+    background: var(--white);
+}
+
+.container {
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+}
+
+.banner {
+    position: relative;
+    /* Soft, calm mint radial gradient */
+    background: radial-gradient(circle at center, var(--light-mint-2) 0%, var(--light-mint) 100%);
+    border-radius: 20px;
+    padding: 5rem 2rem;
+    text-align: center;
+    overflow: hidden;
+    color: var(--text-primary);
+    /* Dark text for contrast */
+}
+
+/* Subtle soft light wave */
+.glow {
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(circle at 80% 20%, rgba(var(--white-rgb), 0.7) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--dark-green);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--text-tertiary);
+    margin-bottom: 2.5rem;
+    font-weight: var(--font-weight-regular);
+    line-height: 1.6;
+}
+
+.btnGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.primaryBtn {
+    background: var(--text-primary);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primaryBtn:hover {
+    background: var(--black);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(10, 22, 41, 0.3);
+}
+
+.secondaryBtn {
+    background: var(--white);
+    color: var(--text-primary);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-regular);
+    text-decoration: none;
+    border: 1px solid var(--grey-03);
+    transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+    background: var(--grey-08);
+    border-color: var(--grey-09);
+    transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .section {
+        padding: 8rem 1.5rem;
+    }
+
+    .banner {
+        padding: 4rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btnGroup {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .primaryBtn,
+    .secondaryBtn {
+        width: 100%;
+    }
+
+    .section {
+        padding: 4rem 1rem 12rem 1rem;
+    }
+}
