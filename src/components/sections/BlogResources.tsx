@@ -22,7 +22,7 @@ const BlogResources: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className={styles.secondaryBtn}
                             >
-                                Read the blog
+                                Read The Blog
                             </a>
                             <a
                                 href="https://portal.tasktag.com/product"
@@ -30,7 +30,7 @@ const BlogResources: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className={styles.primaryBtn}
                             >
-                                Explore resources
+                                Explore Resources
                             </a>
                         </div>
                     </div>

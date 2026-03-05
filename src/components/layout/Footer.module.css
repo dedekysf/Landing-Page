@@ -112,8 +112,8 @@
     align-items: center;
     justify-content: center;
     transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-    border: 1.5px solid var(--grey-02);
-    box-shadow: 0 1px 4px rgba(var(--black-rgb), 0.06);
+    border: 1.5px solid var(--grey-03);
+    /* box-shadow: 0 1px 4px rgba(var(--black-rgb), 0.06); */
 }
 
 .socialIcon:hover {

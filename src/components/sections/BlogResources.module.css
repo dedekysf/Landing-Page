@@ -12,12 +12,14 @@
 .banner {
     position: relative;
     /* Soft, calm mint radial gradient */
-    background: radial-gradient(circle at center, var(--light-mint-2) 0%, var(--light-mint) 100%);
+    /* background: radial-gradient(circle at center, var(--light-mint-2) 0%, var(--light-mint) 100%); */
+    background: var(--grey-02);
     border-radius: 20px;
     padding: 5rem 2rem;
     text-align: center;
     overflow: hidden;
     color: var(--text-primary);
+    box-shadow: 0 4px 8px rgba(var(--black-rgb), 0.03);
     /* Dark text for contrast */
 }
 
@@ -28,7 +30,7 @@
     left: -20%;
     width: 140%;
     height: 200%;
-    background: radial-gradient(circle at 80% 20%, rgba(var(--white-rgb), 0.7) 0%, transparent 60%);
+    background: radial-gradient(circle at 80% 20%, rgba(var(--white-rgb), 0.2) 0%, transparent 60%);
     pointer-events: none;
     z-index: 1;
 }
@@ -42,7 +44,7 @@
 .title {
     font-size: 3rem;
     font-weight: var(--font-weight-bold);
-    color: var(--dark-green);
+    color: var(--text-primary);
     line-height: 1.2;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
@@ -51,7 +53,7 @@
 
 .subtitle {
     font-size: 1.125rem;
-    color: var(--text-tertiary);
+    color: var(--text-secondary);
     margin-bottom: 2.5rem;
     font-weight: var(--font-weight-regular);
     line-height: 1.6;
