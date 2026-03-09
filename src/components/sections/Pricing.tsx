@@ -84,7 +84,7 @@ const Pricing: React.FC = () => {
         },
         {
             title: "Team Plan",
-            tagline: "Unlimited Projects, Scale Your Operations",
+            tagline: "Collaborators on projects and tasks are free",
             icon: <Building size={32} color="var(--white)" strokeWidth={1.5} />,
             btnType: 'inverted',
             priceMonthly: 20,
@@ -94,7 +94,7 @@ const Pricing: React.FC = () => {
             showBadge: true,
             checklistHeader: "What do you get",
             checklist: [
-                "Unlimited Projects",
+                "Unlimited free project & task members",
                 "2TB shared team storage",
                 "Create multiple tasks",
                 "Global activity log",
@@ -121,7 +121,7 @@ const Pricing: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>Start Free. <br className={styles.mobileOnlyBr} /> Run Your First Job</h2>
+                    <h2 className={styles.title}>Try It<br className={styles.mobileOnlyBr} /> on Your Next Job</h2>
                     <p className={styles.subtitle}>
                         Try TaskTag for <span className={styles.highlight}>30 days free</span> with all features unlocked. <br className={styles.tabletOnlyBr} /><br className={styles.desktopOnlyBr} />Cancel any time - No credit card required to start.
                     </p>

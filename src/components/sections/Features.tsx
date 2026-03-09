@@ -12,7 +12,7 @@ const features = [
     {
         id: 'start',
         label: 'Get started fast',
-        title: 'Start in minutes',
+        title: 'Works Like Texting',
         desc: 'Create a project, add your team, and move work forward immediately. If they can text, they can run tasks, updates, and files in TaskTag.',
     },
     {
@@ -104,9 +104,9 @@ const Features: React.FC = () => {
                         viewport={{ once: true }}
                     >
                         <h2 className={styles.sectionTitle}>
-                            Closeout Without Delays or Runaround
+                            From Approval to Payment
                         </h2>
-                        <p className={styles.sectionSubtitle}>One place for task updates, photos, approvals, and what's billable.</p>
+                        <p className={styles.sectionSubtitle}>Updates, photos, and proof in one thread.</p>
                     </motion.div>
                 </div>
 
