@@ -205,7 +205,7 @@ const Feature2 = ({ isActive }: { isActive: boolean }) => {
                                             <div className={styles.cmSelectedRow}>
                                                 <div className={styles.cmSelectedUser}>
                                                     <div className={styles.cmSelectedAvatarWrapper}>
-                                                        <div className={styles.cmInitials} style={{ width: 56, height: 56, fontSize: 18, backgroundColor: 'var(--dark-magenta)', color: 'var(--white)' }}>
+                                                        <div className={styles.cmInitials} style={{ backgroundColor: 'var(--dark-magenta)', color: 'var(--white)' }}>
                                                             OG
                                                         </div>
                                                         <div className={styles.cmRemoveBadge}><X size={10} strokeWidth={4} /></div>
@@ -219,7 +219,7 @@ const Feature2 = ({ isActive }: { isActive: boolean }) => {
                                 <div className={styles.cmTitleRow}>Suggested</div>
                                 <div className={styles.cmList}>
                                     <div className={styles.cmItem}>
-                                        <img src={avatarForeman} className={styles.cmAvatar} style={{ width: 56, height: 56 }} alt="James Smith" />
+                                        <img src={avatarForeman} className={styles.cmAvatar} alt="James Smith" />
                                         <div className={styles.cmInfo}>
                                             <span className={styles.cmEmail}>James Smith</span>
                                             <div className={styles.cmRoleRow}>
@@ -229,7 +229,7 @@ const Feature2 = ({ isActive }: { isActive: boolean }) => {
                                         <div className={`${styles.cmCheckCircle} ${styles.active}`}><Check size={12} strokeWidth={4} color="var(--white)" /></div>
                                     </div>
                                     <div className={styles.cmItem}>
-                                        <div className={styles.cmInitials} style={{ width: 56, height: 56, backgroundColor: 'var(--dark-magenta)', color: 'var(--white)', fontSize: 18 }}>
+                                        <div className={styles.cmInitials} style={{ backgroundColor: 'var(--dark-magenta)', color: 'var(--white)' }}>
                                             OG
                                         </div>
                                         <div className={styles.cmInfo}>

@@ -72,7 +72,7 @@ const Pricing: React.FC = () => {
             btnType: 'outline',
             priceMonthly: 0,
             priceAnnual: 0,
-            priceSubtext: 'No credit card required',
+            priceSubtext: 'Forever Free',
             isFilled: false,
             checklistHeader: "What do you get",
             checklist: [

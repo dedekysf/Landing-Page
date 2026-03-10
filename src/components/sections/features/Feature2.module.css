@@ -509,7 +509,7 @@
 
 .taPills {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 6px;
 }
 
@@ -613,6 +613,7 @@
     .mockupUi {
         min-height: 380px;
         max-width: 100%;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.02);
     }
 
     .searchBarRow {
@@ -678,6 +679,11 @@
     }
 
     .chatWindow {
+        padding: 0;
+        gap: 0;
+    }
+
+    .chatScrollArea {
         padding: 12px;
         gap: 12px;
     }
@@ -691,23 +697,19 @@
     }
 
     .tagPill {
-        font-size: 11px;
+        font-size: 10px;
         padding: 4px 8px;
         gap: 4px;
     }
 
-    .cmHeader {
-        padding: 10px;
-    }
-
     .taHeader {
-        font-size: 16px;
+        font-size: 13px;
         padding: 10px 12px;
     }
 
     .taBody {
-        padding: 12px;
-        gap: 12px;
+        padding: 10px;
+        gap: 8px;
     }
 
     .taDue {
@@ -724,5 +726,44 @@
         padding: 8px 12px;
         gap: 6px;
         border-radius: 16px;
+    }
+
+    .cmAvatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .cmInitials {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .cmRemoveBadge {
+        width: 16px;
+        height: 16px;
+        top: -4px;
+        right: -4px;
+    }
+
+    .cmEmail {
+        font-size: 14px;
+    }
+
+    .cmRole {
+        font-size: 12px;
+    }
+
+    .cmTitleRow {
+        font-size: 12px;
+        padding: 12px 12px 4px;
+    }
+
+    .cmSelectedText {
+        font-size: 12px;
+    }
+
+    .cmHeader {
+        padding: 10px 12px;
     }
 }
