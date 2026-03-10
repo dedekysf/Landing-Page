@@ -85,7 +85,7 @@
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 2rem;
@@ -326,7 +326,7 @@
     }
 
     .subtitle {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     .title {
