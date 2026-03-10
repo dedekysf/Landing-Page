@@ -53,13 +53,13 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
     return (
         <div className={styles.mockupWrapper}>
             <motion.div className={styles.mockupUi} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, type: 'spring' }}>
-                <div className={styles.searchTop}>
+                {/* <div className={styles.searchTop}>
                     <div className={styles.searchBox}>
                         <Search size={18} className={styles.searchIcon} />
                         <div className={styles.searchInput}>Search</div>
                     </div>
                     <ListFilter size={20} className={styles.filterIcon} />
-                </div>
+                </div> */}
 
                 <div className={styles.feedContainer}>
                     <AnimatePresence mode="popLayout">
@@ -71,7 +71,7 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                                 </div>
                                 <div className={styles.itemContent}>
                                     <div className={styles.itemHeader}>
-                                        <div className={styles.userName}>Tristan Enver Valerio</div>
+                                        <div className={styles.userName}>Oscar Gilberto</div>
                                         <div className={styles.timeText}>15:44 PM</div>
                                     </div>
                                     <div className={styles.actionText}>Completed this task</div>
