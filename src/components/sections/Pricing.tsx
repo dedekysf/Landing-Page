@@ -178,13 +178,15 @@ const Pricing: React.FC = () => {
                                 )}
                             </h3>
                             <p className={styles.planTagline}>{plan.tagline}</p>
-                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: plan.priceCaption ? '0.25rem' : '1.5rem' }}>
+                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '0.25rem' }}>
                                 <div className={styles.price} style={{ marginBottom: 0 }}>
                                     ${isMonthly ? plan.priceMonthly : plan.priceAnnual}
                                 </div>
                                 <div className={styles.priceSubtext} style={{ margin: 0 }}>{plan.priceSubtext}</div>
                             </div>
-                            {plan.priceCaption && <div className={styles.priceCaption}>{plan.priceCaption}</div>}
+                            <div className={styles.priceCaption} style={{ visibility: plan.priceCaption ? 'visible' : 'hidden' }}>
+                                {plan.priceCaption || "Collaborators on projects and tasks are free"}
+                            </div>
                             <div className={styles.cardFooter}>
                                 <a
                                     href="https://app.tasktag.com/register/signup-with-email"
