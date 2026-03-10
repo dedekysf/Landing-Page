@@ -1,8 +1,6 @@
-```
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, UserMinus, UserPlus, Plus, Folder, Hash } from 'lucide-react';
-import { useInView } from 'react-intersection-observer';
 import styles from './Feature6.module.css';
 import avatarForeman from '../../../assets/avatar_foreman.png';
 
@@ -74,7 +72,7 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                             <motion.div key="item-4" layout variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
                                 <div className={styles.avatarWrap}>
                                     <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
-                                    <div className={`${ styles.avatarBadge } ${ styles.badgeBlue } `}><Plus size={10} strokeWidth={3} /></div>
+                                    <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><Plus size={10} strokeWidth={3} /></div>
                                 </div>
                                 <div className={styles.itemContent}>
                                     <div className={styles.itemHeader}>
@@ -83,8 +81,8 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                                     </div>
                                     <div className={styles.actionText}>Created this task</div>
                                     <div className={styles.pillsRow}>
-                                        <div className={`${ styles.tagPill } ${ styles.projectColor } `}><Folder size={12} /> <span>Raintree Hollow</span></div>
-                                        <div className={`${ styles.tagPill } ${ styles.taskColor } `}><Hash size={12} /> <span>Drywall patch</span></div>
+                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
+                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
                                     </div>
                                 </div>
                             </motion.div>
@@ -94,7 +92,7 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                             <motion.div key="item-3" layout variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
                                 <div className={styles.avatarWrap}>
                                     <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
-                                    <div className={`${ styles.avatarBadge } ${ styles.badgeBlue } `}><UserPlus size={10} strokeWidth={3} /></div>
+                                    <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><UserPlus size={10} strokeWidth={3} /></div>
                                 </div>
                                 <div className={styles.itemContent}>
                                     <div className={styles.itemHeader}>
@@ -105,8 +103,8 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                                         Added <span className={styles.mention}>@Oscar Gilberto</span> as Task Assignee
                                     </div>
                                     <div className={styles.pillsRow}>
-                                        <div className={`${ styles.tagPill } ${ styles.projectColor } `}><Folder size={12} /> <span>Raintree Hollow</span></div>
-                                        <div className={`${ styles.tagPill } ${ styles.taskColor } `}><Hash size={12} /> <span>Drywall patch</span></div>
+                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
+                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
                                     </div>
                                 </div>
                             </motion.div>
@@ -116,7 +114,7 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                             <motion.div key="item-2" layout variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
                                 <div className={styles.avatarWrap}>
                                     <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
-                                    <div className={`${ styles.avatarBadge } ${ styles.badgeRed } `}><UserMinus size={10} strokeWidth={3} /></div>
+                                    <div className={`${styles.avatarBadge} ${styles.badgeRed}`}><UserMinus size={10} strokeWidth={3} /></div>
                                 </div>
                                 <div className={styles.itemContent}>
                                     <div className={styles.itemHeader}>
@@ -127,8 +125,8 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                                         Unassigned <span className={styles.mention}>@Gerald Oliver</span> from this task
                                     </div>
                                     <div className={styles.pillsRow}>
-                                        <div className={`${ styles.tagPill } ${ styles.projectColor } `}><Folder size={12} /> <span>1320 Smith Street R...</span></div>
-                                        <div className={`${ styles.tagPill } ${ styles.taskColor } `}><Hash size={12} /> <span>Foundation Inspect...</span></div>
+                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>1320 Smith Street R...</span></div>
+                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Foundation Inspect...</span></div>
                                     </div>
                                 </div>
                             </motion.div>
@@ -139,7 +137,7 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                             <motion.div key="item-1" layout variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
                                 <div className={styles.avatarWrap}>
                                     <img src={avatarForeman} className={styles.avatar} alt="Oscar" />
-                                    <div className={`${ styles.avatarBadge } ${ styles.badgeGreen } `}><Check size={10} strokeWidth={3} /></div>
+                                    <div className={`${styles.avatarBadge} ${styles.badgeGreen}`}><Check size={10} strokeWidth={3} /></div>
                                 </div>
                                 <div className={styles.itemContent}>
                                     <div className={styles.itemHeader}>
@@ -148,8 +146,8 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                                     </div>
                                     <div className={styles.actionText}>Completed this task</div>
                                     <div className={styles.pillsRow}>
-                                        <div className={`${ styles.tagPill } ${ styles.projectColor } `}><Folder size={12} /> <span>Raintree Hollow</span></div>
-                                        <div className={`${ styles.tagPill } ${ styles.taskColor } `}><Hash size={12} /> <span>Drywall patch</span></div>
+                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
+                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
                                     </div>
                                 </div>
                             </motion.div>
