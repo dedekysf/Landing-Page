@@ -119,7 +119,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--white);
 }
 
 .badgeGreen {
@@ -168,15 +167,16 @@
 
 .feedDivider {
     height: 1px;
-    background: var(--grey-02);
+    background: var(--grey-03);
     margin: 0 16px;
-    opacity: 0.8;
 }
 
 .pillsRow {
     display: flex;
     gap: 6px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow: hidden;
 }
 
 .tagPill {
@@ -188,7 +188,16 @@
     font-size: 13px;
     color: var(--white);
     font-weight: var(--font-weight-regular);
-    /* Regular as requested */
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+.tagPill span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .projectColor {
