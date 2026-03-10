@@ -37,7 +37,7 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
     }, [isActive]);
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 15 },
+        hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
@@ -53,20 +53,13 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
     return (
         <div className={styles.mockupWrapper}>
             <motion.div className={styles.mockupUi} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, type: 'spring' }}>
-                {/* <div className={styles.searchTop}>
-                    <div className={styles.searchBox}>
-                        <Search size={18} className={styles.searchIcon} />
-                        <div className={styles.searchInput}>Search</div>
-                    </div>
-                    <ListFilter size={20} className={styles.filterIcon} />
-                </div> */}
-
                 <div className={styles.feedContainer}>
                     <AnimatePresence mode="popLayout">
-                        {phase >= 1 && (
-                            <motion.div key="item-1" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
+                        {/* Newest activity at top (last in column-reverse DOM) */}
+                        {phase >= 4 && (
+                            <motion.div key="item-1" layout variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
                                 <div className={styles.avatarWrap}>
-                                    <img src={avatarForeman} className={styles.avatar} alt="Tristan" />
+                                    <img src={avatarForeman} className={styles.avatar} alt="Oscar" />
                                     <div className={`${styles.avatarBadge} ${styles.badgeGreen}`}><Check size={10} strokeWidth={3} /></div>
                                 </div>
                                 <div className={styles.itemContent}>
@@ -83,8 +76,8 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                             </motion.div>
                         )}
 
-                        {phase >= 2 && (
-                            <motion.div key="item-2" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
+                        {phase >= 3 && (
+                            <motion.div key="item-2" layout variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
                                 <div className={styles.avatarWrap}>
                                     <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
                                     <div className={`${styles.avatarBadge} ${styles.badgeRed}`}><UserMinus size={10} strokeWidth={3} /></div>
@@ -105,8 +98,8 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                             </motion.div>
                         )}
 
-                        {phase >= 3 && (
-                            <motion.div key="item-3" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
+                        {phase >= 2 && (
+                            <motion.div key="item-3" layout variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
                                 <div className={styles.avatarWrap}>
                                     <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
                                     <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><UserPlus size={10} strokeWidth={3} /></div>
@@ -127,8 +120,9 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                             </motion.div>
                         )}
 
-                        {phase >= 4 && (
-                            <motion.div key="item-4" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
+                        {/* Oldest activity at bottom (first in column-reverse DOM) */}
+                        {phase >= 1 && (
+                            <motion.div key="item-4" layout variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
                                 <div className={styles.avatarWrap}>
                                     <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
                                     <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><Plus size={10} strokeWidth={3} /></div>
