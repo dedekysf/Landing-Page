@@ -96,6 +96,12 @@
     flex-direction: column;
 }
 
+.mainItemList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .listItem {
     display: flex;
     align-items: center;
@@ -774,5 +780,17 @@
 
     .cmCancel {
         font-size: 12px;
+    }
+
+    .mainItemList {
+        gap: 8px;
+    }
+
+    .cmList {
+        gap: 10px;
+    }
+
+    .cmItem {
+        gap: 12px;
     }
 }

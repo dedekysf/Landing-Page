@@ -121,7 +121,7 @@ const Feature2 = ({ isActive }: { isActive: boolean }) => {
                                 initial={phase !== 8 ? { opacity: 0, y: 10 } : false}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0 }}
-                                style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
+                                className={styles.mainItemList}
                             >
                                 <motion.div className={styles.listItem} >
                                     <div className={styles.itemLeft}>
