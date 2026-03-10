@@ -64,9 +64,21 @@ export const allTemplates: TemplateType[] = [
             "Track approval status",
             "Upload submittal file"
         ]
+    },
+    {
+        id: 6,
+        title: "Daily Field Report",
+        tasks: [
+            "Log weather and site conditions",
+            "Note delays or safety incidents",
+            "Record crew counts by trade",
+            "Submit daily report",
+            "Track deliveries received",
+            "Upload progress photos"
+        ]
     }
 ];
 
 // Split into two columns for Marquee lists
 export const col1Templates = [allTemplates[0], allTemplates[2], allTemplates[4]];
-export const col2Templates = [allTemplates[1], allTemplates[3]];
+export const col2Templates = [allTemplates[1], allTemplates[3], allTemplates[5]];
