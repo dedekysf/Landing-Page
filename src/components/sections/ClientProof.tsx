@@ -67,7 +67,7 @@ const ClientProof: React.FC = () => {
 
                     <h2 className={styles.title}>Real Results on Real Jobs</h2>
                     <p className={styles.subtitle}>
-                        Teams use TaskTag to cut rework, save time, <br className={styles.desktopBreak} />and keep every punch item moving starting in the first few weeks.
+                        Teams cut rework, close out faster, and document proof of work — within weeks.
                     </p>
                 </motion.div>
 
@@ -90,7 +90,7 @@ const ClientProof: React.FC = () => {
                             <span className={styles.statLabel}>Cut rework by</span>
                             <CountUp target={40} suffix="%" />
                             <div className={styles.statDescBold}>Protect your profit margins</div>
-                            <div className={styles.statDescLight}>When your superintendents and subs are all looking at the same approved photos and plans, you stop paying for work to be done twice.</div>
+                            <div className={styles.statDescLight}>When everyone's working from the same approved photos and plans, you stop paying for work twice.</div>
                         </motion.div>
                     </div>
 
@@ -98,10 +98,10 @@ const ClientProof: React.FC = () => {
                         {/* Bottom Row: Stat (2), Logo (1), Image (1) */}
                         <motion.div className={`${styles.card} ${styles.statCard} ${styles.statGreen}`}
                             initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.4 }} viewport={{ once: true }}>
-                            <span className={styles.statLabel}>Increase completion by</span>
+                            <span className={styles.statLabel}>Increase completion rate to</span>
                             <CountUp target={95} suffix="%" />
-                            <div className={styles.statDescBold}>Hand over the keys faster</div>
-                            <div className={styles.statDescLight}>Every final detail is tracked and verified from the field in real-time, your teams close out jobs quickly without you having to chase them down.</div>
+                            <div className={styles.statDescBold}>Close out jobs without chasing anyone</div>
+                            <div className={styles.statDescLight}>Every item is tracked and verified from the field in real time. Your teams close out faster — without you following up.</div>
                         </motion.div>
 
                         <motion.div className={`${styles.card} ${styles.logoCard}`}

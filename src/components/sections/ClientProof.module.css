@@ -77,11 +77,10 @@
 }
 
 .logoImage {
-    max-width: 160px;
+    max-width: 200px;
     max-height: auto;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    opacity: 0.9;
     margin-bottom: auto;
     margin-top: auto;
 }
@@ -139,13 +138,12 @@
 .statDescBold {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 
 .statDescLight {
-    font-size: 0.875rem;
-    font-weight: var(--font-weight-light);
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 /* For the green card to look right */

@@ -110,9 +110,9 @@ const Templates: React.FC = () => {
                                 viewport={{ once: true }}
                                 className={styles.textContent}
                             >
-                                <h2 className={styles.title}>No Setup from Scratch <br />with <span className={styles.highlight}>TaskTag</span> Templates</h2>
+                                <h2 className={styles.title}><span className={styles.highlight}>Proof-Ready</span> Templates for Every Trade</h2>
                                 <p className={styles.subtitle}>
-                                    Pick a template and start turning jobsite work into approved, invoice-ready proof in minutes.
+                                    Pick one, customize it, and start turning jobsite work into approved, invoice-ready documentation in minutes.
                                 </p>
                                 <a href="https://app.tasktag.com/register/signup-with-email" className={styles.startBtn} target="_blank" rel="noopener noreferrer">
                                     Get Started For Free
