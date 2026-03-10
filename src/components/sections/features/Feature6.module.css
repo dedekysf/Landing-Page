@@ -82,14 +82,28 @@
 .feedItem {
     padding: 16px;
     display: flex;
-    flex-direction: column;
     gap: 12px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--grey-03);
+}
+
+.feedItem:last-child {
+    border-bottom: none;
+}
+
+.itemContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
 }
 
 .itemHeader {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: baseline;
+    width: 100%;
 }
 
 .userRow {
@@ -143,9 +157,9 @@
 
 .userName {
     font-weight: var(--font-weight-regular);
-    /* Regular as requested */
     font-size: 15px;
     color: var(--text-secondary);
+    line-height: 1;
 }
 
 .timeText {
@@ -157,19 +171,14 @@
     font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.4;
-    margin-top: -4px;
 }
 
 .mention {
     color: var(--sky-blue);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-regular);
 }
 
-.feedDivider {
-    height: 1px;
-    background: var(--grey-03);
-    margin: 0 16px;
-}
+/* Removed feedDivider since we use border-bottom on feedItem */
 
 .pillsRow {
     display: flex;

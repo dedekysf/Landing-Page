@@ -65,90 +65,84 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                     <AnimatePresence mode="popLayout">
                         {phase >= 1 && (
                             <motion.div key="item-1" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
-                                <div className={styles.itemHeader}>
-                                    <div className={styles.userRow}>
-                                        <div className={styles.avatarWrap}>
-                                            <img src={avatarForeman} className={styles.avatar} alt="Tristan" />
-                                            <div className={`${styles.avatarBadge} ${styles.badgeGreen}`}><Check size={10} strokeWidth={3} /></div>
-                                        </div>
-                                        <div className={styles.userName}>Tristan Enver Valerio</div>
-                                    </div>
-                                    <div className={styles.timeText}>15:44 PM</div>
+                                <div className={styles.avatarWrap}>
+                                    <img src={avatarForeman} className={styles.avatar} alt="Tristan" />
+                                    <div className={`${styles.avatarBadge} ${styles.badgeGreen}`}><Check size={10} strokeWidth={3} /></div>
                                 </div>
-                                <div className={styles.actionText}>Completed this task</div>
-                                <div className={styles.pillsRow}>
-                                    <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
-                                    <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
+                                <div className={styles.itemContent}>
+                                    <div className={styles.itemHeader}>
+                                        <div className={styles.userName}>Tristan Enver Valerio</div>
+                                        <div className={styles.timeText}>15:44 PM</div>
+                                    </div>
+                                    <div className={styles.actionText}>Completed this task</div>
+                                    <div className={styles.pillsRow}>
+                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
+                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
+                                    </div>
                                 </div>
                             </motion.div>
                         )}
-
-                        {phase >= 2 && <div key="div-1" className={styles.feedDivider} />}
 
                         {phase >= 2 && (
                             <motion.div key="item-2" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
-                                <div className={styles.itemHeader}>
-                                    <div className={styles.userRow}>
-                                        <div className={styles.avatarWrap}>
-                                            <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
-                                            <div className={`${styles.avatarBadge} ${styles.badgeRed}`}><UserMinus size={10} strokeWidth={3} /></div>
-                                        </div>
+                                <div className={styles.avatarWrap}>
+                                    <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
+                                    <div className={`${styles.avatarBadge} ${styles.badgeRed}`}><UserMinus size={10} strokeWidth={3} /></div>
+                                </div>
+                                <div className={styles.itemContent}>
+                                    <div className={styles.itemHeader}>
                                         <div className={styles.userName}>Melissa Johnson</div>
+                                        <div className={styles.timeText}>09:20 AM</div>
                                     </div>
-                                    <div className={styles.timeText}>09:20 AM</div>
-                                </div>
-                                <div className={styles.actionText}>
-                                    Unassigned <span className={styles.mention}>@Gerald Oliver</span> from this task
-                                </div>
-                                <div className={styles.pillsRow}>
-                                    <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>1320 Smith Street R...</span></div>
-                                    <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Foundation Inspect...</span></div>
+                                    <div className={styles.actionText}>
+                                        Unassigned <span className={styles.mention}>@Gerald Oliver</span> from this task
+                                    </div>
+                                    <div className={styles.pillsRow}>
+                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>1320 Smith Street R...</span></div>
+                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Foundation Inspect...</span></div>
+                                    </div>
                                 </div>
                             </motion.div>
                         )}
-
-                        {phase >= 3 && <div key="div-2" className={styles.feedDivider} />}
 
                         {phase >= 3 && (
                             <motion.div key="item-3" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
-                                <div className={styles.itemHeader}>
-                                    <div className={styles.userRow}>
-                                        <div className={styles.avatarWrap}>
-                                            <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
-                                            <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><UserPlus size={10} strokeWidth={3} /></div>
-                                        </div>
+                                <div className={styles.avatarWrap}>
+                                    <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
+                                    <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><UserPlus size={10} strokeWidth={3} /></div>
+                                </div>
+                                <div className={styles.itemContent}>
+                                    <div className={styles.itemHeader}>
                                         <div className={styles.userName}>Melissa Johnson</div>
+                                        <div className={styles.timeText}>08:45 AM</div>
                                     </div>
-                                    <div className={styles.timeText}>08:45 AM</div>
-                                </div>
-                                <div className={styles.actionText}>
-                                    Added <span className={styles.mention}>@Oscar Gilberto</span> as Task Assignee
-                                </div>
-                                <div className={styles.pillsRow}>
-                                    <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
-                                    <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
+                                    <div className={styles.actionText}>
+                                        Added <span className={styles.mention}>@Oscar Gilberto</span> as Task Assignee
+                                    </div>
+                                    <div className={styles.pillsRow}>
+                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
+                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
+                                    </div>
                                 </div>
                             </motion.div>
                         )}
 
-                        {phase >= 4 && <div key="div-3" className={styles.feedDivider} />}
-
                         {phase >= 4 && (
                             <motion.div key="item-4" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
-                                <div className={styles.itemHeader}>
-                                    <div className={styles.userRow}>
-                                        <div className={styles.avatarWrap}>
-                                            <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
-                                            <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><Plus size={10} strokeWidth={3} /></div>
-                                        </div>
-                                        <div className={styles.userName}>Melissa Johnson</div>
-                                    </div>
-                                    <div className={styles.timeText}>08:45 AM</div>
+                                <div className={styles.avatarWrap}>
+                                    <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
+                                    <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><Plus size={10} strokeWidth={3} /></div>
                                 </div>
-                                <div className={styles.actionText}>Created this task</div>
-                                <div className={styles.pillsRow}>
-                                    <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
-                                    <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
+                                <div className={styles.itemContent}>
+                                    <div className={styles.itemHeader}>
+                                        <div className={styles.userName}>Melissa Johnson</div>
+                                        <div className={styles.timeText}>08:45 AM</div>
+                                    </div>
+                                    <div className={styles.actionText}>Created this task</div>
+                                    <div className={styles.pillsRow}>
+                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
+                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
+                                    </div>
                                 </div>
                             </motion.div>
                         )}
