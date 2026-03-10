@@ -638,7 +638,7 @@
     }
 
     .cancelText {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .listContainer {
@@ -729,21 +729,21 @@
     }
 
     .cmAvatar {
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
     }
 
     .cmInitials {
-        width: 36px;
-        height: 36px;
-        font-size: 14px;
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
     }
 
     .cmRemoveBadge {
-        width: 16px;
-        height: 16px;
-        top: -4px;
-        right: -4px;
+        width: 14px;
+        height: 14px;
+        top: -2px;
+        right: -2px;
     }
 
     .cmEmail {
@@ -765,5 +765,14 @@
 
     .cmHeader {
         padding: 10px 12px;
+    }
+
+    .cmCheckCircle {
+        width: 20px;
+        height: 20px;
+    }
+
+    .cmCancel {
+        font-size: 12px;
     }
 }
