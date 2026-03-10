@@ -79,8 +79,9 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
                         {phase >= 2 && (
                             <motion.div
                                 key="gerald-msg-card"
-                                initial={{ opacity: 0, y: 10 }}
+                                initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}
+                                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 className={styles.indentedRow}
                                 layout
@@ -109,8 +110,9 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
                         {phase >= 3 && (
                             <motion.div
                                 key="gerald-msg-attachments"
-                                initial={{ opacity: 0, y: 10 }}
+                                initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}
+                                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 className={styles.indentedRow}
                                 layout
