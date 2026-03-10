@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, X, Paperclip, FileText, Camera, Building, ChevronDown, ArrowUp } from 'lucide-react';
+import { MapPin, X, Paperclip, FileText, Camera, Building, ChevronDown, ArrowUp, Loader2, User } from 'lucide-react';
 import styles from './Feature1.module.css';
+import avatarForeman from '../../../assets/avatar_foreman.png';
 
 // Interactive component for Tab 1 Mockup
 const Feature1 = ({ isActive }: { isActive: boolean }) => {
@@ -15,14 +16,24 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
     // 6: Action row (Project & Submit) + Footer divider
     // 8: Full Frame Static (Default on scroll)
     const [phase, setPhase] = useState<number>(8); // Default to full frame
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const drywallImages = [
+        "/images/features/drywall-patch-1.png",
+        "/images/features/drywall-patch-2.png",
+        "/images/features/drywall-patch-3.png",
+        "/images/features/drywall-patch-4.png"
+    ];
 
     // If section becomes inactive, reset to full frame. If active, start animation at 0.
     useEffect(() => {
         if (isActive) {
             setPhase(0);
         } else {
+
             setPhase(8);
         }
+
     }, [isActive]);
 
     // Handle automated timeline once active
@@ -38,6 +49,9 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
                 if (p === 3) return 4;
                 if (p === 4) return 5;
                 if (p === 5) return 6;
+                // Add new automated phases:
+                if (p === 6) return 7; // Trigger button tap + loader
+                if (p === 7) return 9; // Reset button, hold final result
                 return p;
             });
         };
@@ -49,11 +63,13 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
             case 2: delay = 500; break;
             case 3: delay = 600; break;
             case 4: delay = 1500; break; // Gallery loaders
-            case 5: delay = 800; break;
+            case 5: delay = 800; break;  // Action row & Icons
+            case 6: delay = 800; break;  // Wait before automated submit
+            case 7: delay = 2000; break; // Loader spinner duration
         }
 
-        if (phase === 6) {
-            timer = setTimeout(() => setPhase(0), 4000); // 4 sec hold then loop
+        if (phase === 9) {
+            timer = setTimeout(() => setPhase(0), 1500); // 1.5 sec hold then loop
         } else {
             timer = setTimeout(tick, delay);
         }
@@ -74,6 +90,7 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
             transition: { staggerChildren: 0.15 }
         }
     };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const zoomOut: any = {
         hidden: { opacity: 0, scale: 1.15 },
         visible: { opacity: 1, scale: 1, transition: { duration: 0.4, type: 'spring', bounce: 0.4 } }
@@ -84,6 +101,7 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
     const showAddress = phase >= 2 || phase === 8;
     const showDesc = phase >= 3 || phase === 8;
     const showGallery = phase >= 4 || phase === 8;
+    const isLoadingState = isSubmitting || phase === 7;
 
     return (
         <div className={styles.mockupWrapper} >
@@ -140,7 +158,7 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
                         >
                             {showTitle && (
                                 <motion.h4
-                                    className={styles.mockTitle}
+                                    className={`${styles.mockTitle} ${isLoadingState ? styles.textLoading : ''}`}
                                     initial={phase !== 8 ? "hidden" : false} animate="visible" variants={fadeUp}
                                 >
                                     Raintree Hollow
@@ -152,7 +170,7 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
                                     className={styles.mockAddress}
                                     initial={phase !== 8 ? "hidden" : false} animate="visible" variants={fadeUp}
                                 >
-                                    <div className={styles.iconContainer}><MapPin strokeWidth={2} /></div>
+                                    <div className={`${styles.iconContainer} ${isLoadingState ? styles.textLoading : ''}`}><MapPin strokeWidth={2} /></div>
                                     <div className={styles.skeletonLine} style={{ flex: 1, height: '14px', marginTop: '2px' }} />
                                 </motion.div>
                             )}
@@ -172,17 +190,17 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
                                     className={styles.mockGallery}
                                     initial={phase !== 8 ? "hidden" : false} animate="visible" variants={staggerContainer}
                                 >
-                                    {[1, 2, 3, 4, 5, 6].map((idx) => (
+                                    {drywallImages.map((src, idx) => (
                                         <motion.div key={idx} variants={fadeUp} className={styles.galleryItem}>
                                             {phase !== 8 && <div className={styles.galleryLoader}></div>}
                                             <img
-                                                src={`https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=150&sig=${idx}`}
-                                                alt="Kitchen Sink"
+                                                src={src}
+                                                alt={`Drywall Patch ${idx + 1}`}
                                                 className={styles.galleryImgLoaded}
                                                 style={phase === 8 ? { opacity: 1, animation: 'none' } : {}}
                                             />
                                             {/* Note: mockRemoveBtn has animation delay if not phase 8 */}
-                                            <button className={styles.mockRemoveBtn} style={phase === 8 ? { opacity: 1, animation: 'none' } : {}}><X size={10} strokeWidth={3} /></button>
+                                            <button className={`${styles.mockRemoveBtn} ${isLoadingState ? styles.removeBtnLoading : ''}`} style={phase === 8 ? { opacity: 1, animation: 'none' } : {}}><X size={10} strokeWidth={3} /></button>
                                         </motion.div>
                                     ))}
                                 </motion.div>
@@ -198,16 +216,24 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
                                     initial="hidden" animate="visible" variants={staggerContainer}
                                     style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}
                                 >
-                                    <div className={styles.toolbarIcons}>
+                                    <div className={`${styles.toolbarIcons} ${isLoadingState ? styles.textLoading : ''}`}>
                                         <motion.div variants={zoomOut} className={styles.iconContainer}><Paperclip strokeWidth={2} /></motion.div>
                                         <motion.div variants={zoomOut} className={styles.iconContainer}><FileText strokeWidth={2} /></motion.div>
                                         <motion.div variants={zoomOut} className={styles.iconContainer}><Camera strokeWidth={2} /></motion.div>
                                         <motion.div variants={zoomOut} className={styles.iconContainer}><MapPin strokeWidth={2} /></motion.div>
                                     </div>
 
-                                    <motion.div variants={zoomOut} className={styles.toolbarAvatar}>
-                                        <img src="https://i.pravatar.cc/150?img=11" alt="User" className={styles.avatarImg} />
-                                        <span className={styles.avatarBadge}>3</span>
+                                    <motion.div variants={zoomOut} className={`${styles.toolbarAvatar} ${isLoadingState ? styles.avatarLoading : ''}`}>
+                                        {phase >= 5 || phase === 8 ? (
+                                            <>
+                                                <img src={avatarForeman} alt="User" className={styles.avatarImg} />
+                                                <span className={styles.avatarBadge}>3</span>
+                                            </>
+                                        ) : (
+                                            <div style={{ width: '38px', height: '38px', backgroundColor: '#E5E7EB', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                <User size={20} color="#9CA3AF" />
+                                            </div>
+                                        )}
                                     </motion.div>
                                 </motion.div>
                             </div>
@@ -223,14 +249,35 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
                                                 <Building strokeWidth={2} />
                                             </div>
                                         </div>
-                                        <span>TaskTag Project</span>
-                                        <div className={styles.iconContainer} style={{ width: '20px', height: '20px' }}>
+                                        <span className={isLoadingState ? styles.textLoading : ''}>TaskTag Team</span>
+                                        <div className={`${styles.iconContainer} ${isLoadingState ? styles.textLoading : ''}`} style={{ width: '20px', height: '20px' }}>
                                             <ChevronDown strokeWidth={2} />
                                         </div>
                                     </motion.div>
-                                    <motion.button variants={zoomOut} className={styles.sendButton}>
+                                    <motion.button
+                                        variants={zoomOut}
+                                        className={styles.sendButton}
+                                        whileTap={phase >= 6 || phase === 8 || phase === 9 ? { scale: 0.9 } : undefined}
+                                        animate={isLoadingState ? { scale: 0.92 } : { scale: 1 }}
+                                        onClick={() => {
+                                            if (phase >= 6 || phase === 8 || phase === 9) {
+                                                setIsSubmitting(true);
+                                                setTimeout(() => setIsSubmitting(false), 2000);
+                                            }
+                                        }}
+                                    >
                                         <div className={styles.iconContainer} style={{ color: 'white' }}>
-                                            <ArrowUp strokeWidth={2} />
+                                            {isLoadingState ? (
+                                                <motion.div
+                                                    animate={{ rotate: 360 }}
+                                                    transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                                                >
+                                                    <Loader2 strokeWidth={2} />
+                                                </motion.div>
+                                            ) : (
+                                                <ArrowUp strokeWidth={2} />
+                                            )}
                                         </div>
                                     </motion.button>
                                 </motion.div>

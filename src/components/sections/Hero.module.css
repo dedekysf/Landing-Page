@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     margin-bottom: 2rem;
     width: 100%;
 }
@@ -301,7 +301,7 @@
 .heroVisuals {
     position: relative;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 0rem;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -312,7 +312,7 @@
 .framesWrapper {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -1399,7 +1399,7 @@
     .splitLayout {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 3rem;
+        gap: 2rem;
         margin-bottom: 3rem;
     }
 
@@ -1424,7 +1424,7 @@
     }
 
     .splitLayout {
-        gap: 2.5rem;
+        gap: 2rem;
         margin-bottom: 2rem;
     }
 

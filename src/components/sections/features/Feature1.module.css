@@ -108,9 +108,9 @@
 
 .galleryItem {
     position: relative;
-    width: 64px;
+    flex: 1;
+    min-width: 0;
     height: 64px;
-    flex-shrink: 0;
     border-radius: 6px;
     overflow: hidden;
     border: 1px solid var(--gray-200);
@@ -314,27 +314,146 @@
     width: 100%;
     height: 100%;
 }
+
 @media (max-width: 450px) {
-    .mockupWrapper { min-height: 380px; }
-    .mockupUi { min-height: 380px; max-width: 100%; }
-    .mockupActionBtn { padding: 0.75rem 1.5rem; font-size: 0.95rem; }
-    .mockupHeader { padding: 1rem 1rem 0.75rem; gap: 0.5rem; }
-    .mockTitle { font-size: 1.05rem; }
-    .mockAddress { font-size: 0.8rem; gap: 0.35rem; }
-    .mockIcon { margin-top: 0; }
-    .mockDesc { font-size: 0.8rem; line-height: 1.4; margin: 0.25rem 0; }
-    .mockDescWrapper { margin: 0.5rem 0; }
-    .iconContainer { width: 18px; height: 18px; }
-    .galleryItem { width: 48px; height: 48px; }
-    .mockGallery { gap: 0.5rem; padding: 0.5rem; }
-    .mockToolbar { padding: 0.75rem 1rem; min-height: 50px; }
-    .toolbarIcons { gap: 1rem; padding-right: 1rem; }
-    .avatarImg { width: 30px; height: 30px; }
-    .avatarBadge { width: 16px; height: 16px; font-size: 0.65rem; }
-    .mockActionRow { padding: 0.75rem 1rem; }
-    .projectSelector { font-size: 0.9rem; gap: 0.5rem; }
-    .projectIcon { width: 26px; height: 26px; font-size: 0.8rem; border-radius: 6px; }
-    .sendButton { width: 38px; height: 38px; }
-    .skeletonLine { height: 10px !important; }
-    .skeletonTag { height: 18px; }
+    .mockupWrapper {
+        min-height: 380px;
+    }
+
+    .mockupUi {
+        min-height: 380px;
+        max-width: 100%;
+    }
+
+    .mockupActionBtn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .mockupHeader {
+        padding: 1rem 1rem 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .mockTitle {
+        font-size: 1.05rem;
+    }
+
+    .mockAddress {
+        font-size: 0.8rem;
+        gap: 0.35rem;
+    }
+
+    .mockIcon {
+        margin-top: 0;
+    }
+
+    .mockDesc {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        margin: 0.25rem 0;
+    }
+
+    .mockDescWrapper {
+        margin: 0.5rem 0;
+    }
+
+    .iconContainer {
+        width: 18px;
+        height: 18px;
+    }
+
+    .galleryItem {
+        width: 48px;
+        height: 48px;
+    }
+
+    .mockGallery {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .mockToolbar {
+        padding: 0.75rem 1rem;
+        min-height: 50px;
+    }
+
+    .toolbarIcons {
+        gap: 1rem;
+        padding-right: 1rem;
+    }
+
+    .avatarImg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .avatarBadge {
+        width: 16px;
+        height: 16px;
+        font-size: 0.65rem;
+    }
+
+    .mockActionRow {
+        padding: 0.75rem 1rem;
+    }
+
+    .projectSelector {
+        font-size: 0.9rem;
+        gap: 0.5rem;
+    }
+
+    .projectIcon {
+        width: 26px;
+        height: 26px;
+        font-size: 0.8rem;
+        border-radius: 6px;
+    }
+
+    .sendButton {
+        width: 38px;
+        height: 38px;
+    }
+
+    .skeletonLine {
+        height: 10px !important;
+    }
+
+    .skeletonTag {
+        height: 18px;
+    }
+}
+
+/* Loading states for phase 7 */
+.textLoading {
+    color: var(--grey-05) !important;
+    transition: color 0.3s ease;
+}
+
+.textLoading * {
+    color: var(--grey-05) !important;
+    transition: color 0.3s ease;
+}
+
+.bgLoading {
+    background-color: var(--grey-05) !important;
+    transition: background-color 0.3s ease;
+}
+
+.removeBtnLoading {
+    color: var(--grey-05) !important;
+    transition: color 0.3s ease;
+}
+
+.avatarLoading img {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.avatarLoading .avatarBadge {
+    background-color: var(--grey-05) !important;
+    border-color: var(--grey-05) !important;
+    color: var(--white) !important;
+    transition: all 0.3s ease;
 }

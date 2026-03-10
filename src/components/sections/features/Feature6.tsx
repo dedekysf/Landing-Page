@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ListFilter, Check, Image as ImageIcon, Folder, Hash, FileText } from 'lucide-react';
 import styles from './Feature6.module.css';
+import avatarForeman from '../../../assets/avatar_foreman.png';
 
 const Feature6 = ({ isActive }: { isActive: boolean }) => {
     const [phase, setPhase] = useState(0);
@@ -67,7 +68,7 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                                 <div className={styles.itemHeader}>
                                     <div className={styles.userRow}>
                                         <div className={styles.avatarWrap}>
-                                            <img src="https://i.pravatar.cc/150?img=11" className={styles.avatar} alt="Tristan" />
+                                            <img src={avatarForeman} className={styles.avatar} alt="Tristan" />
                                             <div className={`${styles.avatarBadge} ${styles.badgeGreen}`}><Check size={10} strokeWidth={3} /></div>
                                         </div>
                                         <div className={styles.userName}>Tristan Enver Valerio</div>
@@ -98,7 +99,7 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                                     <div className={styles.itemHeader}>
                                         <div className={styles.userRow}>
                                             <div className={styles.avatarWrap}>
-                                                <img src="https://i.pravatar.cc/150?img=11" className={styles.avatar} alt="Tristan" />
+                                                <img src={avatarForeman} className={styles.avatar} alt="Tristan" />
                                                 <div className={`${styles.avatarBadge} ${styles.badgeOrange}`}><ImageIcon size={8} strokeWidth={2} /></div>
                                             </div>
                                             <div className={styles.userName}>Tristan Enver Valerio</div>

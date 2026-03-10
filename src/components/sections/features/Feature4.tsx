@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Folder, Hash, Plus, Smile, Mic } from 'lucide-react';
 import styles from './Feature4.module.css';
+import avatarForeman from '../../../assets/avatar_foreman.png';
 
 const Feature4 = ({ isActive }: { isActive: boolean }) => {
     const [phase, setPhase] = useState(2);
@@ -59,7 +60,7 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
                     <AnimatePresence>
                         {phase >= 2 && (
                             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={styles.messageRow}>
-                                <img src="https://i.pravatar.cc/150?img=11" className={styles.msgAvatar} alt="Oscar" />
+                                <img src={avatarForeman} className={styles.msgAvatar} alt="Oscar" />
                                 <div className={styles.msgContent}>
                                     <div className={styles.msgHeader}><span className={styles.msgSender}>Oscar</span><span className={styles.msgTime}>12:24 PM</span></div>
                                     <div className={styles.msgText}>Delivery for Route A just finished.</div>
@@ -73,13 +74,13 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
                                                 </div>
                                                 <div className={styles.cardBody}>
                                                     <div className={styles.cardPills}>
-                                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={14} /> TaskTag Project</div>
-                                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={14} /> PickupTrim</div>
+                                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={14} /> <span>TaskTag Project</span></div>
+                                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={14} /> <span>PickupTrim</span></div>
                                                     </div>
                                                     <div className={styles.cardFooter}>
                                                         <span>Due: Feb 22</span>
                                                         <div className={styles.avatarStack}>
-                                                            <img src="https://i.pravatar.cc/150?img=11" className={styles.avatar} alt="User 1" />
+                                                            <img src={avatarForeman} className={styles.avatar} alt="User 1" />
                                                             <img src="https://i.pravatar.cc/150?img=12" className={styles.avatar} alt="User 2" style={{ zIndex: 1 }} />
                                                             <div className={styles.avatarCount} style={{ zIndex: 2 }}>+2</div>
                                                         </div>
@@ -107,11 +108,11 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
                 </div>
 
                 <div className={styles.inputArea}>
-                    <Plus size={24} />
+                    <Plus size={18} />
                     <div className={styles.inputText}>Type message here...</div>
                     <div className={styles.inputAction}>
-                        <Smile size={24} />
-                        <Mic size={24} />
+                        <Smile size={18} />
+                        <Mic size={18} />
                     </div>
                 </div>
             </motion.div>
