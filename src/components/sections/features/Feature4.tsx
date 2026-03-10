@@ -73,56 +73,54 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
                                         Drywall patch complete. Invoice attached.
                                     </div>
 
-                                    <AnimatePresence mode="popLayout">
-                                        {phase >= 2 && (
-                                            <motion.div
-                                                key="gerald-card"
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                className={styles.completedCard}
-                                                layout
-                                            >
-                                                <div className={styles.cardHeader}>
-                                                    <div className={styles.cardHeaderLeft}><CheckCircle2 size={18} fill="var(--secondary-green)" color="#fff" /> TASK COMPLETED</div>
-                                                    <div className={styles.cardHeaderDate}>Feb 22, 2026</div>
+                                    {phase >= 2 && (
+                                        <motion.div
+                                            key="gerald-card"
+                                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                                            animate={{ opacity: 1, height: 'auto', marginTop: 8 }}
+                                            transition={{ duration: 0.4, ease: "easeOut" }}
+                                            className={styles.completedCard}
+                                            style={{ overflow: 'hidden' }}
+                                        >
+                                            <div className={styles.cardHeader}>
+                                                <div className={styles.cardHeaderLeft}><CheckCircle2 size={18} fill="var(--secondary-green)" color="#fff" /> TASK COMPLETED</div>
+                                                <div className={styles.cardHeaderDate}>Feb 22, 2026</div>
+                                            </div>
+                                            <div className={styles.cardBody}>
+                                                <div className={styles.cardPills}>
+                                                    <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={14} /> <span>Raintree Hollow</span></div>
+                                                    <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={14} /> <span>Drywall patch</span></div>
                                                 </div>
-                                                <div className={styles.cardBody}>
-                                                    <div className={styles.cardPills}>
-                                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={14} /> <span>Raintree Hollow</span></div>
-                                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={14} /> <span>Drywall patch</span></div>
+                                                <div className={styles.cardFooter}>
+                                                    <div className={styles.taDue}>
+                                                        Due: Feb 22, 2026
                                                     </div>
-                                                    <div className={styles.cardFooter}>
-                                                        <div className={styles.taDue}>
-                                                            Due: Feb 22, 2026
-                                                        </div>
-                                                        <img src={avatarForeman} className={styles.avatar} style={{ marginLeft: 'auto', border: 'none' }} alt="Avatar" />
-                                                    </div>
+                                                    <img src={avatarForeman} className={styles.avatar} style={{ marginLeft: 'auto', border: 'none' }} alt="Avatar" />
                                                 </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
+                                            </div>
+                                        </motion.div>
+                                    )}
 
-                                    <AnimatePresence mode="popLayout">
-                                        {phase >= 3 && (
-                                            <motion.div
-                                                key="gerald-attachments"
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                className={styles.attachmentGrid}
-                                                layout
-                                            >
-                                                <img
-                                                    src={drywallImg}
-                                                    className={styles.drywallImage}
-                                                    alt="Drywall"
-                                                />
-                                                <div className={styles.fileAttachment}>
-                                                    <div className={styles.fileIcon}><img src={pdfIcon} alt="PDF" /></div>
-                                                    <span className={styles.fileName}>Drywall_Invoice.pdf</span>
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
+                                    {phase >= 3 && (
+                                        <motion.div
+                                            key="gerald-attachments"
+                                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                                            animate={{ opacity: 1, height: 'auto', marginTop: 8 }}
+                                            transition={{ duration: 0.4, ease: "easeOut" }}
+                                            className={styles.attachmentGrid}
+                                            style={{ overflow: 'hidden' }}
+                                        >
+                                            <img
+                                                src={drywallImg}
+                                                className={styles.drywallImage}
+                                                alt="Drywall"
+                                            />
+                                            <div className={styles.fileAttachment}>
+                                                <div className={styles.fileIcon}><img src={pdfIcon} alt="PDF" /></div>
+                                                <span className={styles.fileName}>Drywall_Invoice.pdf</span>
+                                            </div>
+                                        </motion.div>
+                                    )}
                                 </div>
                             </motion.div>
                         )}
