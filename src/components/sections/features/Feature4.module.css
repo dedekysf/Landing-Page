@@ -25,7 +25,7 @@
     padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 16px;
     flex: 1;
     justify-content: flex-end;
 }
@@ -86,7 +86,7 @@
 }
 
 .msgText {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.4;
 }
@@ -139,6 +139,12 @@
     padding-left: 46px;
     width: 100%;
     box-sizing: border-box;
+}
+
+.geraldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .attachmentWrapper {
