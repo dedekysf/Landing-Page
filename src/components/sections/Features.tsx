@@ -106,7 +106,7 @@ const Features: React.FC = () => {
                         <h2 className={styles.sectionTitle}>
                             From Approval to Payment
                         </h2>
-                        <p className={styles.sectionSubtitle}>Updates, photos, and proof in one thread.</p>
+                        <p className={styles.sectionSubtitle}>Updates, photos, and proof in one place.</p>
                     </motion.div>
                 </div>
 

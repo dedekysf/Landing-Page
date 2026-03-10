@@ -102,7 +102,7 @@ const Pricing: React.FC = () => {
                 "Team roles & permissions",
                 "Access all project templates"
             ],
-            priceCaption: "Collaborators on projects and tasks are free"
+            priceCaption: "Unlimited free project & task members"
         }
     ];
 

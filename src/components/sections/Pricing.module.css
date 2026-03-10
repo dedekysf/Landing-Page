@@ -425,6 +425,10 @@ input:checked+.slider:before {
 }
 
 @media (max-width: 480px) {
+    .stepCard {
+        padding: 2rem 1.5rem;
+    }
+
     .section {
         padding: 6rem 0rem;
         margin-bottom: 4rem;
@@ -459,6 +463,7 @@ input:checked+.slider:before {
         font-size: 1rem;
         margin-bottom: 1rem;
     }
+
 }
 
 /* Reusing Hero Button styles for consistent CTA */
