@@ -3,32 +3,37 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Folder, Hash, Plus, Smile, Mic } from 'lucide-react';
 import styles from './Feature4.module.css';
 import avatarForeman from '../../../assets/avatar_foreman.png';
+import drywallImg from '../../../assets/drywall.png';
+import pdfIcon from '../../../assets/pdf_icon.png';
 
 const Feature4 = ({ isActive }: { isActive: boolean }) => {
-    const [phase, setPhase] = useState(2);
+    const [phase, setPhase] = useState(0);
 
     useEffect(() => {
         if (!isActive) {
-            setPhase(2);
+            setPhase(0);
             return;
         }
 
-        setPhase(0);
-
         let isMounted = true;
-        let timeoutIds: any[] = [];
+        let timeoutIds: ReturnType<typeof setTimeout>[] = [];
 
         const runSequence = () => {
             if (!isMounted) return;
             setPhase(0);
 
-            timeoutIds.push(setTimeout(() => { if (isMounted) setPhase(1) }, 400));
-            timeoutIds.push(setTimeout(() => { if (isMounted) setPhase(2) }, 1800));
+            const next = (nextPhase: number, delay: number) => {
+                timeoutIds.push(setTimeout(() => { if (isMounted) setPhase(nextPhase) }, delay));
+            };
 
-            // loop
+            next(1, 1000); // Gerald's text
+            next(2, 2500); // Gerald's status card
+            next(3, 4000); // Gerald's attachments (grid)
+            next(4, 7000); // Melissa's reply
+
             timeoutIds.push(setTimeout(() => {
                 if (isMounted) runSequence();
-            }, 6000));
+            }, 12000));
         };
 
         runSequence();
@@ -41,50 +46,79 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
 
     return (
         <div className={styles.mockupWrapper}>
-            <motion.div className={styles.mockupUi} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, type: 'spring' }}>
+            <motion.div
+                className={styles.mockupUi}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, type: 'spring' }}
+            >
                 <div className={styles.chatWindow}>
-                    <div className={styles.dateSeparator}>Friday, February 22</div>
-
-                    <AnimatePresence>
+                    <AnimatePresence mode="popLayout">
                         {phase >= 1 && (
-                            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={styles.messageRow}>
-                                <img src="https://i.pravatar.cc/150?img=5" className={styles.msgAvatar} alt="Melissa" />
+                            <motion.div
+                                key="gerald-msg-1"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.3 } }}
+                                className={styles.messageRow}
+                                layout
+                            >
+                                <img src={avatarForeman} className={styles.msgAvatar} alt="Gerald" />
                                 <div className={styles.msgContent}>
-                                    <div className={styles.msgHeader}><span className={styles.msgSender}>Melissa</span><span className={styles.msgTime}>12:21 PM</span></div>
-                                    <div className={styles.msgText}>Hi Oscar!<br />How is the progress?</div>
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                                    <div className={styles.msgHeader}>
+                                        <span className={styles.msgSender} style={{ color: 'var(--dark-magenta)' }}>Gerald</span>
+                                        <span className={styles.msgTime}>12:23 PM</span>
+                                    </div>
+                                    <div className={styles.msgText}>
+                                        Drywall patch complete. Invoice attached.
+                                    </div>
 
-                    <AnimatePresence>
-                        {phase >= 2 && (
-                            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={styles.messageRow}>
-                                <img src={avatarForeman} className={styles.msgAvatar} alt="Oscar" />
-                                <div className={styles.msgContent}>
-                                    <div className={styles.msgHeader}><span className={styles.msgSender}>Oscar</span><span className={styles.msgTime}>12:24 PM</span></div>
-                                    <div className={styles.msgText}>Delivery for Route A just finished.</div>
-
-                                    <AnimatePresence>
+                                    <AnimatePresence mode="popLayout">
                                         {phase >= 2 && (
-                                            <motion.div initial={{ opacity: 0, scale: 0.95, height: 0 }} animate={{ opacity: 1, scale: 1, height: 'auto' }} className={styles.completedCard}>
+                                            <motion.div
+                                                key="gerald-card"
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                className={styles.completedCard}
+                                                layout
+                                            >
                                                 <div className={styles.cardHeader}>
-                                                    <div className={styles.cardHeaderLeft}><CheckCircle2 size={20} fill="var(--secondary-green)" color="#fff" /> Task Completed</div>
-                                                    <div>Feb 22, 2026</div>
+                                                    <div className={styles.cardHeaderLeft}><CheckCircle2 size={18} fill="var(--secondary-green)" color="#fff" /> TASK COMPLETED</div>
+                                                    <div className={styles.cardHeaderDate}>Feb 22, 2026</div>
                                                 </div>
                                                 <div className={styles.cardBody}>
                                                     <div className={styles.cardPills}>
-                                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={14} /> <span>TaskTag Project</span></div>
-                                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={14} /> <span>PickupTrim</span></div>
+                                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={14} /> <span>Raintree Hollow</span></div>
+                                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={14} /> <span>Drywall patch</span></div>
                                                     </div>
                                                     <div className={styles.cardFooter}>
-                                                        <span>Due: Feb 22</span>
-                                                        <div className={styles.avatarStack}>
-                                                            <img src={avatarForeman} className={styles.avatar} alt="User 1" />
-                                                            <img src="https://i.pravatar.cc/150?img=12" className={styles.avatar} alt="User 2" style={{ zIndex: 1 }} />
-                                                            <div className={styles.avatarCount} style={{ zIndex: 2 }}>+2</div>
+                                                        <div className={styles.taDue}>
+                                                            Due: Feb 22, 2026
                                                         </div>
+                                                        <img src={avatarForeman} className={styles.avatar} style={{ marginLeft: 'auto', border: 'none' }} alt="Avatar" />
                                                     </div>
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+
+                                    <AnimatePresence mode="popLayout">
+                                        {phase >= 3 && (
+                                            <motion.div
+                                                key="gerald-attachments"
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                className={styles.attachmentGrid}
+                                                layout
+                                            >
+                                                <img
+                                                    src={drywallImg}
+                                                    className={styles.drywallImage}
+                                                    alt="Drywall"
+                                                />
+                                                <div className={styles.fileAttachment}>
+                                                    <div className={styles.fileIcon}><img src={pdfIcon} alt="PDF" /></div>
+                                                    <span className={styles.fileName}>Drywall_Invoice.pdf</span>
                                                 </div>
                                             </motion.div>
                                         )}
@@ -92,19 +126,27 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
                                 </div>
                             </motion.div>
                         )}
-                    </AnimatePresence>
 
-                    {/* <AnimatePresence>
-                        {phase >= 3 && (
-                            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={styles.messageRow}>
+                        {phase >= 4 && (
+                            <motion.div
+                                key="melissa-msg-1"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.3 } }}
+                                className={styles.messageRow}
+                                layout
+                            >
                                 <img src="https://i.pravatar.cc/150?img=5" className={styles.msgAvatar} alt="Melissa" />
                                 <div className={styles.msgContent}>
-                                    <div className={styles.msgHeader}><span className={styles.msgSender}>Melissa</span><span className={styles.msgTime}>12:21 PM</span></div>
-                                    <div className={styles.msgText}>Thanks Oscar!</div>
+                                    <div className={styles.msgHeader}>
+                                        <span className={styles.msgSender}>Melissa</span>
+                                        <span className={styles.msgTime}>12:30 PM</span>
+                                    </div>
+                                    <div className={styles.msgText}>Approved. Sending to accounting.</div>
                                 </div>
                             </motion.div>
                         )}
-                    </AnimatePresence> */}
+                    </AnimatePresence>
                 </div>
 
                 <div className={styles.inputArea}>
