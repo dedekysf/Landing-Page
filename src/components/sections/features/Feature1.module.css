@@ -229,11 +229,24 @@
     border-left: 1px solid var(--gray-200);
 }
 
-.avatarImg {
+.avatarImg,
+.userIconContainer {
     width: 38px;
     height: 38px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.userIconContainer {
+    background-color: #E5E7EB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userIconContainer svg {
+    width: 20px;
+    height: 20px;
 }
 
 .avatarBadge {
@@ -325,14 +338,10 @@
         max-width: 100%;
     }
 
-    .mockupActionBtn {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.95rem;
-    }
 
     .mockupHeader {
-        padding: 1rem 1rem 0.75rem;
-        gap: 0.5rem;
+        padding: 1.5rem 1.5rem 1.25rem;
+        gap: 0.75rem;
     }
 
     .mockTitle {
@@ -369,23 +378,29 @@
     }
 
     .mockGallery {
-        gap: 0.5rem;
-        padding: 0.5rem;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
     }
 
     .mockToolbar {
-        padding: 0.75rem 1rem;
-        min-height: 50px;
+        padding: 1.25rem 1.5rem;
+        min-height: 60px;
     }
 
     .toolbarIcons {
-        gap: 1rem;
-        padding-right: 1rem;
+        gap: 1.5rem;
+        padding-right: 1.5rem;
     }
 
-    .avatarImg {
+    .avatarImg,
+    .userIconContainer {
         width: 30px;
         height: 30px;
+    }
+
+    .userIconContainer svg {
+        width: 16px;
+        height: 16px;
     }
 
     .avatarBadge {
@@ -395,7 +410,7 @@
     }
 
     .mockActionRow {
-        padding: 0.75rem 1rem;
+        padding: 1.25rem 1.5rem;
     }
 
     .projectSelector {

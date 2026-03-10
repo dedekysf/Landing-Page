@@ -230,8 +230,8 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
                                                 <span className={styles.avatarBadge}>3</span>
                                             </>
                                         ) : (
-                                            <div style={{ width: '38px', height: '38px', backgroundColor: '#E5E7EB', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                                <User size={20} color="#9CA3AF" />
+                                            <div className={styles.userIconContainer}>
+                                                <User color="#9CA3AF" />
                                             </div>
                                         )}
                                     </motion.div>
