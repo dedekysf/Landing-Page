@@ -43,7 +43,7 @@ const features = [
         id: 'activity',
         label: 'See the big picture',
         title: 'Stay ahead of delays',
-        desc: "Activity feeds show what changed today, what's overdue, and what just got completed across projects. You can spot gaps early and keep schedules moving.",
+        desc: "Activity feeds show what changed today and what just got completed across projects. You can spot gaps early and keep schedules moving.",
     },
 ];
 

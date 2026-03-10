@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ListFilter, Check, Image as ImageIcon, Folder, Hash, FileText } from 'lucide-react';
+import { Search, ListFilter, Check, Folder, Hash, UserMinus, UserPlus, Plus } from 'lucide-react';
 import styles from './Feature6.module.css';
 import avatarForeman from '../../../assets/avatar_foreman.png';
 
@@ -15,12 +15,18 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
         let isMounted = true;
         let timeoutIds: any[] = [];
 
+        const next = (p: number, d: number) => {
+            timeoutIds.push(setTimeout(() => { if (isMounted) setPhase(p) }, d));
+        };
+
         const runSequence = () => {
             if (!isMounted) return;
             setPhase(0);
-            timeoutIds.push(setTimeout(() => { if (isMounted) setPhase(1) }, 600));
-            timeoutIds.push(setTimeout(() => { if (isMounted) setPhase(2) }, 1400));
-            timeoutIds.push(setTimeout(() => { if (isMounted) runSequence() }, 5500));
+            next(1, 600);  // Tristan Completed
+            next(2, 1400); // Melissa Unassigned
+            next(3, 2200); // Melissa Added
+            next(4, 3000); // Melissa Created
+            timeoutIds.push(setTimeout(() => { if (isMounted) runSequence() }, 7000));
         };
         runSequence();
 
@@ -56,15 +62,9 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                 </div>
 
                 <div className={styles.feedContainer}>
-                    <div className={styles.dateHeader}>Feb 22, 2026</div>
-                    <AnimatePresence>
+                    <AnimatePresence mode="popLayout">
                         {phase >= 1 && (
-                            <motion.div
-                                variants={itemVariants}
-                                initial="hidden"
-                                animate="visible"
-                                className={styles.feedItem}
-                            >
+                            <motion.div key="item-1" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
                                 <div className={styles.itemHeader}>
                                     <div className={styles.userRow}>
                                         <div className={styles.avatarWrap}>
@@ -73,55 +73,84 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
                                         </div>
                                         <div className={styles.userName}>Tristan Enver Valerio</div>
                                     </div>
-                                    <div className={styles.timeText}>01:44 PM</div>
+                                    <div className={styles.timeText}>15:44 PM</div>
                                 </div>
                                 <div className={styles.actionText}>Completed this task</div>
                                 <div className={styles.pillsRow}>
-                                    <div className={styles.singleLineContent}>
-                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> TaskTag Project</div>
-                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> PickupTrim</div>
-                                    </div>
+                                    <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
+                                    <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
                                 </div>
                             </motion.div>
                         )}
-                    </AnimatePresence>
 
-                    <AnimatePresence>
+                        {phase >= 2 && <div key="div-1" className={styles.feedDivider} />}
+
                         {phase >= 2 && (
-                            <>
-                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={styles.dateHeader}>Feb 21, 2026</motion.div>
-                                <motion.div
-                                    variants={itemVariants}
-                                    initial="hidden"
-                                    animate="visible"
-                                    className={styles.feedItem}
-                                >
-                                    <div className={styles.itemHeader}>
-                                        <div className={styles.userRow}>
-                                            <div className={styles.avatarWrap}>
-                                                <img src={avatarForeman} className={styles.avatar} alt="Tristan" />
-                                                <div className={`${styles.avatarBadge} ${styles.badgeOrange}`}><ImageIcon size={8} strokeWidth={2} /></div>
-                                            </div>
-                                            <div className={styles.userName}>Tristan Enver Valerio</div>
+                            <motion.div key="item-2" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
+                                <div className={styles.itemHeader}>
+                                    <div className={styles.userRow}>
+                                        <div className={styles.avatarWrap}>
+                                            <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
+                                            <div className={`${styles.avatarBadge} ${styles.badgeRed}`}><UserMinus size={10} strokeWidth={3} /></div>
                                         </div>
-                                        <div className={styles.timeText}>11:25 AM</div>
+                                        <div className={styles.userName}>Melissa Johnson</div>
                                     </div>
-                                    <div className={styles.actionText}>Preview of abstract buildings and sink document</div>
+                                    <div className={styles.timeText}>09:20 AM</div>
+                                </div>
+                                <div className={styles.actionText}>
+                                    Unassigned <span className={styles.mention}>@Gerald Oliver</span> from this task
+                                </div>
+                                <div className={styles.pillsRow}>
+                                    <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>1320 Smith Street R...</span></div>
+                                    <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Foundation Inspect...</span></div>
+                                </div>
+                            </motion.div>
+                        )}
 
-                                    <div className={styles.galleryGrid}>
-                                        <div className={styles.galleryBox}>
-                                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=150" className={styles.galleryImg} alt="House" />
+                        {phase >= 3 && <div key="div-2" className={styles.feedDivider} />}
+
+                        {phase >= 3 && (
+                            <motion.div key="item-3" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
+                                <div className={styles.itemHeader}>
+                                    <div className={styles.userRow}>
+                                        <div className={styles.avatarWrap}>
+                                            <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
+                                            <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><UserPlus size={10} strokeWidth={3} /></div>
                                         </div>
-                                        <div className={styles.galleryBox}>
-                                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=150" className={styles.galleryImg} alt="Abstract" />
-                                        </div>
-                                        <div className={styles.galleryBox}>
-                                            <FileText size={24} className={styles.pdfIcon} />
-                                            <div className={styles.pdfText}>first_draft_ki...</div>
-                                        </div>
+                                        <div className={styles.userName}>Melissa Johnson</div>
                                     </div>
-                                </motion.div>
-                            </>
+                                    <div className={styles.timeText}>08:45 AM</div>
+                                </div>
+                                <div className={styles.actionText}>
+                                    Added <span className={styles.mention}>@Oscar Gilberto</span> as Task Assignee
+                                </div>
+                                <div className={styles.pillsRow}>
+                                    <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
+                                    <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
+                                </div>
+                            </motion.div>
+                        )}
+
+                        {phase >= 4 && <div key="div-3" className={styles.feedDivider} />}
+
+                        {phase >= 4 && (
+                            <motion.div key="item-4" variants={itemVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -10 }} className={styles.feedItem}>
+                                <div className={styles.itemHeader}>
+                                    <div className={styles.userRow}>
+                                        <div className={styles.avatarWrap}>
+                                            <img src="https://i.pravatar.cc/150?img=5" className={styles.avatar} alt="Melissa" />
+                                            <div className={`${styles.avatarBadge} ${styles.badgeBlue}`}><Plus size={10} strokeWidth={3} /></div>
+                                        </div>
+                                        <div className={styles.userName}>Melissa Johnson</div>
+                                    </div>
+                                    <div className={styles.timeText}>08:45 AM</div>
+                                </div>
+                                <div className={styles.actionText}>Created this task</div>
+                                <div className={styles.pillsRow}>
+                                    <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>Raintree Hollow</span></div>
+                                    <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Drywall patch</span></div>
+                                </div>
+                            </motion.div>
                         )}
                     </AnimatePresence>
                 </div>
@@ -129,4 +158,5 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
         </div>
     );
 };
+
 export default Feature6;
