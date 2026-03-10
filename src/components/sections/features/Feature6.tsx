@@ -21,12 +21,24 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
 
         const runSequence = () => {
             if (!isMounted) return;
+
+            // Phase 0 starts empty. Reveal items one by one.
             setPhase(0);
-            next(1, 600);  // Melissa Created (Bottom)
-            next(2, 1400); // Melissa Added
-            next(3, 2200); // Melissa Unassigned
-            next(4, 3000); // Oscar Gilberto Completed (Top)
-            timeoutIds.push(setTimeout(() => { if (isMounted) runSequence() }, 7000));
+            next(1, 800);  // Melissa Created (Bottom)
+            next(2, 1800); // Melissa Added
+            next(3, 2800); // Melissa Unassigned
+            next(4, 3800); // Oscar Gilberto Completed (Top)
+
+            // Hold the final state, then clear smoothly
+            timeoutIds.push(setTimeout(() => {
+                if (!isMounted) return;
+                setPhase(0); // Trigger AnimatePresence exit
+
+                // Wait for exit animations to complete before restarting
+                timeoutIds.push(setTimeout(() => {
+                    if (isMounted) runSequence();
+                }, 1200));
+            }, 8000));
         };
         runSequence();
 
