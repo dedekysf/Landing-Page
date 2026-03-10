@@ -110,7 +110,7 @@ const Templates: React.FC = () => {
                                 viewport={{ once: true }}
                                 className={styles.textContent}
                             >
-                                <h2 className={styles.title}>Templates Built for the Jobsite or Ready to Go Templates</h2>
+                                <h2 className={styles.title}>Ready to Go Templates</h2>
                                 <p className={styles.subtitle}>
                                     Pick one, customize it, and start turning jobsite work into approved, invoice-ready documentation in minutes.
                                 </p>
