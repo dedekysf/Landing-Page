@@ -93,7 +93,7 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
                                     >
                                         <div className={styles.completedCard}>
                                             <div className={styles.cardHeader}>
-                                                <div className={styles.cardHeaderLeft}><CheckCircle2 size={18} fill="var(--secondary-green)" color="#fff" /> TASK COMPLETED</div>
+                                                <div className={styles.cardHeaderLeft}><CheckCircle2 size={20} fill="var(--secondary-green)" color="#fff" /> TASK COMPLETED</div>
                                                 <div className={styles.cardHeaderDate}>Feb 22, 2026</div>
                                             </div>
                                             <div className={styles.cardBody}>
@@ -123,11 +123,13 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
                                         layout
                                     >
                                         <div className={styles.attachmentGrid}>
-                                            <img
-                                                src={drywallImg}
-                                                className={styles.drywallImage}
-                                                alt="Drywall"
-                                            />
+                                            <div style={{ width: '100%', height: '80px' }}>
+                                                <img
+                                                    src={drywallImg}
+                                                    className={styles.drywallImage}
+                                                    alt="Drywall"
+                                                />
+                                            </div>
                                             <div className={styles.fileAttachment}>
                                                 <div className={styles.fileIcon}><img src={pdfIcon} alt="PDF" /></div>
                                                 <span className={styles.fileName}>Drywall_Invoice.pdf</span>

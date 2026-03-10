@@ -238,7 +238,55 @@
     justify-content: flex-end;
 }
 
-/* New Chat Input Area (Feature 4 style) */
+.messageRow {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.msgAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.msgContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.msgHeader {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.msgSender {
+    font-weight: var(--font-weight-semibold);
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.msgTime {
+    font-size: 11px;
+    color: var(--grey-05);
+}
+
+.geraldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.indentedRow {
+    padding-left: 46px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .inputArea {
     padding: 12px 16px;
     display: flex;
@@ -254,8 +302,8 @@
 
 .inputText {
     flex: 1;
-    font-size: 15px;
-    color: var(--grey-11);
+    font-size: 14px;
+    color: var(--grey-05);
 }
 
 .inputAction {
@@ -474,7 +522,7 @@
 
 /* Task Assigned Bubble (Feature 4 completedCard style) */
 .taskAssignedBubble {
-    margin-top: 8px;
+    margin-top: 0px;
     border: 1px solid var(--grey-03);
     border-radius: 8px;
     overflow: hidden;
@@ -494,7 +542,7 @@
 .taHeaderLeft {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     font-weight: var(--font-weight-semibold);
     font-size: 14px;
 }
@@ -513,10 +561,10 @@
 }
 
 .taPills {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 6px;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
 }
 
 .tagPill {
@@ -700,7 +748,7 @@
     }
 
     .inputText {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .tagPill {
@@ -710,13 +758,13 @@
     }
 
     .taHeader {
-        font-size: 13px;
-        padding: 10px 12px;
+        font-size: 11px;
+        padding: 6px 10px;
     }
 
     .taBody {
-        padding: 10px;
-        gap: 8px;
+        padding: 8px 10px;
+        gap: 6px;
     }
 
     .taDue {
@@ -788,11 +836,64 @@
         gap: 8px;
     }
 
+    .messageRow {
+        gap: 8px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .geraldGroup {
+        gap: 0;
+    }
+
+    .msgAvatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    .msgSender {
+        font-size: 12px;
+    }
+
+    .msgTime {
+        font-size: 10px;
+    }
+
+    .indentedRow {
+        padding-left: 36px;
+    }
+
+    .taPills {
+        gap: 4px;
+    }
+
     .cmList {
         gap: 10px;
     }
 
     .cmItem {
         gap: 12px;
+    }
+
+    .taHeader,
+    .taBody {
+        padding: 10px;
+    }
+
+    .taHeaderLeft {
+        gap: 4px;
+        font-size: 12px;
+    }
+
+    .taHeaderDate {
+        font-size: 10px;
+    }
+
+    .taDue {
+        font-size: 12px;
+    }
+
+    .taskAssignedBubble {
+        margin-top: 4px;
     }
 }

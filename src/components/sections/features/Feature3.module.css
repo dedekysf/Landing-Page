@@ -252,7 +252,7 @@
 
 .inputText {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: var(--grey-05);
     margin-bottom: 4px;
     min-height: 20px;
 }

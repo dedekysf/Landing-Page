@@ -271,38 +271,55 @@ const Feature2 = ({ isActive }: { isActive: boolean }) => {
                             <div className={styles.chatWindow}>
                                 <div className={styles.chatScrollArea}>
                                     {phase >= 8 && (
-                                        <motion.div
-                                            initial={phase !== 9 ? { opacity: 0, y: 10 } : false}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            className={styles.taskAssignedBubble}
-                                        >
-                                            <div className={styles.taHeader} style={{ backgroundColor: 'var(--light-purple)' }}>
-                                                <div className={styles.taHeaderLeft} style={{ color: 'var(--dark-magenta)' }}>
-                                                    <ClipboardList size={18} /> Task Assigned
-                                                </div>
-                                                <div className={styles.taHeaderDate} style={{ color: 'var(--dark-magenta)' }}>Feb 21, 2026</div>
-                                            </div>
-                                            <div className={styles.taBody}>
-                                                <div className={styles.taPills}>
-                                                    <div className={`${styles.tagPill} ${styles.projectColor}`}>
-                                                        <Folder size={14} /> <span>Raintree Hollow</span>
-                                                    </div>
-                                                    <div className={`${styles.tagPill} ${styles.taskColor}`}>
-                                                        <Hash size={14} /> <span>Drywall patch</span>
+                                        <div className={styles.geraldGroup}>
+                                            <motion.div
+                                                initial={phase !== 9 ? { opacity: 0, y: 10 } : false}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                className={styles.messageRow}
+                                            >
+                                                <img src={avatarForeman} className={styles.msgAvatar} alt="James Smith" />
+                                                <div className={styles.msgContent}>
+                                                    <div className={styles.msgHeader}>
+                                                        <span className={styles.msgSender}>James Smith</span>
+                                                        <span className={styles.msgTime}>12:21 PM</span>
                                                     </div>
                                                 </div>
-                                                <div className={styles.taFooter}>
-                                                    <div className={styles.taDue}>
-                                                        Due: Feb 22
+                                            </motion.div>
+                                            <motion.div
+                                                initial={phase !== 9 ? { opacity: 0, y: 10 } : false}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                className={styles.indentedRow}
+                                            >
+                                                <div className={styles.taskAssignedBubble}>
+                                                    <div className={styles.taHeader} style={{ backgroundColor: 'var(--light-purple)' }}>
+                                                        <div className={styles.taHeaderLeft} style={{ color: 'var(--dark-magenta)' }}>
+                                                            <ClipboardList size={16} /> Task Assigned
+                                                        </div>
+                                                        <div className={styles.taHeaderDate} style={{ color: 'var(--dark-magenta)' }}>Feb 21, 2026</div>
                                                     </div>
-                                                    <div className={styles.taAvatarStack}>
-                                                        <div className={styles.taAvatarInitials} style={{ backgroundColor: 'var(--dark-magenta)', color: 'var(--white)', marginLeft: 0 }}>
-                                                            OG
+                                                    <div className={styles.taBody}>
+                                                        <div className={styles.taPills}>
+                                                            <div className={`${styles.tagPill} ${styles.projectColor}`}>
+                                                                <Folder size={14} /> <span>Raintree Hollow</span>
+                                                            </div>
+                                                            <div className={`${styles.tagPill} ${styles.taskColor}`}>
+                                                                <Hash size={14} /> <span>Drywall patch</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className={styles.taFooter}>
+                                                            <div className={styles.taDue}>
+                                                                Due: Feb 22
+                                                            </div>
+                                                            <div className={styles.taAvatarStack}>
+                                                                <div className={styles.taAvatarInitials} style={{ backgroundColor: 'var(--dark-magenta)', color: 'var(--white)', marginLeft: 0 }}>
+                                                                    OG
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </motion.div>
+                                            </motion.div>
+                                        </div>
                                     )}
                                 </div>
                                 <div className={styles.inputArea}>

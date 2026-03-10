@@ -10,7 +10,7 @@
     width: 100%;
     max-width: 360px;
     background-color: var(--white);
-    border-radius: 20px 20px 0 0;
+    border-radius: 12px 12px 0 0;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
     overflow: hidden;
     color: var(--text-secondary);
@@ -116,15 +116,17 @@
 }
 
 .cardHeaderDate {
-    font-size: 10px;
+    font-size: 12px;
     color: var(--secondary-green);
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .cardHeaderLeft {
     display: flex;
     align-items: center;
     gap: 6px;
+    font-weight: var(--font-weight-semibold);
+    font-size: 14px;
 }
 
 .cardBody {
@@ -157,13 +159,13 @@
     width: 100%;
     height: 80px;
     object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid var(--grey-03);
+    border-radius: 6px;
+    /* border: 1px solid var(--grey-03); */
 }
 
 .attachmentGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     width: 100%;
 }
@@ -192,7 +194,7 @@
 }
 
 .taDue {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--grey-05);
 }
 
@@ -268,9 +270,9 @@
     justify-content: center;
     gap: 4px;
     padding: 10px;
-    background-color: var(--white);
+    background-color: var(--grey-02);
     border: 1px solid var(--grey-03);
-    border-radius: 8px;
+    border-radius: 6px;
     width: 100%;
     height: 80px;
     box-sizing: border-box;
@@ -314,7 +316,7 @@
 
 .inputText {
     flex: 1;
-    font-size: 15px;
+    font-size: 14px;
     color: var(--grey-05);
 }
 
@@ -327,11 +329,11 @@
 
 @media (max-width: 450px) {
     .mockupWrapper {
-        min-height: 380px;
+        min-height: 390px;
     }
 
     .mockupUi {
-        min-height: 380px;
+        min-height: 390px;
         max-width: 100%;
     }
 
@@ -352,6 +354,11 @@
 
     .messageRow {
         gap: 8px;
+        width: 100%;
+    }
+
+    .indentedRow {
+        padding-left: 36px;
     }
 
     .msgSender {
@@ -374,6 +381,19 @@
     .cardHeader {
         font-size: 11px;
         padding: 6px 10px;
+    }
+
+    .cardHeaderLeft {
+        font-size: 10px;
+    }
+
+    .cardHeaderDate {
+        font-size: 8px;
+        gap: 4px;
+    }
+
+    .taDue {
+        font-size: 10px;
     }
 
     .cardBody {
@@ -413,7 +433,7 @@
     }
 
     .inputText {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .inputAction {
