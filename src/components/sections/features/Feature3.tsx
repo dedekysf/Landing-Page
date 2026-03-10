@@ -132,7 +132,9 @@ const Feature3 = ({ isActive }: { isActive: boolean }) => {
                                     <div className={styles.msgText}>{fullText}</div>
                                     <div className={styles.attachmentList} style={{ marginTop: '8px' }}>
                                         <div className={styles.attachmentGrid}>
-                                            <img src={drywallImg} className={styles.thumbnailImg} style={{ width: '100%', height: '80px', objectFit: 'cover', borderRadius: '8px' }} alt="Attachment" />
+                                            <div className={styles.thumbnailWrapper}>
+                                                <img src={drywallImg} className={styles.thumbnailImg} alt="Attachment" />
+                                            </div>
                                             <div className={styles.fileAttachment}>
                                                 <div className={styles.fileIcon}><img src={pdfIcon} alt="PDF" /></div>
                                                 <span className={styles.fileName}>Drywall_Notes.pdf</span>
