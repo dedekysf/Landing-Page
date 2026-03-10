@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, UserMinus, UserPlus, Plus, Folder, Hash } from 'lucide-react';
 import styles from './Feature6.module.css';
