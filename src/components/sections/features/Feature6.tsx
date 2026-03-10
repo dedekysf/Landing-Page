@@ -37,14 +37,14 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
     }, [isActive]);
 
     const itemVariants = {
-        hidden: { opacity: 0, x: 50 },
+        hidden: { opacity: 0, x: 40 },
         visible: {
             opacity: 1,
             x: 0,
             transition: {
                 type: 'spring' as any,
-                damping: 28,
-                stiffness: 150,
+                damping: 24,
+                stiffness: 120,
                 duration: 0.8
             }
         }

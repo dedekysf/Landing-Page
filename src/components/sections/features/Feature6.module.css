@@ -97,7 +97,7 @@
     padding-bottom: 16px;
 }
 
-.feedItem:last-child .itemContent {
+.feedItem:first-child .itemContent {
     border-bottom: none;
     padding-bottom: 0;
 }
