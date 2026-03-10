@@ -38,7 +38,7 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
 
     // Handle automated timeline once active
     useEffect(() => {
-        if (phase >= 8) return;
+        if (phase === 8) return;
 
         let timer: ReturnType<typeof setTimeout>;
         const tick = () => {
