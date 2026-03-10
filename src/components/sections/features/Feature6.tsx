@@ -22,10 +22,10 @@ const Feature6 = ({ isActive }: { isActive: boolean }) => {
         const runSequence = () => {
             if (!isMounted) return;
             setPhase(0);
-            next(1, 600);  // Tristan Completed
-            next(2, 1400); // Melissa Unassigned
-            next(3, 2200); // Melissa Added
-            next(4, 3000); // Melissa Created
+            next(4, 600);  // Melissa Created (Bottom)
+            next(3, 1400); // Melissa Added
+            next(2, 2200); // Melissa Unassigned
+            next(1, 3000); // Oscar Gilberto Completed (Top)
             timeoutIds.push(setTimeout(() => { if (isMounted) runSequence() }, 7000));
         };
         runSequence();
