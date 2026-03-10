@@ -188,9 +188,16 @@ input:checked+.slider:before {
 
 .priceSubtext {
     font-size: 1rem;
-    margin-bottom: 1.5rem;
     color: var(--grey-05);
     font-weight: var(--font-weight-regular);
+}
+
+.priceCaption {
+    font-size: 0.95rem;
+    color: var(--secondary-green);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
 }
 
 .stepDesc {

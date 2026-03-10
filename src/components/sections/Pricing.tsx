@@ -15,6 +15,7 @@ interface PlanData {
     showBadge?: boolean;
     checklistHeader: string;
     checklist: string[];
+    priceCaption?: string;
 }
 
 const TornEdge = ({ position }: { position: 'top' | 'bottom' }) => {
@@ -84,7 +85,7 @@ const Pricing: React.FC = () => {
         },
         {
             title: "Team Plan",
-            tagline: "Collaborators on projects and tasks are free",
+            tagline: "Unlimited Projects, Scale Your Operations",
             icon: <Building size={32} color="var(--white)" strokeWidth={1.5} />,
             btnType: 'inverted',
             priceMonthly: 20,
@@ -100,10 +101,8 @@ const Pricing: React.FC = () => {
                 "Global activity log",
                 "Team roles & permissions",
                 "Access all project templates"
-                // "Add unlimited users to projects & tasks",
-                // "Team admin & member roles",
-                // "Centralized billing",
             ],
+            priceCaption: "Collaborators on projects and tasks are free"
         }
     ];
 
@@ -179,12 +178,13 @@ const Pricing: React.FC = () => {
                                 )}
                             </h3>
                             <p className={styles.planTagline}>{plan.tagline}</p>
-                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '1.5rem' }}>
+                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: plan.priceCaption ? '0.25rem' : '1.5rem' }}>
                                 <div className={styles.price} style={{ marginBottom: 0 }}>
                                     ${isMonthly ? plan.priceMonthly : plan.priceAnnual}
                                 </div>
                                 <div className={styles.priceSubtext} style={{ margin: 0 }}>{plan.priceSubtext}</div>
                             </div>
+                            {plan.priceCaption && <div className={styles.priceCaption}>{plan.priceCaption}</div>}
                             <div className={styles.cardFooter}>
                                 <a
                                     href="https://app.tasktag.com/register/signup-with-email"
