@@ -10,16 +10,16 @@
 }
 
 .banner {
+    position: relative;
     background: #DCF2EC;
     border-radius: 20px;
-    padding: 4rem;
+    padding: 3.5rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
-    width: 100%;
-    position: relative;
+    gap: 3rem;
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(var(--black-rgb), 0.03);
 }
 
 .banner::before {
@@ -34,9 +34,9 @@
 }
 
 .content {
-    flex: 1;
     position: relative;
     z-index: 2;
+    flex: 1;
 }
 
 .title {
@@ -51,6 +51,7 @@
     color: var(--text-secondary);
     font-size: 1.125rem;
     line-height: 1.4;
+    max-width: 500px;
 }
 
 .highlight {
@@ -77,7 +78,7 @@
 .ctaButton:hover {
     background: var(--black);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 991px) {
