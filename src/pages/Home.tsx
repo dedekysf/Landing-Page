@@ -7,6 +7,7 @@ import ClientProof from '../components/sections/ClientProof';
 import Templates from '../components/sections/Templates';
 import CallToAction from '../components/sections/CallToAction';
 import BlogResources from '../components/sections/BlogResources';
+import PricingTeaser from '../components/sections/PricingTeaser';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import styles from './Home.module.css';
 
@@ -26,7 +27,10 @@ const Home: React.FC = () => {
                 <ScrollReveal>
                     <ClientProof />
                 </ScrollReveal>
-                {/* <Pricing /> */}
+
+                <ScrollReveal>
+                    <PricingTeaser />
+                </ScrollReveal>
 
                 <BlogResources />
 
