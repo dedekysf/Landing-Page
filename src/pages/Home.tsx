@@ -24,12 +24,13 @@ const Home: React.FC = () => {
                 <ScrollReveal>
                     <Templates />
                 </ScrollReveal>
-                <ScrollReveal>
-                    <ClientProof />
-                </ScrollReveal>
 
                 <ScrollReveal>
                     <PricingTeaser />
+                </ScrollReveal>
+
+                <ScrollReveal>
+                    <ClientProof />
                 </ScrollReveal>
 
                 <BlogResources />
