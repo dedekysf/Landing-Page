@@ -329,3 +329,9 @@
     position: relative;
     z-index: 1;
 }
+
+@media (max-width: 480px) {
+    .bottomUnifiedWrapper {
+        padding-top: 0rem;
+    }
+}

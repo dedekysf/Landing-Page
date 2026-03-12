@@ -5,8 +5,9 @@
 }
 
 .container {
-    max-width: var(--spacing-container);
+    max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .banner {
@@ -19,10 +20,10 @@
     justify-content: space-between;
     gap: 3rem;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(var(--black-rgb), 0.03);
+    width: 100%;
 }
 
-.banner::before {
+/* .banner::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -31,7 +32,7 @@
     height: 400px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
     pointer-events: none;
-}
+} */
 
 .content {
     position: relative;
@@ -51,7 +52,6 @@
     color: var(--text-secondary);
     font-size: 1.125rem;
     line-height: 1.4;
-    max-width: 500px;
 }
 
 .highlight {
@@ -100,20 +100,20 @@
 
 @media (max-width: 480px) {
     .section {
-        padding: 2rem 1.5rem;
+        padding: 8rem 1rem 4rem 1rem;
     }
 
     .banner {
-        padding: 2rem 1.25rem;
-        border-radius: 20px;
+        padding: 4rem 1.5rem;
+        border-radius: 16px;
     }
 
     .title {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
 
     .ctaButton {
