@@ -25,9 +25,7 @@ const Home: React.FC = () => {
                     <Templates />
                 </ScrollReveal>
 
-                <ScrollReveal>
-                    <PricingTeaser />
-                </ScrollReveal>
+                <PricingTeaser />
 
                 <ScrollReveal>
                     <ClientProof />

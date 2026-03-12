@@ -6,8 +6,8 @@ import styles from './PricingTeaser.module.css';
 const PricingTeaser: React.FC = () => {
     return (
         <section className={styles.section}>
-            <div className="container">
-                <motion.div 
+            <div className={styles.container}>
+                <motion.div
                     className={styles.banner}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -16,19 +16,19 @@ const PricingTeaser: React.FC = () => {
                 >
                     <div className={styles.content}>
                         <h2 className={styles.title}>
-                            Predictable pricing for every crew
+                            Try It on Your Next Job
                         </h2>
                         <p className={styles.subtitle}>
-                            Simple, scalable, and built for construction. Plans start at $0.
+                            Try TaskTag for <span className={styles.highlight}>30 days free</span> with all features unlocked. No credit card required to start.
                         </p>
                     </div>
-                    <motion.a 
-                        href="https://tasktag.com/pricing" 
+                    <motion.a
+                        href="https://tasktag.com/pricing"
                         className={styles.ctaButton}
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.98 }}
                     >
-                        <span>View Plans & Pricing</span>
+                        <span>See Pricing</span>
                         <ArrowRight size={18} />
                     </motion.a>
                 </motion.div>
