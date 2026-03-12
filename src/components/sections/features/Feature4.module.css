@@ -329,11 +329,11 @@
 
 @media (max-width: 450px) {
     .mockupWrapper {
-        min-height: 390px;
+        min-height: 400px;
     }
 
     .mockupUi {
-        min-height: 390px;
+        min-height: 400px;
         max-width: 100%;
     }
 

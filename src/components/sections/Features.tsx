@@ -5,7 +5,6 @@ import Feature2 from './features/Feature2';
 import Feature3 from './features/Feature3';
 import Feature4 from './features/Feature4';
 import Feature5 from './features/Feature5';
-import Feature6 from './features/Feature6';
 import styles from './Features.module.css';
 
 const features = [
@@ -34,12 +33,6 @@ const features = [
         desc: "Completion updates, checklists, and documentation roll into a project-ready record. Send fewer follow-ups when it's time to invoice, close out, or hand off.",
     },
     {
-        id: 'search',
-        label: 'Find anything',
-        title: 'Get answers in seconds',
-        desc: 'Search across Chat, Projects, Tasks and Files to find the latest detail fast. No digging through long threads or old folders.',
-    },
-    {
         id: 'activity',
         label: 'See the big picture',
         title: 'Stay ahead of delays',
@@ -53,8 +46,7 @@ const FeatureComponent: React.FC<{ featureId: string; isActive: boolean }> = ({ 
         case 'updates': return <Feature2 isActive={isActive} />;
         case 'proof': return <Feature3 isActive={isActive} />;
         case 'billing': return <Feature4 isActive={isActive} />;
-        case 'search': return <Feature5 isActive={isActive} />;
-        case 'activity': return <Feature6 isActive={isActive} />;
+        case 'activity': return <Feature5 isActive={isActive} />;
         default: return null;
     }
 };

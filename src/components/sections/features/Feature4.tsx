@@ -7,11 +7,11 @@ import drywallImg from '../../../assets/drywall.png';
 import pdfIcon from '../../../assets/pdf_icon.png';
 
 const Feature4 = ({ isActive }: { isActive: boolean }) => {
-    const [phase, setPhase] = useState(0);
+    const [phase, setPhase] = useState(1);
 
     useEffect(() => {
         if (!isActive) {
-            setPhase(0);
+            setPhase(1);
             return;
         }
 
@@ -20,20 +20,20 @@ const Feature4 = ({ isActive }: { isActive: boolean }) => {
 
         const runSequence = () => {
             if (!isMounted) return;
-            setPhase(0);
+            setPhase(1);
 
             const next = (nextPhase: number, delay: number) => {
                 timeoutIds.push(setTimeout(() => { if (isMounted) setPhase(nextPhase) }, delay));
             };
 
-            next(1, 1000); // Gerald's text
-            next(2, 2500); // Gerald's status card
-            next(3, 4000); // Gerald's attachments (grid)
-            next(4, 7000); // Melissa's reply
+            // Gerald's message is already there (Phase 1)
+            next(2, 1200); // Gerald's status card appears
+            next(3, 2200); // Gerald's attachments appears
+            next(4, 5200); // Melissa's reply appears
 
             timeoutIds.push(setTimeout(() => {
                 if (isMounted) runSequence();
-            }, 12000));
+            }, 10000));
         };
 
         runSequence();

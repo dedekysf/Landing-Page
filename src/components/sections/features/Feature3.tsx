@@ -25,13 +25,13 @@ const Feature3 = ({ isActive }: { isActive: boolean }) => {
      * 13: Oscar reply: "In the repair notes..."
      * 14: Melissa final: "Found it, thanks."
      */
-    const [phase, setPhase] = useState(0);
+    const [phase, setPhase] = useState(8);
     const [typedText, setTypedText] = useState("");
     const fullText = "Drywall patch done. Photos and notes attached.";
 
     useEffect(() => {
         if (!isActive) {
-            setPhase(0);
+            setPhase(8);
             setTypedText('');
             return;
         }
@@ -42,23 +42,14 @@ const Feature3 = ({ isActive }: { isActive: boolean }) => {
 
         const runSequence = () => {
             if (!isMounted) return;
-            setPhase(0);
+            setPhase(8);
             setTypedText('');
 
             const next = (nextPhase: number, delay: number) => {
                 timeoutIds.push(setTimeout(() => { if (isMounted) setPhase(nextPhase) }, delay));
             };
 
-            // Timeline Adjustments
-            next(1, 1000); // Press Hash
-            next(2, 1300); // Show Tags
-            next(3, 2000); // Press Image
-            next(4, 2300); // Show Image
-            next(5, 3000); // Press Plus
-            next(6, 3300); // Show Bottom Sheet
-            next(7, 4300); // Press File in BS
-            next(8, 4600); // Hide BS + Show PDF
-
+            // Start typing after a short delay
             timeoutIds.push(setTimeout(() => {
                 if (!isMounted) return;
                 setPhase(9); // Start typing
@@ -72,7 +63,7 @@ const Feature3 = ({ isActive }: { isActive: boolean }) => {
                     } else {
                         clearInterval(typingInterval);
                         next(10, 500);  // Press Send
-                        next(11, 800);  // Oscar message appears (rose from bottom)
+                        next(11, 800);  // Oscar message appears
                         next(12, 2800); // Melissa reply
                         next(13, 4800); // Oscar reply
                         next(14, 6800); // Melissa final
@@ -82,7 +73,7 @@ const Feature3 = ({ isActive }: { isActive: boolean }) => {
                         }, 10000));
                     }
                 }, 30);
-            }, 5000));
+            }, 1200));
         };
 
         runSequence();

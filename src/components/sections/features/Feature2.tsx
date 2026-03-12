@@ -5,16 +5,19 @@ import styles from './Feature2.module.css';
 import avatarForeman from '../../../assets/avatar_foreman.png';
 
 const Feature2 = ({ isActive }: { isActive: boolean }) => {
-    const [phase, setPhase] = useState<number>(3); // Default to highlighted search result
-    const [typedText, setTypedText] = useState('');
+    const [phase, setPhase] = useState<number>(3);
     const textToType = 'Drywall patch';
+    const [typedText, setTypedText] = useState(textToType);
 
-    // If section becomes inactive, reset to highlighted search. If active, start animation at 0.
+    // Start at highlighted result (phase 3) when active
     useEffect(() => {
         if (isActive) {
-            setPhase(0);
-        } else {
             setPhase(3);
+            setTypedText(textToType);
+        } else {
+            // Keep at phase 3 so users see a "ready" search result even when just scrolling by
+            setPhase(3);
+            setTypedText(textToType);
         }
     }, [isActive]);
 
@@ -27,14 +30,10 @@ const Feature2 = ({ isActive }: { isActive: boolean }) => {
 
         let isMounted = true;
         let timeout: ReturnType<typeof setTimeout>;
-        let typingInterval: ReturnType<typeof setInterval>;
 
         const tick = () => {
             if (!isMounted) return;
             setPhase(p => {
-                if (p === 0) return 1;
-                if (p === 1) return 2;
-                if (p === 2) return 3;
                 if (p === 3) return 4;
                 if (p === 4) return 5;
                 if (p === 5) return 6;
@@ -45,26 +44,8 @@ const Feature2 = ({ isActive }: { isActive: boolean }) => {
             });
         };
 
-        if (phase === 0) {
-            setTypedText('');
-            timeout = setTimeout(tick, 400);
-        } else if (phase === 1) {
-            let i = 0;
-            let currentStr = '';
-            typingInterval = setInterval(() => {
-                if (i < textToType.length) {
-                    currentStr += textToType[i];
-                    setTypedText(currentStr);
-                    i++;
-                } else {
-                    clearInterval(typingInterval);
-                    tick();
-                }
-            }, 40);
-        } else if (phase === 2) {
-            timeout = setTimeout(tick, 400);
-        } else if (phase === 3) {
-            timeout = setTimeout(tick, 600);
+        if (phase === 3) {
+            timeout = setTimeout(tick, 1600);
         } else if (phase === 4) {
             timeout = setTimeout(tick, 400);
         } else if (phase === 5) {
@@ -77,20 +58,19 @@ const Feature2 = ({ isActive }: { isActive: boolean }) => {
             timeout = setTimeout(tick, 2500);
         } else if (phase === 9) {
             timeout = setTimeout(() => {
-                if (isMounted) setPhase(0);
+                if (isMounted) setPhase(3);
             }, 1000);
         }
 
         return () => {
             isMounted = false;
             if (timeout) clearTimeout(timeout);
-            if (typingInterval) clearInterval(typingInterval);
         };
     }, [phase, isActive]);
 
     const isTapped = phase === 4;
     const isConfirmTapped = phase === 7;
-    const showList = (phase === 1 && typedText.length >= 1) || phase >= 2 || phase === 9;
+    const showList = phase >= 3;
     const showChatMembers = phase >= 5 && phase < 8;
     const oscarSelected = phase >= 6;
     const showChatScreen = phase >= 8 || phase === 9;

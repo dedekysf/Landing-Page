@@ -312,6 +312,14 @@
     .logoImage {
         max-width: 140px;
     }
+
+    .bentoGrid {
+        gap: 16px;
+    }
+
+    .bentoRow {
+        gap: 12px;
+    }
 }
 
 @media (max-width: 380px) {

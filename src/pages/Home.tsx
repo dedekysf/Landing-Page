@@ -3,7 +3,6 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/sections/Hero';
 import Features from '../components/sections/Features';
-import Pricing from '../components/sections/Pricing';
 import ClientProof from '../components/sections/ClientProof';
 import Templates from '../components/sections/Templates';
 import CallToAction from '../components/sections/CallToAction';
@@ -27,7 +26,7 @@ const Home: React.FC = () => {
                 <ScrollReveal>
                     <ClientProof />
                 </ScrollReveal>
-                <Pricing />
+                {/* <Pricing /> */}
 
                 <BlogResources />
 
