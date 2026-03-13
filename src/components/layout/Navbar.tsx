@@ -29,8 +29,8 @@ const Navbar: React.FC = () => {
 
                     {/* Desktop Navigation */}
                     <div className={styles.desktopNav}>
-                        <a href="#" className={styles.navLink}>Features</a>
-                        <a href="#" className={styles.navLink}>Pricing</a>
+                        <a href="#features" className={styles.navLink}>Features</a>
+                        <a href="https://tasktag.com/pricing" className={styles.navLink}>Pricing</a>
                         <a href="https://portal.tasktag.com/blog" className={styles.navLink} target="_blank" rel="noopener noreferrer">Blog</a>
                         <a href="https://portal.tasktag.com/product" className={styles.navLink} target="_blank" rel="noopener noreferrer">Resources</a>
                     </div>
@@ -66,8 +66,8 @@ const Navbar: React.FC = () => {
 
                     {/* Mobile Menu */}
                     <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.open : ''}`}>
-                        <a href="#" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Features</a>
-                        <a href="#" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Pricing</a>
+                        <a href="#features" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Features</a>
+                        <a href="https://tasktag.com/pricing" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Pricing</a>
                         <a href="https://portal.tasktag.com/product" className={styles.mobileNavLink} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>Resources</a>
                         <hr className={styles.divider} />
                         <div className={styles.mobileCta}>
