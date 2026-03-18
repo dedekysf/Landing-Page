@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Zap, ChartLine, CalendarCheck2, ListChecks, FolderCheck, Timer, Activity, Image } from 'lucide-react';
+import { Zap, ChartLine, CalendarCheck2, ListChecks, Activity, Image } from 'lucide-react';
 
 import styles from './Hero.module.css';
 import logoIntown from '../../assets/client/Logo-intown.png';
