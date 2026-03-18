@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Zap, ChartLine, CalendarCheck2 } from 'lucide-react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { Zap, ChartLine, CalendarCheck2, ListChecks, FolderCheck, Timer, Activity, Image } from 'lucide-react';
 
 import styles from './Hero.module.css';
 import logoIntown from '../../assets/client/Logo-intown.png';
@@ -15,6 +15,22 @@ import chatHomeDesktop from '../../assets/hero.png';
 
 const logos = [logoIntown, logoLovett, logoPost, logoPrecision, logoSosa, logoIsc, logoZerodraft, logoSwenson];
 
+type BadgeStep = { type: 'loading' } | { type: 'text'; text: string; icon: React.ReactNode; bg: string };
+
+const topRightBadges: BadgeStep[] = [
+    { type: 'loading' },
+    { type: 'text', text: 'Track Updates', icon: <Activity size={16} color="var(--white)" />, bg: 'var(--blue)' },
+    { type: 'loading' },
+    { type: 'text', text: 'Stay Organized', icon: <ListChecks size={16} color="var(--white)" />, bg: 'var(--secondary-green)' },
+];
+
+const bottomLeftBadges: BadgeStep[] = [
+    { type: 'loading' },
+    { type: 'text', text: 'Close Faster', icon: <Zap size={16} color="var(--white)" fill="var(--white)" />, bg: 'var(--orange)' },
+    { type: 'loading' },
+    { type: 'text', text: 'Proof Billing', icon: <Image size={16} color="var(--white)" />, bg: 'var(--purple)' },
+];
+
 type BubbleStep = { type: 'loading' } | { type: 'text'; text: string; icon: React.ReactNode };
 
 const bubbleSteps: BubbleStep[] = [
@@ -28,6 +44,8 @@ const bubbleSteps: BubbleStep[] = [
 
 const Hero: React.FC = () => {
     const [stepIndex, setStepIndex] = React.useState(0);
+    const [topRightIdx, setTopRightIdx] = React.useState(0);
+    const [bottomLeftIdx, setBottomLeftIdx] = React.useState(0);
 
     const heroRef = React.useRef<HTMLElement>(null);
 
@@ -53,6 +71,23 @@ const Hero: React.FC = () => {
     }, [stepIndex]);
 
 
+    React.useEffect(() => {
+        const current = topRightBadges[topRightIdx];
+        const duration = current.type === 'loading' ? 1200 : 3500;
+        const timer = setTimeout(() => {
+            setTopRightIdx((prev) => (prev + 1) % topRightBadges.length);
+        }, duration);
+        return () => clearTimeout(timer);
+    }, [topRightIdx]);
+
+    React.useEffect(() => {
+        const current = bottomLeftBadges[bottomLeftIdx];
+        const duration = current.type === 'loading' ? 1200 : 4500;
+        const timer = setTimeout(() => {
+            setBottomLeftIdx((prev) => (prev + 1) % bottomLeftBadges.length);
+        }, duration);
+        return () => clearTimeout(timer);
+    }, [bottomLeftIdx]);
 
     return (
         <>
@@ -99,7 +134,103 @@ const Hero: React.FC = () => {
                             <div className={styles.patternOverlayRight} />
                             <div className={styles.fullRowGradient} />
 
+                            {/* Animated Background Blobs */}
+                            <div className={styles.blob1} />
+                            <div className={styles.blob2} />
+
                             <div className={styles.framesWrapper}>
+                                {/* Top Right Floating Badge */}
+                                <div className={`${styles.featureBadgeWrapper} ${styles.badgeTopRight}`}>
+                                    <div className={styles.featureBadge}>
+                                        <AnimatePresence mode="wait">
+                                            {topRightBadges[topRightIdx].type === 'loading' ? (
+                                                <motion.div
+                                                    key="loading-tr"
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -10 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    className={styles.chatBubbleLoading}
+                                                    style={{ padding: '0 8px' }}
+                                                >
+                                                    <span className={styles.loadingDot} />
+                                                    <span className={`${styles.loadingDot} ${styles.loadingDot2}`} />
+                                                    <span className={`${styles.loadingDot} ${styles.loadingDot3}`} />
+                                                </motion.div>
+                                            ) : (
+                                                <motion.div
+                                                    key={`text-tr-${topRightIdx}`}
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -10 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
+                                                >
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: 15 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ duration: 0.4 }}
+                                                        className={styles.badgeIconWrapper} style={{ backgroundColor: (topRightBadges[topRightIdx] as { bg: string }).bg }}>
+                                                        {(topRightBadges[topRightIdx] as { icon: React.ReactNode }).icon}
+                                                    </motion.div>
+                                                    <motion.span
+                                                        initial={{ opacity: 0, y: 15 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ duration: 0.4, delay: 0.35 }}
+                                                        className={styles.badgeText} style={{ color: (topRightBadges[topRightIdx] as { bg: string }).bg }}>{(topRightBadges[topRightIdx] as { text: string }).text}
+                                                    </motion.span>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                </div>
+
+                                {/* Bottom Left Floating Badge */}
+                                <div className={`${styles.featureBadgeWrapper} ${styles.badgeBottomLeft}`}>
+                                    <div className={styles.featureBadge}>
+                                        <AnimatePresence mode="wait">
+                                            {bottomLeftBadges[bottomLeftIdx].type === 'loading' ? (
+                                                <motion.div
+                                                    key="loading-bl"
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -10 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    className={styles.chatBubbleLoading}
+                                                    style={{ padding: '0 8px' }}
+                                                >
+                                                    <span className={styles.loadingDot} />
+                                                    <span className={`${styles.loadingDot} ${styles.loadingDot2}`} />
+                                                    <span className={`${styles.loadingDot} ${styles.loadingDot3}`} />
+                                                </motion.div>
+                                            ) : (
+                                                <motion.div
+                                                    key={`text-bl-${bottomLeftIdx}`}
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -10 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
+                                                >
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: 15 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ duration: 0.4 }}
+                                                        className={styles.badgeIconWrapper} style={{ backgroundColor: (bottomLeftBadges[bottomLeftIdx] as { bg: string }).bg }}>
+                                                        {(bottomLeftBadges[bottomLeftIdx] as { icon: React.ReactNode }).icon}
+                                                    </motion.div>
+                                                    <motion.span
+                                                        initial={{ opacity: 0, y: 15 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ duration: 0.4, delay: 0.35 }}
+                                                        className={styles.badgeText} style={{ color: (bottomLeftBadges[bottomLeftIdx] as { bg: string }).bg }}>{(bottomLeftBadges[bottomLeftIdx] as { text: string }).text}
+                                                    </motion.span>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                </div>
+
                                 {/* Single Chat Bubble — top-left of monitor */}
                                 <div className={styles.chatBubble} key={stepIndex}>
                                     {bubbleSteps[stepIndex].type === 'loading' ? (

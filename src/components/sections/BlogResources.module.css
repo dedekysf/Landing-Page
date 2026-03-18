@@ -19,7 +19,7 @@
     text-align: center;
     overflow: hidden;
     color: var(--text-primary);
-    box-shadow: 0 4px 8px rgba(var(--black-rgb), 0.03);
+    box-shadow: 0 4px 8px rgba(var(--black-rgb), 0.02);
     /* Dark text for contrast */
 }
 

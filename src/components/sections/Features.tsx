@@ -7,6 +7,22 @@ import Feature4 from './features/Feature4';
 import Feature5 from './features/Feature5';
 import styles from './Features.module.css';
 
+const frameColors = [
+    'var(--light-sky)',
+    'var(--light-lavender)',
+    'var(--light-mint)',
+    'var(--light-peach)',
+    'var(--light-cream)',
+];
+
+const titleColors = [
+    'var(--blue)',
+    'var(--dark-magenta)',
+    'var(--secondary-green)',
+    'var(--orange)',
+    'var(--vivid-yellow)',
+];
+
 const features = [
     {
         id: 'start',
@@ -111,7 +127,10 @@ const Features: React.FC = () => {
                                 ref={(el) => { textRefs.current[i] = el; }}
                                 className={`${styles.textBlock} ${activeIndex === i ? styles.textBlockActive : ''}`}
                             >
-                                <h3 className={styles.featureTitle}>{feat.title}</h3>
+                                <h3
+                                    className={styles.featureTitle}
+                                    style={activeIndex === i ? { color: titleColors[i] } : {}}
+                                >{feat.title}</h3>
                                 <p className={styles.featureDesc}>{feat.desc}</p>
                             </div>
                         ))}
@@ -120,15 +139,16 @@ const Features: React.FC = () => {
                     {/* RIGHT: image column (desktop only) */}
                     <div className={styles.imageColumn}>
                         <div className={styles.stickyImageWrapper}>
-                            <div className={styles.imgFrame}>
+                            <div className={styles.imgFrame} style={{ background: frameColors[activeIndex] }}>
                                 <div className={styles.imgInner}>
-                                    <AnimatePresence mode="wait">
+                                    <AnimatePresence>
                                         <motion.div
                                             key={features[activeIndex].id}
-                                            initial={{ opacity: 0, y: 16 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -16 }}
-                                            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.5, ease: 'easeInOut' }}
+                                            style={{ gridArea: '1/1' }}
                                         >
                                             <FeatureComponent
                                                 featureId={features[activeIndex].id}
@@ -144,7 +164,7 @@ const Features: React.FC = () => {
 
                 {/* MOBILE: each feature shown as text-above + image-below blocks */}
                 <div className={styles.mobileColumn}>
-                    {features.map((feat) => (
+                    {features.map((feat, i) => (
                         <motion.div
                             key={feat.id}
                             className={styles.mobileBlock}
@@ -153,9 +173,9 @@ const Features: React.FC = () => {
                             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                             viewport={{ once: true, margin: '-60px' }}
                         >
-                            <h3 className={styles.featureTitle}>{feat.title}</h3>
+                            <h3 className={styles.featureTitle} style={{ color: titleColors[i] }}>{feat.title}</h3>
                             <p className={styles.featureDesc}>{feat.desc}</p>
-                            <div className={styles.imgFrame}>
+                            <div className={styles.imgFrame} style={{ background: frameColors[i] }}>
                                 <div className={styles.imgInner}>
                                     <FeatureComponent featureId={feat.id} isActive={true} />
                                 </div>

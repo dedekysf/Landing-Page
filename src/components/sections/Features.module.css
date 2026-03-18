@@ -104,9 +104,7 @@
     transition: color 0.4s ease;
 }
 
-.textBlockActive .featureTitle {
-    color: var(--secondary-green);
-}
+/* Active title color is now set inline per feature */
 
 /* Feature description */
 .featureDesc {
@@ -130,7 +128,7 @@
 
 /* Image frame */
 .imgFrame {
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
     background: var(--grey-02);
     width: 100%;
@@ -138,6 +136,7 @@
     max-height: 65vh;
     position: relative;
     padding-top: 2.5rem;
+    transition: background 0.5s ease;
 }
 
 .imgFrame::after {
@@ -155,6 +154,7 @@
 
 .imgInner {
     padding: 8px 8px 0;
+    display: grid;
 }
 
 /* ---- MOBILE: stacked layout (hidden on desktop) ---- */
