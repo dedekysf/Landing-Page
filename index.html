@@ -1,22 +1,446 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TaskTag - Construction Management</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=block">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=block"
-    rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskTag - Manage Projects Through Chat</title>
+    <link rel="icon" type="image/svg+xml" href="assets/Logo-TaskTag.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/features.css" />
+    <link rel="stylesheet" href="css/templates.css" />
+    <link rel="stylesheet" href="css/pricing-teaser.css" />
+    <link rel="stylesheet" href="css/client-proof.css" />
+    <link rel="stylesheet" href="css/blog-resources.css" />
+    <link rel="stylesheet" href="css/call-to-action.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+    <div class="page-wrapper">
 
+        <!-- ========== NAVBAR ========== -->
+        <nav class="navbar">
+            <div class="navbar__inner">
+                <div class="navbar__container">
+                    <div class="navbar__logo">
+                        <a href="#">
+                            <img src="assets/Logo-TaskTag.svg" alt="TaskTag Logo" style="height: 32px; width: auto;" />
+                        </a>
+                    </div>
+
+                    <div class="navbar__desktop-nav">
+                        <a href="#features" class="navbar__nav-link">Features</a>
+                        <a href="https://tasktag.com/pricing" class="navbar__nav-link">Pricing</a>
+                        <a href="https://portal.tasktag.com/blog" class="navbar__nav-link" target="_blank" rel="noopener noreferrer">Blog</a>
+                        <a href="https://portal.tasktag.com/product" class="navbar__nav-link" target="_blank" rel="noopener noreferrer">Resources</a>
+                    </div>
+
+                    <div class="navbar__desktop-actions">
+                        <a href="https://app.tasktag.com/login" class="navbar__login-link" target="_blank" rel="noopener noreferrer">Log In</a>
+                        <a href="https://app.tasktag.com/register/signup-with-email" class="navbar__btn" target="_blank" rel="noopener noreferrer">Start For Free</a>
+                    </div>
+
+                    <div class="navbar__mobile-header-actions">
+                        <a href="https://app.tasktag.com/register/signup-with-email" class="navbar__btn navbar__mobile-start-btn" target="_blank" rel="noopener noreferrer">Start For Free</a>
+                        <button class="navbar__mobile-toggle" aria-label="Toggle menu">
+                            <span class="navbar__hamburger"></span>
+                        </button>
+                    </div>
+
+                    <div class="navbar__mobile-overlay" aria-hidden="true"></div>
+
+                    <div class="navbar__mobile-menu">
+                        <a href="#features" class="navbar__mobile-nav-link">Features</a>
+                        <a href="https://tasktag.com/pricing" class="navbar__mobile-nav-link">Pricing</a>
+                        <a href="https://portal.tasktag.com/product" class="navbar__mobile-nav-link" target="_blank" rel="noopener noreferrer">Resources</a>
+                        <hr class="navbar__divider" />
+                        <div class="navbar__mobile-cta">
+                            <a href="https://app.tasktag.com/register/signup-with-email" class="navbar__btn" target="_blank" rel="noopener noreferrer">Start For Free</a>
+                            <a href="https://app.tasktag.com/login" class="navbar__secondary-btn" target="_blank" rel="noopener noreferrer">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+
+            <!-- ========== HERO ========== -->
+            <section class="hero" id="hero-section">
+                <div class="hero__container container">
+                    <div class="hero__split-layout">
+                        <div class="hero__content">
+                            <h1 class="hero__headline hero__stagger1">
+                                Manage Projects Through <span class="hero__highlight">Chat</span>
+                            </h1>
+                            <p class="hero__subheadline hero__stagger2">
+                                Turn jobsite chat into accountable work with proof for billing. <br class="hero__desktop-br" />Built by builders, for builders.
+                            </p>
+                            <div class="hero__actions hero__stagger3">
+                                <div class="hero__btn-wrapper">
+                                    <a href="https://meetings.hubspot.com/dede" target="_blank" rel="noopener noreferrer" class="hero__secondary-btn" style="display: inline-block; text-decoration: none;">Book Demo</a>
+                                </div>
+                                <div class="hero__btn-wrapper">
+                                    <a href="https://app.tasktag.com/register/signup-with-email" target="_blank" rel="noopener noreferrer" class="hero__primary-btn">Get Started For Free</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hero__visuals">
+                            <div class="hero__pattern-left"></div>
+                            <div class="hero__pattern-right"></div>
+                            <div class="hero__blob1"></div>
+                            <div class="hero__blob2"></div>
+
+                            <div class="hero__frames-wrapper">
+                                <div class="hero__badge-wrapper hero__badge-top-right">
+                                    <div class="hero__badge">
+                                        <div class="hero__badge-inner" id="badge-top-right">
+                                            <div class="hero__loading-dots">
+                                                <span class="hero__loading-dot"></span>
+                                                <span class="hero__loading-dot hero__loading-dot--2"></span>
+                                                <span class="hero__loading-dot hero__loading-dot--3"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="hero__scaling-wrapper" id="hero-scaling-wrapper">
+                                    <div class="hero__image-container">
+                                        <img src="assets/hero.png" alt="TaskTag Platform Overview" class="hero__main-img" fetchpriority="high" loading="eager" />
+                                    </div>
+                                </div>
+
+                                <div class="hero__badge-wrapper hero__badge-bottom-left">
+                                    <div class="hero__badge">
+                                        <div class="hero__badge-inner" id="badge-bottom-left">
+                                            <div class="hero__loading-dots">
+                                                <span class="hero__loading-dot"></span>
+                                                <span class="hero__loading-dot hero__loading-dot--2"></span>
+                                                <span class="hero__loading-dot hero__loading-dot--3"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trusted By -->
+            <section class="hero__trusted-section">
+                <div class="hero__container container">
+                    <div class="hero__trusted-by">
+                        <h2>Trusted by Builders on Real Jobsites</h2>
+                        <p>Join <span class="hero__highlight">50+ companies</span> using TaskTag to keep crews aligned and jobs moving.</p>
+                        <div class="hero__marquee-container">
+                            <div class="hero__marquee-content">
+                                <img src="assets/client/Logo-intown.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Logo-lovett.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Logo-post.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Logo-precision.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Sosa.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Isc-Logo-BW.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Logo-Zerodraft.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Swenson-Logo.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Logo-intown.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Logo-lovett.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Logo-post.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Logo-precision.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Sosa.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Isc-Logo-BW.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Logo-Zerodraft.png" alt="client logo" class="hero__marquee-item" />
+                                <img src="assets/client/Swenson-Logo.png" alt="client logo" class="hero__marquee-item" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="hero__divider"></div>
+
+            <!-- ========== FEATURES ========== -->
+            <div data-reveal>
+            <section id="features" class="features">
+                <div class="features__wrapper">
+                    <div class="features__header" data-reveal>
+                        <h2 class="features__section-title">From Approval to Payment</h2>
+                        <p class="features__section-subtitle">Updates, photos, and proof in one place.</p>
+                    </div>
+
+                    <div class="features__layout">
+                        <div class="features__text-column">
+                            <div class="features__text-block features__text-block--active" data-feature-index="0">
+                                <h3 class="features__title">Works Like Texting</h3>
+                                <p class="features__desc">Create a project, add your team, and move work forward immediately. If they can text, they can run tasks, updates, and files in TaskTag.</p>
+                            </div>
+                            <div class="features__text-block" data-feature-index="1">
+                                <h3 class="features__title">Turn updates into work</h3>
+                                <p class="features__desc">Tag a task with a hashtag, assign an owner, set a due date, and attach photos or files. The work is automatically tied to the right project—no duplicate entry.</p>
+                            </div>
+                            <div class="features__text-block" data-feature-index="2">
+                                <h3 class="features__title">Keep proof where it belongs</h3>
+                                <p class="features__desc">Progress photos, installation notes, and documents stay attached to the exact task and project. When questions come up, the answer is already organized.</p>
+                            </div>
+                            <div class="features__text-block" data-feature-index="3">
+                                <h3 class="features__title">Make billing painless</h3>
+                                <p class="features__desc">Completion updates, checklists, and documentation roll into a project-ready record. Send fewer follow-ups when it's time to invoice, close out, or hand off.</p>
+                            </div>
+                            <div class="features__text-block" data-feature-index="4">
+                                <h3 class="features__title">Stay ahead of delays</h3>
+                                <p class="features__desc">Activity feeds show what changed today and what just got completed across projects. You can spot gaps early and keep schedules moving.</p>
+                            </div>
+                        </div>
+
+                        <div class="features__image-column">
+                            <div class="features__sticky-wrapper">
+                                <div class="features__img-frame" id="features-frame">
+                                    <div class="features__img-inner">
+                                        <div class="features__mockup-container features__mockup-container--visible" data-feature="0" id="feature-mockup-0"></div>
+                                        <div class="features__mockup-container features__mockup-container--hidden" data-feature="1" id="feature-mockup-1"></div>
+                                        <div class="features__mockup-container features__mockup-container--hidden" data-feature="2" id="feature-mockup-2"></div>
+                                        <div class="features__mockup-container features__mockup-container--hidden" data-feature="3" id="feature-mockup-3"></div>
+                                        <div class="features__mockup-container features__mockup-container--hidden" data-feature="4" id="feature-mockup-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="features__mobile-column">
+                        <div class="features__mobile-block" data-reveal>
+                            <h3 class="features__title" style="color: var(--blue);">Works Like Texting</h3>
+                            <p class="features__desc">Create a project, add your team, and move work forward immediately. If they can text, they can run tasks, updates, and files in TaskTag.</p>
+                            <div class="features__img-frame" style="background: var(--light-sky);"><div class="features__img-inner" id="feature-mobile-0"></div></div>
+                        </div>
+                        <div class="features__mobile-block" data-reveal>
+                            <h3 class="features__title" style="color: var(--dark-magenta);">Turn updates into work</h3>
+                            <p class="features__desc">Tag a task with a hashtag, assign an owner, set a due date, and attach photos or files. The work is automatically tied to the right project—no duplicate entry.</p>
+                            <div class="features__img-frame" style="background: var(--light-lavender);"><div class="features__img-inner" id="feature-mobile-1"></div></div>
+                        </div>
+                        <div class="features__mobile-block" data-reveal>
+                            <h3 class="features__title" style="color: var(--secondary-green);">Keep proof where it belongs</h3>
+                            <p class="features__desc">Progress photos, installation notes, and documents stay attached to the exact task and project. When questions come up, the answer is already organized.</p>
+                            <div class="features__img-frame" style="background: var(--light-mint);"><div class="features__img-inner" id="feature-mobile-2"></div></div>
+                        </div>
+                        <div class="features__mobile-block" data-reveal>
+                            <h3 class="features__title" style="color: var(--orange);">Make billing painless</h3>
+                            <p class="features__desc">Completion updates, checklists, and documentation roll into a project-ready record. Send fewer follow-ups when it's time to invoice, close out, or hand off.</p>
+                            <div class="features__img-frame" style="background: var(--light-peach);"><div class="features__img-inner" id="feature-mobile-3"></div></div>
+                        </div>
+                        <div class="features__mobile-block" data-reveal>
+                            <h3 class="features__title" style="color: var(--vivid-yellow);">Stay ahead of delays</h3>
+                            <p class="features__desc">Activity feeds show what changed today and what just got completed across projects. You can spot gaps early and keep schedules moving.</p>
+                            <div class="features__img-frame" style="background: var(--light-cream);"><div class="features__img-inner" id="feature-mobile-4"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+
+            <!-- ========== TEMPLATES ========== -->
+            <div data-reveal>
+            <section class="templates">
+                <div class="templates__bg" id="templates-bg">
+                    <div class="templates__container container">
+                        <div class="templates__layout">
+                            <div class="templates__marquee-panel">
+                                <div class="templates__marquee-mask">
+                                    <div class="templates__marquee-column">
+                                        <div class="templates__marquee-track templates__scroll-up" id="tpl-col1"></div>
+                                    </div>
+                                    <div class="templates__marquee-column">
+                                        <div class="templates__marquee-track templates__scroll-down" id="tpl-col2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="templates__static-panel" data-reveal>
+                                <div class="templates__text-content">
+                                    <h2 class="templates__title">Ready to Go Templates</h2>
+                                    <p class="templates__subtitle">Pick one, customize it, and start turning jobsite work into approved, invoice-ready documentation in minutes.</p>
+                                    <a href="https://app.tasktag.com/register/signup-with-email" class="templates__start-btn" target="_blank" rel="noopener noreferrer">Get Started For Free</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+
+            <!-- ========== PRICING TEASER ========== -->
+            <section class="pricing-teaser">
+                <div class="pricing-teaser__container">
+                    <div class="pricing-teaser__banner-wrapper" data-reveal>
+                        <div class="pricing-teaser__banner">
+                            <div class="pricing-teaser__image-block">
+                                <img src="assets/foreman.jpg" alt="TaskTag Foreman" class="pricing-teaser__foreman-image" />
+                            </div>
+                            <div class="pricing-teaser__content-block">
+                                <div class="pricing-teaser__content">
+                                    <h2 class="pricing-teaser__title">Try It on Your Next Job</h2>
+                                    <p class="pricing-teaser__subtitle">Try TaskTag for <span class="pricing-teaser__highlight">30 days free</span> with all features unlocked. No credit card required to start.</p>
+                                </div>
+                                <a href="https://tasktag.com/pricing" class="pricing-teaser__cta">
+                                    <span>See Pricing</span>
+                                    <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="pricing-teaser__notch-left"></div>
+                        <div class="pricing-teaser__notch-right"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== CLIENT PROOF ========== -->
+            <div data-reveal>
+            <section class="client-proof">
+                <div class="client-proof__container">
+                    <div class="client-proof__header" data-reveal>
+                        <h2 class="client-proof__title">Real Results on Real Jobs</h2>
+                        <p class="client-proof__subtitle">Teams cut rework, close out faster, and document proof of work — within weeks.</p>
+                    </div>
+                    <div class="client-proof__grid">
+                        <div class="client-proof__row" id="client-proof-row1">
+                            <div class="client-proof__card client-proof__logo-card" data-reveal>
+                                <img src="assets/client/Logo-intown.png" alt="Intown Builders" class="client-proof__logo-image" />
+                            </div>
+                            <div class="client-proof__card client-proof__image-card" data-reveal>
+                                <img src="assets/bento_img_1.jpg" alt="Construction site interior" class="client-proof__photo" />
+                            </div>
+                            <div class="client-proof__card client-proof__stat-card client-proof__stat-blue" data-reveal>
+                                <span class="client-proof__stat-label">Cut rework by</span>
+                                <div class="client-proof__stat-value" data-countup="40" data-suffix="%">0%</div>
+                                <div class="client-proof__stat-desc-bold">Protect your profit margins</div>
+                                <div class="client-proof__stat-desc-light">When everyone's working from the same approved photos and plans, you stop paying for work twice.</div>
+                            </div>
+                        </div>
+                        <div class="client-proof__row">
+                            <div class="client-proof__card client-proof__stat-card client-proof__stat-green" data-reveal>
+                                <span class="client-proof__stat-label">Increase completion rate to</span>
+                                <div class="client-proof__stat-value" data-countup="95" data-suffix="%">0%</div>
+                                <div class="client-proof__stat-desc-bold">Close out jobs without chasing anyone</div>
+                                <div class="client-proof__stat-desc-light">Every item is tracked and verified from the field in real time. Your teams close out faster — without you following up.</div>
+                            </div>
+                            <div class="client-proof__card client-proof__logo-card" data-reveal>
+                                <img src="assets/client/Logo-lovett.png" alt="Lovett Commercial" class="client-proof__logo-image" />
+                            </div>
+                            <div class="client-proof__card client-proof__image-card" data-reveal>
+                                <img src="assets/bento_img_2.jpg" alt="Construction blueprints" class="client-proof__photo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+
+            <!-- ========== BLOG RESOURCES ========== -->
+            <section class="blog-resources">
+                <div class="blog-resources__container">
+                    <div class="blog-resources__banner">
+                        <div class="blog-resources__dots"></div>
+                        <div class="blog-resources__glow"></div>
+                        <div class="blog-resources__content">
+                            <h2 class="blog-resources__title">Learn &amp; Build Better.</h2>
+                            <p class="blog-resources__subtitle">Discover construction insights or learn to use TaskTag like a pro.</p>
+                            <div class="blog-resources__btn-group">
+                                <a href="https://portal.tasktag.com/blog" target="_blank" rel="noopener noreferrer" class="blog-resources__secondary-btn">Read The Blog</a>
+                                <a href="https://portal.tasktag.com/product" target="_blank" rel="noopener noreferrer" class="blog-resources__primary-btn">Explore Resources</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== CTA + FOOTER ========== -->
+            <div data-reveal>
+            <div class="bottom-unified-wrapper">
+                <section class="cta">
+                    <div class="cta__container container">
+                        <div class="cta__content-wrapper">
+                            <div class="cta__image-wrapper" data-reveal>
+                                <img src="assets/final-section-task-panel.png" alt="TaskTag Dashboard Preview" class="cta__preview-image" />
+                            </div>
+                            <h2 class="cta__title">Ready to Streamline Your Jobs?</h2>
+                            <p class="cta__subtitle">Join thousands of contractors using TaskTag to connect their field and office</p>
+                            <div class="cta__btn-group">
+                                <a href="https://portal.tasktag.com/demo" class="cta__secondary-btn" target="_blank" rel="noopener noreferrer">Book Demo</a>
+                                <a href="https://app.tasktag.com/register/signup-with-email" class="cta__primary-btn" target="_blank" rel="noopener noreferrer">Get Started For Free</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="footer">
+                    <div class="footer__container container">
+                        <div class="footer__top">
+                            <div class="footer__brand-section">
+                                <div class="footer__logo">
+                                    <img src="assets/Logo-TaskTag.svg" alt="TaskTag Logo" style="height: 40px; width: auto;" />
+                                </div>
+                                <div class="footer__contact-info">
+                                    <p>2410 Polk Street, Houston, Texas</p>
+                                    <p class="footer__email-address"><a href="mailto:info@tasktag.com" style="text-decoration: none;">info@tasktag.com</a></p>
+                                </div>
+                            </div>
+                            <div class="footer__links-section">
+                                <div class="footer__column" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                    <div class="footer__socials">
+                                        <a href="mailto:info@tasktag.com" class="footer__social-icon"><i data-lucide="mail" style="width:18px;height:18px;stroke-width:1.5;"></i></a>
+                                        <a href="https://www.instagram.com/tasktagapp/" class="footer__social-icon" target="_blank" rel="noopener noreferrer"><i data-lucide="instagram" style="width:18px;height:18px;stroke-width:1.5;"></i></a>
+                                        <a href="https://www.linkedin.com/company/tasktagapp/posts/?feedView=all" class="footer__social-icon" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin" style="width:18px;height:18px;stroke-width:1.5;"></i></a>
+                                        <a href="https://www.youtube.com/channel/UC95-ZfL7LHxYAtcLqAAkDOw" class="footer__social-icon" target="_blank" rel="noopener noreferrer"><i data-lucide="youtube" style="width:18px;height:18px;stroke-width:1.5;"></i></a>
+                                    </div>
+                                </div>
+                                <div class="footer__column" style="display: flex; flex-direction: row; align-items: center; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
+                                    <a href="https://apps.apple.com/us/app/tasktag-how-to-project/id1635406641" class="footer__store-link" target="_blank" rel="noopener noreferrer">
+                                        <img src="assets/app_store.svg" alt="Download on the App Store" style="height: 36px; width: auto;" />
+                                    </a>
+                                    <a href="https://play.google.com/store/apps/details?id=com.eloveit.TaskTag&pcampaignid=web_share" class="footer__store-link" target="_blank" rel="noopener noreferrer">
+                                        <img src="assets/playstore.svg" alt="Get it on Google Play" style="height: 36px; width: auto;" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer__bottom">
+                            <div class="footer__bottom-links">
+                                <a href="https://tasktag.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                                <a href="https://tasktag.com/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
+                                <a href="https://tasktag.com/faq" target="_blank" rel="noopener noreferrer">FAQ</a>
+                            </div>
+                            <p class="footer__copyright">&copy;2024 TaskTag. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- JS Modules -->
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/scroll-reveal.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/features.js"></script>
+    <script src="js/feature-animations.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/client-proof.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>

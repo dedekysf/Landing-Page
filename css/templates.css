@@ -1,0 +1,194 @@
+.templates {
+    position: relative;
+    padding: 0;
+    background: transparent;
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.templates__bg {
+    background: var(--grey-02);
+    padding: 12rem 1rem;
+    overflow: hidden;
+    width: 90%;
+    border-radius: 24px;
+    margin: 0 auto;
+    transition: width 0.1s ease, border-radius 0.1s ease;
+}
+
+.templates__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.templates__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.templates__static-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+}
+
+.templates__title {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.templates__subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.templates__start-btn {
+    display: inline-flex;
+    background: var(--secondary-green);
+    color: var(--white);
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    width: max-content;
+}
+
+.templates__start-btn:hover {
+    background: var(--secondary-green-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--secondary-green-rgb), 0.25);
+}
+
+.templates__marquee-panel {
+    position: relative;
+    height: 700px;
+}
+
+.templates__marquee-mask {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    gap: 1.5rem;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+@media (hover: hover) {
+    .templates__marquee-mask:hover .templates__marquee-track { animation-play-state: paused; }
+}
+
+.templates__marquee-column {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.templates__marquee-track {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.templates__scroll-up {
+    animation: templates-scrollUp 60s linear infinite;
+}
+
+.templates__scroll-down {
+    animation: templates-scrollDown 55s linear infinite;
+    transform: translateY(-50%);
+}
+
+@keyframes templates-scrollUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-50% - 0.75rem)); }
+}
+
+@keyframes templates-scrollDown {
+    from { transform: translateY(calc(-50% - 0.75rem)); }
+    to { transform: translateY(0); }
+}
+
+.templates__card {
+    background: var(--white);
+    border-radius: 12px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(var(--black-rgb), 0.03);
+}
+
+.templates__card-header {
+    background: var(--white);
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--grey-03);
+}
+
+.templates__card-title {
+    font-size: 1rem;
+    font-weight: var(--font-weight-body);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.templates__checklist {
+    list-style: none;
+    padding: 0.75rem 1rem;
+    margin: 0;
+}
+
+.templates__checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.templates__checklist-item--more {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .templates__bg { padding: 9rem 1rem; }
+    .templates__layout { grid-template-columns: 1fr; padding: 0; gap: 2rem; }
+    .templates__static-panel { padding-left: 0; text-align: center; align-items: center; grid-row: 1; }
+    .templates__marquee-panel { grid-row: 2; }
+    .templates__title { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+    .templates__marquee-panel { height: 350px; }
+    .templates__bg {
+        padding: 8rem 1rem;
+        width: 100% !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .templates__bg { padding: 6rem 0; }
+    .templates__marquee-mask { gap: 0.75rem; }
+    .templates__marquee-track { gap: 0.75rem; }
+    .templates__subtitle { font-size: 1rem; }
+    .templates__title { font-size: 1.75rem; }
+}

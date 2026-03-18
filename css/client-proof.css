@@ -1,0 +1,165 @@
+.client-proof {
+    padding: 8rem 2rem;
+    background-color: transparent;
+    color: var(--text-primary);
+}
+
+.client-proof__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.client-proof__header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.client-proof__title {
+    font-size: 3.5rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.client-proof__subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.client-proof__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+    gap: 16px;
+    width: 100%;
+}
+
+.client-proof__row {
+    display: contents;
+}
+
+.client-proof__card {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.client-proof__logo-card {
+    background: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    grid-column: span 1;
+}
+
+.client-proof__logo-image {
+    max-width: 200px;
+    max-height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.client-proof__image-card {
+    background: var(--dark-grey);
+    grid-column: span 1;
+}
+
+.client-proof__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.client-proof__stat-card {
+    grid-column: span 2;
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.client-proof__stat-blue {
+    background: var(--pastel-blue);
+    color: var(--white);
+}
+
+.client-proof__stat-green {
+    background: var(--pastel-orange);
+    color: var(--white);
+}
+
+.client-proof__stat-label {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.client-proof__stat-value {
+    font-size: 5.5rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+
+.client-proof__stat-desc-bold {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.client-proof__stat-desc-light {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .client-proof { padding: 9rem 1rem; }
+    .client-proof__header { margin-bottom: 3rem; }
+    .client-proof__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 350px; }
+    .client-proof__stat-card { grid-column: span 2; }
+    .client-proof__title { font-size: 3rem; }
+    .client-proof__subtitle { font-size: 1.5rem; }
+    .client-proof__stat-desc-light { font-size: 1.125rem; }
+    .client-proof__stat-desc-bold { font-size: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+    .client-proof { padding: 8rem 1rem; }
+    .client-proof__header { margin-bottom: 2.5rem; }
+    .client-proof__grid { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+    .client-proof__row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; width: 100%; }
+    .client-proof__card { border-radius: 16px; }
+    .client-proof__stat-card { grid-column: span 2; order: -1; padding: 2.5rem 1.5rem; }
+    .client-proof__stat-value { font-size: 4.5rem; }
+    .client-proof__title { font-size: 3rem; }
+    .client-proof__subtitle { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .client-proof { padding: 6rem 1rem; }
+    .client-proof__header { margin-bottom: 2rem; }
+    .client-proof__title { font-size: 2.2rem; margin-bottom: 0.75rem; }
+    .client-proof__subtitle { font-size: 1.25rem; }
+    .client-proof__stat-label { font-size: 1.5rem; }
+    .client-proof__stat-value { font-size: 5rem; }
+    .client-proof__logo-image { max-width: 140px; }
+    .client-proof__grid { gap: 16px; }
+    .client-proof__row { gap: 12px; }
+}
+
+@media (max-width: 380px) {
+    .client-proof__title { font-size: 2rem; }
+    .client-proof__subtitle { font-size: 1rem; margin-bottom: 1rem; }
+}
