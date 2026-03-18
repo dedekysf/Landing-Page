@@ -4,6 +4,18 @@
     background: var(--white);
 }
 
+.dots {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+    z-index: 1;
+}
+
 .container {
     max-width: var(--spacing-container);
     margin: 0 auto;

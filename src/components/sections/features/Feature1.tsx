@@ -103,6 +103,17 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
     const showGallery = phase >= 4 || phase === 8;
     const isLoadingState = isSubmitting || phase === 7;
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const displayImages = isMobile ? drywallImages.slice(0, 3) : drywallImages;
+
     return (
         <div className={styles.mockupWrapper} >
             <AnimatePresence mode="wait">
@@ -190,7 +201,7 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
                                     className={styles.mockGallery}
                                     initial={phase !== 8 ? "hidden" : false} animate="visible" variants={staggerContainer}
                                 >
-                                    {drywallImages.map((src, idx) => (
+                                    {displayImages.map((src, idx) => (
                                         <motion.div key={idx} variants={fadeUp} className={styles.galleryItem}>
                                             {phase !== 8 && <div className={styles.galleryLoader}></div>}
                                             <img

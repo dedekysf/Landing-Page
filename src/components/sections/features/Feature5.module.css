@@ -191,6 +191,7 @@
     flex-wrap: nowrap;
     width: 100%;
     overflow: hidden;
+    min-width: 0;
 }
 
 .tagPill {
@@ -206,12 +207,14 @@
     overflow: hidden;
     min-width: 0;
     flex-shrink: 1;
+    max-width: 120px; /* Better control over width */
 }
 
 .tagPill span {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    min-width: 0;
 }
 
 .projectColor {

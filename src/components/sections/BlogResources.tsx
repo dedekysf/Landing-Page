@@ -6,7 +6,8 @@ const BlogResources: React.FC = () => {
         <section className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.banner}>
-                    {/* Glowing light effect */}
+                    {/* Background Patterns */}
+                    <div className={styles.dots} />
                     <div className={styles.glow} />
 
                     <div className={styles.content}>

@@ -283,7 +283,7 @@ const Feature3 = ({ isActive }: { isActive: boolean }) => {
                     ) : (
                         <div className={styles.actionsRow} style={{ padding: '0 4px' }}>
                             <div className={styles.transparentIcon} style={{ width: 'auto', color: 'var(--text-secondary)' }}><Plus size={18} /></div>
-                            <div style={{ flex: 1, margin: '0 12px', color: 'var(--grey-05)', fontSize: '14px' }}>Type message here...</div>
+                            <div className={styles.placeholderText}>Type message here...</div>
                             <div className={styles.leftActions} style={{ gap: '16px' }}>
                                 <div className={styles.transparentIcon} style={{ width: 'auto' }}><Smile size={18} /></div>
                                 <div className={styles.transparentIcon} style={{ width: 'auto' }}><Mic size={18} /></div>

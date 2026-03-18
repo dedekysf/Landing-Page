@@ -324,7 +324,7 @@
 /* --- Shared CTA & Footer Wrapper --- */
 .bottomUnifiedWrapper {
     padding-top: 8rem;
-    background: linear-gradient(180deg, rgba(var(--light-peach-rgb), 0.2) 0%, rgba(var(--light-peach-rgb), 1) 100%);
+    /* background: linear-gradient(180deg, rgba(var(--light-peach-rgb), 0.2) 0%, rgba(var(--light-peach-rgb), 1) 100%); */
     width: 100%;
     position: relative;
     z-index: 1;

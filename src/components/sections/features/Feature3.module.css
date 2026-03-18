@@ -90,7 +90,8 @@
 
 .msgText {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: var(--text-primary) !important;
+    /* Changed from text-secondary */
     line-height: 1.4;
 }
 
@@ -260,6 +261,13 @@
     min-height: 20px;
 }
 
+.placeholderText {
+    flex: 1;
+    margin: 0 12px;
+    color: var(--grey-05);
+    font-size: 14px;
+}
+
 /* Bottom Sheet */
 .bottomSheetOverlay {
     position: absolute;
@@ -423,6 +431,12 @@
 
     .inputText {
         font-size: 12px;
+        /* Slightly smaller for mobile */
+    }
+
+    .placeholderText {
+        font-size: 12px;
+        /* Slightly smaller for mobile */
     }
 
     .actionIcon {

@@ -124,8 +124,8 @@ const Feature5 = ({ isActive }: { isActive: boolean }) => {
                                         Unassigned <span className={styles.mention}>@Gerald Oliver</span> from this task
                                     </div>
                                     <div className={styles.pillsRow}>
-                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>1320 Smith Street R...</span></div>
-                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Foundation Inspect...</span></div>
+                                        <div className={`${styles.tagPill} ${styles.projectColor}`}><Folder size={12} /> <span>1320 Smith Street Road</span></div>
+                                        <div className={`${styles.tagPill} ${styles.taskColor}`}><Hash size={12} /> <span>Foundation Inspection</span></div>
                                     </div>
                                 </div>
                             </motion.div>
