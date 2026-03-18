@@ -296,9 +296,9 @@
 }
 
 @media (max-width: 480px) {
-    .section {
+    /* .section {
         padding-top: 5rem;
-    }
+    } */
 
     .fullWidthBg {
         padding: 6rem 0rem;
