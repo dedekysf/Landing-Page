@@ -22,19 +22,17 @@
 }
 
 .mockupUi {
+    box-sizing: border-box;
     background: var(--white);
     background-clip: padding-box;
     border-radius: 24px 24px 0 0;
-    overflow: hidden;
     border: 10px solid rgba(255, 255, 255, 0.4);
     border-bottom: none;
     box-shadow: none;
-    width: 100%;
+    width: 400px;
     max-width: 400px;
-    /* <400px device */
-    height: 100%;
+    /* Fixed width for stability */
     min-height: 480px;
-    /* Taller to accommodate staggered items without jumping */
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -324,14 +322,18 @@
     height: 100%;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 768px) {
     .mockupWrapper {
         min-height: 400px;
     }
 
     .mockupUi {
+        width: 100%;
+        max-width: 400px;
+        /* Fit smaller screens exactly */
         min-height: 400px;
-        max-width: 100%;
+        border: 8px solid rgba(255, 255, 255, 0.4);
+        border-bottom: none;
     }
 
 

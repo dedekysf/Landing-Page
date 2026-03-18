@@ -148,7 +148,7 @@ const Feature1 = ({ isActive }: { isActive: boolean }) => {
                         className={styles.mockupUi}
                         initial={phase !== 8 ? { opacity: 0, y: 20, scale: 0.98 } : false}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                        transition={{ type: 'spring', stiffness: 260, damping: 26 }}
                         // Click full frame to reset and allow seeing animation again
                         onClick={() => phase === 8 && setPhase(0)}
                         style={{ cursor: phase === 8 ? 'pointer' : 'default' }}

@@ -19,9 +19,13 @@ type BadgeStep = { type: 'loading' } | { type: 'text'; text: string; icon: React
 
 const topRightBadges: BadgeStep[] = [
     { type: 'loading' },
-    { type: 'text', text: 'Track Updates', icon: <Activity size={16} color="var(--white)" />, bg: 'var(--blue)' },
+    { type: 'text', text: 'Track Updates', icon: <Activity size={16} />, bg: 'var(--blue)' },
     { type: 'loading' },
-    { type: 'text', text: 'Stay Organized', icon: <ListChecks size={16} color="var(--white)" />, bg: 'var(--secondary-green)' },
+    { type: 'text', text: 'Stay Organized', icon: <ListChecks size={16} />, bg: 'var(--secondary-green)' },
+    { type: 'loading' },
+    { type: 'text', text: 'Close Faster', icon: <Zap size={16} fill="currentColor" />, bg: 'var(--orange)' },
+    { type: 'loading' },
+    { type: 'text', text: 'Proof Billing', icon: <Image size={16} />, bg: 'var(--purple)' },
 ];
 
 const bottomLeftBadges: BadgeStep[] = [
@@ -46,6 +50,7 @@ const Hero: React.FC = () => {
     const [stepIndex, setStepIndex] = React.useState(0);
     const [topRightIdx, setTopRightIdx] = React.useState(0);
     const [bottomLeftIdx, setBottomLeftIdx] = React.useState(0);
+    const [isMobile, setIsMobile] = React.useState(false);
 
     const heroRef = React.useRef<HTMLElement>(null);
 
@@ -53,6 +58,20 @@ const Hero: React.FC = () => {
         target: heroRef,
         offset: ["start start", "end start"]
     });
+
+    React.useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    // Reset topRightIdx if switching to desktop and current index is out of bounds
+    React.useEffect(() => {
+        if (!isMobile && topRightIdx >= 4) {
+            setTopRightIdx(0);
+        }
+    }, [isMobile, topRightIdx]);
 
     // We removed useSpring because it conflicts with the global Lenis smooth scrolling physics,
     // which caused the stuttering. We directly transform the scroll progress instead.
@@ -74,11 +93,12 @@ const Hero: React.FC = () => {
     React.useEffect(() => {
         const current = topRightBadges[topRightIdx];
         const duration = current.type === 'loading' ? 1200 : 3500;
+        const limit = isMobile ? topRightBadges.length : 4;
         const timer = setTimeout(() => {
-            setTopRightIdx((prev) => (prev + 1) % topRightBadges.length);
+            setTopRightIdx((prev) => (prev + 1) % limit);
         }, duration);
         return () => clearTimeout(timer);
-    }, [topRightIdx]);
+    }, [topRightIdx, isMobile]);
 
     React.useEffect(() => {
         const current = bottomLeftBadges[bottomLeftIdx];
@@ -164,13 +184,15 @@ const Hero: React.FC = () => {
                                                     animate={{ opacity: 1, y: 0 }}
                                                     exit={{ opacity: 0, y: -10 }}
                                                     transition={{ duration: 0.3 }}
-                                                    style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
+                                                    className={styles.badgeContent}
                                                 >
                                                     <motion.div
                                                         initial={{ opacity: 0, y: 15 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ duration: 0.4 }}
-                                                        className={styles.badgeIconWrapper} style={{ backgroundColor: (topRightBadges[topRightIdx] as { bg: string }).bg }}>
+                                                        className={styles.badgeIconWrapper}
+                                                        style={{ '--badge-bg': (topRightBadges[topRightIdx] as { bg: string }).bg } as React.CSSProperties}
+                                                    >
                                                         {(topRightBadges[topRightIdx] as { icon: React.ReactNode }).icon}
                                                     </motion.div>
                                                     <motion.span
@@ -178,52 +200,6 @@ const Hero: React.FC = () => {
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ duration: 0.4, delay: 0.35 }}
                                                         className={styles.badgeText} style={{ color: (topRightBadges[topRightIdx] as { bg: string }).bg }}>{(topRightBadges[topRightIdx] as { text: string }).text}
-                                                    </motion.span>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-                                </div>
-
-                                {/* Bottom Left Floating Badge */}
-                                <div className={`${styles.featureBadgeWrapper} ${styles.badgeBottomLeft}`}>
-                                    <div className={styles.featureBadge}>
-                                        <AnimatePresence mode="wait">
-                                            {bottomLeftBadges[bottomLeftIdx].type === 'loading' ? (
-                                                <motion.div
-                                                    key="loading-bl"
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    exit={{ opacity: 0, y: -10 }}
-                                                    transition={{ duration: 0.3 }}
-                                                    className={styles.chatBubbleLoading}
-                                                    style={{ padding: '0 8px' }}
-                                                >
-                                                    <span className={styles.loadingDot} />
-                                                    <span className={`${styles.loadingDot} ${styles.loadingDot2}`} />
-                                                    <span className={`${styles.loadingDot} ${styles.loadingDot3}`} />
-                                                </motion.div>
-                                            ) : (
-                                                <motion.div
-                                                    key={`text-bl-${bottomLeftIdx}`}
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    exit={{ opacity: 0, y: -10 }}
-                                                    transition={{ duration: 0.3 }}
-                                                    style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
-                                                >
-                                                    <motion.div
-                                                        initial={{ opacity: 0, y: 15 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        transition={{ duration: 0.4 }}
-                                                        className={styles.badgeIconWrapper} style={{ backgroundColor: (bottomLeftBadges[bottomLeftIdx] as { bg: string }).bg }}>
-                                                        {(bottomLeftBadges[bottomLeftIdx] as { icon: React.ReactNode }).icon}
-                                                    </motion.div>
-                                                    <motion.span
-                                                        initial={{ opacity: 0, y: 15 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        transition={{ duration: 0.4, delay: 0.35 }}
-                                                        className={styles.badgeText} style={{ color: (bottomLeftBadges[bottomLeftIdx] as { bg: string }).bg }}>{(bottomLeftBadges[bottomLeftIdx] as { text: string }).text}
                                                     </motion.span>
                                                 </motion.div>
                                             )}
@@ -268,9 +244,56 @@ const Hero: React.FC = () => {
                                             className={styles.heroMainImg}
                                             fetchPriority="high"
                                             loading="eager"
+                                            onLoad={(e) => (e.currentTarget.classList.add(styles.loaded))}
                                         />
                                     </motion.div>
                                 </motion.div>
+
+                                {/* Bottom Left Floating Badge */}
+                                <div className={`${styles.featureBadgeWrapper} ${styles.badgeBottomLeft}`}>
+                                    <div className={styles.featureBadge}>
+                                        <AnimatePresence mode="wait">
+                                            {bottomLeftBadges[bottomLeftIdx].type === 'loading' ? (
+                                                <motion.div
+                                                    key="loading-bl"
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -10 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    className={styles.chatBubbleLoading}
+                                                    style={{ padding: '0 8px' }}
+                                                >
+                                                    <span className={styles.loadingDot} />
+                                                    <span className={`${styles.loadingDot} ${styles.loadingDot2}`} />
+                                                    <span className={`${styles.loadingDot} ${styles.loadingDot3}`} />
+                                                </motion.div>
+                                            ) : (
+                                                <motion.div
+                                                    key={`text-bl-${bottomLeftIdx}`}
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -10 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    className={styles.badgeContent}
+                                                >
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: 15 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ duration: 0.4 }}
+                                                        className={styles.badgeIconWrapper} style={{ backgroundColor: (bottomLeftBadges[bottomLeftIdx] as { bg: string }).bg }}>
+                                                        {(bottomLeftBadges[bottomLeftIdx] as { icon: React.ReactNode }).icon}
+                                                    </motion.div>
+                                                    <motion.span
+                                                        initial={{ opacity: 0, y: 15 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ duration: 0.4, delay: 0.35 }}
+                                                        className={styles.badgeText} style={{ color: (bottomLeftBadges[bottomLeftIdx] as { bg: string }).bg }}>{(bottomLeftBadges[bottomLeftIdx] as { text: string }).text}
+                                                    </motion.span>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

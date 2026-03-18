@@ -228,4 +228,9 @@
         padding: 1rem 1.5rem !important;
         box-sizing: border-box !important;
     }
+
+    .imageWrapper {
+        margin-top: 0;
+        border: none;
+    }
 }

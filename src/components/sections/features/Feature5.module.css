@@ -296,8 +296,12 @@
     }
 
     .mockupUi {
+        width: 100%;
+        max-width: 400px;
+        /* Fit smaller screens exactly */
         min-height: 400px;
-        max-width: 100%;
+        border: 8px solid rgba(255, 255, 255, 0.4);
+        border-bottom: none;
     }
 
     .searchTop {

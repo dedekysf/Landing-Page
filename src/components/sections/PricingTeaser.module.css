@@ -152,7 +152,7 @@
         align-items: center;
         text-align: center;
     }
-    
+
     .content {
         text-align: center;
     }
@@ -180,5 +180,10 @@
 
     .subtitle {
         font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    .ctaButton {
+        margin-bottom: 2rem;
     }
 }
