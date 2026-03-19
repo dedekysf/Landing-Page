@@ -122,11 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
             logo: "assets/client/newman.svg"
         },
         {
-            video: "https://www.w3schools.com/html/mov_bbb.mp4",
-            poster: "assets/bento_img_2.jpg",
-            quote: "TaskTag is the first tool our crews actually want to use. The mobile-first approach means daily reports are done before the foremen even leave the site — no more chasing paperwork at the end of the day.",
-            author: "Swenson",
-            logo: "assets/client/Swenson-Logo.png"
+            youtubeId: "PKIb3hhycf4",
+            quote: "TaskTag makes team onboarding completely effortless. An employee just downloaded the app, and we were instantly connected with zero setup headaches.",
+            author: "Zerodraft",
+            logo: "assets/client/Logo-Zerodraft.png"
         }
     ];
 
