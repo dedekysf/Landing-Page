@@ -410,12 +410,17 @@
 
                     <div class="testimonial-main" data-reveal>
                         <div class="testimonial-video">
+                            <iframe class="testimonial-video__iframe"
+                                src="https://www.youtube.com/embed/PaMdqQpi_RU?playsinline=1&rel=0&modestbranding=1"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                             <video class="testimonial-video__element" poster="assets/foreman.jpg" playsinline muted
-                                loop>
+                                loop style="display:none">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <button class="testimonial-video__play-btn" aria-label="Play video">
+                            <button class="testimonial-video__play-btn" aria-label="Play video" style="display:none">
                                 <i data-lucide="play" fill="currentColor"></i>
                             </button>
                         </div>

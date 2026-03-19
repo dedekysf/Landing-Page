@@ -104,13 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Testimonial Carousel Logic
     const testimonialVideo = document.querySelector('.testimonial-video__element');
+    const testimonialIframe = document.querySelector('.testimonial-video__iframe');
     const playBtn = document.querySelector('.testimonial-video__play-btn');
     const videoContainer = document.querySelector('.testimonial-video');
 
     const testimonialData = [
         {
-            video: "https://www.w3schools.com/html/mov_bbb.mp4",
-            poster: "assets/foreman.jpg",
+            youtubeId: "PaMdqQpi_RU",
             quote: "TaskTag helped us reach a 95% completion rate. With real-time tracking and verification from the field, our team closes jobs much faster without chasing anyone.",
             author: "SOSA Construction",
             logo: "assets/client/Sosa.png"
@@ -184,9 +184,20 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const data = testimonialData[index];
 
-                // Update content
-                testimonialVideo.src = data.video;
-                testimonialVideo.poster = data.poster;
+                // Toggle iframe vs native video
+                if (data.youtubeId) {
+                    testimonialIframe.src = `https://www.youtube.com/embed/${data.youtubeId}?playsinline=1&rel=0&modestbranding=1`;
+                    testimonialIframe.style.display = '';
+                    testimonialVideo.style.display = 'none';
+                    playBtn.style.display = 'none';
+                } else {
+                    testimonialIframe.src = '';
+                    testimonialIframe.style.display = 'none';
+                    testimonialVideo.src = data.video;
+                    testimonialVideo.poster = data.poster || '';
+                    testimonialVideo.style.display = '';
+                    playBtn.style.display = '';
+                }
                 testimonialVideo.pause();
                 videoContainer.classList.remove('is-playing');
 

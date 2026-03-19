@@ -835,6 +835,13 @@
     object-fit: cover;
 }
 
+.testimonial-video__iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
 .testimonial-video__play-btn {
     position: absolute;
     top: 50%;
