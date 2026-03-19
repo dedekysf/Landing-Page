@@ -116,11 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
             logo: "assets/client/Sosa.png"
         },
         {
-            video: "https://www.w3schools.com/html/movie.mp4",
-            poster: "assets/bento_img_1.jpg",
+            youtubeId: "HbVgkSacVuo",
             quote: "Since switching to TaskTag, we cut rework by 40%. When everyone's pulling from the same approved photos and plans, you stop paying for the same job twice — it's the fastest way to protect your margins.",
-            author: "Zerodraft",
-            logo: "assets/client/Logo-Zerodraft.png"
+            author: "Newman Web Solutions",
+            logo: "assets/client/newman.svg"
         },
         {
             video: "https://www.w3schools.com/html/mov_bbb.mp4",
