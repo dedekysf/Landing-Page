@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Core modules
-    initSmoothScroll();
-    initScrollReveal();
-    initNavbar();
+    if (typeof initSmoothScroll === 'function') initSmoothScroll();
+    if (typeof initScrollReveal === 'function') initScrollReveal();
+    if (typeof initNavbar === 'function') initNavbar();
 
     // Section modules
-    initHero();
-    initFeatureAnimations(); // Must come before initFeatures so animators are ready
-    initFeatures();
-    initTemplates();
-    initClientProof();
+    if (typeof initHero === 'function') initHero();
+    if (typeof initFeatureAnimations === 'function') initFeatureAnimations(); 
+    if (typeof initFeatures === 'function') initFeatures();
+    if (typeof initTemplates === 'function') initTemplates();
+    if (typeof initClientProof === 'function') initClientProof();
 });

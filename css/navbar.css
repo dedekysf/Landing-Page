@@ -68,6 +68,10 @@
     transition: color 0.4s ease-in-out;
 }
 
+.navbar__nav-link.active {
+    color: var(--secondary-green);
+}
+
 .navbar__nav-link:hover {
     color: var(--secondary-green);
 }
@@ -275,9 +279,13 @@
     .navbar__mobile-nav-link {
         padding: var(--spacing-md) 0;
         font-size: 1.125rem;
-        font-weight: var(--font-weight-semibold);
+        font-weight: var(--font-weight-regular);
         color: var(--color-text-main);
         border-bottom: 1px solid var(--color-border);
+    }
+
+    .navbar__mobile-nav-link.active {
+        color: var(--secondary-green);
     }
 
     .navbar__mobile-cta {

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing - TaskTag</title>
+    <link rel="icon" type="image/svg+xml" href="assets/Logo-TaskTag.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/pricing.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- ========== NAVBAR ========== -->
+        <nav class="navbar">
+            <div class="navbar__inner">
+                <div class="navbar__container">
+                    <div class="navbar__logo">
+                        <a href="index.html">
+                            <img src="assets/Logo-TaskTag.svg" alt="TaskTag Logo" style="height: 32px; width: auto;" />
+                        </a>
+                    </div>
+
+                    <div class="navbar__desktop-nav">
+                        <a href="index.html#features" class="navbar__nav-link">Features</a>
+                        <a href="pricing.html" class="navbar__nav-link active">Pricing</a>
+                        <a href="https://portal.tasktag.com/blog" class="navbar__nav-link" target="_blank"
+                            rel="noopener noreferrer">Blog</a>
+                        <a href="https://portal.tasktag.com/product" class="navbar__nav-link" target="_blank"
+                            rel="noopener noreferrer">Resources</a>
+                    </div>
+
+                    <div class="navbar__desktop-actions">
+                        <a href="https://app.tasktag.com/login" class="navbar__login-link" target="_blank"
+                            rel="noopener noreferrer">Log In</a>
+                        <a href="https://app.tasktag.com/register/signup-with-email" class="navbar__btn" target="_blank"
+                            rel="noopener noreferrer">Start For Free</a>
+                    </div>
+
+                    <div class="navbar__mobile-header-actions">
+                        <a href="https://app.tasktag.com/register/signup-with-email"
+                            class="navbar__btn navbar__mobile-start-btn" target="_blank" rel="noopener noreferrer">Start
+                            For Free</a>
+                        <button class="navbar__mobile-toggle" aria-label="Toggle menu">
+                            <span class="navbar__hamburger"></span>
+                        </button>
+                    </div>
+
+                    <div class="navbar__mobile-overlay" aria-hidden="true"></div>
+
+                    <div class="navbar__mobile-menu">
+                        <a href="index.html#features" class="navbar__mobile-nav-link">Features</a>
+                        <a href="pricing.html" class="navbar__mobile-nav-link active">Pricing</a>
+                        <a href="https://portal.tasktag.com/blog" class="navbar__mobile-nav-link" target="_blank"
+                            rel="noopener noreferrer">Blog</a>
+                        <a href="https://portal.tasktag.com/product" class="navbar__mobile-nav-link" target="_blank"
+                            rel="noopener noreferrer">Resources</a>
+                        <div class="navbar__mobile-cta">
+                            <a href="https://app.tasktag.com/register/signup-with-email" class="navbar__btn"
+                                target="_blank" rel="noopener noreferrer">Start For Free</a>
+                            <a href="https://app.tasktag.com/login" class="navbar__secondary-btn" target="_blank"
+                                rel="noopener noreferrer">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+
+            <!-- ========== PRICING HERO ========== -->
+            <section class="pricing-hero">
+                <div class="hero__container container">
+                    <div class="hero__content">
+                        <h1 class="pricing-hero__title">
+                            <span class="pricing-hero__highlight">Try It</span> on Your Next Job
+                        </h1>
+                        <p class="pricing-hero__subtitle">
+                            Try TaskTag for 30 days free with all features unlocked. <br
+                                class="pricing-hero__desktop-br">No credit card required to start.
+                        </p>
+                    </div>
+
+                    <!-- Toggle (moved inside hero) -->
+                    <div class="pricing-toggle" data-reveal>
+                        <div class="pricing-toggle__container" id="billing-toggle-container">
+                            <button class="pricing-toggle__option" ontouchstart=""
+                                data-billing="monthly">Monthly</button>
+                            <button class="pricing-toggle__option active" ontouchstart="" data-billing="yearly">
+                                Yearly <span class="pricing-toggle__discount">Save 20%</span>
+                            </button>
+                            <div class="pricing-toggle__slider"></div>
+                        </div>
+                    </div>
+
+                    <!-- Cards (moved inside hero) -->
+                    <div class="pricing-cards">
+                        <!-- Free Plan -->
+                        <div class="pricing-card" data-reveal>
+                            <div class="pricing-card__header">
+                                <h3 class="pricing-card__name">Free</h3>
+                                <p class="pricing-card__tagline">Up to 3 Projects, Get Started Instantly</p>
+                            </div>
+                            <div class="pricing-card__price-group">
+                                <span class="pricing-card__amount">$0</span>
+                                <span class="pricing-card__period">Forever Free</span>
+                            </div>
+                            <a href="https://app.tasktag.com/register/signup-with-email"
+                                class="pricing-card__btn pricing-card__btn--outline">Start For Free</a>
+                            <div class="pricing-card__features">
+                                <p class="pricing-card__features-title">What do you get</p>
+                                <ul class="pricing-card__feature-list">
+                                    <li><i data-lucide="check"></i> 3 Projects</li>
+                                    <li><i data-lucide="check"></i> 2GB shared team storage</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Team Plan -->
+                        <div class="pricing-card pricing-card--popular" data-reveal>
+                            <div class="pricing-card__badge">MOST POPULAR</div>
+                            <div class="pricing-card__header">
+                                <h3 class="pricing-card__name">Team</h3>
+                                <p class="pricing-card__tagline">Unlimited Projects, Scale Your Operations</p>
+                            </div>
+                            <div class="pricing-card__price-group">
+                                <span class="pricing-card__amount" id="team-price">$16</span>
+                                <span class="pricing-card__period" id="team-billing-text">Member/Mo billed yearly</span>
+                            </div>
+                            <a href="https://app.tasktag.com/register/signup-with-email"
+                                class="pricing-card__btn pricing-card__btn--filled">Get Started</a>
+                            <div class="pricing-card__features">
+                                <p class="pricing-card__features-title">What do you get</p>
+                                <ul class="pricing-card__feature-list">
+                                    <li><i data-lucide="check"></i> Unlimited free project & task members</li>
+                                    <li><i data-lucide="check"></i> 2TB shared team storage</li>
+                                    <li><i data-lucide="check"></i> Create multiple tasks</li>
+                                    <li><i data-lucide="check"></i> Global activity log</li>
+                                    <li><i data-lucide="check"></i> Team roles & permissions</li>
+                                    <li><i data-lucide="check"></i> Access all project templates</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Enterprise Plan -->
+                        <div class="pricing-card" data-reveal>
+                            <div class="pricing-card__header">
+                                <h3 class="pricing-card__name">Enterprise</h3>
+                                <p class="pricing-card__tagline">Custom solutions for Large Organizations</p>
+                            </div>
+                            <div class="pricing-card__price-group pricing-card__price-group--contact">
+                                <div class="pricing-card__contact-icon">
+                                    <i data-lucide="messages-square"></i>
+                                </div>
+                                <span class="pricing-card__contact-text">Contact sales for pricing</span>
+                            </div>
+                            <a href="https://portal.tasktag.com/demo"
+                                class="pricing-card__btn pricing-card__btn--dark">Contact Sales</a>
+                            <div class="pricing-card__features">
+                                <p class="pricing-card__features-title">What do you get</p>
+                                <ul class="pricing-card__feature-list">
+                                    <li><i data-lucide="check"></i> All features on team plan</li>
+                                    <li><i data-lucide="check"></i> Unlimited shared team storage</li>
+                                    <li><i data-lucide="check"></i> Training sessions</li>
+                                    <li><i data-lucide="check"></i> Early access to advanced features</li>
+                                    <li><i data-lucide="check"></i> 24/7 support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== COMPARE PLANS ========== -->
+            <section class="compare-plans">
+                <div class="compare-plans__container container">
+                    <div class="compare-plans__header" data-reveal>
+                        <div class="compare-plans__icon">
+                            <i data-lucide="square-split-horizontal"></i>
+                        </div>
+                        <h2 class="compare-plans__title">Compare Plans</h2>
+                    </div>
+
+                    <!-- Mobile Plan Switcher -->
+                    <div class="compare-mobile-nav" data-reveal>
+                        <button class="compare-mobile-nav__btn active" data-plan="free">Free</button>
+                        <button class="compare-mobile-nav__btn" data-plan="team">Team</button>
+                        <button class="compare-mobile-nav__btn" data-plan="enterprise">Enterprise</button>
+                    </div>
+
+                    <div class="compare-table-wrapper" data-reveal>
+                        <table class="compare-table show-free" id="compare-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        <span class="compare-table__plan-name">Free</span>
+                                        <a href="https://app.tasktag.com/register/signup-with-email"
+                                            class="compare-table__btn-outline">Start For Free</a>
+                                    </th>
+                                    <th class="compare-table__highlight">
+                                        <span class="compare-table__plan-name">Team</span>
+                                        <a href="https://app.tasktag.com/register/signup-with-email"
+                                            class="compare-table__btn-filled">Get Started</a>
+                                    </th>
+                                    <th>
+                                        <span class="compare-table__plan-name">Enterprise</span>
+                                        <a href="https://portal.tasktag.com/demo"
+                                            class="compare-table__btn-dark">Contact Sales</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="compare-table__category">
+                                    <td colspan="4">Capacity & Limits</td>
+                                </tr>
+                                <tr>
+                                    <td>Projects</td>
+                                    <td>3</td>
+                                    <td class="compare-table__highlight">Unlimited</td>
+                                    <td>Unlimited</td>
+                                </tr>
+                                <tr>
+                                    <td>Tasks</td>
+                                    <td>Unlimited (within 3 projects)</td>
+                                    <td class="compare-table__highlight">Unlimited</td>
+                                    <td>Unlimited</td>
+                                </tr>
+                                <tr>
+                                    <td>Team storage</td>
+                                    <td>2GB</td>
+                                    <td class="compare-table__highlight">2TB</td>
+                                    <td>Unlimited</td>
+                                </tr>
+
+                                <tr class="compare-table__category">
+                                    <td colspan="4">Team & Administration</td>
+                                </tr>
+                                <tr>
+                                    <td>Team roles & permissions</td>
+                                    <td><i data-lucide="x" class="icon-x"></i></td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Project templates</td>
+                                    <td><i data-lucide="x" class="icon-x"></i></td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+
+                                <tr class="compare-table__category">
+                                    <td colspan="4">Tracking & Timesheets</td>
+                                </tr>
+                                <tr>
+                                    <td>Global activity log</td>
+                                    <td><i data-lucide="x" class="icon-x"></i></td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Global timesheet</td>
+                                    <td><i data-lucide="x" class="icon-x"></i></td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Project activity log</td>
+                                    <td>Within 3 projects</td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Project timesheet</td>
+                                    <td>Within 3 projects</td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Task activity log</td>
+                                    <td>Within 3 projects</td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+
+                                <tr class="compare-table__category">
+                                    <td colspan="4">Collaboration & Organization</td>
+                                </tr>
+                                <tr>
+                                    <td>Checklists</td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Files & media</td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Reports</td>
+                                    <td>Within 3 projects</td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Tag</td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                    <td class="compare-table__highlight"><i data-lucide="check-circle"
+                                            class="icon-check"></i></td>
+                                    <td><i data-lucide="check-circle" class="icon-check"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== TRUSTED BY (LOGOS) ========== -->
+            <section class="trusted-logos">
+                <div class="trusted-logos__container container">
+                    <h2 class="trusted-logos__title" data-reveal>Join <span class="trusted-logos__highlight">50+
+                            companies</span> <span class="mobile-break">using TaskTag</span></h2>
+                    <div class="trusted-logos__marquee-container" data-reveal>
+                        <div class="trusted-logos__marquee-content">
+                            <!-- First set -->
+                            <img src="assets/client/Logo-precision.png" alt="Precision" class="trusted-logos__item" />
+                            <img src="assets/client/Logo-Zerodraft.png" alt="Zerodraft" class="trusted-logos__item" />
+                            <img src="assets/client/Logo-intown.png" alt="Intown" class="trusted-logos__item" />
+                            <img src="assets/client/Logo-lovett.png" alt="Lovett" class="trusted-logos__item" />
+                            <img src="assets/client/Sosa.png" alt="Sosa" class="trusted-logos__item" />
+                            <img src="assets/client/Logo-post.png" alt="Post" class="trusted-logos__item" />
+                            <img src="assets/client/Isc-Logo-BW.png" alt="Isc" class="trusted-logos__item" />
+                            <img src="assets/client/Swenson-Logo.png" alt="Swenson" class="trusted-logos__item" />
+                            <!-- Duplicate for seamless loop -->
+                            <img src="assets/client/Logo-precision.png" alt="Precision" class="trusted-logos__item" />
+                            <img src="assets/client/Logo-Zerodraft.png" alt="Zerodraft" class="trusted-logos__item" />
+                            <img src="assets/client/Logo-intown.png" alt="Intown" class="trusted-logos__item" />
+                            <img src="assets/client/Logo-lovett.png" alt="Lovett" class="trusted-logos__item" />
+                            <img src="assets/client/Sosa.png" alt="Sosa" class="trusted-logos__item" />
+                            <img src="assets/client/Logo-post.png" alt="Post" class="trusted-logos__item" />
+                            <img src="assets/client/Isc-Logo-BW.png" alt="Isc" class="trusted-logos__item" />
+                            <img src="assets/client/Swenson-Logo.png" alt="Swenson" class="trusted-logos__item" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== TESTIMONIAL ========== -->
+            <section class="testimonial-section">
+                <div class="testimonial-section__container container">
+                    <div class="testimonial-section__header" data-reveal>
+                        <h2 class="testimonial-section__title">Trusted by Builders on Real Jobsites</h2>
+                        <p class="testimonial-section__subtitle">See what contractors and project managers say about
+                            our platform</p>
+                    </div>
+
+                    <div class="testimonial-main" data-reveal>
+                        <div class="testimonial-video">
+                            <video class="testimonial-video__element" poster="assets/foreman.jpg" playsinline muted
+                                loop>
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <button class="testimonial-video__play-btn" aria-label="Play video">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </button>
+                        </div>
+
+                        <div class="testimonial-quote-container">
+                            <div class="testimonial-quote-card">
+                                <div class="testimonial-quote-mark">&ldquo;</div>
+                                <p class="testimonial-quote-text">
+                                    TaskTag helped us reach a 95% completion rate. With real-time tracking and
+                                    verification from the field, our team closes jobs much faster without chasing
+                                    anyone.
+                                </p>
+                            </div>
+
+                            <div class="testimonial-footer">
+                                <div class="testimonial-author">
+                                    <div class="testimonial-author__logo">
+                                        <img src="assets/client/Sosa.png" alt="SOSA Construction Logo" />
+                                    </div>
+                                    <span class="testimonial-author__name">SOSA Construction</span>
+                                </div>
+                                <div class="testimonial-nav">
+                                    <button class="testimonial-nav__btn testimonial-nav__btn--prev"
+                                        aria-label="Previous testimonial">
+                                        <i data-lucide="arrow-left"></i>
+                                    </button>
+                                    <span class="testimonial-pagination">01 / <span
+                                            class="testimonial-pagination__total">03</span></span>
+                                    <button class="testimonial-nav__btn testimonial-nav__btn--next"
+                                        aria-label="Next testimonial">
+                                        <i data-lucide="arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== FAQ ========== -->
+            <section class="faq-section">
+                <div class="faq-section__container container">
+                    <div class="faq-section__header" data-reveal>
+                        <h2 class="faq-section__title">Frequently Asked Questions</h2>
+                        <p class="faq-section__subtitle">Everything about our pricing and plans</p>
+                    </div>
+
+                    <div class="faq-grid" data-reveal>
+                        <!-- FAQ 1 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>Do you have monthly and yearly billing options?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Yes! We offer both. Yearly billing saves you 20% compared to monthly.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 2 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>How yearly billing works:</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Your initial annual charge is based on the number of team members you have when
+                                    you start paying.</p>
+                                <ul style="padding: 0 2rem 1rem 3.5rem; color: var(--text-secondary);">
+                                    <li style="margin-bottom: 0.5rem;"><strong>Adding a member:</strong> You'll be
+                                        charged a prorated amount for the remainder of your billing year — just like
+                                        monthly, but scaled to your annual cycle.</li>
+                                    <li style="margin-bottom: 0.5rem;"><strong>Removing a member:</strong> Their
+                                        seat stays open for you to fill with someone new. If the seat stays empty,
+                                        your bill adjusts to your active team count at renewal.</li>
+                                </ul>
+                                <p>You can switch between monthly and yearly billing at any time from your account
+                                    settings.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 3 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>Are there discounts for larger teams?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Yes! We offer volume pricing for teams and organizations that need broader
+                                    rollouts. Contact Sales to tell us about your team and we'll put together a plan
+                                    that fits. Most quotes go out within one business day.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 4 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>What happens when I switch from Free to Team subscription?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Upgrading is instant and seamless. Here's what to expect:</p>
+                                <ul style="padding: 0 2rem 1rem 3.5rem; color: var(--text-secondary);">
+                                    <li style="margin-bottom: 0.5rem;">Your projects, files, and data carry over —
+                                        nothing is lost or disrupted</li>
+                                    <li style="margin-bottom: 0.5rem;">Your team members stay in place — no need to
+                                        re-invite anyone</li>
+                                    <li style="margin-bottom: 0.5rem;">Billing starts the day you upgrade,
+                                        calculated based on your number of active team members</li>
+                                    <li style="margin-bottom: 0.5rem;">You immediately unlock unlimited projects,
+                                        2TB storage, global activity log, project templates, and team roles &
+                                        permissions</li>
+                                </ul>
+                                <p>The whole process takes less than a minute from your account settings.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 5 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>Can I cancel at any time?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Absolutely. There are no contracts or cancellation fees.</p>
+                                <p style="padding-top: 0;">Here's how it works:</p>
+                                <ul style="padding: 0 2rem 1rem 3.5rem; color: var(--text-secondary);">
+                                    <li style="margin-bottom: 0.5rem;">You keep full Team access through the end of
+                                        your current billing period — nothing changes until then</li>
+                                    <li style="margin-bottom: 0.5rem;">Your data is never deleted. All projects,
+                                        files, and documentation stay safe in your account</li>
+                                    <li style="margin-bottom: 0.5rem;">At the end of your billing period, your
+                                        account moves to the Free plan. You'll have access to your 3 most recent
+                                        projects, and the rest will be archived until you upgrade again</li>
+                                </ul>
+                                <p>If you ever want to come back, just resubscribe and everything will be right
+                                    where you left it.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 6 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>What is TaskTag's refund policy?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Sorry, no refunds. You can cancel your subscription whenever you'd like.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 7 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>What happens to projects and teams if I stop paying for my plan?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Any project and Team you create during your trial will still be available in your
+                                    account. You will not be able to create any new projects or edit existing
+                                    projects.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 8 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>What if I have more than 3 projects at the end of my trial</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>All your data stays safe. Upgrade to Team anytime to unlock everything right
+                                    where you left off, or trim down to 3 active projects to continue on the free
+                                    plan.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 9 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>What are the differences among Admin, Member and Viewer roles?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <ul
+                                    style="padding: 1rem 2rem 2rem 3.5rem; color: var(--text-secondary); list-style-type: none;">
+                                    <li style="margin-bottom: 1.5rem;"><strong>Admin</strong>, if you are admin of
+                                        the project, you will have access to edit/delete/archive/set new admin.</li>
+                                    <li style="margin-bottom: 1.5rem;"><strong>Member</strong>, if you are member of
+                                        the project, you will have access to teams/projects with edit rights for the
+                                        items of project. You will not be able to edit the project's own attributes.
+                                    </li>
+                                    <li style="margin-bottom: 0;"><strong>Viewer</strong>, if you are viewer of the
+                                        project, you will have access to the project items to view and can be
+                                        assigned tasks. You will not be able to edit anything.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- FAQ 10 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>Who can see my projects and files?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Access is controlled by <strong>membership and permissions</strong>. Only
+                                    invited users (and roles you assign) can view project content.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 11 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>Can I control permissions for clients/subcontractors?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Yes, TaskTag supports inviting collaborators with limited access depending on
+                                    role/permissions.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 12 -->
+                        <div class="faq-item">
+                            <button class="faq-item__trigger">
+                                <span>Is my data encrypted?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-item__content">
+                                <p>Data is typically encrypted in transit (HTTPS/TLS). Encryption at rest may also
+                                    be supported depending on the platform architecture—confirm via the security
+                                    overview.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== BOTTOM CTA ========== -->
+            <section class="bottom-cta">
+                <div class="bottom-cta__container container">
+                    <div class="bottom-cta__content" data-reveal>
+                        <div>
+                            <h2 class="bottom-cta__title">Ready to try it on your next job?</h2>
+                            <p class="bottom-cta__subtitle">Try TaskTag for 30 days free with all features unlocked.
+                                <br /> No credit card required to start.
+                            </p>
+                            <a href="https://app.tasktag.com/register/signup-with-email" class="bottom-cta__btn">Get
+                                Started For Free</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== FOOTER ========== -->
+            <footer class="footer">
+                <div class="footer__container container">
+                    <div class="footer__top">
+                        <div class="footer__brand-section">
+                            <div class="footer__logo">
+                                <img src="assets/Logo-TaskTag.svg" alt="TaskTag Logo"
+                                    style="height: 40px; width: auto;" />
+                            </div>
+                            <div class="footer__contact-info">
+                                <p>2410 Polk Street, Houston, Texas</p>
+                                <p class="footer__email-address"><a href="mailto:info@tasktag.com"
+                                        style="text-decoration: none;">info@tasktag.com</a></p>
+                            </div>
+                        </div>
+                        <div class="footer__links-section">
+                            <div class="footer__column"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                <div class="footer__socials">
+                                    <a href="mailto:info@tasktag.com" class="footer__social-icon"><i data-lucide="mail"
+                                            style="width:18px;height:18px;stroke-width:1.5;"></i></a>
+                                    <a href="https://www.instagram.com/tasktagapp/" class="footer__social-icon"
+                                        target="_blank" rel="noopener noreferrer"><i data-lucide="instagram"
+                                            style="width:18px;height:18px;stroke-width:1.5;"></i></a>
+                                    <a href="https://www.linkedin.com/company/tasktagapp/posts/?feedView=all"
+                                        class="footer__social-icon" target="_blank" rel="noopener noreferrer"><i
+                                            data-lucide="linkedin"
+                                            style="width:18px;height:18px;stroke-width:1.5;"></i></a>
+                                    <a href="https://www.youtube.com/channel/UC95-ZfL7LHxYAtcLqAAkDOw"
+                                        class="footer__social-icon" target="_blank" rel="noopener noreferrer"><i
+                                            data-lucide="youtube"
+                                            style="width:18px;height:18px;stroke-width:1.5;"></i></a>
+                                </div>
+                            </div>
+                            <div class="footer__column"
+                                style="display: flex; flex-direction: row; align-items: center; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
+                                <a href="https://apps.apple.com/us/app/tasktag-how-to-project/id1635406641"
+                                    class="footer__store-link" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/app_store.svg" alt="Download on the App Store"
+                                        style="height: 36px; width: auto;" />
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=com.eloveit.TaskTag&pcampaignid=web_share"
+                                    class="footer__store-link" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/playstore.svg" alt="Get it on Google Play"
+                                        style="height: 36px; width: auto;" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer__bottom">
+                        <div class="footer__bottom-links">
+                            <a href="https://tasktag.com/privacy" target="_blank" rel="noopener noreferrer">Privacy
+                                Policy</a>
+                            <a href="https://tasktag.com/terms-and-conditions" target="_blank"
+                                rel="noopener noreferrer">Terms &amp; Conditions</a>
+                            <a href="https://tasktag.com/faq" target="_blank" rel="noopener noreferrer">FAQ</a>
+                        </div>
+                        <p class="footer__copyright">&copy;2024 TaskTag. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Lenis Smooth Scroll -->
+        <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
+
+        <!-- Lucide Icons CDN -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+
+        <!-- JS Modules -->
+        <script src="js/smooth-scroll.js"></script>
+        <script src="js/scroll-reveal.js"></script>
+        <script src="js/navbar.js"></script>
+        <script src="js/pricing.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>
