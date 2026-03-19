@@ -111,13 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const testimonialData = [
         {
             youtubeId: "PaMdqQpi_RU",
-            quote: "TaskTag helped us reach a 95% completion rate. With real-time tracking and verification from the field, our team closes jobs much faster without chasing anyone.",
+            quote: "TaskTag helped us in a big way by allowing us to go back, look at our files, and track our projects from start to finish.",
             author: "SOSA Construction",
             logo: "assets/client/Sosa.png"
         },
         {
             youtubeId: "HbVgkSacVuo",
-            quote: "Since switching to TaskTag, we cut rework by 40%. When everyone's pulling from the same approved photos and plans, you stop paying for the same job twice — it's the fastest way to protect your margins.",
+            quote: "Since switching to TaskTag, we replaced chaotic emails and Dropbox links with one simple upload link. You stop chasing files — it's the fastest way to get real content with zero confusion.",
             author: "Newman Web Solutions",
             logo: "assets/client/newman.svg"
         },
