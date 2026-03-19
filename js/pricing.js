@@ -10,46 +10,48 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleContainer && teamPrice && teamBillingText) {
         const slider = document.querySelector('.pricing-toggle__slider');
         
-        toggleOptions.forEach((option, index) => {
-            option.addEventListener('click', () => {
+        // Function to update prices based on billing period
+        const updatePrices = (period) => {
+            teamPrice.classList.add('price-updating');
+            setTimeout(() => {
+                if (period === 'yearly') {
+                    teamPrice.textContent = '$16';
+                    teamBillingText.textContent = 'Member/Mo billed yearly';
+                } else {
+                    teamPrice.textContent = '$20';
+                    teamBillingText.textContent = 'Member/Mo billed monthly';
+                }
+                teamPrice.classList.remove('price-updating');
+            }, 150);
+        };
+
+        // Update prices based on billing toggle
+        toggleOptions.forEach((btn) => {
+            btn.addEventListener('click', () => {
                 // Remove active class from all
                 toggleOptions.forEach(opt => opt.classList.remove('active'));
                 // Add to current
-                option.classList.add('active');
+                btn.classList.add('active');
                 
-                // Move slider
+                // Move slider - offsetLeft includes container padding (4px), subtract it
                 if (slider) {
-                    const offset = index * (220 + 4); // option width + gap
-                    slider.style.transform = `translateX(${offset}px)`;
+                    slider.style.width = `${btn.offsetWidth}px`;
+                    slider.style.transform = `translateX(${btn.offsetLeft - 4}px)`;
                 }
                 
-                const billingType = option.getAttribute('data-billing');
-                const isYearly = (billingType === 'yearly');
-                
-                // Start price update with fade
-                teamPrice.classList.add('price-updating');
-                
-                setTimeout(() => {
-                    if (isYearly) {
-                        teamPrice.textContent = '$16';
-                        teamBillingText.textContent = 'Member/Mo billed yearly';
-                    } else {
-                        teamPrice.textContent = '$20';
-                        teamBillingText.textContent = 'Member/Mo billed monthly';
-                    }
-                    teamPrice.classList.remove('price-updating');
-                }, 150);
+                const billingType = btn.getAttribute('data-billing');
+                updatePrices(billingType);
             });
         });
 
         // Set initial slider position
         const activeOption = document.querySelector('.pricing-toggle__option.active');
         if (activeOption && slider) {
-            const index = Array.from(toggleOptions).indexOf(activeOption);
-            slider.style.transition = 'none'; // No animation on load
-            slider.style.transform = `translateX(${index * (220 + 4)}px)`;
+            slider.style.transition = 'none';
+            slider.style.width = `${activeOption.offsetWidth}px`;
+            slider.style.transform = `translateX(${activeOption.offsetLeft - 4}px)`;
             setTimeout(() => {
-                slider.style.transition = ''; // Restore transition
+                slider.style.transition = '';
             }, 50);
         }
     }
@@ -116,14 +118,14 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             video: "https://www.w3schools.com/html/movie.mp4",
             poster: "assets/bento_img_1.jpg",
-            quote: "The project management features are game-changing. We've seen a 30% increase in onsite productivity since switching to TaskTag for all our communication.",
+            quote: "Since switching to TaskTag, we cut rework by 40%. When everyone's pulling from the same approved photos and plans, you stop paying for the same job twice — it's the fastest way to protect your margins.",
             author: "Zerodraft",
             logo: "assets/client/Logo-Zerodraft.png"
         },
         {
             video: "https://www.w3schools.com/html/mov_bbb.mp4",
             poster: "assets/bento_img_2.jpg",
-            quote: "Finally a tool that construction crews actually want to use. The mobile-first approach means our daily reports are done before the foremen even leave the site.",
+            quote: "TaskTag is the first tool our crews actually want to use. The mobile-first approach means daily reports are done before the foremen even leave the site — no more chasing paperwork at the end of the day.",
             author: "Swenson",
             logo: "assets/client/Swenson-Logo.png"
         }
@@ -181,13 +183,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 const data = testimonialData[index];
-                
+
                 // Update content
                 testimonialVideo.src = data.video;
                 testimonialVideo.poster = data.poster;
                 testimonialVideo.pause();
                 videoContainer.classList.remove('is-playing');
-                
+
                 if (testimonialQuoteText) testimonialQuoteText.textContent = data.quote;
                 if (testimonialAuthorName) testimonialAuthorName.textContent = data.author;
                 if (testimonialAuthorLogo) {
@@ -215,25 +217,97 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Recalculate slider on resize
+    const syncSlider = () => {
+        const active = document.querySelector('.pricing-toggle__option.active');
+        const slider = document.querySelector('.pricing-toggle__slider');
+        if (active && slider) {
+            slider.style.width = `${active.offsetWidth}px`;
+            slider.style.transform = `translateX(${active.offsetLeft - 4}px)`;
+        }
+    };
+
     window.addEventListener('resize', syncCardHeights);
+    window.addEventListener('resize', syncSlider);
     syncCardHeights();
+
+    // Testimonial nav visibility (mobile only)
+    const testimonialVideoEl = document.querySelector('.testimonial-video');
+    const testimonialNavEl = document.querySelector('.testimonial-nav');
+    const testimonialQuoteCard = document.querySelector('.testimonial-quote-card');
+
+    if (testimonialVideoEl && testimonialNavEl) {
+        let videoVisible = false;
+        let quoteVisible = false;
+
+        const updateNavVisibility = () => {
+            testimonialNavEl.classList.toggle('testimonial-nav--active', videoVisible || quoteVisible);
+        };
+
+        // Show when video is ~fully visible
+        new IntersectionObserver(([entry]) => {
+            videoVisible = entry.isIntersecting;
+            updateNavVisibility();
+        }, { threshold: 0.95 }).observe(testimonialVideoEl);
+
+        // Also show when quote card is visible — nav settles below it naturally
+        if (testimonialQuoteCard) {
+            new IntersectionObserver(([entry]) => {
+                quoteVisible = entry.isIntersecting;
+                updateNavVisibility();
+            }, { threshold: 0.2 }).observe(testimonialQuoteCard);
+        }
+    }
+
+    // Sticky shadow for compare nav
+    const compareNavSentinel = document.querySelector('.compare-mobile-nav-sentinel');
+    const compareNav = document.querySelector('.compare-mobile-nav');
+    if (compareNavSentinel && compareNav) {
+        const stickyObserver = new IntersectionObserver(([entry]) => {
+            compareNav.classList.toggle('compare-mobile-nav--stuck', !entry.isIntersecting);
+        }, { rootMargin: '-88px 0px 0px 0px', threshold: 0 });
+        stickyObserver.observe(compareNavSentinel);
+    }
 
     // Compare Plans Mobile Switcher Logic
     const compareMobileBtns = document.querySelectorAll('.compare-mobile-nav__btn');
     const compareTable = document.getElementById('compare-table');
-    
+    const planHeaderItems = document.querySelectorAll('.compare-mobile-plan-header__item');
+    const compareNavSlider = document.querySelector('.compare-mobile-nav__slider');
+
+    const moveCompareSlider = (btn) => {
+        if (!compareNavSlider) return;
+        compareNavSlider.style.width = `${btn.offsetWidth}px`;
+        compareNavSlider.style.transform = `translateX(${btn.offsetLeft - 4}px)`;
+    };
+
     if (compareMobileBtns.length > 0 && compareTable) {
+        // Initialize slider on active button
+        const activeComparBtn = document.querySelector('.compare-mobile-nav__btn.active');
+        if (activeComparBtn && compareNavSlider) {
+            compareNavSlider.style.transition = 'none';
+            moveCompareSlider(activeComparBtn);
+            setTimeout(() => { compareNavSlider.style.transition = ''; }, 50);
+        }
+
         compareMobileBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const plan = btn.getAttribute('data-plan');
-                
+
                 // Update active button
                 compareMobileBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
+
+                // Animate slider
+                moveCompareSlider(btn);
+
                 // Update table class
                 compareTable.classList.remove('show-free', 'show-team', 'show-enterprise');
                 compareTable.classList.add(`show-${plan}`);
+
+                // Update plan header
+                planHeaderItems.forEach(item => item.classList.remove('active'));
+                document.querySelector(`.compare-mobile-plan-header__item[data-plan="${plan}"]`)?.classList.add('active');
             });
         });
     }

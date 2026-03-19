@@ -348,6 +348,12 @@
     margin-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+    .compare-plans__header {
+        justify-content: center;
+    }
+}
+
 .compare-plans__icon {
     width: 5rem;
     height: 5rem;
@@ -394,6 +400,35 @@
 .compare-table th {
     vertical-align: top;
     padding-top: 2.5rem;
+}
+
+@media (min-width: 769px) {
+    .compare-table-wrapper {
+        overflow: visible;
+    }
+
+    .compare-table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .compare-table th,
+    .compare-table td {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .compare-table thead th {
+        position: sticky;
+        top: 72px;
+        z-index: 20;
+        background: var(--white);
+    }
+
+    .compare-table thead th.compare-table__highlight {
+        background: var(--grey-02);
+    }
 }
 
 .compare-table th:first-child {
@@ -471,15 +506,21 @@
     height: 24px;
 }
 
+.compare-mobile-nav-sentinel {
+    height: 1px;
+    pointer-events: none;
+}
+
 /* Mobile Plan Switcher */
 .compare-mobile-nav {
     display: none;
     max-width: 400px;
-    margin: 0 auto 2.5rem;
-    background: var(--grey-03);
+    margin: 0 auto 0;
+    background: var(--grey-02);
     padding: 4px;
     border-radius: 100px;
     gap: 4px;
+    border: 1px solid var(--grey-03);
 }
 
 .compare-mobile-nav__btn {
@@ -496,26 +537,112 @@
     white-space: nowrap;
 }
 
-.compare-mobile-nav__btn.active {
-    background: var(--white);
-    color: var(--text-primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.compare-mobile-nav__btn {
+    position: relative;
+    z-index: 1;
 }
+
+.compare-mobile-nav__btn.active {
+    color: var(--white);
+}
+
+.compare-mobile-nav__slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: calc(100% - 8px);
+    background: var(--text-secondary);
+    border-radius: 100px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Mobile plan header (below tab, not sticky) */
+.compare-mobile-plan-header {
+    display: none;
+}
+
+.compare-mobile-plan-header__item {
+    display: none;
+    padding: 1rem 0;
+}
+
+.compare-mobile-plan-header__item.active {
+    display: block;
+}
+
+.compare-mobile-plan-header__cta {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: var(--font-weight-regular);
+}
+
 @media (max-width: 768px) {
     .compare-mobile-nav {
         display: flex;
+        position: sticky;
+        top: 88px;
+        z-index: 50;
+        background: var(--grey-02);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .compare-mobile-nav--stuck {
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .compare-mobile-plan-header {
+        display: block;
+        border-bottom: 1px solid var(--grey-03);
+        padding: 0;
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
+
+    .compare-mobile-plan-header__item {
+        padding: 0 0 1.75rem;
+    }
+
+    .compare-table-wrapper {
+        margin-top: 1.75rem;
+    }
+
+    .icon-check,
+    .icon-x {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .compare-table thead {
+        display: none;
+    }
+
+    .compare-table {
+        table-layout: auto;
+    }
+
+    /* Remove Team highlight background on mobile */
+    .compare-table .compare-table__highlight {
+        background: transparent;
     }
 
     .compare-table th:first-child,
     .compare-table td:first-child {
-        width: 160px !important;
+        width: 50% !important;
         position: sticky;
         left: 0;
         background: var(--white);
         z-index: 10;
         border-right: 1px solid var(--grey-03);
     }
-    
+
     .compare-table__category td {
         position: relative;
         left: 0;
@@ -545,10 +672,21 @@
         display: none !important;
     }
 
-    .compare-table th, .compare-table td {
+    /* Visible plan column always takes the remaining 50% */
+    .compare-table.show-free th:nth-child(2),
+    .compare-table.show-free td:nth-child(2),
+    .compare-table.show-team th:nth-child(3),
+    .compare-table.show-team td:nth-child(3),
+    .compare-table.show-enterprise th:nth-child(4),
+    .compare-table.show-enterprise td:nth-child(4) {
+        width: 50% !important;
+    }
+
+    .compare-table th,
+    .compare-table td {
         padding: 1rem 0.75rem !important;
     }
-    
+
     .compare-table__price {
         font-size: 1.5rem !important;
     }
@@ -666,7 +804,8 @@
     gap: 2rem;
     align-items: flex-start;
     position: relative;
-    padding-bottom: 4rem; /* Space for nav at bottom on desktop */
+    padding-bottom: 4rem;
+    /* Space for nav at bottom on desktop */
 }
 
 .testimonial-nav {
@@ -821,6 +960,7 @@
     0% {
         background-position: -200% 0;
     }
+
     100% {
         background-position: 200% 0;
     }
@@ -841,10 +981,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, 
-        rgba(255, 255, 255, 0) 0%, 
-        rgba(255, 255, 255, 0.6) 50%, 
-        rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.6) 50%,
+            rgba(255, 255, 255, 0) 100%);
     background-size: 200% 100%;
     animation: skeleton-shimmer 1.5s infinite;
     z-index: 10;
@@ -857,7 +997,8 @@
 
 .testimonial-quote-text.is-loading-skeleton {
     background: none !important;
-    height: 8.1rem; /* 3 lines * (1.5rem * 1.8) */
+    height: 8.1rem;
+    /* 3 lines * (1.5rem * 1.8) */
     display: block;
     width: 100%;
     margin: 0;
@@ -870,15 +1011,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: repeating-linear-gradient(
-        transparent,
-        transparent 0rem,
-        var(--vivid-yellow) 0rem,
-        var(--vivid-yellow) 1.5rem,
-        transparent 1.5rem,
-        transparent 2.7rem
-    );
-    background-size: 100% 2.7rem; /* Exact line-height (1.5 * 1.8) */
+    background: repeating-linear-gradient(transparent,
+            transparent 0rem,
+            var(--vivid-yellow) 0rem,
+            var(--vivid-yellow) 1.5rem,
+            transparent 1.5rem,
+            transparent 2.7rem);
+    background-size: 100% 2.7rem;
+    /* Exact line-height (1.5 * 1.8) */
     opacity: 0.15;
     border-radius: 4px;
 }
@@ -956,6 +1096,11 @@
     margin: 0 auto;
 }
 
+/* Also add gap between trigger text and icon */
+.faq-item__trigger {
+    gap: 1rem;
+}
+
 .faq-section__header {
     text-align: center;
     margin-bottom: 4rem;
@@ -1016,19 +1161,27 @@
     font-weight: var(--font-weight-semibold);
 }
 
-.faq-item__trigger i,
-.faq-item__trigger svg {
-    width: 24px;
-    height: 24px;
+.faq-icon-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--grey-02);
+    border-radius: 50%;
+    flex-shrink: 0;
     transition: transform 0.3s ease;
-    color: var(--text-primary);
 }
 
-.faq-item.active .faq-item__trigger i,
-.faq-item.active .faq-item__trigger svg {
+.faq-item__trigger i,
+.faq-item__trigger svg {
+    width: 18px;
+    height: 18px;
+    color: var(--text-primary);
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon-wrapper {
     transform: rotate(180deg);
 }
 
@@ -1047,6 +1200,11 @@
     font-size: 1.125rem;
     color: var(--text-secondary);
     line-height: 1.6;
+    text-align: left;
+}
+
+.faq-mobile-br {
+    display: none;
 }
 
 /* Bottom CTA section */
@@ -1055,21 +1213,31 @@
     background: var(--white);
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+}
+
+.bottom-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, var(--light-lavender) 100%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .bottom-cta::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 80%;
-    background: linear-gradient(180deg, transparent, var(--light-lavender));
-    filter: blur(120px);
-    z-index: 1;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 60%;
+    background: var(--light-lavender);
+    filter: blur(80px);
+    z-index: 0;
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .bottom-cta__container {
@@ -1150,9 +1318,10 @@
 
 @media (max-width: 992px) {
     .pricing-cards {
+        display: flex;
         flex-direction: column;
         gap: 2rem;
-        padding: 0 1rem;
+        padding: 0;
         margin-top: 3rem;
     }
 
@@ -1164,34 +1333,64 @@
         border: 1px solid var(--grey-03);
     }
 
+    /* Mobile Reorder: Team (Popular) -> Enterprise -> Free */
+    .pricing-card--popular {
+        order: 1;
+        transform: none;
+        border: 2px solid var(--secondary-green);
+    }
+
+    .pricing-card:last-child {
+        order: 2;
+    }
+
+    .pricing-card:first-child {
+        order: 3;
+    }
+
     .pricing-card:first-child,
     .pricing-card:last-child {
         border-radius: 24px !important;
     }
 
-    .pricing-card--popular {
-        transform: none;
-        border: 2px solid var(--secondary-green);
-    }
-
     .pricing-hero__title,
+    .compare-plans__title,
     .testimonial-section__title,
     .faq-section__title,
     .bottom-cta__title {
         font-size: 3rem;
     }
+
+    .compare-plans__icon,
+    .compare-plans__icon i,
+    .compare-plans__icon svg {
+        width: 3rem;
+        height: 3rem;
+    }
 }
 
 @media (max-width: 768px) {
     .pricing-hero {
-        padding: 6rem 1rem 4rem;
+        padding: 8rem 0rem 4rem;
+    }
+
+    .pricing-hero__desktop-br {
+        display: none;
     }
 
     .pricing-hero__title,
+    .compare-plans__title,
     .testimonial-section__title,
     .faq-section__title,
     .bottom-cta__title {
         font-size: 2.5rem;
+    }
+
+    .compare-plans__icon,
+    .compare-plans__icon i,
+    .compare-plans__icon svg {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     .pricing-hero__subtitle,
@@ -1205,9 +1404,25 @@
         display: block;
     }
 
+    .trusted-logos {
+        overflow: hidden;
+    }
+
+    .trusted-logos__container {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
     .trusted-logos__title {
         font-size: 1.75rem;
         line-height: 1.4;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .trusted-logos__marquee-container {
+        width: 100%;
     }
 
     .faq-section__container {
@@ -1219,11 +1434,12 @@
         padding: 1.25rem 1rem;
     }
 
-    /* Testimonial Mobile Reorder: Nav (R1), Video (R2), Quote (R3) */
+    /* Testimonial Mobile: Author (R1), Video (R2), Quote (R3), Nav sticky bottom */
     .testimonial-main {
         display: flex;
         flex-direction: column;
-        gap: 2.5rem;
+        gap: 1.5rem;
+        align-items: flex-start;
     }
 
     .testimonial-quote-container,
@@ -1232,43 +1448,145 @@
     }
 
     .testimonial-nav {
-        order: -1;
-        width: 100%;
+        order: 3;
+        position: sticky;
+        bottom: 1.5rem;
+        top: auto;
+        align-self: center;
+        z-index: 50;
+        width: fit-content;
         justify-content: center;
-        margin-bottom: 0.5rem;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        gap: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+
+    .testimonial-nav--active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .testimonial-pagination {
+        background: var(--white);
+        border: 1px solid var(--grey-03);
+        border-radius: 100px;
+        padding: 6px 16px;
     }
 
     .testimonial-video {
         order: 1;
+        width: 100%;
         max-width: none;
+        border-radius: 24px;
     }
 
     .testimonial-quote-card {
         order: 2;
         width: 100%;
         max-width: none;
+        border-radius: 24px;
     }
 
     .testimonial-author {
-        order: 3;
-        flex-direction: column;
+        order: 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
+        gap: 1.25rem;
+    }
+
+    .testimonial-author__logo {
+        width: 72px;
+        height: 72px;
+    }
+
+    .testimonial-author__name {
+        font-size: 1.375rem;
+    }
+
+    /* Closer gap between testimonial and FAQ */
+    .testimonial-section {
+        padding-bottom: 2rem;
+    }
+
+    .faq-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    /* Remove border-radius on FAQ container mobile */
+    .faq-section__container {
+        border-radius: 0;
+    }
+
+    /* FAQ title mobile line break */
+    .faq-mobile-br {
+        display: block;
+    }
+
+    /* FAQ trigger and content aligned left with same horizontal padding */
+    .faq-item__trigger {
+        text-align: left;
+        padding: 1.25rem 1rem;
+    }
+
+    .faq-item__content p {
+        padding: 0 1rem 1.25rem;
+    }
+
+    /* Bottom CTA closer to FAQ */
+    .bottom-cta {
+        padding: 4rem 0 5rem;
     }
 }
 
 @media (max-width: 480px) {
+
     .pricing-hero__title,
+    .compare-plans__title,
     .testimonial-section__title,
     .faq-section__title,
     .bottom-cta__title {
         font-size: 2.25rem;
     }
 
+    .compare-plans__icon,
+    .compare-plans__icon i,
+    .compare-plans__icon svg {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .pricing-hero {
+        overflow-x: hidden;
+    }
+
+    .pricing-toggle {
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .pricing-toggle__container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .pricing-toggle__option {
-        width: 140px;
+        width: auto;
+        min-width: 0;
+        flex: 1;
         font-size: 14px;
+        padding: 10px 8px;
     }
 
     .pricing-toggle__slider {
-        width: 140px;
+        width: calc(50% - 6px);
     }
 }

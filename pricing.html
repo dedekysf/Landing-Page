@@ -74,6 +74,14 @@
                             <a href="https://app.tasktag.com/login" class="navbar__secondary-btn" target="_blank"
                                 rel="noopener noreferrer">Login</a>
                         </div>
+                        <div class="navbar__mobile-stores">
+                            <a href="https://apps.apple.com/us/app/tasktag-how-to-project/id1635406641" class="navbar__store-link" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/app_store.svg" alt="App Store" />
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.eloveit.TaskTag" class="navbar__store-link" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/playstore.svg" alt="Play Store" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,15 +203,35 @@
                         <h2 class="compare-plans__title">Compare Plans</h2>
                     </div>
 
+                    <!-- Sentinel for sticky shadow detection -->
+                    <div class="compare-mobile-nav-sentinel"></div>
+
                     <!-- Mobile Plan Switcher -->
                     <div class="compare-mobile-nav" data-reveal>
-                        <button class="compare-mobile-nav__btn active" data-plan="free">Free</button>
-                        <button class="compare-mobile-nav__btn" data-plan="team">Team</button>
+                        <button class="compare-mobile-nav__btn" data-plan="free">Free</button>
+                        <button class="compare-mobile-nav__btn active" data-plan="team">Team</button>
                         <button class="compare-mobile-nav__btn" data-plan="enterprise">Enterprise</button>
+                        <div class="compare-mobile-nav__slider"></div>
+                    </div>
+
+                    <!-- Mobile Plan Header (not sticky) -->
+                    <div class="compare-mobile-plan-header" id="compare-mobile-plan-header">
+                        <div class="compare-mobile-plan-header__item" data-plan="free">
+                            <a href="https://app.tasktag.com/register/signup-with-email"
+                                class="compare-mobile-plan-header__cta compare-table__btn-outline">Start For Free</a>
+                        </div>
+                        <div class="compare-mobile-plan-header__item active" data-plan="team">
+                            <a href="https://app.tasktag.com/register/signup-with-email"
+                                class="compare-mobile-plan-header__cta compare-table__btn-filled">Get Started</a>
+                        </div>
+                        <div class="compare-mobile-plan-header__item" data-plan="enterprise">
+                            <a href="https://portal.tasktag.com/demo"
+                                class="compare-mobile-plan-header__cta compare-table__btn-dark">Contact Sales</a>
+                        </div>
                     </div>
 
                     <div class="compare-table-wrapper" data-reveal>
-                        <table class="compare-table show-free" id="compare-table">
+                        <table class="compare-table show-team" id="compare-table">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -431,7 +459,7 @@
             <section class="faq-section">
                 <div class="faq-section__container container">
                     <div class="faq-section__header" data-reveal>
-                        <h2 class="faq-section__title">Frequently Asked Questions</h2>
+                        <h2 class="faq-section__title">Frequently <br class="faq-mobile-br">Asked Questions</h2>
                         <p class="faq-section__subtitle">Everything about our pricing and plans</p>
                     </div>
 
@@ -440,7 +468,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>Do you have monthly and yearly billing options?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Yes! We offer both. Yearly billing saves you 20% compared to monthly.</p>
@@ -450,7 +478,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>How yearly billing works:</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Your initial annual charge is based on the number of team members you have when
@@ -471,7 +499,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>Are there discounts for larger teams?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Yes! We offer volume pricing for teams and organizations that need broader
@@ -483,7 +511,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>What happens when I switch from Free to Team subscription?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Upgrading is instant and seamless. Here's what to expect:</p>
@@ -505,7 +533,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>Can I cancel at any time?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Absolutely. There are no contracts or cancellation fees.</p>
@@ -527,7 +555,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>What is TaskTag's refund policy?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Sorry, no refunds. You can cancel your subscription whenever you'd like.</p>
@@ -537,7 +565,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>What happens to projects and teams if I stop paying for my plan?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Any project and Team you create during your trial will still be available in your
@@ -549,7 +577,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>What if I have more than 3 projects at the end of my trial</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>All your data stays safe. Upgrade to Team anytime to unlock everything right
@@ -561,7 +589,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>What are the differences among Admin, Member and Viewer roles?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <ul
@@ -582,7 +610,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>Who can see my projects and files?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Access is controlled by <strong>membership and permissions</strong>. Only
@@ -593,7 +621,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>Can I control permissions for clients/subcontractors?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Yes, TaskTag supports inviting collaborators with limited access depending on
@@ -604,7 +632,7 @@
                         <div class="faq-item">
                             <button class="faq-item__trigger">
                                 <span>Is my data encrypted?</span>
-                                <i data-lucide="chevron-down"></i>
+                                <span class="faq-icon-wrapper"><i data-lucide="chevron-down"></i></span>
                             </button>
                             <div class="faq-item__content">
                                 <p>Data is typically encrypted in transit (HTTPS/TLS). Encryption at rest may also
@@ -622,9 +650,7 @@
                     <div class="bottom-cta__content" data-reveal>
                         <div>
                             <h2 class="bottom-cta__title">Ready to try it on your next job?</h2>
-                            <p class="bottom-cta__subtitle">Try TaskTag for 30 days free with all features unlocked.
-                                <br /> No credit card required to start.
-                            </p>
+                            <p class="bottom-cta__subtitle">Try TaskTag for 30 days free with all features unlocked. No credit card required to start.</p>
                             <a href="https://app.tasktag.com/register/signup-with-email" class="bottom-cta__btn">Get
                                 Started For Free</a>
                         </div>
