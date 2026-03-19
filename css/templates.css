@@ -10,10 +10,10 @@
     background: var(--grey-02);
     padding: 12rem 1rem;
     overflow: hidden;
-    width: 90%;
-    border-radius: 24px;
+    width: 100%;
+    border-radius: 0px;
     margin: 0 auto;
-    transition: width 0.1s ease, border-radius 0.1s ease;
+    will-change: clip-path;
 }
 
 .templates__container {

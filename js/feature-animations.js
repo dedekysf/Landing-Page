@@ -28,7 +28,7 @@ function createFeature1(container, isMobile) {
         'assets/images/features/drywall-patch-3.png',
         'assets/images/features/drywall-patch-4.png'
     ];
-    var displayImages = isMobile ? drywallImages.slice(0, 3) : drywallImages;
+    var displayImages = drywallImages.slice(0, 3);
 
     var galleryHTML = '';
     displayImages.forEach(function (src, idx) {
@@ -116,9 +116,27 @@ function createFeature1(container, isMobile) {
             btn.style.display = '';
             ui.style.display = 'none';
             ui.classList.remove('f1__ui--visible');
+            
+            // Soft fade-in for the button
+            btn.style.opacity = '0';
+            btn.style.transform = 'translateY(10px) scale(1)';
+            requestAnimationFrame(function() {
+                btn.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                btn.style.opacity = '1';
+                btn.style.transform = 'translateY(0) scale(1)';
+            });
+
             // Pressing animation
             btn.classList.remove('f1__action-btn--pressing');
-            setTimeout(function () { btn.classList.add('f1__action-btn--pressing'); }, 900);
+            setTimeout(function () { 
+                btn.style.transform = ''; // let CSS class handle transform
+                btn.style.transition = 'all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)'; // snappier press
+                btn.classList.add('f1__action-btn--pressing'); 
+            }, 900);
+        } else if (phase === 9) {
+            btn.style.display = 'none';
+            ui.style.display = '';
+            ui.classList.remove('f1__ui--visible');
         } else {
             btn.style.display = 'none';
             ui.style.display = '';
@@ -153,13 +171,17 @@ function createFeature1(container, isMobile) {
 
         // Avatar: show real avatar at phase >= 5
         if (phase >= 5 || phase === 8) {
-            avatarWrap.innerHTML =
-                '<img src="assets/avatar_foreman.png" alt="User" class="f1__avatar-img" />' +
-                '<span class="f1__avatar-badge">3</span>';
+            if (!avatarWrap.querySelector('.f1__avatar-img')) {
+                avatarWrap.innerHTML =
+                    '<img src="assets/avatar_foreman.png" alt="User" class="f1__avatar-img" />' +
+                    '<span class="f1__avatar-badge">3</span>';
+            }
         } else {
-            avatarWrap.innerHTML =
-                '<div class="f1__user-icon">' + icon('user', 20, 'color:#9CA3AF;') + '</div>';
-            refreshIcons(avatarWrap);
+            if (!avatarWrap.querySelector('.f1__user-icon')) {
+                avatarWrap.innerHTML =
+                    '<div class="f1__user-icon">' + icon('user', 20, 'color:#9CA3AF;') + '</div>';
+                refreshIcons(avatarWrap);
+            }
         }
 
         // Send button icon
@@ -208,10 +230,10 @@ function createFeature1(container, isMobile) {
 
     function schedule() {
         clearTimeout(timer);
-        var delays = { 0: 1400, 1: 400, 2: 500, 3: 600, 4: 1500, 5: 800, 6: 800, 7: 2000 };
+        var delays = { 0: 1400, 1: 400, 2: 500, 3: 600, 4: 1500, 5: 800, 6: 800, 7: 3000 };
 
         if (phase === 9) {
-            timer = setTimeout(function () { setPhase(0); }, 1500);
+            timer = setTimeout(function () { setPhase(0); }, 500); // Wait for UI to fade out
         } else if (delays[phase] !== undefined) {
             timer = setTimeout(function () {
                 var next = phase + 1;
@@ -279,7 +301,7 @@ function createFeature2(container, isMobile) {
                     '</div>' +
                 '</div>' +
                 // FAB
-                '<div class="f2__fab-container">' +
+                '<div class="f2__fab-container" data-f2="fab">' +
                     '<div class="f2__fab">' + icon('plus', 18) + ' New Task</div>' +
                 '</div>' +
                 // Chat Members Screen
@@ -290,8 +312,8 @@ function createFeature2(container, isMobile) {
                     '</div>' +
                     '<div class="f2__cm-content">' +
                         '<div data-f2="cmSelected" class="f2__cm-selected-row">' +
-                            '<div class="f2__cm-title-row" style="background:transparent;padding-bottom:0;">Selected Member (1)</div>' +
-                            '<div style="padding:16px 16px 8px;">' +
+                            '<div class="f2__cm-title-row" style="background:transparent;padding:0 0 12px 0;">Selected Member (1)</div>' +
+                            '<div>' +
                                 '<div class="f2__cm-selected-user">' +
                                     '<div class="f2__cm-selected-avatar">' +
                                         '<div class="f2__cm-initials" style="background-color:var(--dark-magenta);color:var(--white);">OG</div>' +
@@ -379,6 +401,7 @@ function createFeature2(container, isMobile) {
     var oscarCheck = container.querySelector('[data-f2="oscarCheck"]');
     var confirmBtn = container.querySelector('[data-f2="confirmBtn"]');
     var chatOverlay = container.querySelector('[data-f2="chatOverlay"]');
+    var fab = container.querySelector('[data-f2="fab"]');
 
     var phase = 3;
     var timer = null;
@@ -399,7 +422,14 @@ function createFeature2(container, isMobile) {
         drywallItem.classList.toggle('f2__list-item--tapped', phase === 4);
 
         // Member screen
-        cmScreen.classList.toggle('f2__cm-screen--visible', phase >= 5 && phase < 8);
+        cmScreen.classList.toggle('f2__cm-screen--visible', phase >= 5);
+
+        // Hide FAB on subsequent screens
+        if (fab) {
+            fab.style.opacity = (phase >= 5) ? '0' : '1';
+            fab.style.pointerEvents = (phase >= 5) ? 'none' : 'auto';
+            fab.style.transition = 'opacity 0.3s ease';
+        }
 
         // Oscar selected
         if (phase >= 6) {
@@ -424,10 +454,29 @@ function createFeature2(container, isMobile) {
 
     function schedule() {
         clearTimeout(timer);
-        var delays = { 3: 1600, 4: 400, 5: 1500, 6: 1000, 7: 200, 8: 2500 };
+        var delays = { 3: 2000, 4: 500, 5: 2000, 6: 2000, 7: 500, 8: 2500 };
 
         if (phase === 9) {
-            timer = setTimeout(function () { setPhase(3); }, 1000);
+            timer = setTimeout(function () { 
+                chatOverlay.classList.add('f2__resetting');
+                cmScreen.classList.add('f2__resetting');
+                
+                setTimeout(function() {
+                    chatOverlay.style.transition = 'none';
+                    cmScreen.style.transition = 'none';
+                    
+                    setPhase(3);
+                    
+                    chatOverlay.classList.remove('f2__resetting');
+                    cmScreen.classList.remove('f2__resetting');
+                    
+                    // Force reflow to prevent animations jumping
+                    void chatOverlay.offsetHeight;
+                    
+                    chatOverlay.style.transition = '';
+                    cmScreen.style.transition = '';
+                }, 300); // 300ms fade duration
+            }, 1700); // 1.7s wait + 0.3s fade = 2s total reset wait
         } else if (delays[phase] !== undefined) {
             timer = setTimeout(function () {
                 setPhase(phase + 1);
@@ -568,6 +617,9 @@ function createFeature3(container, isMobile) {
 
             if (phase === 9) {
                 inputText.classList.add('f3__input-text--typing');
+            } else if (phase === 10) {
+                inputText.classList.remove('f3__input-text--typing');
+                // keep the typed text during send button press
             } else {
                 inputText.classList.remove('f3__input-text--typing');
                 inputText.textContent = 'Type message here...';
@@ -645,7 +697,7 @@ function createFeature4(container, isMobile) {
             '<div class="f4__ui" data-f4="ui">' +
                 '<div class="f4__chat-window">' +
                     // Gerald message text
-                    '<div class="f4__message-row" data-f4="msg1" style="opacity:0;transform:translateY(50px);transition:opacity 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">' +
+                    '<div class="f4__message-row f4__chat-anim" data-f4="msg1">' +
                         '<img src="assets/avatar_foreman.png" class="f4__msg-avatar" alt="Gerald" />' +
                         '<div class="f4__msg-content">' +
                             '<div class="f4__msg-header">' +
@@ -656,7 +708,7 @@ function createFeature4(container, isMobile) {
                         '</div>' +
                     '</div>' +
                     // Completed card
-                    '<div class="f4__indented-row" data-f4="card">' +
+                    '<div class="f4__indented-row f4__chat-anim" data-f4="card">' +
                         '<div class="f4__completed-card">' +
                             '<div class="f4__card-header">' +
                                 '<div class="f4__card-header-left">' + icon('check-circle-2', 20, 'fill:var(--secondary-green);color:#fff;') + ' TASK COMPLETED</div>' +
@@ -668,14 +720,14 @@ function createFeature4(container, isMobile) {
                                     '<div class="f4__tag-pill f4__task-color">' + icon('hash', 14) + ' <span>Drywall patch</span></div>' +
                                 '</div>' +
                                 '<div class="f4__card-footer">' +
-                                    '<div>Due: Feb 22, 2026</div>' +
+                                '<div class="f4__card-due">Due: Feb 22, 2026</div>' +
                                     '<img src="assets/avatar_foreman.png" class="f4__avatar" style="margin-left:auto;border:none;" alt="Avatar" />' +
                                 '</div>' +
                             '</div>' +
                         '</div>' +
                     '</div>' +
                     // Attachments
-                    '<div class="f4__indented-row" data-f4="attachments" style="opacity:0;transform:translateY(50px);transition:opacity 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">' +
+                    '<div class="f4__indented-row f4__chat-anim" data-f4="attachments">' +
                         '<div class="f4__attachment-grid">' +
                             '<div style="width:100%;height:80px;">' +
                                 '<img src="assets/drywall.png" class="f4__drywall-image" alt="Drywall" />' +
@@ -686,25 +738,32 @@ function createFeature4(container, isMobile) {
                             '</div>' +
                         '</div>' +
                     '</div>' +
-                    // Melissa reply
-                    '<div class="f4__message-row" data-f4="msg2" style="opacity:0;transform:translateY(50px);transition:opacity 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">' +
+                    // Melissa unified typing + reply block
+                    '<div class="f4__message-row f4__chat-anim" data-f4="msg2">' +
                         '<img src="https://i.pravatar.cc/150?img=5" class="f4__msg-avatar" alt="Melissa" />' +
                         '<div class="f4__msg-content">' +
                             '<div class="f4__msg-header">' +
                                 '<span class="f4__msg-sender">Melissa</span>' +
                                 '<span class="f4__msg-time">12:30 PM</span>' +
                             '</div>' +
-                            '<div class="f4__msg-text">Approved. Sending to accounting.</div>' +
+                            '<div style="display:grid; grid-template-columns:100%; align-items:start;">' +
+                                '<div class="f4__typing-bubbles" data-f4="typingIndicator" style="grid-area:1/1; opacity:1; transition:opacity 0.3s ease; margin-top:2px;">' +
+                                    '<span class="f4__typing-dot"></span>' +
+                                    '<span class="f4__typing-dot"></span>' +
+                                    '<span class="f4__typing-dot"></span>' +
+                                '</div>' +
+                                '<div class="f4__msg-text" data-f4="msg2Text" style="grid-area:1/1; opacity:0; transition:opacity 0.3s ease; pointer-events:none; padding-top:2px;">Approved. Sending to accounting.</div>' +
+                            '</div>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
                 // Input
                 '<div class="f4__input-area">' +
-                    icon('plus', 18) +
+                    '<div style="color:var(--text-secondary); width:28px; display:flex; justify-content:center;">' + icon('plus', 18) + '</div>' +
                     '<div class="f4__input-text">Type message here...</div>' +
-                    '<div class="f4__input-actions">' +
-                        icon('smile', 18) +
-                        icon('mic', 18) +
+                    '<div class="f4__input-actions" style="display:flex; gap:12px; color:var(--text-secondary);">' +
+                        icon('smile', 20) +
+                        icon('mic', 20) +
                     '</div>' +
                 '</div>' +
             '</div>' +
@@ -717,7 +776,9 @@ function createFeature4(container, isMobile) {
     var card = container.querySelector('[data-f4="card"]');
     var completedCard = card.querySelector('.f4__completed-card');
     var attachments = container.querySelector('[data-f4="attachments"]');
+    var typingIndicator = container.querySelector('[data-f4="typingIndicator"]');
     var msg2 = container.querySelector('[data-f4="msg2"]');
+    var msg2Text = container.querySelector('[data-f4="msg2Text"]');
 
     var phase = 1;
     var timeoutIds = [];
@@ -728,20 +789,28 @@ function createFeature4(container, isMobile) {
     }
 
     function show(el) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+        el.style.marginTop = '16px';
         el.style.opacity = '1';
         el.style.transform = 'translateY(0)';
     }
 
     function hide(el) {
+        el.style.maxHeight = '0';
+        el.style.marginTop = '0';
         el.style.opacity = '0';
-        el.style.transform = 'translateY(50px)';
+        el.style.transform = 'translateY(30px)';
     }
 
     function reset() {
         hide(msg1);
-        completedCard.classList.remove('f4__completed-card--visible');
+        hide(card);
         hide(attachments);
         hide(msg2);
+        if(typingIndicator) {
+             typingIndicator.style.opacity = '1';
+             msg2Text.style.opacity = '0';
+        }
     }
 
     function runSequence() {
@@ -752,11 +821,18 @@ function createFeature4(container, isMobile) {
         // Phase 1: Gerald message
         timeoutIds.push(setTimeout(function () { show(msg1); }, 100));
         // Phase 2: Completed card
-        timeoutIds.push(setTimeout(function () { completedCard.classList.add('f4__completed-card--visible'); }, 1200));
+        timeoutIds.push(setTimeout(function () { show(card); }, 1200));
         // Phase 3: Attachments
         timeoutIds.push(setTimeout(function () { show(attachments); }, 2200));
-        // Phase 4: Melissa
-        timeoutIds.push(setTimeout(function () { show(msg2); }, 5200));
+        // Phase 3.5: Typing starts at 3200ms
+        timeoutIds.push(setTimeout(function () { 
+            show(msg2); // Slides in with avatar & typing bubble active
+        }, 3200));
+        // Phase 4: Melissa finishes typing
+        timeoutIds.push(setTimeout(function () { 
+            typingIndicator.style.opacity = '0';
+            msg2Text.style.opacity = '1';
+        }, 5200));
         // Loop
         timeoutIds.push(setTimeout(function () { runSequence(); }, 10000));
     }
@@ -835,8 +911,16 @@ function createFeature5(container, isMobile) {
     var ui = container.querySelector('[data-f5="ui"]');
     var items = [];
     feedItems.forEach(function (_, idx) {
-        items.push(container.querySelector('[data-f5-item="' + idx + '"]'));
+        var el = container.querySelector('[data-f5-item="' + idx + '"]');
+        el.style.order = -idx; 
+        items.push(el);
     });
+
+    var content0 = items[0].querySelector('.f5__item-content');
+    if(content0) {
+        content0.style.borderBottom = 'none';
+        content0.style.paddingBottom = '0';
+    }
 
     var timeoutIds = [];
 
@@ -845,43 +929,121 @@ function createFeature5(container, isMobile) {
         timeoutIds = [];
     }
 
-    function hideAll() {
+    function showItem(el) {
+        el.style.transition = 'none';
+        el.style.paddingTop = '16px';
+        el.style.maxHeight = 'none';
+        var targetH = el.offsetHeight;
+        
+        el.style.paddingTop = '0';
+        el.style.maxHeight = '0';
+        el.style.opacity = '0';
+        el.style.transform = 'translateX(40px)';
+        void el.offsetHeight; // force reflow
+        
+        // 1. Expand layout smoothly
+        el.style.transition = 'max-height 0.6s ease-in-out, padding-top 0.6s ease-in-out';
+        el.style.maxHeight = targetH + 'px';
+        el.style.paddingTop = '16px';
+        
+        // 2. Slide horizontally purely after vertical shift is dominated
+        timeoutIds.push(setTimeout(function() {
+            el.style.transition = 'max-height 0.6s ease-in-out, padding-top 0.6s ease-in-out, opacity 0.5s ease-out, transform 0.5s ease-out';
+            el.style.opacity = '1';
+            el.style.transform = 'translateX(0)';
+        }, 400));
+    }
+
+    function hideAllButFirst() {
+        items.forEach(function (el, idx) {
+            if (idx === 0) return;
+            el.style.transition = 'opacity 0.5s ease-in, transform 0.5s ease-in';
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(40px)';
+        });
+        
+        timeoutIds.push(setTimeout(function() {
+            items.forEach(function (el, idx) {
+                if (idx === 0) return;
+                el.style.transition = 'max-height 0.6s ease-in-out, padding-top 0.6s ease-in-out';
+                el.style.maxHeight = '0';
+                el.style.paddingTop = '0';
+            });
+        }, 500));
+    }
+
+    function resetOtherItems() {
+        items.forEach(function (el, idx) {
+            if (idx === 0) return;
+            el.style.transition = 'none';
+            el.style.maxHeight = '0';
+            el.style.paddingTop = '0';
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(40px)';
+        });
+    }
+
+    var hasShownFirstItem = false;
+
+    function resetAllItemsInstantly() {
         items.forEach(function (el) {
-            el.classList.remove('f5__feed-item--visible');
+            el.style.transition = 'none';
+            el.style.maxHeight = '0';
+            el.style.paddingTop = '0';
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(40px)';
         });
     }
 
     function runSequence() {
         clearTimers();
         ui.classList.add('f5__ui--visible');
-        hideAll();
+        
+        if (!hasShownFirstItem) {
+            resetAllItemsInstantly();
+            hasShownFirstItem = true;
+            timeoutIds.push(setTimeout(function() { showItem(items[0]); }, 100));
+        } else {
+            resetOtherItems();
+        }
 
-        // Show items with stagger
+        // Show succeeding items with stagger
         items.forEach(function (el, idx) {
+            if (idx === 0) return;
             timeoutIds.push(setTimeout(function () {
-                el.classList.add('f5__feed-item--visible');
-            }, (idx + 1) * 1000));
+                showItem(el);
+            }, idx * 1200));
         });
 
-        // Hold, then reset and loop
+        // Hold, then hide upper items so anchor slides back up
         timeoutIds.push(setTimeout(function () {
-            hideAll();
+            hideAllButFirst();
             timeoutIds.push(setTimeout(function () {
                 runSequence();
-            }, 1200));
-        }, 8000));
+            }, 1400));
+        }, 6500));
     }
 
-    // Default: show first item
+    // Default: show first item only statically
     ui.classList.add('f5__ui--visible');
-    items[0].classList.add('f5__feed-item--visible');
+    items[0].style.transition = 'none';
+    items[0].style.maxHeight = 'none';
+    items[0].style.paddingTop = '16px';
+    items[0].style.opacity = '1';
+    items[0].style.transform = 'translateX(0)';
+    resetOtherItems();
 
     return {
         activate: function () { runSequence(); },
         deactivate: function () {
             clearTimers();
-            hideAll();
-            items[0].classList.add('f5__feed-item--visible');
+            hasShownFirstItem = false;
+            items[0].style.transition = 'none';
+            items[0].style.maxHeight = 'none';
+            items[0].style.paddingTop = '16px';
+            items[0].style.opacity = '1';
+            items[0].style.transform = 'translateX(0)';
+            resetOtherItems();
         }
     };
 }

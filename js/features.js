@@ -59,14 +59,12 @@ function initFeatures() {
             }
         });
 
-        // Update mockup visibility
+        // Update mockup visibility (crossfade via grid stack)
         mockupContainers.forEach(function (container, i) {
             if (i === idx) {
-                container.classList.remove('features__mockup-container--hidden');
                 container.classList.add('features__mockup-container--visible');
             } else {
                 container.classList.remove('features__mockup-container--visible');
-                container.classList.add('features__mockup-container--hidden');
             }
         });
 

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"D:/masrama.com/TaskTag/Landing Page/src\" -type f \\\\\\( -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.css\" \\\\\\) | xargs wc -l | tail -1)",
+      "Bash(cd \"D:/masrama.com/TaskTag/Landing Page\" && cp src/assets/Logo-TaskTag.svg assets/ && cp src/assets/hero.png assets/ && cp src/assets/foreman.jpg assets/ && cp src/assets/avatar_foreman.png assets/ && cp src/assets/drywall.png assets/ && cp src/assets/bento_img_1.jpg assets/ && cp src/assets/bento_img_2.jpg assets/ && cp src/assets/final-section-task-panel.png assets/ && cp src/assets/pdf_icon.png assets/ && cp src/assets/app_store.svg assets/ && cp src/assets/playstore.svg assets/ && cp src/assets/client/* assets/client/ && cp public/images/features/* assets/images/features/)",
+      "Bash(cd \"D:/masrama.com/TaskTag/Landing Page\" && rm -rf src/ node_modules/ dist/ public/ && rm -f package.json package-lock.json vite.config.ts tsconfig.json tsconfig.app.json tsconfig.node.json eslint.config.js build_error.log typescript_errors.txt typescript_errors_utf8.txt)",
+      "Bash(cd \"D:/masrama.com/TaskTag/Landing Page\" && npx serve . -l 3000)"
+    ]
+  }
+}

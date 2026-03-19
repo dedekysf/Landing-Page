@@ -70,57 +70,49 @@ function initTemplates() {
         lucide.createIcons({ nodes: [col1El, col2El] });
     }
 
-    // Scroll-based width and border-radius animation
+    // Scroll-based clip-path animation (GPU-composited, no layout triggers)
     var section = document.querySelector('.templates');
     var bg = document.getElementById('templates-bg');
     if (!section || !bg) return;
 
-    var currentWidth = 90;
-    var currentRadius = 24;
-    var targetWidth = 90;
-    var targetRadius = 24;
-    var ticking = false;
+    var sectionTop = section.offsetTop;
+    var sectionHeight = section.offsetHeight;
+    var viewH = window.innerHeight;
 
-    function updateTarget() {
-        var rect = section.getBoundingClientRect();
-        var viewH = window.innerHeight;
-        // Progress: 0 when top of section hits middle of screen, 1 when further scrolled
-        var start = rect.top - viewH * 0.5;
-        var range = rect.height * 0.4;
-        var progress = Math.max(0, Math.min(-start / range, 1));
-
-        // Width: 90% -> 100%
-        targetWidth = 90 + progress * 10;
-        // Border-radius: 24px -> 0px
-        targetRadius = 24 * (1 - progress);
-    }
-
-    function lerp(current, target, factor) {
-        return current + (target - current) * factor;
-    }
-
-    function animate() {
-        currentWidth = lerp(currentWidth, targetWidth, 0.08);
-        currentRadius = lerp(currentRadius, targetRadius, 0.08);
-
-        bg.style.width = currentWidth + '%';
-        bg.style.borderRadius = currentRadius + 'px';
-
-        if (Math.abs(currentWidth - targetWidth) > 0.01 || Math.abs(currentRadius - targetRadius) > 0.01) {
-            requestAnimationFrame(animate);
-        } else {
-            ticking = false;
-        }
-    }
-
-    window.addEventListener('scroll', function () {
-        updateTarget();
-        if (!ticking) {
-            ticking = true;
-            requestAnimationFrame(animate);
-        }
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            sectionTop = section.offsetTop;
+            sectionHeight = section.offsetHeight;
+            viewH = window.innerHeight;
+        }, 200);
     }, { passive: true });
 
-    // Initial calculation
-    updateTarget();
+    function updateClip(scrollY) {
+        var start = sectionTop - scrollY - viewH * 0.5;
+        var range = sectionHeight * 0.4;
+        var progress = Math.max(0, Math.min(-start / range, 1));
+
+        // inset: 5% -> 0%, radius: 24px -> 0px
+        var inset = 5 * (1 - progress);
+        var radius = 24 * (1 - progress);
+        bg.style.clipPath = 'inset(0 ' + inset + '% round ' + radius + 'px)';
+    }
+
+    // Use Lenis scroll (already smoothed, no extra lerp needed)
+    if (window.__lenis) {
+        window.__lenis.on('scroll', function (e) {
+            updateClip(e.scroll);
+        });
+    } else {
+        window.addEventListener('scroll', function () {
+            requestAnimationFrame(function () {
+                updateClip(window.pageYOffset);
+            });
+        }, { passive: true });
+    }
+
+    // Initial
+    updateClip(window.pageYOffset);
 }

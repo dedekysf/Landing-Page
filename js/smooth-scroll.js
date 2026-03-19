@@ -1,45 +1,38 @@
 /**
- * Vanilla smooth scroll for hash navigation
+ * Smooth scroll: Lenis + hash navigation
  */
 function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-            var href = this.getAttribute('href');
-            if (!href || href === '#') return;
-
-            var target = document.querySelector(href);
-            if (!target) return;
-
-            e.preventDefault();
-
-            var navbarHeight = 80;
-            var targetY = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-            smoothScrollTo(targetY, 1000);
+    // Init Lenis
+    if (typeof Lenis !== 'undefined') {
+        var lenis = new Lenis({
+            duration: 2,
+            easing: function (t) { return 1 - Math.pow(1 - t, 4); },
+            smoothWheel: true,
+            wheelMultiplier: 0.8,
+            touchMultiplier: 1.5,
+            lerp: 0.06
         });
-    });
-}
 
-function smoothScrollTo(targetY, duration) {
-    var startY = window.pageYOffset;
-    var diff = targetY - startY;
-    var startTime = null;
-
-    function easeOutExpo(t) {
-        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-    }
-
-    function step(currentTime) {
-        if (!startTime) startTime = currentTime;
-        var elapsed = currentTime - startTime;
-        var progress = Math.min(elapsed / duration, 1);
-        var eased = easeOutExpo(progress);
-
-        window.scrollTo(0, startY + diff * eased);
-
-        if (progress < 1) {
-            requestAnimationFrame(step);
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
         }
-    }
+        requestAnimationFrame(raf);
 
-    requestAnimationFrame(step);
+        // Hash link navigation via Lenis
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                var href = this.getAttribute('href');
+                if (!href || href === '#') return;
+
+                var target = document.querySelector(href);
+                if (!target) return;
+
+                e.preventDefault();
+                lenis.scrollTo(target, { offset: -80 });
+            });
+        });
+
+        window.__lenis = lenis;
+    }
 }

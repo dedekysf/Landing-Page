@@ -259,7 +259,7 @@
         width: 80%;
         max-width: 300px;
         background-color: var(--white);
-        padding: var(--spacing-xxl) var(--spacing-lg);
+        padding: var(--spacing-xxl) var(--spacing-lg) var(--spacing-lg);
         box-shadow: -5px 0 20px rgba(var(--black-rgb), 0.1);
         transform: translateX(100%);
         visibility: hidden;
@@ -280,30 +280,65 @@
         border-bottom: 1px solid var(--color-border);
     }
 
-    .navbar__divider {
-        border: none;
-        border-top: 1px solid var(--color-border);
-        margin: var(--spacing-md) 0;
-    }
-
     .navbar__mobile-cta {
-        margin-top: var(--spacing-md);
+        margin-top: 2.5rem;
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
     }
 
     .navbar__mobile-cta button,
-    .navbar__mobile-cta .navbar__btn,
-    .navbar__mobile-cta .navbar__secondary-btn {
+    .navbar__mobile-cta .navbar__btn {
         width: 100%;
         text-align: center;
         border-radius: 6px;
         padding: 0.8rem 1.1rem;
+        font-size: 1rem;
         height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
+    }
+
+    .navbar__mobile-cta .navbar__secondary-btn {
+        width: 100%;
+        text-align: center;
+        border-radius: 6px;
+        padding: 0.8rem 1.1rem;
+        font-size: 1rem;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        margin-top: 0.5rem;
+    }
+
+    .navbar__mobile-stores {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: auto;
+        justify-content: space-between;
+        padding: var(--spacing-lg) var(--spacing-lg) 0;
+        margin-left: calc(-1 * var(--spacing-lg));
+        margin-right: calc(-1 * var(--spacing-lg));
+        border-top: 1px solid var(--grey-03);
+    }
+
+    .navbar__store-link {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        height: 40px;
+    }
+
+    .navbar__store-link img {
+        height: 100%;
+        width: auto;
+        display: block;
+        object-fit: contain;
     }
 }
