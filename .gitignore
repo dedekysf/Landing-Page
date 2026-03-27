@@ -12,9 +12,13 @@
 *.sln
 *.sw?
 
+# Dependencies
+node_modules/
+
 # Build/deploy
 .vercel
 .vite
+dist/
 
 # OS
 Thumbs.db
