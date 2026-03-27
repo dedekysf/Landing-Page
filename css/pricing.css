@@ -61,7 +61,18 @@
     font-size: 1.5rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-hero__hook {
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--secondary-green);
+    background: var(--light-mint);
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 1rem;
 }
 
 /* Toggle Switch */
@@ -235,6 +246,19 @@
     font-size: 14px;
     color: var(--text-secondary);
     margin-top: 12px;
+}
+
+.pricing-card__seat-note {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: -20px;
+    margin-bottom: 20px;
+    opacity: 0.75;
+}
+
+.pricing-card__feature-list--highlight {
+    color: var(--secondary-green) !important;
+    font-weight: var(--font-weight-medium) !important;
 }
 
 .pricing-card__price-group--contact {
@@ -1143,9 +1167,6 @@
     margin-bottom: 1rem;
 }
 
-.faq-item.active {
-    /* box-shadow: 0 10px 30px rgba(var(--secondary-green-rgb), 0.05); */
-}
 
 .faq-item__trigger {
     width: 100%;
