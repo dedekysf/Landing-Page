@@ -650,6 +650,14 @@
 }
 
 @media (max-width: 480px) {
+    .hero__headline {
+        font-size: 2.5rem;
+    }
+
+    .hero__headline-br {
+        display: none;
+    }
+
     .hero__actions {
         flex-direction: column-reverse;
         width: 100%;

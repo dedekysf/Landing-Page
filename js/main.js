@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Section modules
     if (typeof initHero === 'function') initHero();
-    if (typeof initFeatureAnimations === 'function') initFeatureAnimations(); 
+    if (typeof initFeatureAnimations === 'function') initFeatureAnimations();
     if (typeof initFeatures === 'function') initFeatures();
     if (typeof initTemplates === 'function') initTemplates();
     if (typeof initClientProof === 'function') initClientProof();

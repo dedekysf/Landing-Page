@@ -1576,12 +1576,16 @@
 
 @media (max-width: 480px) {
 
+    .pricing-hero__separator {
+        display: none;
+    }
+
     .pricing-hero__title,
     .compare-plans__title,
     .testimonial-section__title,
     .faq-section__title,
     .bottom-cta__title {
-        font-size: 2.25rem;
+        font-size: 2.5rem;
     }
 
     .compare-plans__icon,
