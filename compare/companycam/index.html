@@ -138,7 +138,7 @@
                             </div>
                         </div>
                         <h1 class="compare-hero__title">
-                            CompanyCam vs TaskTag
+                            CompanyCam <br class="compare-hero__mobile-br">vs TaskTag
                         </h1>
                         <p class="compare-hero__subheadline">Which One Actually Keeps Your Crew <span
                                 class="highlight">Aligned?</span></p>
@@ -149,7 +149,7 @@
                         <div class="hero__actions">
                             <div class="hero__btn-wrapper">
                                 <a href="https://portal.tasktag.com/demo" class="hero__secondary-btn" target="_blank"
-                                    rel="noopener noreferrer">Book a Demo</a>
+                                    rel="noopener noreferrer">Book Demo</a>
                             </div>
                             <div class="hero__btn-wrapper">
                                 <a href="https://app.tasktag.com/register/signup-with-email" class="hero__primary-btn"
@@ -249,24 +249,39 @@
             </section>
 
             <!-- ========== FEATURE COMPARISON TABLE ========== -->
-            <section class="compare-table-section" id="compare-table">
+            <section class="compare-table-section" id="compare-section">
                 <div class="compare-table-section__container">
                     <div class="compare-section__header">
-                        <div class="compare-section__icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M8 19H5c-1 0-2-1-2-2V7c0-1 1-2 2-2h3" />
-                                <path d="M16 5h3c1 0 2 1 2 2v10c0 1-1 2-2 2h-3" />
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                            </svg>
-                        </div>
                         <h2 class="compare-section__title">Feature Comparison</h2>
                     </div>
-                    <p class="compare-section__subtitle">See exactly how TaskTag stacks up against CompanyCam for your
-                        construction business.</p>
+                    <p class="compare-section__subtitle">See exactly how TaskTag stacks up <br>against CompanyCam for your construction business.</p>
+
+                    <!-- Sentinel for sticky shadow detection -->
+                    <div class="compare-mobile-nav-sentinel"></div>
+
+                    <!-- Mobile Plan Switcher -->
+                    <div class="compare-mobile-nav" data-reveal>
+                        <button class="compare-mobile-nav__btn" data-plan="companycam">CompanyCam</button>
+                        <button class="compare-mobile-nav__btn active" data-plan="tasktag">TaskTag</button>
+                        <div class="compare-mobile-nav__slider"></div>
+                    </div>
+
+                    <!-- Mobile Plan Header (not sticky) -->
+                    <div class="compare-mobile-plan-header" id="compare-mobile-plan-header">
+                        <div class="compare-mobile-plan-header__item" data-plan="companycam">
+                            <span class="compare-table__plan-price">$39/user/month</span>
+                        </div>
+                        <div class="compare-mobile-plan-header__item active" data-plan="tasktag">
+                            <span class="compare-table__plan-price">All-in-one &middot; $16/user/mo</span>
+                            <a href="https://app.tasktag.com/register/signup-with-email"
+                                class="compare-mobile-plan-header__cta compare-table__btn-filled" target="_blank"
+                                rel="noopener noreferrer">Try TaskTag Free</a>
+                        </div>
+                    </div>
+
                     <div class="compare-table-scroll">
                         <div class="compare-table-wrapper">
-                            <table class="compare-table">
+                            <table class="compare-table show-tasktag" id="compare-table">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -276,7 +291,7 @@
                                         </th>
                                         <th class="col-tasktag">
                                             <span class="compare-table__plan-name">TaskTag</span>
-                                            <span class="compare-table__plan-price">$16/user/month (annual)</span>
+                                            <span class="compare-table__plan-price">All-in-one &middot; $16/user/mo</span>
                                             <a href="https://app.tasktag.com/register/signup-with-email"
                                                 class="compare-table__btn-filled" target="_blank"
                                                 rel="noopener noreferrer">Try TaskTag Free</a>
@@ -431,7 +446,7 @@
                                 kept every crew member aligned.</p>
                             <div class="compare-pain__cta-btn-group">
                                 <a href="https://portal.tasktag.com/demo" class="compare-pain__cta-secondary-btn"
-                                    target="_blank" rel="noopener noreferrer">Book a Demo</a>
+                                    target="_blank" rel="noopener noreferrer">Book Demo</a>
                                 <a href="https://app.tasktag.com/register/signup-with-email"
                                     class="compare-pain__cta-primary-btn" target="_blank" rel="noopener noreferrer">Get
                                     Started Free</a>
@@ -703,7 +718,7 @@
                     <p class="compare-cta__subtitle">Save time, reduce miscommunication, and <br>keep every project documented from day one.</p>
                     <div class="compare-cta__actions">
                         <a href="https://portal.tasktag.com/demo" class="compare-cta__btn-outline-white" target="_blank"
-                            rel="noopener noreferrer">Book a Demo</a>
+                            rel="noopener noreferrer">Book Demo</a>
                         <a href="https://app.tasktag.com/register/signup-with-email" class="compare-cta__btn-white"
                             target="_blank" rel="noopener noreferrer">Get Started Free</a>
                     </div>
@@ -810,6 +825,7 @@
     <script src="../../js/smooth-scroll.js"></script>
     <script src="../../js/scroll-reveal.js"></script>
     <script src="../../js/navbar.js"></script>
+    <script src="../../js/compare.js"></script>
     <script src="../../js/main.js"></script>
 </body>
 
