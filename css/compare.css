@@ -868,6 +868,10 @@
     margin-bottom: 2rem;
 }
 
+.compare-deepdives__mobile-br {
+    display: none;
+}
+
 .compare-deepdives__header-text h2 {
     font-size: 3.5rem;
     font-weight: var(--font-weight-bold);
@@ -1253,8 +1257,37 @@
 }
 
 @media (max-width: 768px) {
+    .compare-deepdives__mobile-br {
+        display: block;
+    }
+
+    .compare-deepdives__view-all {
+        width: 100%;
+        justify-content: center;
+    }
+
     .compare-pain__cta {
         padding: 4rem 1rem;
+    }
+
+    .compare-cta::before {
+        width: 120px;
+        height: 120px;
+        top: 0;
+        left: 0;
+        border-radius: 20px;
+    }
+
+    .compare-cta::after {
+        width: 120px;
+        height: 120px;
+        bottom: 0;
+        right: 0;
+        border-radius: 20px;
+    }
+
+    .pricing-teaser {
+        padding: 2rem 1rem 4rem 1rem;
     }
 
     .compare-pain__cta-btn-group {
@@ -1466,8 +1499,24 @@
         font-weight: normal !important;
     }
 
+    .compare-cta {
+        padding: 8rem 1rem;
+    }
+
+    .compare-cta__btn-white {
+        order: -1;
+    }
+
     .compare-cta__title {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+    }
+
+    .compare-cta__subtitle {
+        font-size: 1.1rem;
+    }
+
+    .compare-cta__note {
+        font-size: 0.75rem;
     }
 
     .compare-pain__cta-title {
@@ -1524,6 +1573,18 @@
 
     .compare-section__subtitle {
         font-size: 1.25rem !important;
+    }
+
+    .compare-cta {
+        padding: 6rem 1rem;
+    }
+
+    .compare-cta__title {
+        font-size: 2rem;
+    }
+
+    .compare-cta__subtitle {
+        font-size: 1rem;
     }
 
     .compare-hero__btn-outline,
@@ -1736,7 +1797,7 @@
 
 @media (max-width: 480px) {
     .pricing-teaser {
-        padding: 4rem 1.5rem;
+        padding: 2rem 1rem 4rem 1rem;
     }
 
     .pricing-teaser__banner {
